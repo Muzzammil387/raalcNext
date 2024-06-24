@@ -1,0 +1,224 @@
+.cb-button {
+    background-color: transparent;
+    width: 12.5rem; /* 200px */
+    height: 12.5rem; /* 200px */
+    left: -3rem;
+    bottom: 0;
+    z-index: 97;
+    border-radius: 100% !important;
+}
+
+
+.cb-button .cbb-circle-img {
+    background-color: #27D045;
+    border: 0.0625rem solid #27D045; /* 1px */
+    position: absolute;
+    top: 4.375rem; /* 70px */
+    left: 4.375rem; /* 70px */
+    width: 3.75rem; /* 60px */
+    height: 3.75rem; /* 60px */
+    border-radius: 100% !important;
+}
+
+.cbb-circle-img img {
+    padding: 1rem;
+}
+
+.cb-button, .cb-button-mobile {
+    cursor: pointer;
+    position: fixed;
+}
+
+.cb-button .cbb-circle {
+    background-color: rgba(127, 186, 0, 0);
+    border: 0.0625rem solid rgba(117, 255, 80, 0.7); /* 1px */
+    opacity: 0.5;
+    position: absolute;
+    top: 1.25rem; /* 20px */
+    left: 1.25rem; /* 20px */
+    width: 10rem; /* 160px */
+    height: 10rem; /* 160px */
+    animation: 2.2s ease-in-out 0s infinite normal none running animation1;
+    border-radius: 100% !important;
+}
+
+.cb-button .cbb-circle-fill {
+    background-color: rgba(117, 255, 80, 0.3);
+    border: 0.0625rem solid #27D045; /* 1px */
+    opacity: 1;
+    position: absolute;
+    top: 3.125rem; /* 50px */
+    left: 3.125rem; /* 50px */
+    width: 6.25rem; /* 100px */
+    height: 6.25rem; /* 100px */
+    animation: 1.7s ease-in-out 0s infinite normal none running animation2;
+    border-radius: 100% !important;
+}
+
+@-webkit-keyframes animation1 {
+    0% {
+        opacity: 0.1;
+        transform: scale(0.4);
+    }
+
+    70% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.5);
+    }
+}
+
+@-webkit-keyframes animation2 {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.6);
+    }
+
+    70% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.1;
+        transform: scale(0.7);
+    }
+}
+
+@-webkit-keyframes ring {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    2% {
+        transform: rotate(15deg);
+    }
+
+    4% {
+        transform: rotate(-18deg);
+    }
+
+    6% {
+        transform: rotate(18deg);
+    }
+
+    8% {
+        transform: rotate(-22deg);
+    }
+
+    10% {
+        transform: rotate(22deg);
+    }
+
+    12% {
+        transform: rotate(-18deg);
+    }
+
+    14% {
+        transform: rotate(18deg);
+    }
+
+    16% {
+        transform: rotate(-12deg);
+    }
+
+    18% {
+        transform: rotate(12deg);
+    }
+
+    100%, 20% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    2% {
+        transform: rotate(15deg);
+    }
+
+    4% {
+        transform: rotate(-18deg);
+    }
+
+    6% {
+        transform: rotate(18deg);
+    }
+
+    8% {
+        transform: rotate(-22deg);
+    }
+
+    10% {
+        transform: rotate(22deg);
+    }
+
+    12% {
+        transform: rotate(-18deg);
+    }
+
+    14% {
+        transform: rotate(18deg);
+    }
+
+    16% {
+        transform: rotate(-12deg);
+    }
+
+    18% {
+        transform: rotate(12deg);
+    }
+
+    100%, 20% {
+        transform: rotate(0deg);
+    }
+}
+
+.faa-parent.animated-hover:hover > .faa-ring, .faa-ring.animated, .faa-ring.animated-hover:hover {
+    animation: 2s ease 0s infinite normal none running ring;
+}
+
+.faa-parent.animated-hover:hover > .faa-ring.faa-fast, .faa-ring.animated-hover.faa-fast:hover, .faa-ring.animated.faa-fast {
+    animation: 1s ease 0s infinite normal none running ring;
+}
+
+.faa-parent.animated-hover:hover > .faa-ring.faa-slow, .faa-ring.animated-hover.faa-slow:hover, .faa-ring.animated.faa-slow {
+    animation: 3s ease 0s infinite normal none running ring;
+}
+
+@-webkit-keyframes vertical {
+    0% {
+        transform: translate(0, -0.1875rem); /* -3px */
+    }
+
+    4% {
+        transform: translate(0, 0.1875rem); /* 3px */
+    }
+
+    8% {
+        transform: translate(0, -0.1875rem); /* -3px */
+    }
+
+    12% {
+        transform: translate(0, 0.1875rem); /* 3px */
+    }
+
+    16% {
+        transform: translate(0, -0.1875rem); /* -3px */
+    }
+
+    20% {
+        transform: translate(0, 0.1875rem); /* 3px */
+    }
+
+    100%, 22% {
+        transform: translate(0, 0);
+    }
+}

@@ -1,0 +1,9 @@
+export const logo = require("../dist/webImages/logo.png");
+export const burgerMenu = require("../dist/webImages/burgerMenu.svg");
+export const svgrepo = require("../dist/webImages/global-svgrepo-com.svg");
+export const banner = require("../dist/webImages/banner/banner.jpg");
+export const facebook = require("../dist/webImages/social/facebook.svg");
+export const intragram = require("../dist/webImages/social/intragram.svg");
+export const linkdin = require("../dist/webImages/social/linkdin.svg");
+export const whatsapp = require("../dist/webImages/whatsapp.svg");
+export const banner3 = require("../dist/webImages/banner/3.png");
