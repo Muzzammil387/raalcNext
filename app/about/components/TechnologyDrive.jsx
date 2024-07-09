@@ -27,7 +27,7 @@ const TechnologyDrive = () => {
             }}
             breakpoints={{
                 300: { slidesPerView: 1,  },
-                768: { slidesPerView: 3,  },
+                768: { slidesPerView: 3,  }, 
                 1024: { slidesPerView: 5,  },
             }}
             className="about5BodymySwiper " >
