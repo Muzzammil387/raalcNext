@@ -9,7 +9,7 @@ import { about6 } from '@/app/untils/imgimport';
 
 
 SwiperCore.use([Autoplay]);
-
+   
 const TechnologyDrive = () => {
   return (
     <section className="about5 py-14 bg-secondary">
@@ -17,7 +17,7 @@ const TechnologyDrive = () => {
       <div className="about5Heading text-white text-center">
        <div className="h2 text-[4.375rem] leading-[1] font-bold mb-5 font-MluvkaBold"> TECHNOLOGY <br /> DRIVEN</div>
        <p className="w-[50%] about5Headinggg mx-auto">  In the digital technology era, RAALC believes that it should be accessible to its clientele at a moment’s notice. It is determined to provide personalized customer service built on smart technology.</p>
-      </div>
+      </div>    
       <div className="about5Body">
       <Swiper
             speed={1000}
