@@ -37,7 +37,7 @@ const Header = ({ data, language }) => {
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl">
             <Image src={model1} className="w-full h-full object-cover" alt="" />
-          </div>
+          </div> 
           <div className="consModelMainr bg-white py-14 px-8">
             <Link href="#" className="close  mb-3">
             <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
