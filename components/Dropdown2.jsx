@@ -15,6 +15,6 @@ const Dropdown2 = ({langu}) => (
         <Button>bottomLeft</Button>
       </Dropdown>
     </Space>
-  </Space>
+  </Space> 
 );
 export default Dropdown2;
