@@ -1,0 +1,34 @@
+
+.arabic {
+  direction: rtl;
+}
+
+.arabic .bannertxt2  {
+  left: auto;
+  right: 9rem;
+}
+.arabic span::after {
+  left: auto;
+  right: -1rem;
+}
+.arabic .sample-slider,
+.arabic .bannerRight,
+.arabic .about2BodySwiper,
+.arabic .bannerImg,
+.arabic .section7mySwiper  {
+  direction: ltr;
+}
+.arabic .section6btn,
+.arabic .close svg,
+.arabic .accordions img   {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.arabic .consModelMainr .h4  {
+  padding-right: 1rem;
+}
+.arabic .consModelMainr .h4::before  {
+  right: 0;
+  left: auto;
+}

@@ -1,8 +1,13 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./dist/css/whatsapp.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import "./_arabic.css";
+import "../dist/css/whatsapp.css";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import Main from "./main";
+import "../dist/css/customize.css";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +18,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
+
+  axios.defaults.headers = {
+    "Content-Type": "application/json",
+    // Authorization: `Bearer ${getTokenSession()}`,
+};
+  // axios.get('http://localhost:3001/main')
+  //   .then((data) => {
+
+  //   }).catch((error) => {
+  //     if (error.response?.status === 401)
+  //       toast.error(error.response.data.message);
+  //     else toast.error(error.response.data.errorMessage);
+  //   });
+
+ 
+
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Header />
-      <main class="indexPage">
-        {children}
-      </main>
-      <Footer />
+      <Main child={children} />
         </body>
     </html>
   );
