@@ -31,7 +31,7 @@ const Header = ({ data, language }) => {
 
 
   return (
-    <>
+    <>    
       <div className="fixedback"></div>
       <div className="consModel  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999]">
         <div className="consModelMain grid grid-cols-2">
