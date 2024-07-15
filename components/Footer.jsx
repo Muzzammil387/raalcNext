@@ -5,7 +5,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-   <>  
+   <>    
      <footer className="footer overflow-hidden relative z-[2]">
     <div className="w-[20rem] h-[20rem] bg-secondary opacity-[6]  blur-[15rem] absolute right-0 bottom-[-10rem]"></div>
      <div className="js--marque-a">
