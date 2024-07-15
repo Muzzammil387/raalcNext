@@ -27,7 +27,7 @@ const CustomServices = () => {
                             768: { slidesPerView: 1, },
                             1024: { slidesPerView: 1, },
                         }}
-                        className="about3_Swiper !hidden text-blue-100" >
+                            className="about3_Swiper !hidden text-blue-100" >
                         {["", "", "", ""].map((image, index) => (
                             <SwiperSlide key={index}>
                                 <div className="">
