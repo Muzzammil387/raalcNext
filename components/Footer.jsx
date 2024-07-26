@@ -1,9 +1,17 @@
-import { banner3, facebook, facebook1, intragram, intragram1, linkdin, linkdin1, logo, whatsapp } from '@/app/untils/imgimport'
+import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
+import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
+import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 
 const Footer = () => {
+  const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
+  const initialValues = {
+  }
+  const handleSubmit = (values) => {
+    console.log(values)
+  }
   return (
    <>    
      <footer className="footer overflow-hidden relative z-[2]">
@@ -38,7 +46,7 @@ const Footer = () => {
       </ul>
     </div>
     <div className="footer__topBox">
-      <a href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4">Get a Quote</a>
+      <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleReachUsOpenModel(true)}>Get a Quote</Link>
       <a href="#" className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">Download Our Company Profile</a>
       <br />
       <div className="flex gap-2">
@@ -95,6 +103,7 @@ const Footer = () => {
     <div className="cbb-circle-fill"></div>
     <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
 </div>
+
   <div
     className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
     <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
@@ -103,6 +112,47 @@ const Footer = () => {
     <div className="bannerRight_ leading-4 py-2 text-[.8rem] px-4 rounded-[7rem] bg-[#30303D] text-white capitalize pr-14">
       Hi, How can <br />
       I help you?
+    </div>
+  </div>
+  <div onClick={() => handleReachUsOpenModel(false)} className={`fixedback ${reachUs ? "active" : ""}`}></div>
+
+  <div className={`consModel2  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${reachUs ? "active": ""} `}>
+    <div className="consModelMain grid grid-cols-2">
+      <div className="consModelMainl">
+        <Image src={model2} className="w-full h-full object-cover" alt="" />
+      </div>
+      <div className="consModelMainr bg-white py-14 px-8">
+        <a href="#" className="close  mb-3" onClick={() => handleReachUsOpenModel(false)}>
+          <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>     
+        </a>
+        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Reach Us</div>
+        <Formik initialValues={initialValues}  onSubmit={handleSubmit}>
+        <Form>
+          <div className="inputBox my-4">
+           <Field name={"fname"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Full Name"} />
+          </div>
+          <div className="inputBox my-4">
+           <Field name={"email"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Email Address"} />
+          </div>
+          <div className="inputBox my-4">
+           <Field type={"tel"} name={"tel"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Phone Number"} />
+          </div>
+          <div className="inputBox my-4">
+          <Field
+              as="textarea"
+              name="message"
+              className="w-full h-[10rem] border border-[#ddd] py-3 px-4 rounded-3xl  outline-0"
+              placeholder="Message"
+            />
+          </div>
+
+          <button type='submit'  className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Submit</button>
+          </Form>
+          </Formik>
+      </div>
     </div>
   </div>
    </>

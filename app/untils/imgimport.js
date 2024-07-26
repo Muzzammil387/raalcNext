@@ -23,3 +23,5 @@ export const aboutmember2 = require("../../public/webImages/about/member/2.webp"
 export const aboutmember3 = require("../../public/webImages/about/member/3.webp");
 export const aboutmember4 = require("../../public/webImages/about/member/4.webp");
 export const about6 = require("../../public/webImages/about/6.webp");
+export const model2 = require("../../public/webImages/model/2.webp");
+export const gallery1 = require("../../public/webImages/gallery/1.webp");

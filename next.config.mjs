@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
-    images: {
-      unoptimized: true, // Disable Next.js image optimization
-    },
-  };
-  
-  export default nextConfig;
-  
+  i18n: {
+    locales: ['en', 'ar', 'ch', 'ru'],
+    defaultLocale: 'en',
+  },
+  images: {
+    unoptimized: true,
+  },
+};
+
+export default nextConfig;

@@ -24,11 +24,7 @@ const Banner = () => {
     </div>
       <div
         className="bannertxt max-lg:text-[2.438rem] w-[31rem] absolute top-[45%] transform translate-y-[-50%] text-center mx-auto left-0 right-0 text-white text-[3.75rem] leading-9">
-        <span className="font-MrDeHaviland relative top-[-1rem]">your</span>
-        <span className="font-semibold font-Mluvka uppercase">Advocate</span>
-        <span className="font-Mluvka font-normal uppercase">for Fair</span>
-        <span className="font-MrDeHaviland">&</span>
-        <span className="font-Mluvka font-normal uppercase"> Just Outcomes</span>
+        <span className="  uppercase leading-[.9]">Know  Your  <b>Rights</b></span>
       </div>
 
       <div className="bannertxt2 absolute bottom-0 left-36 max-lg:relative text-center max-lg:left-0">

@@ -7,11 +7,11 @@ import 'swiper/css';
 const ServicesSection = () => {
   return (
     <section className="section2 overflow-hidden py-10 z-[2]">
-     <div class="section2_heading w-[40%] mx-auto text-center">
-        <div class="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
+     <div className="section2_heading w-[40%] mx-auto text-center">
+        <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
           Department
         </div>
-        <h2 class="font-MluvkaBold font-bold text-[3.125rem] uppercase leading-10 mb-5">
+        <h2 className="font-MluvkaBold font-bold text-[3.125rem] uppercase leading-10 mb-5">
           Community Service Department
         </h2>
         <p>
@@ -44,7 +44,7 @@ const ServicesSection = () => {
                     </span>
                   </div>
                   <div className="card1Box2 px-5 py-6 flex flex-col items-center justify-center text-center absolute top-[25rem] transition-all ease-in-out duration-700 w-full h-[16rem] border border-[#D4D4D4]" >
-                   <span class="font-Mluvka font-bold text-[1.2rem] uppercase leading-[1] block mb-2">Pleading Department</span>
+                   <span className="font-Mluvka font-bold text-[1.2rem] uppercase leading-[1] block mb-2">Pleading Department</span>
                     <p className="text-[#393946] text-[.8rem] capitalize leading-[1.1]">
                       RAALC’s Corporate Department involves a wide scope
                       inclusive of structuring, restructuring companies by
