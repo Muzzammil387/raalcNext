@@ -8,7 +8,8 @@ import Section3 from '@/components/home/Section3';
 import ServicesSection from '@/components/home/ServicesSection';
 
 const Home = ({ params: { lang } }) => {
-  console.log(lang);
+  console.log("muzzammil");
+  
   return (
     <>
       <Banner />

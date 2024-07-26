@@ -478,11 +478,6 @@ transform: rotate(180deg);
   bottom: 4.3rem;
 }
 
-
-.sample-slider {
-  overflow: unset !important;
-}
-
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {
     top: unset;
