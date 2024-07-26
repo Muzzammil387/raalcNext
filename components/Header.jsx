@@ -8,6 +8,7 @@ import Lenis from 'lenis';
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import {  Field, Form, Formik } from "formik";
 import { main } from "@/app/data/main";
+import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
 // import HeaderLanguage from "@/app/about/components/HeaderLanguage";
 
 const Header = ({ data, language }) => {
@@ -18,7 +19,7 @@ const Header = ({ data, language }) => {
   const [beverage, setBeverage] = useState(1)
 const [datas, setData] = useState({
   "disableSlot": [2,10,15,16]
-})
+})   
 const {disableSlot} = datas
   const initialValues = {
     department: "",
@@ -141,14 +142,14 @@ const {disableSlot} = datas
               <li><Link href="contact.html">Contact Us</Link></li>
             </ul>
             <div className="relative hidden header__centereng">
-            {/* <HeaderLanguage /> */}
+            <HeaderLanguage />
             </div>
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
             <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">Book a Consultation</button>
             <div className="relative header__righeng">
-            {/* <HeaderLanguage /> */}
+            <HeaderLanguage />
             </div>
             <div className="header__centernav hidden max-lg:block">
               <Image src={burgerMenu} className="w-full" alt="" />
