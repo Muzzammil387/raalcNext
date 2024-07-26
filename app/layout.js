@@ -1,11 +1,11 @@
 // /app/[lang]/layout.js
 import { Inter } from "next/font/google";
-import "../globals.css";
-import "../_arabic.css";
-import "../../dist/css/whatsapp.css";
+import "./globals.css";
+import "./_arabic.css";
+import "../dist/css/whatsapp.css";
 import "react-toastify/dist/ReactToastify.css";
-import "../../dist/css/customize.css";
-import Main from "./main";
+import "../dist/css/customize.css";
+import Main from "./[lang]/main";
 
 const inter = Inter({ subsets: ["latin"] });
 
