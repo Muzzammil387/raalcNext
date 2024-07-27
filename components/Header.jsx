@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { burgerMenu, logo, model1, svgrepo } from '@/app/untils/imgimport'
+import { burgerMenu, checkmark, downarrow, logo, model1, svgrepo } from '@/app/untils/imgimport'
 import Lenis from 'lenis';
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import {  Field, Form, Formik } from "formik";
@@ -12,7 +12,96 @@ import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
 // import HeaderLanguage from "@/app/about/components/HeaderLanguage";
 
 const Header = ({ data, language }) => {
-  
+  const [menuActive, setMenuActive] = useState("")
+  const Menu = [
+    {
+      title: "Corporate Structuring and Governance",  
+      data: [
+        {
+          label:"Business Structuring Services"
+        },
+        {
+          label:"Corporate Governance Framework"
+        },
+        {
+          label:"Holding Company Setup"
+        },
+        {
+          label:"Corporate Governance Review and Advisory"
+        },
+        {
+          label:"Partnership and Shareholder Agreements"
+        },
+      ]
+    },
+    {
+      title: "Legal Investigation and Support",
+      data:[
+        {
+          label:"Corporate Governance Review and Advisory"
+        },
+        {
+          label:"Partnership and Shareholder Agreements"
+        },
+      ]
+    },
+    {
+      title: "Banking & Finance",
+      data:[]
+    },
+    {
+      title: "Oil & Gas",
+      data:[]
+    },
+    {
+      title: "Regulatory and Compliance Services",
+      data:[]
+    },
+    {
+      title: "Employment and Laboure Services",
+      data:[]
+    },
+    {
+      title: "Maritime",
+      data:[]
+    },
+    {
+      title: "Aviation",
+      data:[]
+    },
+    {
+      title: "Restructuring and Insolvency",
+      data:[]
+    },
+    {
+      title: "Real Estate Legal Services",
+      data:[]
+    },
+    {
+      title: "DIFC",
+      data:[]
+    },
+    {
+      title: "Construction",
+      data:[]
+    },
+    {
+      title: "Intellectual Property (IP) Services",
+      data:[]
+    },
+    {
+      title: "Arbitration & Mediation",
+      data:[]
+    },
+    {
+      title: "Information & Technology",
+      data:[]
+    },
+    {
+      title: "Medical Negligence",
+      data:[]
+    },
+  ]
   const {booking} = main
   const {BeverageList,TimeSlot} = booking
   const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
@@ -49,6 +138,27 @@ const {disableSlot} = datas
   const handleSubmit = async (values) => {
     console.log(values)
   }
+  const handleMenu = (event, item) => {
+    event.stopPropagation();
+    if (menuActive === item) {
+      setMenuActive("");
+    } else {
+      setMenuActive(item);
+    }
+  };
+    
+    useEffect(() => {
+      const handleWindowClick = () => {
+        setMenuActive("");
+      };
+    
+      window.addEventListener("click", handleWindowClick);
+    
+      return () => {
+        window.removeEventListener("click", handleWindowClick);
+      };
+    }, []);
+
 
   return (
     <>
@@ -132,14 +242,43 @@ const {disableSlot} = datas
           </div>
           <nav className="max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit">
             <div className="hidden close">X</div>
-            <ul className="  flex gap-6 [&_a]:font-cormorant [&_a]:font-bold [&_a]:text-lg [&_a]:capitalize">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">about</Link></li>
-              <li><Link href="services.html">services</Link></li>
-              <li><Link href="news.html">News & Updates </Link></li>
-              <li><Link href="events.html">Events</Link></li>
-              <li><Link href="/gallery">Gallery</Link></li>
-              <li><Link href="contact.html">Contact Us</Link></li>
+            <ul className="  flex gap-6    [&_a]:capitalize">
+              <li><Link href="/" className="font-bold font-cormorant text-lg">Home</Link></li>
+              <li><Link href="/about" className="font-bold font-cormorant text-lg">about</Link></li>
+              <li><Link href="/services" className="font-bold font-cormorant text-lg">services</Link>
+              <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 ">
+                  <div className="servicesMenu-  grid grid-cols-4 gap-4">
+                    {Menu.map((item,index) => {
+                      const {title,data} = item
+                      return (
+                        <div className="servicesMenu-BOx relative" key={index}>
+                          <div className="h2 flex gap-3 items-start">
+                            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{title}</span> 
+                          {data.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event,title)} src={downarrow} alt=""  />}
+                          </div>
+                          {data.length > 0 &&
+                          <div className={`absolute innerMenu top-[2rem] ${menuActive === title ? "active": ""}`}>
+                           <ul className={`innerMenu_  relative`}>
+                            {data.map((item2,index2) => {
+                              const {label} = item2
+                              return (
+                                <li key={index2} className="flex gap-1 items-start my-2 relative"><Image className="relative top-[.2rem]" src={checkmark} alt="" /> <Link className="text-[.9rem]" href={""}>{label}</Link></li>
+                              )
+                            })}
+                          </ul>
+                            </div>
+                          }
+                        </div>
+                      )
+                    })}
+                  </div>
+              </div>
+              
+              </li>
+              <li><Link href="news.html" className="font-bold font-cormorant text-lg">News & Updates </Link></li>
+              <li><Link href="events.html" className="font-bold font-cormorant text-lg">Events</Link></li>
+              <li><Link href="/gallery" className="font-bold font-cormorant text-lg">Gallery</Link></li>
+              <li><Link href="contact.html" className="font-bold font-cormorant text-lg">Contact Us</Link></li>
             </ul>
             <div className="relative hidden header__centereng">
             <HeaderLanguage />

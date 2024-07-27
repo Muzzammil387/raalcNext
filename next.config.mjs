@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  // i18n: {
-  //   locales: ['en', 'ar', 'ch', 'ru'],
-  //   defaultLocale: 'en',
-  // },
+  // output: 'export',
   images: {
     unoptimized: true,
   },
+  // Remove or comment out redirects
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/en/:path*',
+  //       destination: '/:path*',
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;

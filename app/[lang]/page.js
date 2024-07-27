@@ -9,8 +9,19 @@ import ServicesSection from '@/components/home/ServicesSection';
 import NEWS from '@/components/home/NEWS';
 import Testimonials from '@/components/Testimonials';
 
-const Home = ({ params: { lang } }) => {
-  console.log("muzzammil");
+export async function generateStaticParams() {
+  // Define all possible language codes
+  const languages = ['en', 'ar', 'ch', 'ru'];
+  
+  // Generate the paths for each language
+  const paths = languages.map((lang) => ({ lang }));
+  
+  return paths;
+}
+
+const Home = ({ params }) => {
+  const { lang } = params;
+  console.log(lang)
   
   return (
     <>

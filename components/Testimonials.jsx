@@ -33,12 +33,7 @@ const Testimonials = () => {
               768: { slidesPerView: 1 },
               1024: { slidesPerView: 5 },
             }}
-            on={{
-              click: function () {
-                var clickedIndex = this.clickedIndex
-                this.slideTo(clickedIndex)
-              },
-            }}
+        
             className="section7mySwiper"
           >
             {["", "", "", "", "", ""].map((image, index) => (
@@ -46,7 +41,7 @@ const Testimonials = () => {
                 <div className="s7BOx">
                   <div className="s7BOxp text-center hidden items-start">
                     <Image src={dot} alt="" />
-                    <p className="capitalize leading-[1.3] font-MluvkaRegular">Working with [Lawyer's Name] was an absolute game-changer for me. Their dedication, expertise, and unwavering support throughout my legal journey were unparalleled. From the initial consultation to the courtroom representation, they exhibited professionalism and a deep understanding of my case. Thanks to their strategic approach and tireless advocacy,</p>
+                    <p className="capitalize leading-[1.3] font-MluvkaRegular">Working with [Lawyer&apos;s Name] was an absolute game-changer for me. Their dedication, expertise, and unwavering support throughout my legal journey were unparalleled. From the initial consultation to the courtroom representation, they exhibited professionalism and a deep understanding of my case. Thanks to their strategic approach and tireless advocacy,</p>
                   </div>
                   <div className="s7BOxBottom mt-14">
                     <div className="s7BOxBottom_2 relative w-fit mx-auto cursor-pointer">

@@ -484,6 +484,46 @@ transform: rotate(180deg);
 }
 
 
+.servicesMenu {
+  
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(40px);
+  filter: drop-shadow(15px 15px 40px rgba(0, 0, 0, 0.4));
+}
+
+.innerMenu {
+  transition: .5s;
+  transform-origin: top;
+  height: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 100);
+  /* backdrop-filter: blur(40px);
+  filter: drop-shadow(15px 15px 40px rgba(0, 0, 0, 0.4)); */
+  z-index: 9;
+  border-radius: 1rem;
+}
+.innerMenu_ {
+  padding: 10px;
+  box-shadow: 0 0 10px #ddd;
+
+}
+.innerMenu.active {
+  height: max-content;
+
+}
+.servicesMenu {
+  transition: .3s;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+
+
+.header__center li:hover .servicesMenu {
+transform: scaleY(1);
+}
+
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {
     top: unset;
