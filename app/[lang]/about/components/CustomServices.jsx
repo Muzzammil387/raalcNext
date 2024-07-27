@@ -3,18 +3,17 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import SwiperCore, { Autoplay } from 'swiper';
+import { Autoplay } from 'swiper/modules'
 import { about5, arrow2 } from '@/app/untils/imgimport';
 import Image from 'next/image';
 
-
-SwiperCore.use([Autoplay]);
 const CustomServices = () => {
     return (
         <section className="about3 bg-[#F5F5F5]">
             <div className="about3_ rounded-[5rem] py-28 bg-[#393946]">
                 <div className="container mx-auto">
                     <Swiper
+                    modules={[Autoplay]}
                         slidesPerView={1}
                         spaceBetween={0}
                         speed={1000}

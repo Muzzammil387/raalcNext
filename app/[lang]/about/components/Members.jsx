@@ -3,12 +3,10 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import SwiperCore, { Autoplay } from 'swiper';
+import { Autoplay } from 'swiper/modules'
 import { aboutmember1, aboutmember2, aboutmember3, aboutmember4 } from '@/app/untils/imgimport';
 import Image from 'next/image';
 
-// install Swiper modules
-SwiperCore.use([Autoplay]);
 
 const Members = () => {
   return (
@@ -25,6 +23,7 @@ const Members = () => {
         </div>
         <div className="about4Body mt-8 mx-auto max-w-[60%]">
           <Swiper
+           modules={[Autoplay]}
             slidesPerView={5}
             spaceBetween={20}
             speed={1000}

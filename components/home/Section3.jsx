@@ -1,7 +1,7 @@
 "use client"
+import React, { useEffect, useRef } from 'react'
 import { Section3Image1 } from '@/app/untils/imgimport'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
 
 const Section3 = () => {
   const counterSectionRef = useRef(null);

@@ -478,6 +478,12 @@ transform: rotate(180deg);
   bottom: 4.3rem;
 }
 
+
+.section7mySwiper .swiper-wrapper  {
+  align-items: flex-end;
+}
+
+
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {
     top: unset;
@@ -1011,7 +1017,7 @@ display:block;
 
 @media not all and (min-width: 461px) {
   .section5Main {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .section5MainBox1 img {
     border-radius: 3rem;

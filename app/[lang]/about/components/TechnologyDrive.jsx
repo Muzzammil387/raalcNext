@@ -3,12 +3,10 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import SwiperCore, { Autoplay } from 'swiper';
+import { Autoplay } from 'swiper/modules'
 import Image from 'next/image';
 import { about6 } from '@/app/untils/imgimport';
 
-
-SwiperCore.use([Autoplay]);
    
 const TechnologyDrive = () => {
   return (
@@ -20,6 +18,7 @@ const TechnologyDrive = () => {
       </div>    
       <div className="about5Body">
       <Swiper
+        modules={[Autoplay]}
             speed={1000}
             autoplay={{
               delay: 2500,
