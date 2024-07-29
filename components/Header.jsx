@@ -9,9 +9,13 @@ import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext
 import {  Field, Form, Formik } from "formik";
 import { main } from "@/app/data/main";
 import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
+import { getLanguage } from "@/app/utils/common";
+import { MainLanguageValueContext } from "@/app/context/MainLanguageValue";
 // import HeaderLanguage from "@/app/about/components/HeaderLanguage";
 
 const Header = ({ data, language }) => {
+  const { langValue } = useContext(MainLanguageValueContext);
+  const basePath = langValue === "en" ? '' : `${langValue}/`;
   const [menuActive, setMenuActive] = useState("")
   const Menu = [
     {
@@ -243,9 +247,9 @@ const {disableSlot} = datas
           <nav className="max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit">
             <div className="hidden close">X</div>
             <ul className="  flex gap-6    [&_a]:capitalize">
-              <li><Link href="/" className="font-bold font-cormorant text-lg">Home</Link></li>
-              <li><Link href="/about" className="font-bold font-cormorant text-lg">about</Link></li>
-              <li><Link href="/services" className="font-bold font-cormorant text-lg">services</Link>
+              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">Home</Link></li>
+              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">about</Link></li>
+              <li><Link href={`/${basePath}services`} className="font-bold font-cormorant text-lg">services</Link>
               <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
                     {Menu.map((item,index) => {

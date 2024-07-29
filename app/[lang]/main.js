@@ -11,6 +11,7 @@ import { MyHome } from '../context/MyHomeContext';
 import Loader from '../Loader';
 import MainBookingStatusProvider from '../context/MainBookingStatusContext';
 import MainReachUsStatusProvider from '../context/MainReachUsStatusContext';
+import MainLanguageValueProvider from '../context/MainLanguageValue';
 
 const Main = ({ children }) => {
   const [home, setHome] = useState("");
@@ -26,6 +27,7 @@ const Main = ({ children }) => {
 
   return (
     <>
+      <MainLanguageValueProvider>
       <MainReachUsStatusProvider>
         <MainBookingStatusProvider>
           <MyHome.Provider value={{ home, setHome }}>
@@ -40,6 +42,7 @@ const Main = ({ children }) => {
           </MyHome.Provider>
         </MainBookingStatusProvider>
       </MainReachUsStatusProvider>
+      </MainLanguageValueProvider>
     </>
   );
 };

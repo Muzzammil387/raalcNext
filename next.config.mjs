@@ -4,13 +4,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove or comment out redirects
   // async redirects() {
   //   return [
   //     {
-  //       source: '/en/:path*',
-  //       destination: '/:path*',
-  //       permanent: true,
+  //       source: '/en/:path*', // Matches any path with '/en'
+  //       destination: '/:path*', // Redirects to the path without '/en'
+  //       permanent: true, // Set to true for permanent redirection (301)
   //     },
   //   ];
   // },

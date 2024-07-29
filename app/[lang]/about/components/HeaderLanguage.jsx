@@ -1,44 +1,63 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { svgrepo } from '@/app/untils/imgimport';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
+import { setLanguage } from '@/app/utils/common';
 
 const items = [
   {
-    label: "EN",
+    label: "En",
     key: 'en',
   },
   {
-    label: "CH",
+    label: "Ch",
     key: 'ch',
   },
   {
-    label: "AR",
+    label: "Ar",
     key: 'ar',
   },
   {
-    label: "RU",
+    label: "Ru",
     key: 'ru',
   },
 ];
 
 const HeaderLanguage = () => {
+  const languages = ['en', 'ar', 'ch', 'ru'];
   const router = useRouter();
-  const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const pathname = usePathname()
+  const { langValue, handleLanguage } = useContext(MainLanguageValueContext);
+  const [selectedLanguage, setSelectedLanguage] = useState(`${langValue}`);
 
-  const changeLanguage = (locale) => {
-    // Get the current path and query parameters
-    const currentPathname = pathname.split('/').filter(Boolean); // Split and clean up pathname
-    const newPathname = `/${locale}/${currentPathname.slice(-1)}`; // Construct new pathname with locale
-    router.push(newPathname); // Navigate to new locale path
-  };
 
   const handleMenuClick = (e) => {
     const selectedItem = items.find(item => item.key === e.key);
     setSelectedLanguage(selectedItem.label);
-    changeLanguage(selectedItem.key);
-  };
+    handleLanguage(selectedItem.key);
+    const newLang = selectedItem.key;
+    
+    // Construct new path with selected language
+    let pathParts = pathname.split('/');
+
+    // Remove the existing language segment if present
+    if (languages.includes(pathParts[1])) {
+      pathParts.splice(1, 1);
+    }
+
+    // Add the new language segment
+    if (newLang !== 'en') {
+      pathParts = ['', newLang, ...pathParts.slice(1)];
+    } else {
+      pathParts = ['', ...pathParts.slice(1)];
+    }
+    // Construct the new path
+    const newPath = pathParts.join('/');
+    console.log(newPath)
+    router.push(newPath);
+  }
 
   return (
     <Dropdown

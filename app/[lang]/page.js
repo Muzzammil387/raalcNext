@@ -15,13 +15,11 @@ export async function generateStaticParams() {
   
   // Generate the paths for each language
   const paths = languages.map((lang) => ({ lang }));
-  
   return paths;
 }
 
 const Home = ({ params }) => {
   const { lang } = params;
-  console.log(lang)
   
   return (
     <>
