@@ -52,18 +52,23 @@ export const main = {
 
   team: [
     {
+      id:1,
       image: "https://testingdigitaldmcc.com/raalc/webImages/team/1.png",
     },
     {
+      id:2,
       image: "https://testingdigitaldmcc.com/raalc/webImages/team/2.png",
     },
     {
+      id:3,
       image: "https://testingdigitaldmcc.com/raalc/webImages/team/3.png",
     },
     {
+      id:4,
       image: "https://testingdigitaldmcc.com/raalc/webImages/team/4.png",
     },
     {
+      id:5,
       image: "https://testingdigitaldmcc.com/raalc/webImages/team/5.png",
     },
   ],

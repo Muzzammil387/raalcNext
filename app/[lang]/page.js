@@ -1,38 +1,36 @@
-// /app/[lang]/page.js
+// app/[lang]/team/[slug]/page.js
+
+import Image from 'next/image';
 import React from 'react';
-import Team from '@/components/Team';
-import AboutSection from '@/components/home/AboutSection';
-import BOD from '@/components/home/BOD';
-import Banner from '@/components/home/Banner';
-import Section3 from '@/components/home/Section3';
-import ServicesSection from '@/components/home/ServicesSection';
-import NEWS from '@/components/home/NEWS';
-import Testimonials from '@/components/Testimonials';
 
-export async function generateStaticParams() {
-  // Define all possible language codes
-  const languages = ['en', 'ar', 'ch', 'ru'];
-  
-  // Generate the paths for each language
-  const paths = languages.map((lang) => ({ lang }));
-  return paths;
-}
+// Function to generate static params
+  export async function generateStaticParams() {
+    // Define your static paths
+    return [
+      { params: { lang: 'en', slug: '1' } },
+      { params: { lang: 'ar', slug: '2' } },
+      { params: { lang: 'ch', slug: '3' } },
+      { params: { lang: 'ru', slug: '4' } },
+    ];
+  }
 
-const Home = ({ params }) => {
-  const { lang } = params;
-  
+const Page = ({ params }) => {
+  const { lang, slug } = params;
+
   return (
-    <>
-      <Banner />
-      <AboutSection />
-      <ServicesSection />
-      <Section3 />
-      <BOD />
-      <Team />
-      <NEWS />
-      <Testimonials />
-    </>
+    <div className='teampage'>
+      <div className='container mx-auto'>
+        <div className='teams'>
+          <div className='teams__left'>
+            <Image src={"https://testingdigitaldmcc.com/raalc/webImages/team/2.png"} className='w-full' width={10} height={10} alt='' />
+          </div>
+          <div className='teams__Right'>
+            <h1>{`Team ${slug} (${lang})`}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Home;
+export default Page;

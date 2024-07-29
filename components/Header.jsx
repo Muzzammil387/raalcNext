@@ -240,7 +240,7 @@ const {disableSlot} = datas
       <header className="header relative py-4">
         <div className="px-10 mx-auto flex justify-between items-center">
           <div className="header__logo">
-            <Link href="/">
+            <Link href={`/${basePath}`}>
               <Image src={logo} className="w-[10.313rem]" alt="" />
             </Link>
           </div>
@@ -281,7 +281,7 @@ const {disableSlot} = datas
               </li>
               <li><Link href="news.html" className="font-bold font-cormorant text-lg">News & Updates </Link></li>
               <li><Link href="events.html" className="font-bold font-cormorant text-lg">Events</Link></li>
-              <li><Link href="/gallery" className="font-bold font-cormorant text-lg">Gallery</Link></li>
+              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">Gallery</Link></li>
               <li><Link href="contact.html" className="font-bold font-cormorant text-lg">Contact Us</Link></li>
             </ul>
             <div className="relative hidden header__centereng">
