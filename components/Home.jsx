@@ -12,13 +12,14 @@ import Team from './Team';
 
 const Home = ({lang}) => {
     const { loading, data } = useFetch(`teams/${lang}`);
+    const { loading:loading2, data:data2 } = useFetch(`departments/${lang}`);
 
     
     return (
         <>
             <Banner />
             <AboutSection />
-            <ServicesSection />
+           {!loading2 && <ServicesSection department={data2?.data} />}
             <Section3 />
             <BOD />
             {!loading && <Team team={data?.data} />}
