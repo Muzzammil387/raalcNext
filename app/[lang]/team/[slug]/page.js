@@ -1,5 +1,28 @@
-import Image from 'next/image';
+
 import React from 'react';
+import TeamDetails from './TeamDetails';
+import axios from 'axios';
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const { lang, slug } = params;
+ 
+  // fetch data using Axios
+  try {
+    const response = await axios.get(`https://raalc.quickdigitals.ae/api/teams/${slug}/${lang}`);
+    const data = response.data;
+    console.log(data?.data,"muzcxgdfgz")
+    return {
+      title: data?.data?.name || "abc",
+    };
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    return {
+      title: 'Raalc', // fallback title in case of an error
+    };
+  }
+}
+
 
 export async function generateStaticParams() {
   // Define your static paths
@@ -14,20 +37,14 @@ export async function generateStaticParams() {
 const Page = ({ params }) => {
   const { lang, slug } = params;
 
+
   return (
-    <div className='teampage'>
-      <div className='container mx-auto'>
-        <div className='teams'>
-          <div className='teams__left'>
-            <Image src={"https://testingdigitaldmcc.com/raalc/webImages/team/2.png"} className='w-full' width={10} height={10} alt='' />
-          </div>
-          <div className='teams__Right'>
-            <h1>{`Team ${slug} (${lang})`}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+    <TeamDetails lang={lang} slug={slug} />
+
   );
 };
 
 export default Page;
+
+
+

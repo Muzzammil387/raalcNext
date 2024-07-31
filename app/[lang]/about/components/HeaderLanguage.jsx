@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { svgrepo } from '@/app/untils/imgimport';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
-import { setLanguage } from '@/app/utils/common';
 
 const items = [
   {
@@ -28,10 +27,20 @@ const items = [
 const HeaderLanguage = () => {
   const languages = ['en', 'ar', 'ch', 'ru'];
   const router = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
   const { langValue, handleLanguage } = useContext(MainLanguageValueContext);
   const [selectedLanguage, setSelectedLanguage] = useState(`${langValue}`);
 
+  useEffect(() => {
+    // Update the body class whenever selectedLanguage changes
+    if (selectedLanguage) {
+      document.body.classList.add(selectedLanguage);
+      // Clean up by removing the class when the component unmounts or selectedLanguage changes
+      return () => {
+        document.body.classList.remove(selectedLanguage);
+      };
+    }
+  }, [selectedLanguage]);
 
   const handleMenuClick = (e) => {
     const selectedItem = items.find(item => item.key === e.key);
@@ -48,28 +57,25 @@ const HeaderLanguage = () => {
     }
 
     // Add the new language segment
-    if (newLang !== 'en') {
-      pathParts = ['', newLang, ...pathParts.slice(1)];
-    } else {
-      pathParts = ['', ...pathParts.slice(1)];
-    }
+    pathParts = ['', newLang, ...pathParts.slice(1)];
+    // if (newLang !== 'en') {
+    // } else {
+    //   pathParts = ['', ...pathParts.slice(1)];
+    // }
     // Construct the new path
     const newPath = pathParts.join('/');
-    console.log(newPath)
     router.push(newPath);
-  }
+  };
+
+  const menuItems = items.map(item => ({
+    label: item.label,
+    key: item.key,
+    onClick: handleMenuClick,
+  }));
 
   return (
     <Dropdown
-      overlay={
-        <Menu onClick={handleMenuClick}>
-          {items.map(item => (
-            <Menu.Item key={item.key}>
-              {item.label}
-            </Menu.Item>
-          ))}
-        </Menu>
-      }
+      overlay={<Menu items={menuItems} />}
       trigger={['click']}
     >
       <a onClick={(e) => e.preventDefault()} className="btn btn-secondary bg-white py-2 px-4 flex gap-1 items-center">
