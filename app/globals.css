@@ -369,7 +369,7 @@ transition: .3s;
 .about3_MainrB {
 position: relative;
 }
-.about3_Mainr .about3_MainrB.active img {
+.about3_Mainr .about3_MainrB.active .about3_Mainrboxt  img {
   filter: unset;
 transform: rotate(180deg);
 }
@@ -997,7 +997,7 @@ height: 16rem;
 
 }
 .s7BOxBottom_,.about3_Swiper  {
-display:block;
+display:block !important;
 }
 
 .about3_Main {

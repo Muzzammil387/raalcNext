@@ -32,3 +32,4 @@ export const dot = require("../../public/webImages/dot.svg");
 export const review1 = require("../../public/webImages/review/3.webp");
 export const downarrow = require("../../public/webImages/downarrow.svg");
 export const checkmark = require("../../public/webImages/checkmark-square.svg");
+export const about4 = require("../../public/webImages/about/4.webp");
