@@ -1,20 +1,19 @@
 
 import React from 'react';
-import TeamDetails from './TeamDetails';
 import axios from 'axios';
 import config from "../../../services/config.json";
-
+import DepartmentsDetails from './DepartmentsDetails';
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
   const { lang, slug } = params;
  
   // fetch data using Axios
   try {
-    const response = await axios.get(`${config.apiEndPoint}teams/${slug}/${lang}`);
+    const response = await axios.get(`${config.apiEndPoint}departments/${slug}/${lang}`);
     const data = response.data;
-    console.log(data?.data,"muzcxgdfgz")
     return {
-      title: data?.data?.name || "abc",
+      title: data?.data?.meta_tag || "departments title",
+      description: data?.data?.meta_description || "departments description",
     };
   } catch (error) {
     console.error('Error fetching product data:', error);
@@ -40,7 +39,7 @@ const Page = ({ params }) => {
 
 
   return (
-    <TeamDetails lang={lang} slug={slug} />
+    <DepartmentsDetails lang={lang} slug={slug} />
 
   );
 };

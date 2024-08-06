@@ -1,10 +1,12 @@
 import React, { useState, createContext } from "react";
 import { getLanguage } from "../utils/common";
+import { useParams } from "next/navigation";
 
 export const MainLanguageValueContext = createContext();
 
 const MainLanguageValueProvider = ({ children }) => {
-    const [langValue, setLangValue] = useState(getLanguage() || 'en')
+   const {lang} = useParams()
+    const [langValue, setLangValue] = useState(lang || 'en')
 
     const handleLanguage = (status) => {
         setLangValue(status)

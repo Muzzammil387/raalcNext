@@ -497,7 +497,7 @@ transform: rotate(180deg);
   transform-origin: top;
   height: 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 100);
+  /* background: rgba(255, 255, 255, 100); */
   /* backdrop-filter: blur(40px);
   filter: drop-shadow(15px 15px 40px rgba(0, 0, 0, 0.4)); */
   z-index: 9;
@@ -523,6 +523,20 @@ transform: rotate(180deg);
 .header__center li:hover .servicesMenu {
 transform: scaleY(1);
 }
+
+.sample-slider {
+  overflow: unset !important;
+}
+
+
+
+.ant-picker-input input {
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+
+
+
 
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {
@@ -669,7 +683,7 @@ transform: scaleY(1);
     top: 50%;
   }
   .sample-slider {
-    overflow: hidden;
+    overflow: hidden !important;
   }
   .card1Box::before {
     display: none;

@@ -20,7 +20,7 @@ const TechnologyDrive = ({data}) => {
     <section className="about5 py-14 bg-secondary">
     <div className="container mx-auto">
       <div className="about5Heading text-white text-center">
-       <div className="h2 text-[4.375rem] leading-[1] font-bold mb-5 font-MluvkaBold"> {data?.sec_six_discription}</div>
+       <div className="h2 text-[4.375rem] leading-[1] font-bold mb-5 font-MluvkaBold"> {data?.sec_six_heading}</div>
        <p className="w-[50%] about5Headinggg mx-auto">{data?.sec_six_discription}</p>
       </div>    
       <div className="about5Body">

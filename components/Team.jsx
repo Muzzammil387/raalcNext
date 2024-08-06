@@ -6,11 +6,12 @@ import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import useFetch from '@/app/customHooks/useFetch';
 
-const Team = ({team}) => {
+const Team = ({team,count}) => {
     // const { home } = useContext(MyHome);
     const { langValue } = useContext(MainLanguageValueContext);
     const basePath = langValue === "en" ? '' : `${langValue}/`;
 
+    const teamm =  Array.isArray(team) && count ? team.slice(0, count) : team;
     
   return (
     <section className="section5 py-12">
@@ -21,7 +22,7 @@ const Team = ({team}) => {
       
       <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-3">
         {
-            Array.isArray(team) && team.slice(0, 5).map((item,index) => {
+            teamm.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[15rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
@@ -40,6 +41,7 @@ const Team = ({team}) => {
 
       </div> 
     </div>
+    <Link href="/team" className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>Read More</Link>
   </section>
 
   )

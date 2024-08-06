@@ -1,6 +1,6 @@
 
 import React from 'react'
-import TeamMain from './TeamMain';
+import NewPage from './NewPage';
 
 export async function generateStaticParams() {
   // Define all possible language codes
@@ -14,8 +14,8 @@ export async function generateStaticParams() {
 const page = ({ params }) => {
   const { lang } = params;
   return (
-   <div className='teampage'>
-<TeamMain lang={lang} />
+   <div className='NewPage'>
+<NewPage lang={lang} />
    </div>
   )
 }

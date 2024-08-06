@@ -12,6 +12,7 @@ import Loader from '../Loader';
 import MainBookingStatusProvider from '../context/MainBookingStatusContext';
 import MainReachUsStatusProvider from '../context/MainReachUsStatusContext';
 import MainLanguageValueProvider from '../context/MainLanguageValue';
+import MainTeamProvider from '../context/MainTeamContext';
 
 const Main = ({ children }) => {
   const [home, setHome] = useState("");
@@ -27,6 +28,7 @@ const Main = ({ children }) => {
 
   return (
     <>
+      <MainTeamProvider>
       <MainLanguageValueProvider>
       <MainReachUsStatusProvider>
         <MainBookingStatusProvider>
@@ -43,6 +45,7 @@ const Main = ({ children }) => {
         </MainBookingStatusProvider>
       </MainReachUsStatusProvider>
       </MainLanguageValueProvider>
+      </MainTeamProvider>
     </>
   );
 };

@@ -1,8 +1,8 @@
 
 import React from 'react';
-import TeamDetails from './TeamDetails';
 import axios from 'axios';
 import config from "../../../services/config.json";
+import NewsInner from './NewsInner';
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -10,11 +10,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
  
   // fetch data using Axios
   try {
-    const response = await axios.get(`${config.apiEndPoint}teams/${slug}/${lang}`);
+    const response = await axios.get(`${config.apiEndPoint}news/fetch/${slug}/${lang}`);
     const data = response.data;
-    console.log(data?.data,"muzcxgdfgz")
     return {
-      title: data?.data?.name || "abc",
+        title: data?.data?.meta_tag || "Raalc News",
+        description: data?.data?.meta_description || "Raalc News",
     };
   } catch (error) {
     console.error('Error fetching product data:', error);
@@ -40,7 +40,7 @@ const Page = ({ params }) => {
 
 
   return (
-    <TeamDetails lang={lang} slug={slug} />
+    <NewsInner lang={lang} slug={slug} />
 
   );
 };
