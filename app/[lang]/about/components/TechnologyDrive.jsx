@@ -53,12 +53,12 @@ const TechnologyDrive = ({data}) => {
               </div>
               <div className="about5BodyBox_b text-white">
                 <p>{sec_sixActive?.description}</p>
-                <a className="mt-5 block" href="#">
+                {/* <a className="mt-5 block" href="#">
                   <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M44.3334 2.77484C44.3334 1.40283 43.2212 0.290598 41.8492 0.290598H19.491C18.119 0.290598 17.0067 1.40283 17.0067 2.77484C17.0067 4.14685 18.119 5.25909 19.491 5.25909H39.3649V25.133C39.3649 26.505 40.4772 27.6173 41.8492 27.6173C43.2212 27.6173 44.3334 26.505 44.3334 25.133V2.77484ZM3.52518 44.6121L43.6058 4.53147L40.0926 1.01822L0.0119292 41.0988L3.52518 44.6121Z" fill="white"/>
                     </svg>
                                        
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

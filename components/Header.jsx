@@ -234,10 +234,10 @@ const Header = () => {
                 <div className="inputBox my-4">
                   <Field as="select" name="consultant" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                     <option value="">choose consultant</option>
-                    {teamss.map((item) => {
+                    {teamss.map((item,index) => {
                       const { id, name } = item
                       return (
-                        <option value={id}>{name}</option>
+                        <option value={id} key={index}>{name}</option>
                       )
                     })}
                   </Field>

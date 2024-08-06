@@ -13,10 +13,7 @@ const ServicesSection = ({department}) => {
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
 
-useEffect(() => {
-  
-console.log(department)
-}, [])
+
 
 
 
@@ -63,9 +60,7 @@ console.log(department)
                   </div>
                   <div className="card1Box2 px-5 py-6 flex flex-col items-center justify-center text-center absolute top-[25rem] transition-all ease-in-out duration-700 w-full h-[16rem] border border-[#D4D4D4]" >
                     <span className="font-Mluvka font-bold text-[1.2rem] uppercase leading-[1] block mb-2">{title}</span>
-                    <p className="text-[#393946] text-[.8rem] capitalize leading-[1.1]">
-                     {StringConvert(description)}
-                    </p>
+                    <div className="text-[#393946] text-[.8rem] capitalize leading-[1.1]">{StringConvert(description)}</div>
                   </div>
                 </div>
               </Link>
