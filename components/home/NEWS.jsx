@@ -1,8 +1,13 @@
+import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { accordion1, arrow } from '@/app/untils/imgimport'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import React, { useContext } from 'react'
 
-const NEWS = () => {
+const NEWS = ({data3}) => {
+  const { langValue } = useContext(MainLanguageValueContext);
+  const basePath = langValue === "en" ? '' : `${langValue}/`;
   return (
     <section className="section6 py-10 relative pr-14 max-lg:px-5">
     <div className="section6BOx1 bg-[#ECACAD] absolute left-0 -top-3 w-[11.313rem] h-[11.313rem] opacity-[.6] blur-[5.75rem]"></div>
@@ -99,7 +104,7 @@ const NEWS = () => {
         {/* <!-- close section6MainBox  --> */}
       </div>
       <div className="container">
-        <a href="#" className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">View All</a>
+        <Link href={`/${basePath}news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">View All</Link>
       </div>
   </section>
   )

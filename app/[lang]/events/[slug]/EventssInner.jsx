@@ -9,7 +9,7 @@ import useFetch from '@/app/customHooks/useFetch';
 import { StringConvert } from '@/components/StringConvert';
 
 const NewsInner = ({ lang, slug }) => {
-  const { loading, data } = useFetch(`news/fetch/${slug}/${lang}`);
+  const { loading, data } = useFetch(`events/fetch/${slug}/${lang}`);
   if (loading) return ''  
   const {author_name,author_details,title,description,date} = data?.data
   return (
@@ -30,8 +30,8 @@ const NewsInner = ({ lang, slug }) => {
                 className="about2BodySwiper"
                 style={{ minWidth: 0 }}
               >
-                {Array.isArray(data?.data?.news_images) &&
-                  data?.data?.news_images.map((item, index) => {
+                {Array.isArray(data?.data?.event_images) &&
+                  data?.data?.event_images.map((item, index) => {
                     return (
                       <SwiperSlide key={index}>
                         <div className="cardMain3Box__img">

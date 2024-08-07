@@ -13,6 +13,7 @@ import Team from './Team';
 const Home = ({lang}) => {
     const { loading, data } = useFetch(`teams/${lang}`);
     const { loading:loading2, data:data2 } = useFetch(`departments/${lang}`);
+    const { loading:loading3, data:data3 } = useFetch(`webContents/home/${lang}`);
 
     
     return (
@@ -23,7 +24,7 @@ const Home = ({lang}) => {
             <Section3 />
             <BOD />
             {!loading && <Team team={data?.data} count={5} />}
-            <NEWS />
+           {!loading3 &&  <NEWS data={data3} />}
             <Testimonials />
         </>
     )

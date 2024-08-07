@@ -7,7 +7,7 @@ import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
 
 const NewPage = ({lang}) => {
-    const { loading, data } = useFetch(`news/index/${lang}`);
+    const { loading, data } = useFetch(`events/index/${lang}`);
     if (loading) return ''  
     return (
         <>
@@ -25,12 +25,12 @@ const NewPage = ({lang}) => {
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
                 {  Array.isArray(data?.data) && data?.data.map((item,index) => {
-              const {id,news_images,title,author_name,author_details,date,description} = item
+              const {id,event_images,title,author_name,date,description} = item
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
               return (
               <div className="cardMain3Box " key={index}>
                 <div className="cardMain3Box__img">
-                  <Image src={news_images[0]} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
+                  <Image src={event_images[0]} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
                 </div>
                 <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">
                   <ul className="list my-4">
@@ -38,7 +38,7 @@ const NewPage = ({lang}) => {
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <p className="text-[.9rem] text-[#393946]">{StringConvert(description)}</p>
-                  <Link href={`news/${id}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
+                  <Link href={`events/${id}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
                 </div>
             </div>
             )

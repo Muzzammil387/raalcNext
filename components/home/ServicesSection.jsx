@@ -2,7 +2,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { community1 } from '@/app/untils/imgimport';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
@@ -50,7 +49,7 @@ const ServicesSection = ({department}) => {
             const {department_id,department_image,title,description} = item
             return(
             <SwiperSlide key={index}>
-               <Link href={`${basePath}/departments/${department_id}`} className="card1 cursor-pointer relative">
+               <Link href={"#"} className="card1 cursor-pointer relative">
                 <div className="card1_ py-10 overflow-hidden relative">
                   <div className="card1Box relative p-[.2rem]">
                     <Image className="h-[16rem] rounded-[5rem] object-cover w-full" src={department_image} width={0} height={0} alt="" />
@@ -74,3 +73,6 @@ const ServicesSection = ({department}) => {
 }
 
 export default ServicesSection
+
+
+// `${basePath}/departments/${department_id}` 

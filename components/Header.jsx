@@ -324,8 +324,8 @@ const Header = () => {
                 </div>
 
               </li>
-              <li><Link href="/news" className="font-bold font-cormorant text-lg">News & Updates </Link></li>
-              <li><Link href="events.html" className="font-bold font-cormorant text-lg">Events</Link></li>
+              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">News & Updates </Link></li>
+              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">Events</Link></li>
               <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">Gallery</Link></li>
               <li><Link href="contact.html" className="font-bold font-cormorant text-lg">Contact Us</Link></li>
             </ul>

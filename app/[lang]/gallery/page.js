@@ -1,6 +1,28 @@
 
 import React from 'react'
-import GalleryBox from '@/components/GalleryBox';
+import GalleryBox from './GalleryBox';
+
+
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    // read route params
+    const { lang, slug } = params;
+   
+    // fetch data using Axios
+    try {
+      const response = await axios.get(`${config.apiEndPoint}webContents/gallery/${lang}`);
+      const data = response.data;
+      return {
+          title: data?.data?.meta_tag || "Raalc gallery",
+          description: data?.data?.meta_description || "Raalc gallery",
+      };
+    } catch (error) {
+      console.error('Error fetching product data:', error);
+      return {
+        title: 'Raalc', // fallback title in case of an error
+      };
+    }
+  }
 
 
 export async function generateStaticParams() {
@@ -15,21 +37,13 @@ export async function generateStaticParams() {
 
 const page = ({ params }) => {
     const { lang } = params;
-    console.log(lang)
   return (
    <>
        <div className="InnerPageBox1 absolute w-[22rem] h-[22rem] opacity-5 bg-primary left-0 top-[50%]"></div>
-    <div className="InnerPageBox2"></div>
-    <section className="innerPage1 relative py-10">
-        <div className="container mx-auto px-6 border-b-2 border-[#ddd] pb-6">
-            <div className="innerPage1_ w-[70%] mx-auto  text-center">
-                    <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">media gallery</h1>  
-            </div>
-        </div>
-    </section>
+    <div className="InnerPageBox2"></div>   
     <section className="gallery relative">
         <div className="container mx-auto">
-           <GalleryBox />
+           <GalleryBox lang={lang} />
         </div>
     </section>
    </>
