@@ -210,25 +210,16 @@ const Header = () => {
             <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book a <br /> Consultation</div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
-                {/* <div className="inputBox my-4">
-                <Field as="select" name="department" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
-                  <option value="">Select Department</option>
-                  <option value="red">Red</option>
-                  <option value="green">Green</option>
-                  <option value="blue">Blue</option>
-                </Field>
-              </div> */}
-
 <div className="inputBox my-4">
         <Field  name="name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
 </div>
 
 <div className="inputBox my-4">
-        <Field  name="email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Email"} ></Field>
+        <Field  name="email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
 </div>
 
 <div className="inputBox my-4">
-        <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Phone Number"} ></Field>
+        <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
 </div>
 
                 <div className="inputBox my-4">

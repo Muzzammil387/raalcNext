@@ -14,6 +14,7 @@ const Home = ({lang}) => {
     const { loading, data } = useFetch(`teams/${lang}`);
     const { loading:loading2, data:data2 } = useFetch(`departments/${lang}`);
     const { loading:loading3, data:data3 } = useFetch(`webContents/home/${lang}`);
+    const { loading:loading4, data:data4 } = useFetch(`news/index/${lang}`);
 
     
     return (
@@ -24,7 +25,7 @@ const Home = ({lang}) => {
            {!loading3 && <Section3 home={data3.data} />}
             {/* <BOD /> */}
             {(!loading && !loading3) && <Team team={data?.data} count={5} home={data3.data} />}
-           {!loading3 &&  <NEWS data={data3}  />}
+           {(!loading3 && !loading4) &&  <NEWS data={data3} news={data4?.data}  />}
             <Testimonials />
         </>
     )

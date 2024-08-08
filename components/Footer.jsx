@@ -3,6 +3,7 @@ import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import React, { useContext } from 'react'
 
 const Footer = () => {
@@ -154,6 +155,11 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
+    <Script
+        id="hs-script-loader"
+        src="//js-na1.hs-scripts.com/20189826.js"
+        strategy="lazyOnload"
+      />
   </div>
    </>
   )

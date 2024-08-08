@@ -57,14 +57,21 @@ const HeaderLanguage = () => {
     }
 
     // Add the new language segment
-    pathParts = ['', newLang, ...pathParts.slice(1)];
-    // if (newLang !== 'en') {
-    // } else {
-    //   pathParts = ['', ...pathParts.slice(1)];
-    // }
+    if (newLang !== 'en') {
+      pathParts = ['', newLang, ...pathParts.slice(1)];
+    } else {
+      pathParts = ['', ...pathParts.slice(1)];
+    }
     // Construct the new path
     const newPath = pathParts.join('/');
-    router.push(newPath);
+    console.log("muzzammil",newPath)
+    if(newPath) {
+      router.push(newPath);
+      
+    }
+    else {
+      router.push("/");
+    }
   };
 
   const menuItems = items.map(item => ({
@@ -76,8 +83,7 @@ const HeaderLanguage = () => {
   return (
     <Dropdown
       overlay={<Menu items={menuItems} />}
-      trigger={['click']}
-    >
+      trigger={['click']} >
       <a onClick={(e) => e.preventDefault()} className="btn btn-secondary bg-white py-2 px-4 flex gap-1 items-center">
         <Image className="w-5" src={svgrepo} alt="global-svgrepo-com.svg" />
         <span className="font-medium capitalize text-[.9rem] font-Mluvka">{selectedLanguage}</span>
