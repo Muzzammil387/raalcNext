@@ -18,12 +18,12 @@ const Home = ({lang}) => {
     
     return (
         <>
-            <Banner />
-            <AboutSection />
-           {!loading2 && <ServicesSection department={data2?.data} />}
-            <Section3 />
+           {!loading3 && <Banner data={data3.data} />}
+           {!loading3 && <AboutSection home={data3.data} />}
+           {(!loading2 && !loading3) && <ServicesSection department={data2?.data} home={data3.data} />}
+           {!loading3 && <Section3 home={data3.data} />}
             {/* <BOD /> */}
-            {!loading && <Team team={data?.data} count={5} />}
+            {(!loading && !loading3) && <Team team={data?.data} count={5} home={data3.data} />}
            {!loading3 &&  <NEWS data={data3}  />}
             <Testimonials />
         </>

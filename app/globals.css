@@ -536,7 +536,17 @@ transform: scaleY(1);
 }
 
 
+.newdetails h2 {
+  font-size: 1.7rem;
+}
 
+.newdetails h3 {
+  font-size: 1.4rem;
+}
+
+.newdetails h4 {
+  font-size: 1.3rem;
+}
 
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {

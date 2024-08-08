@@ -8,7 +8,8 @@ import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import { StringConvert } from '../StringConvert';
 
 
-const ServicesSection = ({department}) => {
+const ServicesSection = ({department,home}) => {
+  const {sec_three_header_one,sec_three_header_two,sec_three_paragraph} = home
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
 
@@ -21,14 +22,13 @@ const ServicesSection = ({department}) => {
     <section className="section2 overflow-hidden py-10 z-[2]">
       <div className="section2_heading w-[40%] mx-auto text-center">
         <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
-          Department
+          {sec_three_header_one}
         </div>
         <h2 className="font-MluvkaBold font-bold text-[3.125rem] uppercase leading-10 mb-5">
-          Community Service Department
+         {sec_three_header_two}
         </h2>
         <p>
-          Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus.
-          Faucibus purus in massa tempor nec feugiat. Imperdiet massa
+         {sec_three_paragraph}
         </p>
       </div>
       <div className="section2__bottom relative -right-24 mt-10 mb-5">

@@ -6,6 +6,19 @@ import dayjs from 'dayjs';
 import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
 
+
+
+const truncateText = (text, maxLength) => {
+  if(text) {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + '...';
+  }
+  return text;
+};
+
+
 const NewPage = ({lang}) => {
     const { loading, data } = useFetch(`events/index/${lang}`);
     if (loading) return ''  
@@ -27,6 +40,8 @@ const NewPage = ({lang}) => {
                 {  Array.isArray(data?.data) && data?.data.map((item,index) => {
               const {id,event_images,title,author_name,date,description} = item
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
+              const maxLength = 300;
+              const truncatedText = truncateText(description, maxLength);
               return (
               <div className="cardMain3Box " key={index}>
                 <div className="cardMain3Box__img">
@@ -37,7 +52,7 @@ const NewPage = ({lang}) => {
                     <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">{author_name}</span> <span className="font-bold">{formattedDate}</span></li>
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
-                  <p className="text-[.9rem] text-[#393946]">{StringConvert(description)}</p>
+                  <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
                   <Link href={`events/${id}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
                 </div>
             </div>

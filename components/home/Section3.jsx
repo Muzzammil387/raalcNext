@@ -3,7 +3,9 @@ import React, { useEffect, useRef } from 'react'
 import { Section3Image1 } from '@/app/untils/imgimport'
 import Image from 'next/image'
 
-const Section3 = () => {
+const Section3 = ({home}) => {
+
+  const {sec_four_image,sec_four_fact_one,sec_four_fact_one_title,sec_four_fact_two,sec_four_fact_two_title,sec_four_fact_three,sec_four_fact_three_title,sec_four_header_one,sec_four_paragraph} = home
   const counterSectionRef = useRef(null);
 
   useEffect(() => {
@@ -62,49 +64,44 @@ const Section3 = () => {
     <div className="container mx-auto">
       <div className="section2_ gap-16 py-32 max-lg:py-10 max-lg:gap-3 w-[85%] max-lg:w-full max-lg:text-center mx-auto grid justify-center items-center grid-cols-2">
         <div className="section2_left">
-          <h2 className="font-Mluvka font-bold text-[2.313rem] uppercase leading-[1]">Specialized legal assistance and judicial services</h2>
+          <h2 className="font-Mluvka font-bold text-[2.313rem] uppercase leading-[1]">{sec_four_header_one}</h2>
           <div className="section2_leftB mt-4">
          
-           <p className="text-[.9rem] text-[#393946]">Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Faucibus purus in massa tempor nec feugiat. Imperdiet massa tincidunt nunc pulvinar sapieSemper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Faucibus purus in massa tempor nec feugiat. Imperdiet massa tincidunt nunc pulvinar sapieSemper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Faucibus purus in massa tempor nec feugi</p>
+           <p className="text-[.9rem] text-[#393946]">{sec_four_paragraph}</p>
           </div>
 
           <ul ref={counterSectionRef} className="flex justify-center max-lg:flex-col max-lg:items-center gap-14 mt-10">
             <li>
               <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
-                <span className="counter transition-all ease-in-out duration-700" data-target="10"
-                  data-postfix="k+">10k+</span>
+                <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_one} data-postfix="k+">{sec_four_fact_one}k+</span>
                 <span></span>
               </div>
               <div className="h4 font-medium leading-4">
-                Matters <br />
-                served
+               {sec_four_fact_one_title}
               </div>
             </li>
             <li>
               <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
-                <span className="counter transition-all ease-in-out duration-700" data-target="30" data-postfix="">30</span>
+                <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_two} data-postfix="">{sec_four_fact_two}</span>
               </div>
               <div className="h4 font-medium leading-4">
-                Years Combined <br />
-                Experiance
+               {sec_four_fact_two_title}
               </div>
             </li>
             <li>
               <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
-                <span className="counter transition-all ease-in-out duration-700" data-target="50"
-                  data-postfix="+">50+</span>
+                <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_three} data-postfix="+">{sec_four_fact_three}+</span>
                 <span></span>
               </div>
               <div className="h4 font-medium leading-4">
-                Team Ever <br />
-                Growing
+               {sec_four_fact_three_title}
               </div>
             </li>
           </ul>
          </div>
         <div className="section2_right  relative">
           <div className="section2_right_  absolute border border-white rounded-[5rem] w-[17rem] h-[13rem] top-[-1rem] left-[-2rem]"></div>
-          <Image className="relative max-lg:mx-auto w-full" src={Section3Image1} alt="section2_right" />
+          <Image className="relative max-lg:mx-auto w-full" src={sec_four_image} width={10} height={10} alt="section2_right" />
         </div>
       </div>
     </div>

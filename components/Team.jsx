@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import useFetch from '@/app/customHooks/useFetch';
 
-const Team = ({team,count}) => {
-    // const { home } = useContext(MyHome);
+const Team = ({team,count,home}) => {
+  const {sec_four_fact_one,sec_four_fact_one_title,sec_four_fact_two,sec_four_fact_two_title,sec_four_fact_three,sec_four_fact_three_title,sec_four_header_one,sec_four_paragraph} = home
     const { langValue } = useContext(MainLanguageValueContext);
     const basePath = langValue === "en" ? '' : `${langValue}/`;
 
