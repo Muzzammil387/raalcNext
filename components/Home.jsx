@@ -22,9 +22,9 @@ const Home = ({lang}) => {
             <AboutSection />
            {!loading2 && <ServicesSection department={data2?.data} />}
             <Section3 />
-            <BOD />
+            {/* <BOD /> */}
             {!loading && <Team team={data?.data} count={5} />}
-           {!loading3 &&  <NEWS data={data3} />}
+           {!loading3 &&  <NEWS data={data3}  />}
             <Testimonials />
         </>
     )
