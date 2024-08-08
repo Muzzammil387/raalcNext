@@ -38,12 +38,12 @@ const Members = ({ data }) => {
             }}
             className="about4BodySwiper"
           >
-            {Object.keys(sec_five).map((key, index) => {
-              const { image } = sec_five[key];
+            {sec_five.map((item, index) => {
+              const { image } = item;
               return (
                 <SwiperSlide key={index}>
                   <div>
-                    <Image className="w-full" src={image} width={10} height={10} alt={`image-${index}`} />
+                    <Image className="w-full" src={image ?? ""} width={10} height={10} alt={`image-${index}`} />
                   </div>
                 </SwiperSlide>
               );

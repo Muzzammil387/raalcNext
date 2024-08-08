@@ -33,14 +33,15 @@ const CompanyHistory = ({ data }) => {
                                 onClick={showModal}
                             />
                             <Modal
-                                title="Video Title"
+                                title={data?.sec_three_heading_one}
                                 visible={isModalVisible}
                                 onCancel={handleCancel}
                                 footer={null}
+                                width={"70%"}
                             >
                                 <div className="video-container">
-                                    <video width="320" height="240" controls preload="none">
-                                        <source src="http://testingdigitaldmcc.com/raalc/raalc.mp4" type="video/mp4" />
+                                    <video className='w-full' width="320" height="240" controls preload="none">
+                                        <source src="http://raalc.testingdigitaldmcc.com/raalc.mp4" type="video/mp4" />
                                         <track
                                             src="/path/to/captions.vtt"
                                             kind="subtitles"
