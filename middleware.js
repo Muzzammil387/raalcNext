@@ -6,18 +6,18 @@ export async function middleware(req) {
   const { locales, defaultLocale } = i18n;
 
   // Check if the path is missing a locale
-  const pathnameIsMissingLocale =
-    path === "/" ||
-    locales.every(
-      (locale) => !path.startsWith(`/${locale}/`) && path !== `/${locale}`
-    );
+  // const pathnameIsMissingLocale =
+  //   path === "/" ||
+  //   locales.every(
+  //     (locale) => !path.startsWith(`/${locale}/`) && path !== `/${locale}`
+  //   );
 
-  // If missing locale, redirect to the path with default locale
-  if (pathnameIsMissingLocale) {
-    return NextResponse.redirect(
-      new URL(`/${defaultLocale}${path === "/" ? "" : path}`, req.url)
-    );
-  }
+  // // If missing locale, redirect to the path with default locale
+  // if (pathnameIsMissingLocale) {
+  //   return NextResponse.redirect(
+  //     new URL(`/${defaultLocale}${path === "/" ? "" : path}`, req.url)
+  //   );
+  // }
 
   // Extract the current locale from the path
   const currentLocale =
