@@ -548,6 +548,10 @@ transform: scaleY(1);
   font-size: 1.3rem;
 }
 
+.about4Body .swiper-wrapper {
+  align-items: center;
+}
+
 @media not all and (min-width: 1024px) {
   .s7BOxBottom_ {
     top: unset;
