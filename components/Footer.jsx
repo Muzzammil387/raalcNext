@@ -155,11 +155,7 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
-    <Script
-        id="hs-script-loader"
-        src="//js-na1.hs-scripts.com/20189826.js"
-        strategy="lazyOnload"
-      />
+
   </div>
    </>
   )

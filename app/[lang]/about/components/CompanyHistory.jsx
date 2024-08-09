@@ -42,12 +42,6 @@ const CompanyHistory = ({ data }) => {
                                 <div className="video-container">
                                     <video className='w-full' width="320" height="240" controls preload="none">
                                         <source src="http://raalc.testingdigitaldmcc.com/raalc.mp4" type="video/mp4" />
-                                        <track
-                                            src="/path/to/captions.vtt"
-                                            kind="subtitles"
-                                            srcLang="en"
-                                            label="English"
-                                        />
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
