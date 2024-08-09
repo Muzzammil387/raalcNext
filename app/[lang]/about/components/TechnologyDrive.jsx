@@ -49,7 +49,7 @@ const TechnologyDrive = ({data}) => {
           <div className="about5BodyBox">
             <div className="about5BodyBox_ w-[70%] mx-auto grid grid-cols-2 items-center gap-6">
               <div className="about5BodyBox_img">
-                <Image src={sec_sixActive?.image ?? ""} width={10} height={10} className="w-full max-h-[25rem] object-cover rounded-full" alt="" />
+                <Image src={sec_sixActive?.image ?? ""} width={10} height={10} className="w-full h-[25rem] max-h-[25rem] object-cover rounded-full" alt="" />
               </div>
               <div className="about5BodyBox_b text-white">
                 <p>{sec_sixActive?.description}</p>
