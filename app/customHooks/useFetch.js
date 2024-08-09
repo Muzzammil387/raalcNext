@@ -24,7 +24,7 @@ const useFetch = (url) => {
     try {
       const { data } = await http.get(`${config.apiEndPoint}${url}`, {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JhYWxjLnF1aWNrZGlnaXRhbHMuYWUvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzIzMjExMzM5LCJleHAiOjE3NTQ3NDczMzksIm5iZiI6MTcyMzIxMTMzOSwianRpIjoidEpCYTR4U2xLblBhUW1LbSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InN1cGVyX2FkbWluIn0.hmjiq-fZcMVfebQIdi_99VlDMFisZ0mS1KQazYRtq9A`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JhYWxjLnF1aWNrZGlnaXRhbHMuYWUvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzIzMjEyMTc4LCJleHAiOjE3NTQ3NDgxNzgsIm5iZiI6MTcyMzIxMjE3OCwianRpIjoiUXlqU1AwUUZ2T1JMWWdjNyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InN1cGVyX2FkbWluIn0.jLGRO68S4irp2EfkxZ-z550EPmAdUDVGW-OkGWuMr30`,
         },
       });
         setData(data);
