@@ -8,6 +8,7 @@ import Image from 'next/image';
 import useFetch from '@/app/customHooks/useFetch';
 import { StringConvert } from '@/components/StringConvert';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 const truncateText = (text, maxLength) => {
   if(text) {
@@ -83,7 +84,7 @@ const NewsInner = ({ lang, slug }) => {
 
           <div className="news2Main__right">
             {data?.latest_data.map((item) => {
-              const {id,author_name,date,news_images,title} = item
+              const {id,slug,author_name,date,news_images,title} = item
 
               const maxLength = 300;
               const truncatedText = truncateText(description, maxLength);
@@ -107,7 +108,7 @@ const NewsInner = ({ lang, slug }) => {
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
-                  <Link href={`news/${id}`} > Read More </Link>
+                  <Link href={`/news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' > Read More </Link>
                 </div>
               </div>
               )
