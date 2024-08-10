@@ -58,6 +58,10 @@ const nextConfig = {
         source: "/team/:path*",
         destination: "/en/team/:path*",
       },
+      {
+        source: "/services/:path*",
+        destination: "/en/services/:path*",
+      },
     ];
   },
 };

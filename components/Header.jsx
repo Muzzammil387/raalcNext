@@ -13,7 +13,7 @@ import { DatePicker } from 'antd';
 import { MainLanguageValueContext } from "@/app/context/MainLanguageValue";
 import { MainTeamContext } from "@/app/context/MainTeamContext";
 import useFetch from "@/app/customHooks/useFetch";
-
+import { useParams, useRouter } from "next/navigation";
 
 const { RangePicker } = DatePicker;
 
@@ -135,6 +135,12 @@ const Header = () => {
       handleTeamss(data?.data)
     }
   }, [loading])
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [window.location.href])
+  
 
   const initialValues = {
     department: "",
@@ -302,7 +308,7 @@ const Header = () => {
                                 {data.map((item2, index2) => {
                                   const { label } = item2
                                   return (
-                                    <li key={index2} className="flex gap-1 items-start my-2 relative"><Image className="relative top-[.2rem]" src={checkmark} alt="" /> <Link className="text-[.9rem]" href={""}>{label}</Link></li>
+                                    <li key={index2} className="flex gap-1 items-start my-2 relative"><Image className="relative top-[.2rem]" src={checkmark} alt="" /> <Link className="text-[.9rem]" href={`/${basePath}services/2`}>{label}</Link></li>
                                   )
                                 })}
                               </ul>

@@ -38,7 +38,7 @@ const NewPage = ({lang}) => {
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
                 {  Array.isArray(data?.data) && data?.data.map((item,index) => {
-              const {id,event_images,title,author_name,date,description} = item
+              const {id,slug,event_images,title,author_name,date,description} = item
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
               const maxLength = 300;
               const truncatedText = truncateText(description, maxLength);
@@ -53,7 +53,7 @@ const NewPage = ({lang}) => {
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
-                  <Link href={`events/${id}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
+                  <Link href={`events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
                 </div>
             </div>
             )

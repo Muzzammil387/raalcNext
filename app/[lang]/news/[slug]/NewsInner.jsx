@@ -24,6 +24,7 @@ const NewsInner = ({ lang, slug }) => {
   const { loading, data } = useFetch(`news/fetch/${slug}/${lang}`);
   if (loading) return ''  
   const {author_name,author_details,title,description,date} = data?.data
+  const formattedDate = dayjs(date).format('MMMM D, YYYY');
   return (
     <section className="news2 py-5">
       <div className="container mx-auto">
@@ -49,7 +50,7 @@ const NewsInner = ({ lang, slug }) => {
                         <div className="cardMain3Box__img">
                           <Image
                             src={item?.image}
-                            className="rounded-2xl w-full"
+                            className="rounded-2xl w-full max-h-[30rem] object-cover"
                             alt=""
                             width={500}
                             height={300}
@@ -62,7 +63,7 @@ const NewsInner = ({ lang, slug }) => {
               <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">
                 <ul className="list my-4">
                   <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary">
-                    <span>{author_name}</span> <span className="font-bold">{date}</span>
+                    <span>{author_name}</span> <span className="font-bold">{formattedDate}</span>
                   </li>
                 </ul>
                 <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
@@ -84,17 +85,17 @@ const NewsInner = ({ lang, slug }) => {
 
           <div className="news2Main__right">
             {data?.latest_data.map((item) => {
-              const {id,slug,author_name,date,news_images,title} = item
+              const {id,slug,author_name,date,news_images,title,description} = item
 
               const maxLength = 300;
-              const truncatedText = truncateText(description, maxLength);
+              const truncatedText2 = truncateText(description, maxLength);
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
               return (
                 <div className="cardMain3Box" key={id}>
                 <div className="cardMain3Box__img">
                   <Image
                     src={news_images[0]}
-                    className="rounded-2xl w-full"
+                    className="rounded-2xl w-full h-[20rem] object-cover"
                     alt=""
                     width={500}
                     height={300}
@@ -107,7 +108,7 @@ const NewsInner = ({ lang, slug }) => {
                     </li>
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
-                  <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
+                  <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</p>
                   <Link href={`/news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' > Read More </Link>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import ServicesPage from './[slug]/ServicesPage';
 
 export async function generateStaticParams() {
   // Define all possible language codes
@@ -12,9 +13,10 @@ export async function generateStaticParams() {
 
 const page = ({ params }) => {
   const { lang } = params;
-  console.log(lang)
   return (
-    <div>pafdsfsdafsdafsasfage</div>
+    <div>
+      dsfadasf
+    </div>
   )
 }
 
