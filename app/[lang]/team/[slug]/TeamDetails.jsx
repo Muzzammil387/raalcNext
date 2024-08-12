@@ -15,7 +15,7 @@ const TeamDetails = ({lang,slug}) => {
     <div className='container mx-auto'>
       <div className='teams grid grid-cols-[2fr,8fr] gap-10 items-center max-lg:grid-cols-1'>
         <div className='teams__left'>
-          <Image src={lowyer_image} className='w-full h-[35rem]  object-cover object-left-top rounded-[5rem]' width={10} height={10} alt='' />
+          <Image src={lowyer_image} className='w-full h-[35rem]  object-cover rounded-[5rem]' width={10} height={10} alt='' />
         </div>
         <div className='teams__Right'>
          <h1 className='font-MluvkaBold text-[4rem] uppercase leading-[1] max-lg:text-[2rem]'>{name}</h1>

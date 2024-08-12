@@ -1,13 +1,11 @@
 "use client"
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { MyHome } from '@/app/context/MyHomeContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
-import useFetch from '@/app/customHooks/useFetch';
 
-const Team = ({team,count,home}) => {
-  const {sec_four_fact_one,sec_four_fact_one_title,sec_four_fact_two,sec_four_fact_two_title,sec_four_fact_three,sec_four_fact_three_title,sec_four_header_one,sec_four_paragraph} = home
+const Team = ({team,count}) => {
     const { langValue } = useContext(MainLanguageValueContext);
     const basePath = langValue === "en" ? '' : `${langValue}/`;
 
@@ -22,7 +20,7 @@ const Team = ({team,count,home}) => {
       
       <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-3">
         {
-            teamm.map((item,index) => {
+          Array.isArray(teamm) && teamm.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[15rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
