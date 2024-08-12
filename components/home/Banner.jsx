@@ -22,7 +22,7 @@ const Banner = ({data}) => {
       </div>
     </div>
       <div
-        className="bannertxt max-lg:text-[2.438rem] w-[31rem] absolute top-[45%] transform translate-y-[-50%] text-center mx-auto left-0 right-0 text-white text-[3.75rem] leading-9">
+        className="bannertxt max-lg:text-[2.438rem] w-[80%] absolute top-[45%] transform translate-y-[-50%] text-center mx-auto left-0 right-0 text-white text-[3.75rem] leading-9">
         <span className="  uppercase leading-[.9]">{StringConvert(header_one)}</span>
       </div>
     </section>

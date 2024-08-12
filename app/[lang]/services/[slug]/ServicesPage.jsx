@@ -7,7 +7,7 @@ const ServicesPage = ({ lang, slug }) => {
   const { loading, data } = useFetch(`services/fetchPageContent/${slug}/${lang}`);
   if (loading) return ''
   const alldata = data.data
-  const { sec_two } = alldata
+  const { sec_two,sec_three } = alldata
   return (
     <>    <section className="innerPage1 py-10">
       <div className="container mx-auto px-6">
@@ -45,43 +45,27 @@ const ServicesPage = ({ lang, slug }) => {
         </div>
       </section>
 
-      
-
-      <section className="innerPage1 py-10">
-        <div className="container mx-auto px-6">
-          <div className="innerPage1_ grid grid-cols-2 gap-6">
-            <div className="innerPage1_Right">
-              <Image src="webImages/services/1.webp" className="w-full" width={10} height={10} alt="1.webp" />
-            </div>
-            <div className="innerPage1_img">
-              <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">Our Expertise <br />
-                Your Success</h1>
-              <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">We seek to become UAE’s first <br /> smart-law firm!</div>
-              <p className="text-[#393946]">RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel” …This profile is dedicated for complete A to Z legal assistance taking charge of promising legal haven of company operations.</p>
-              <br />
-              <p className="text-[#393946]">RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel” …This profile is dedicated for complete A to Z legal assistance taking charge of promising legal haven of company operations.RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <section className="innerPage1 py-10">
-        <div className="container mx-auto px-6">
-          <div className="innerPage1_ grid grid-cols-2 gap-6">
-            <div className="innerPage1_img">
-              <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">Our Expertise <br />
-                Your Success</h1>
-              <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">We seek to become UAE’s first <br /> smart-law firm!</div>
-              <p className="text-[#393946]">RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel” …This profile is dedicated for complete A to Z legal assistance taking charge of promising legal haven of company operations.</p>
-              <br />
-              <p className="text-[#393946]">RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel” …This profile is dedicated for complete A to Z legal assistance taking charge of promising legal haven of company operations.RAALC strongly accept as true the fact that a business needs constant support and assistance of a corporate lawyer. RAALC has formulated a profile “Your own Corporate Counsel</p>
-            </div>
-            <div className="innerPage1_Right">
-              <Image src="webImages/services/1.webp" className="w-full" width={10} height={10} alt="1.webp" />
+      {Array.isArray(sec_three) && sec_three.map((item,index) => {
+        const {image,heading_one,heading_two,description} = item
+        return (
+          <section className="innerPage1 py-10" key={index}>
+          <div className="container mx-auto px-6">
+            <div className="innerPage1_ grid grid-cols-2 gap-6">
+              <div className={`innerPage1_Right ${index%2 !== 0 ? "order-2": "max-lg:order-1"}`}>
+                <Image src={image} className="w-full h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
+              </div>
+              <div className={`innerPage1_img ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
+                <h3 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
+                <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">{heading_two}</div>
+                <p className="text-[#393946]">{description}</p>
+              </div>
+  
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        )
+      })}
+
 
 
 
