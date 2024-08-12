@@ -1,15 +1,12 @@
 
 import React from 'react'
 import GalleryBox from './GalleryBox';
-import config from "../../services/config.json";
 import axios from 'axios';
+import config from "../../services/config.json";
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
-    // read route params
     const { lang, slug } = params;
-   
-    // fetch data using Axios
     try {
       const response = await axios.get(`${config.apiEndPoint}webContents/gallery/${lang}`);
       const data = response.data;
