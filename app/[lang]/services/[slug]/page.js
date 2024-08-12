@@ -23,7 +23,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   }
 }
 
-
+ 
 export async function generateStaticParams() {
   // Define your static paths
   return [
