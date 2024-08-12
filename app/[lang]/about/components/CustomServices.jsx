@@ -55,7 +55,7 @@ const CustomServices = ({ data }) => {
                                     const { description, heading, image,btn_label } = item;
                                     return (
                                         <div key={index} className={`about3_MainrB ${(index === about3Active) ? "active" : ""}`}>
-                                            <div className="about3_Mainl overflow-hidden transition-all duration-700 text-white">
+                                            <div className="about3_Mainl overflow-hidden transition-all duration-700 text-white max-h-[36rem]">
                                                 <div className="h3 text-[2.75rem] uppercase leading-[1] font-bold mb-5 font-Mluvka">{heading}</div>
                                                 <p className="mb-8">{description}</p>
                                                 <Image className="w-[40rem] h-[15rem] rounded-full object-cover" src={image ?? ""} width={10} height={10} alt={heading} />

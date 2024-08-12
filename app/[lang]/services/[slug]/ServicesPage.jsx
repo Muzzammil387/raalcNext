@@ -1,20 +1,24 @@
 "use client"
 import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext';
-import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import useFetch from '@/app/customHooks/useFetch';
+import Faqs from '@/components/Faqs';
+import Laws from '@/components/Laws';
+import RelatedNews from '@/components/RelatedNews';
 import Team from '@/components/Team';
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 const ServicesPage = ({ lang, slug }) => {
-  const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
-  const { langValue } = useContext(MainLanguageValueContext);
-  const basePath = langValue === "en" ? '' : `${langValue}/`;
+  const { handleOpenModel } = useContext(MainBookingStatusContext);
   const { loading, data } = useFetch(`services/fetchPageContent/${slug}/${lang}`);
+
+
+  
+
   if (loading) return ''
   const alldata = data.data
-  const { sec_two,sec_three,sec_four,teams } = alldata
+  const { sec_two,sec_three,sec_four,teams,faqs,laws,news } = alldata
   return (
     <>    <section className="innerPage1 py-10">
       <div className="container mx-auto px-6">
@@ -73,10 +77,6 @@ const ServicesPage = ({ lang, slug }) => {
         )
       })}
 
-
-
-
-
       <section className="innerPage3 bg-[#FFF9F0] relative rounded-[5rem] text-center py-16">
         <div className="container mx-auto px-24">
           <div className="innerPage3_heading">
@@ -102,178 +102,9 @@ const ServicesPage = ({ lang, slug }) => {
         </div>
       </section>
      <Team team={teams} />
-
-      <section className="section7 rounded-[5rem] bg-[#F5F5F5] py-20 relative pr-14">
-        <div className="section6Heading   relative grid  grid-cols-[2.5fr,6.5fr] gap-3 items-start  ">
-          <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white faqss">FAQs</a>
-          <div className="grid  grid-cols-[1fr,auto] items-start">
-            <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">frequently asked <br /> questions</h3>
-            <Link href={`/${basePath}faq`} className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center py-2 mb-4 px-20">View All</Link>
-          </div>
-        </div>
-        <div className="section6Main mt-4 relative">
-        {/* {Array.isArray(news) && news.slice(0, 5).map((item,index) => {
-            return (
-              <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start" key={index}>
-              <div></div>
-              <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-                <div className="section6MainBoxc">
-                  <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">What types of cases does your firm handle?</span>
-                    <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                  </div>
-                  <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                    <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            )
-        })} */}
-        </div>
-      </section>
-      <section className="section7 py-20 relative pr-14">
-        <div className="section6Heading relative grid  grid-cols-[1.5fr,6.5fr] gap-3 items-start ">
-          <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white faqss">Laws</a>
-          <div className="grid  grid-cols-[1fr,auto] items-start">
-            <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">Laws</h3>
-            <a href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center py-2 mb-4 px-20">View All</a>
-          </div>
-        </div>
-        <div className="section6Main mt-4 relative">
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Decree Law No. 9 of 2016 Concerning Bankruptcy in the UAE</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Decree No. 26 of 2020 amending certain provisions of the Commercial Companies Law</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Law No. 2 of 2015 on Commercial Companies</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Law No. 24 of 2006 on Consumer Protection</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Law No. 18 of 1993 Commercial Transactions Law</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start">
-            <div></div>
-            <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
-              <div className="section6MainBoxc">
-                <div className="h4  cursor-pointer accordions py-2  grid grid-cols-[7fr,3fr] "><span className="leading-[1.1] font-Mluvka">Federal Law No. 37 of 1992 concerning Trademarks in the UAE</span>
-                  <Image src="webImages/arrow.svg" className="ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300" width={10} height={10} alt="" />
-                </div>
-                <div className="section6MainBoxcDOx overflow-hidden max-h-0 transition-all ease-in-out duration-300">
-                  <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">Our firm specializes in a variety of practice areas including personal injury, family law, criminal defense, business law, employment law, real estate law, and estate planning.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <section className="section8">
-        <div className="container mx-auto px-32">
-          <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold mb-8">Related Articles</h3>
-          <div className="cardMain3 gap-6 grid grid-cols-3">
-            <div className="cardMain3Box">
-              <div className="cardMain3Box__img">
-                <Image src="webImages/services2/1.webp" className="rounded-2xl w-full" width={10} height={10} alt="" />
-              </div>
-              <div className="cardMain3BoxBody">
-                <ul className="list my-4">
-                  <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">Ahmed K.</span> <span className="font-bold">April 29,2024</span></li>
-                </ul>
-                <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">ICCA 2024 Hong Kong: The Global Arena for Arbitration</div>
-                <p className="text-[.9rem] text-[#393946]">The International Council for Commercial Arbitration (ICCA) stands as a beacon of excellence in the realm of dispute resolution, fostering ...</p>
-                <a href="#" className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</a>
-              </div>
-            </div>
-            <div className="cardMain3Box">
-              <div className="cardMain3Box__img">
-                <Image src="webImages/services2/1.webp" className="rounded-2xl w-full" width={10} height={10} alt="" />
-              </div>
-              <div className="cardMain3BoxBody">
-                <ul className="list my-4">
-                  <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">Ahmed K.</span> <span className="font-bold">April 29,2024</span></li>
-                </ul>
-                <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">ICCA 2024 Hong Kong: The Global Arena for Arbitration</div>
-                <p className="text-[.9rem] text-[#393946]">The International Council for Commercial Arbitration (ICCA) stands as a beacon of excellence in the realm of dispute resolution, fostering ...</p>
-                <a href="#" className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</a>
-              </div>
-            </div>
-            <div className="cardMain3Box">
-              <div className="cardMain3Box__img">
-                <Image src="webImages/services2/1.webp" className="rounded-2xl w-full" width={10} height={10} alt="" />
-              </div>
-              <div className="cardMain3BoxBody">
-                <ul className="list my-4">
-                  <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">Ahmed K.</span> <span className="font-bold">April 29,2024</span></li>
-                </ul>
-                <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">ICCA 2024 Hong Kong: The Global Arena for Arbitration</div>
-                <p className="text-[.9rem] text-[#393946]">The International Council for Commercial Arbitration (ICCA) stands as a beacon of excellence in the realm of dispute resolution, fostering ...</p>
-                <a href="#" className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <Faqs data={faqs} />
+    <Laws data={laws} />
+    <RelatedNews data={news} />
     </>
   )
 }

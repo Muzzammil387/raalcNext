@@ -122,7 +122,7 @@ const Header = () => {
     },
   ]
   const { booking } = main
-  const { BeverageList, TimeSlot } = booking
+  const {  TimeSlot } = booking
   const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
   const [beverage, setBeverage] = useState(1)
   const [datas, setData] = useState({
@@ -201,10 +201,10 @@ const Header = () => {
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
-      <div className={`consModel  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
+      <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl">
-            <Image src={model1} className="w-full h-full object-cover" alt="" />
+            <Image src={model1} className="w-full max-h-[80vh] object-cover" alt="" />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
@@ -216,19 +216,26 @@ const Header = () => {
             <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book a <br /> Consultation</div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
-<div className="inputBox my-4">
+                <div className=" overflow-auto">
+                <div className="inputBox mb-4">
         <Field  name="name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
 </div>
-
-<div className="inputBox my-4">
+<div className="inputBox mb-4">
         <Field  name="email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
 </div>
 
-<div className="inputBox my-4">
+<div className="inputBox mb-4">
         <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
 </div>
+                <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
+                
 
-                <div className="inputBox my-4">
+
+<div className="inputBox">
+        <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Number of Attendance"} ></Field>
+</div>
+
+<div className="inputBox">
                   <Field as="select" name="consultant" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                     <option value="">choose consultant</option>
                     {teamss.map((item,index) => {
@@ -239,7 +246,7 @@ const Header = () => {
                     })}
                   </Field>
                 </div>
-                <div className="inputBox my-4">
+                <div className="inputBox">
                   <DatePicker
                     className="w-full border border-[#ddd] py-3 px-4 rounded-3xl outline-0"
                     disabledDate={disabledDate}
@@ -247,7 +254,7 @@ const Header = () => {
                     value={selectedDate}
                   />
                 </div>
-                <div className="inputBox my-4">
+                <div className="inputBox">
                   <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="slot" id="">
                     <option value="">Time Slot</option>
                     {
@@ -260,15 +267,34 @@ const Header = () => {
                     }
                   </Field>
                 </div>
-                <div className="inputBox my-4">
+                <div className="inputBox">
                 <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
-                    <option value="">Time Beverage</option>
-                    <option value="coffee">Coffee</option>
-                    <option value="tea">Tea</option>
-                    <option value="juice">Juice</option>
-                   
+                    <option value="">Beverage</option>
+                    <option value="Espresso">Espresso</option>
+                    <option value="Americano">Americano</option>
+                    <option value="Coffee Crema">Coffee Crema</option>
+                    <option value="Cappuccino">Cappuccino</option>
+                    <option value="Coffee Latte">Coffee Latte</option>
+                    <option value="Latte Macchiato">Latte Macchiato</option>
+                    <option value="Chocolate Milk">Chocolate Milk</option>
+                    <option value="Ice Americano">Ice Americano</option>
+                    <option value="Espresso with Milk">Espresso with Milk</option>
+                    <option value="Americano with Milk">Americano with Milk</option>
+                    <option value="Macchiato">Macchiato</option>
+                    <option value="Ice Coffee Latte">Ice Coffee Latte</option>
+                    <option value="Vanilla ice latte">Vanilla ice latte</option>
+                    <option value="Hazelnut latte">Hazelnut latte</option>
+                    <option value="Strawberry Smoothie">Strawberry Smoothie</option>
+                    <option value="4 seasons Juice">4 seasons Juice</option>
+                    <option value="Lemonade">Lemonade</option>
                   </Field>
                 </div>
+                </div>
+
+                </div>
+
+
+          
 
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Book Now</button>
               </Form>
