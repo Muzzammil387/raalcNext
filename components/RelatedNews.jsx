@@ -30,7 +30,7 @@ const RelatedNews = ({data}) => {
                 const maxLength = 300;
                 const truncatedText = truncateText(description, maxLength);
                 return (
-                    <div className="cardMain3Box">
+                    <div className="cardMain3Box" key={slug}>
                     <div className="cardMain3Box__img">
                       <Image src={news_images[0]} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
                     </div>

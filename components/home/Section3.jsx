@@ -11,30 +11,29 @@ const Section3 = ({home}) => {
   useEffect(() => {
     const counters = document.querySelectorAll(".counter");
     const speeds = 2000; // Speeds of animation in milliseconds
-
-    // Function to start counter animation
+  
     function startCounterAnimation() {
       counters.forEach((counter) => {
         const target = +counter.getAttribute("data-target");
-        const postfix = counter.getAttribute("data-postfix") || ""; // Get the postfix attribute value, default to empty string if not provided
-        const increment = Math.ceil(target / (speeds / 20)); // Calculate increment based on animation duration
-
+        const postfix = counter.getAttribute("data-postfix") || "";
+        const increment = Math.ceil(target / (speeds / 20));
+  
         let currentCount = 0;
-
+  
         const counterInterval = setInterval(() => {
           if (currentCount < target) {
             currentCount += increment;
             if (currentCount > target) {
-              currentCount = target; // Ensure that currentCount doesn't exceed target
+              currentCount = target;
             }
-            counter.textContent = currentCount + postfix; // Add postfix after counter value
+            counter.textContent = currentCount + postfix;
           } else {
             clearInterval(counterInterval);
           }
-        }, 30); // Update every 30 milliseconds for smoother animation
+        }, 30);
       });
     }
-
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,14 +47,16 @@ const Section3 = ({home}) => {
         threshold: 0.5,
       }
     );
-
-    if (counterSectionRef.current) {
-      observer.observe(counterSectionRef.current);
+  
+    const currentCounterSectionRef = counterSectionRef.current; // Copy ref to a variable
+  
+    if (currentCounterSectionRef) {
+      observer.observe(currentCounterSectionRef);
     }
-
+  
     return () => {
-      if (counterSectionRef.current) {
-        observer.unobserve(counterSectionRef.current);
+      if (currentCounterSectionRef) {
+        observer.unobserve(currentCounterSectionRef);
       }
     };
   }, []);
