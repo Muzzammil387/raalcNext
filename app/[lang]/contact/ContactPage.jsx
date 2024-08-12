@@ -18,8 +18,6 @@ const ContactPage = ({lang}) => {
             </div>
         </div>
     </section>
-
- 
     <section class="BRANCHES py-10">
       <div class="container mx-auto">
         <div class="BRANCHESheading text-center mb-10 relative">

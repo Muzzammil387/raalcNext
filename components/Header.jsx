@@ -352,6 +352,8 @@ const Header = () => {
               <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">Gallery</Link></li>
               <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">Contact Us</Link></li>
             </ul>
+
+            
             <div className="relative hidden header__centereng">
               <HeaderLanguage />
             </div>
