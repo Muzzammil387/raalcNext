@@ -70,9 +70,9 @@ const CompanyHistory = ({ data }) => {
                     <Swiper
                         modules={[Autoplay]}
                         slidesPerView={1}
-                        spaceBetween={0}
                         slidesPerGroupSkip={1}
                         slidesPerGroup={1}
+                        spaceBetween={20}
                         speed={1000}
                         pagination={{
                             el: ".swiper-pagination",
@@ -100,7 +100,7 @@ const CompanyHistory = ({ data }) => {
                                         <div className="h2 my-3 text-[1.375rem] capitalize font-bold font-Mluvka">
                                             {heading_one}
                                         </div>
-                                        <p>{description}</p>
+                                        <p className='max-[1400px]:text-[.9rem]'>{description}</p>
                                     </div>
                                 </SwiperSlide>
                             );
