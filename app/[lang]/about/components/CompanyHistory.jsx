@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -9,6 +9,7 @@ import { Modal } from 'antd';
 
 const CompanyHistory = ({ data }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const videoRef = useRef(null);
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -16,6 +17,9 @@ const CompanyHistory = ({ data }) => {
 
     const handleCancel = () => {
         setIsModalVisible(false);
+        if (videoRef.current) {
+            videoRef.current.pause(); // Pause the video when the modal is closed
+        }
     };
 
     const { sec_three } = data;
@@ -40,7 +44,7 @@ const CompanyHistory = ({ data }) => {
                                 width={"70%"}
                             >
                                 <div className="video-container">
-                                    <video className='w-full' width="320" height="240" controls preload="none">
+                                    <video ref={videoRef} className='w-full h-[60vh]' width="320" height="240" controls preload="none">
                                         <source src="http://raalc.testingdigitaldmcc.com/raalc.mp4" type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>

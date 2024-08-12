@@ -1,4 +1,27 @@
 import React from 'react'
+import ContactPage from './ContactPage';
+import config from "../../services/config.json";
+import axios from 'axios';
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const { lang, slug } = params;
+ 
+  // fetch data using Axios
+  try {
+    const response = await axios.get(`${config.apiEndPoint}webContents/contact/${lang}`);
+    const data = response.data;
+    return {
+      title: data?.data?.meta_tag || "Raalc About",
+      description: data?.data?.meta_description || "Raalc About",
+    };
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    return {
+      title: 'Raalc About', // fallback title in case of an error
+    };
+  }
+}
 
 export async function generateStaticParams() {
   // Define all possible language codes
@@ -12,9 +35,8 @@ export async function generateStaticParams() {
 
 const page = ({ params }) => {
   const { lang } = params;
-  console.log(lang)
   return (
-    <div>page</div>
+   <ContactPage lang={lang} />
   )
 }
 

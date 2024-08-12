@@ -13,7 +13,7 @@ const Members = ({ data }) => {
     <section className="about4 py-20">
       <div className="container mx-auto">
         <div className="about4heading w-[60%] mx-auto text-center mb-10">
-          <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
+          <div className="h6 text-[1.677rem] font-Mluvka tracking-[.7rem] uppercase text-[#4857db] opacity-35 mb-5">
             {data?.sec_five_heading_one}
           </div>
           <h2 className="font-MluvkaBold font-bold text-[3.125rem] uppercase leading-10">

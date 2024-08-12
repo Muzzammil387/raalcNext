@@ -13,8 +13,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const response = await axios.get(`${config.apiEndPoint}events/fetch/${slug}/${lang}`);
     const data = response.data;
     return {
-        title: data?.data?.meta_tag || "Raalc News",
-        description: data?.data?.meta_description || "Raalc News",
+        title: data?.data?.meta_tag || "Raalc Events",
+        description: data?.data?.meta_description || "Raalc Events",
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

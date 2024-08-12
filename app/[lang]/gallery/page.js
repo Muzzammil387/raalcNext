@@ -1,7 +1,8 @@
 
 import React from 'react'
 import GalleryBox from './GalleryBox';
-
+import config from "../../services/config.json";
+import axios from 'axios';
 
 
 export async function generateMetadata({ params, searchParams }, parent) {

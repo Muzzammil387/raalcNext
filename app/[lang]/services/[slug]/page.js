@@ -1,5 +1,7 @@
 import React from 'react'
 import ServicesPage from './ServicesPage';
+import axios from 'axios';
+import config from "../../../services/config.json";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -7,11 +9,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
  
   // fetch data using Axios
   try {
-    const response = await axios.get(`${config.apiEndPoint}teams/${slug}/${lang}`);
+    const response = await axios.get(`${config.apiEndPoint}services/fetchPageContent/${slug}/${lang}`);
     const data = response.data;
-    console.log(data?.data,"muzcxgdfgz")
     return {
-      title: data?.data?.name || "abc",
+      title: data?.data?.meta_tag || "Raalc Events",
+      description: data?.data?.meta_description || "Raalc Events",
     };
   } catch (error) {
     console.error('Error fetching product data:', error);
