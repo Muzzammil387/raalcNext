@@ -11,21 +11,18 @@ import Testimonials from './Testimonials';
 import Team from './Team';
 
 const Home = ({lang}) => {
-    const { loading, data } = useFetch(`teams/${lang}`);
-    const { loading:loading2, data:data2 } = useFetch(`departments/${lang}`);
-    const { loading:loading3, data:data3 } = useFetch(`webContents/home/${lang}`);
-    const { loading:loading4, data:data4 } = useFetch(`news/index/${lang}`);
+    const { loading, data } = useFetch(`webContents/home/pagecontent/7/${lang}`);
 
-    
+    if(loading) return '';
     return (
         <>
-           {!loading3 && <Banner data={data3.data} />}
-           {!loading3 && <AboutSection home={data3.data} />}
-           {(!loading2 && !loading3) && <ServicesSection department={data2?.data} home={data3.data} />}
-           {!loading3 && <Section3 home={data3.data} />}
+           { <Banner data={data.data} />}
+           { <AboutSection home={data.data} />}
+           { <ServicesSection department={data?.data?.departments} home={data.data} />}
+           { <Section3 home={data.data} />}
             {/* <BOD /> */}
-            {(!loading && !loading3) && <Team team={data?.data} count={5} home={data3.data} />}
-           {(!loading3 && !loading4) &&  <NEWS data={data3} news={data4?.data}  />}
+            {<Team team={data?.data?.teams} count={5} home={data.data} />}
+           { <NEWS  news={data?.data?.news}  />}
             <Testimonials />
         </>
     )

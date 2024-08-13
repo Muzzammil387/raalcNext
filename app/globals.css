@@ -552,7 +552,21 @@ transform: scaleY(1);
   align-items: center;
 }
 
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
+}
+
 @media not all and (min-width: 1024px) {
+
+  
+html {
+  font-size: 100%;
+}
+
+
   .s7BOxBottom_ {
     top: unset;
 }
@@ -737,13 +751,13 @@ transform: scaleY(1);
     height: 17rem;
   }
   .header__center {
-    display: block;
+    display: block !important;
     position: fixed;
     left: -150%;
     background: #fff;
     height: 100vh;
     top: 0;
-    width: 70%;
+    width: 70% !important;
     z-index: 99;
     transition: .5s;
     padding-top: 3rem;
@@ -1066,11 +1080,34 @@ display:block !important;
   max-width: 100%;
 }
 
+
+
+
+
+.header  li {
+  position: relative;
+}
+.servicesMenu  {
+  width:90vw;
+  padding: 1.2rem 1rem;
+  overflow: auto;
+  max-height: 35rem;
+}
+.servicesMenu-  {
+  columns: 1;
+}
+.servicesMenu- .h2 span {
+  width: 100%;
+}
+.header__center li:hover .servicesMenu {
+  top: 1.5rem;
+}
 }
 
 
 
 @media not all and (min-width: 461px) {
+
   .bannertxt  {
     font-size: 1.4rem;
     width: 80%;

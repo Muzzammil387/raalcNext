@@ -31,6 +31,16 @@ const Header = () => {
   const { loading, data } = useFetch(`teams/${langValue}`);
   const { handleTeamss, teamss } = useContext(MainTeamContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
+  const [mobleMenuActive, setMobleMenuActive] = useState("")
+
+  const handleMobile = () => {
+    setMobleMenuActive(true)
+  }
+  const handleMobileClose = () => {
+    setMobleMenuActive(false)
+  }
+
+
   const [menuActive, setMenuActive] = useState("")
   const Menu = [
     {
@@ -201,6 +211,7 @@ const Header = () => {
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
+      <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
       <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl">
@@ -216,7 +227,7 @@ const Header = () => {
             <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book a <br /> Consultation</div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
-                <div className=" overflow-auto">
+                <div className=" overflow-auto h-[42vh]">
                 <div className="inputBox mb-4">
         <Field  name="name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
 </div>
@@ -312,8 +323,8 @@ const Header = () => {
               <Image src={logo} className="w-[10.313rem]" alt="" />
             </Link>
           </div>
-          <nav className="max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit">
-            <div className="hidden close">X</div>
+          <nav className={`max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit ${mobleMenuActive ? "active" : ""}`}>
+            <div className="hidden close" onClick={() => handleMobileClose(false)}>X</div>
             <ul className="  flex gap-6    [&_a]:capitalize">
               <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">Home</Link></li>
               <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">about</Link></li>
@@ -364,7 +375,7 @@ const Header = () => {
             <div className="relative header__righeng">
               <HeaderLanguage />
             </div>
-            <div className="header__centernav hidden max-lg:block">
+            <div className={`header__centernav hidden max-lg:block  ${mobleMenuActive ? "active" : ""}`} onClick={handleMobile}>
               <Image src={burgerMenu} className="w-full" alt="" />
             </div>
           </div>

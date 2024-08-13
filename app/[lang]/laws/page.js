@@ -1,6 +1,6 @@
 
 import React from 'react'
-import FaqsPage from './FaqsPage';
+import LawsPage from './LawsPage';
 
 export async function generateStaticParams() {
   // Define all possible language codes
@@ -15,7 +15,7 @@ const page = ({ params }) => {
   const { lang } = params;
   return (
    <div className='NewPage'>
-    <FaqsPage lang={lang} />
+    <LawsPage lang={lang} />
    </div>
   )
 }

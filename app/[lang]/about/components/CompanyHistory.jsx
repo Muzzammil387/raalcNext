@@ -36,10 +36,10 @@ const CompanyHistory = ({ data }) => {
                                 alt="Play Button"
                                 onClick={showModal}
                             />
-                            <Modal
+                           { <Modal
                                 title={data?.sec_three_heading_one}
-                                visible={isModalVisible}
                                 onCancel={handleCancel}
+                                open={isModalVisible}
                                 footer={null}
                                 width={"70%"}
                             >
@@ -49,7 +49,7 @@ const CompanyHistory = ({ data }) => {
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                            </Modal>
+                            </Modal>}
                             <Image
                                 src={data?.sec_three_image}
                                 width={10}

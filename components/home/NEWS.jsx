@@ -27,7 +27,7 @@ const truncateText = (text, maxLength) => {
 
 
 
-const NEWS = ({data3,news}) => {
+const NEWS = ({news}) => {
   const [newsActive, setNewsActive] = useState("")
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;

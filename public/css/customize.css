@@ -43,13 +43,13 @@
   font-style: italic;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Mluvka-Light';
   src: url('./fonts/Mluvka-Light.woff2') format('woff2'),
       url('./fonts/Mluvka-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: 'Mluvka-ExtraBold';
@@ -107,16 +107,19 @@
   font-style: normal;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Mluvka-SemiBold';
   src: url('./fonts/Mluvka-SemiBold.woff2') format('woff2'),
       url('./fonts/Mluvka-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
+} */
+
+
+
+html {
+  font-size: 0.82vw;
 }
 
 
 
-/* html {
-  font-size: 1.17vw;
-} */
