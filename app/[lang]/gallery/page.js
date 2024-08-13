@@ -1,28 +1,30 @@
-
 import React from 'react'
+import config from "../../services/config.json";
+import axios from 'axios';
 import GalleryBox from './GalleryBox';
-// import axios from 'axios';
-// import config from "../../services/config.json";
 
 
-// export async function generateMetadata({ params, searchParams }, parent) {
-//     const { lang, slug } = params;
-//     try {
-//       const response = await axios.get(`${config.apiEndPoint}webContents/gallery/${lang}`);
-//       const data = response.data;
-//       return {
-//           title: data?.data?.meta_tag || "Raalc gallery",
-//           description: data?.data?.meta_description || "Raalc gallery",
-//       };
-//     } catch (error) {
-//       console.error('Error fetching product data:', error);
-//       return {
-//         title: 'Raalc', // fallback title in case of an error
-//       };
-//     }
-//   }
 
-
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const { lang, slug } = params;
+ 
+  // fetch data using Axios
+  try {
+    const response = await axios.get(`${config.apiEndPoint}webContents/aboutUs/${lang}`);
+    const data = response.data;
+    console.log(data?.data,"fhdasjfhdsajkfh")
+    return {
+      title: data?.data?.meta_tag || "Raalc About",
+      description: data?.data?.meta_description || "Raalc About",
+    };
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    return {
+      title: 'Raalc About', // fallback title in case of an error
+    };
+  }
+}
 export async function generateStaticParams() {
     // Define all possible language codes
     const languages = ['en', 'ar', 'ch', 'ru'];
@@ -32,19 +34,13 @@ export async function generateStaticParams() {
     
     return paths;
   }
-
-
-
-const page = () => {
+  
+  const page = ({ params }) => {
+    const { lang } = params;
   return (
-    <>
-       <div className="InnerPageBox1 absolute w-[22rem] h-[22rem] opacity-5 bg-primary left-0 top-[50%]"></div>
-    <div className="InnerPageBox2"></div>   
-    <section className="gallery relative">
-        <div className="container mx-auto">
-           <GalleryBox lang={lang} />
-        </div>
-    </section>
+   <>
+    <GalleryBox lang={lang} />
+   
    </>
   )
 }
