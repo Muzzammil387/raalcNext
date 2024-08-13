@@ -23,15 +23,15 @@ import GalleryBox from './GalleryBox';
 //   }
 
 
-// export async function generateStaticParams() {
-//     // Define all possible language codes
-//     const languages = ['en', 'ar', 'ch', 'ru'];
+export async function generateStaticParams() {
+    // Define all possible language codes
+    const languages = ['en', 'ar', 'ch', 'ru'];
     
-//     // Generate the paths for each language
-//     const paths = languages.map((lang) => ({ lang }));
+    // Generate the paths for each language
+    const paths = languages.map((lang) => ({ lang }));
     
-//     return paths;
-//   }
+    return paths;
+  }
 
 
 
