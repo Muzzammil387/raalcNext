@@ -7,26 +7,19 @@ import { burgerMenu, checkmark, downarrow, logo, model1, svgrepo } from '@/app/u
 import Lenis from 'lenis';
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import { Field, Form, Formik } from "formik";
-import { main } from "@/app/data/main";
 import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
 import { DatePicker } from 'antd';
 import { MainLanguageValueContext } from "@/app/context/MainLanguageValue";
 import { MainTeamContext } from "@/app/context/MainTeamContext";
 import useFetch from "@/app/customHooks/useFetch";
-import { useParams, useRouter } from "next/navigation";
+import usePost from "@/app/customHooks/usePost";
+import { toast } from "react-toastify";
+import swal from "sweetalert";
+import dayjs from 'dayjs';
 
-const { RangePicker } = DatePicker;
-
-const disabledDate = (current) => {
-  // Example of disabling specific dates: 2024-08-10 and 2024-08-20
-  const disabledDates = [
-    new Date('2024-08-10').toDateString(),
-    new Date('2024-08-20').toDateString(),
-  ];
-  return disabledDates.includes(current.toDate().toDateString());
-};
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
   const { loading, data } = useFetch(`teams/${langValue}`);
   const { handleTeamss, teamss } = useContext(MainTeamContext);
@@ -131,14 +124,7 @@ const Header = () => {
       data: []
     },
   ]
-  const { booking } = main
-  const {  TimeSlot } = booking
   const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
-  const [beverage, setBeverage] = useState(1)
-  const [datas, setData] = useState({
-    "disableSlot": [2, 10, 15, 16]
-  })
-  const { disableSlot } = datas
 
   useEffect(() => {
     if (data) {
@@ -150,12 +136,16 @@ const Header = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [window.location.href])
-  
+
 
   const initialValues = {
-    department: "",
-    slot: "",
-    date: ""
+    client_name: "",
+    client_email: "",
+    client_phone: "",
+    time_slot: "",
+    beverage: "",
+    number_of_attendees: "",
+    consultant_id: ""
   }
 
   useEffect(() => {
@@ -173,13 +163,60 @@ const Header = () => {
       lenis.destroy();  // Assuming Lenis has a destroy method
     };
   }, []);
-  const handleBeverage = (id) => {
-    console.log(id)
-    setBeverage(id)
-  }
+
+  const [res, apiMethod] = usePost()
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id"];
   const handleSubmit = async (values) => {
-    console.log(values)
+    let formdata = new FormData();
+    let requireFeildSwal = {
+      client_name: "Client Name",
+      client_email: "Client Email",
+      client_phone: "Client Phone",
+      time_slot: "Time Slot",
+      beverage: "Beverage",
+      number_of_attendees: "Number Of Attendees",
+      consultant_id: "Consultant Id",
+    };
+    formdata.append("meeting_date", selectedDate2);
+    let checkerRequried = [];
+    for (const item in values) {
+      if (requireFeild.includes(item) && values[item] === "") {
+        checkerRequried.push(requireFeildSwal[item]);
+      }
+      formdata.append(item, values[item]);
+    }
+    if(!selectedDate) {
+      checkerRequried.push("Date")
+    }
+    if (checkerRequried.length > 0) {
+      swal({
+        title: "Required Fields are empty! Please fill and try again",
+        text: checkerRequried.join(","),
+        icon: "error",
+        dangerMode: true,
+      });
+    }
+    else {
+      apiMethod(`booking/meetingStore/${langValue}`, formdata)
+    }
   }
+
+  useEffect(() => {
+    if (res.data) {
+      const { status, message } = res?.data
+      if (status === "false") {
+        toast.error(message);
+      }
+      else {
+        toast.success(message);
+        setSelectedDate("")
+        setSelectedDate2("")
+        handleOpenModel(false)
+      }
+    }
+  }, [res.data])
+
+
   const handleMenu = (event, item) => {
     event.stopPropagation();
     if (menuActive === item) {
@@ -201,122 +238,132 @@ const Header = () => {
     };
   }, []);
 
+  const disabledDate = (current) => {
+    // Disable all dates before today
+    return current && current <= dayjs().endOf('day');
+  };
 
+  const [timeSlots, setTimeSlots] = useState([])
+  const [res2, apiMethod2] = usePost()
   const onChange = (date, dateString) => {
     setSelectedDate(date);
-    console.log('Selected Date: ', dateString); // Logs the selected date as a string
+    setSelectedDate2(dateString);
+    let formdata = new FormData();
+    formdata.append("meeting_date", dateString);
+    apiMethod2(`timeSlots`, formdata)
   };
+  useEffect(() => {
+    if (res2.data) {
+      const { status, message } = res2?.data
+      if (status === "false") {
+        toast.error(message);
+      }
+      else {
+        setTimeSlots(res2.data.data)
+      }
+    }
+  }, [res2.data])
 
 
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
-      <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
+   {bookingModel &&   <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl">
-            <Image src={model1} className="w-full max-h-[80vh] object-cover" alt="" />
+            <Image src={model1} className="w-full max-h-[70vh] object-cover object-top" alt="" />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <div className="flex justify-between">
-
-          
-            <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book Meeting</div>
-            <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
-              <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+              <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book Meeting</div>
+              <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
+                <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
                 <div className=" overflow-auto h-[42vh]">
-                <div className="inputBox mb-4">
-        <Field  name="name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
-</div>
-<div className="inputBox mb-4">
-        <Field  name="email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
-</div>
+                  <div className="inputBox mb-4">
+                    <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
+                  </div>
+                  <div className="inputBox mb-4">
+                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
+                  </div>
 
-<div className="inputBox mb-4">
-        <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
-</div>
-                <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
-                
+                  <div className="inputBox mb-4">
+                    <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
+                  </div>
+                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
+                    <div className="inputBox">
+                      <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Number of Attendance"} ></Field>
+                    </div>
 
-
-<div className="inputBox">
-        <Field  name="tel" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Number of Attendance"} ></Field>
-</div>
-
-<div className="inputBox">
-                  <Field as="select" name="consultant" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
-                    <option value="">choose consultant</option>
-                    {teamss.map((item,index) => {
-                      const { id, name } = item
-                      return (
-                        <option value={id} key={index}>{name}</option>
-                      )
-                    })}
-                  </Field>
+                    <div className="inputBox">
+                      <Field as="select" name="consultant_id" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
+                        <option value="">choose consultant</option>
+                        {teamss.map((item, index) => {
+                          const { id, name } = item
+                          return (
+                            <option value={id} key={index}>{name}</option>
+                          )
+                        })}
+                      </Field>
+                    </div>
+                    <div className="inputBox">
+                      <DatePicker
+                        className="w-full border border-[#ddd] py-3 px-4 rounded-3xl outline-0"
+                        onChange={onChange}
+                        value={selectedDate}
+                        disabledDate={disabledDate}
+                      />
+                    </div>
+                    <div className="inputBox">
+                      <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="time_slot" id="">
+                        <option value="">Time Slot</option>
+                        {
+                          Array.isArray(timeSlots)&& timeSlots.map((item) => {
+                            const { id, time_slot,slot_status } = item
+                            return (
+                              <option key={id} value={id} disabled={slot_status === 1 ? true : false}>{time_slot}</option>
+                            )
+                          })
+                        }
+                      </Field>
+                    </div>
+                    <div className="inputBox">
+                      <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
+                        <option value="">Beverage</option>
+                        <option value="Espresso">Espresso</option>
+                        <option value="Americano">Americano</option>
+                        <option value="Coffee Crema">Coffee Crema</option>
+                        <option value="Cappuccino">Cappuccino</option>
+                        <option value="Coffee Latte">Coffee Latte</option>
+                        <option value="Latte Macchiato">Latte Macchiato</option>
+                        <option value="Chocolate Milk">Chocolate Milk</option>
+                        <option value="Ice Americano">Ice Americano</option>
+                        <option value="Espresso with Milk">Espresso with Milk</option>
+                        <option value="Americano with Milk">Americano with Milk</option>
+                        <option value="Macchiato">Macchiato</option>
+                        <option value="Ice Coffee Latte">Ice Coffee Latte</option>
+                        <option value="Vanilla ice latte">Vanilla ice latte</option>
+                        <option value="Hazelnut latte">Hazelnut latte</option>
+                        <option value="Strawberry Smoothie">Strawberry Smoothie</option>
+                        <option value="4 seasons Juice">4 seasons Juice</option>
+                        <option value="Lemonade">Lemonade</option>
+                      </Field>
+                    </div>
+                  </div>
                 </div>
-                <div className="inputBox">
-                  <DatePicker
-                    className="w-full border border-[#ddd] py-3 px-4 rounded-3xl outline-0"
-                    disabledDate={disabledDate}
-                    onChange={onChange}
-                    value={selectedDate}
-                  />
-                </div>
-                <div className="inputBox">
-                  <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="slot" id="">
-                    <option value="">Time Slot</option>
-                    {
-                      TimeSlot.map((item) => {
-                        const { id, label } = item
-                        return (
-                          <option key={id} value={id} disabled={disableSlot.includes(id)}>{label}</option>
-                        )
-                      })
-                    }
-                  </Field>
-                </div>
-                <div className="inputBox">
-                <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
-                    <option value="">Beverage</option>
-                    <option value="Espresso">Espresso</option>
-                    <option value="Americano">Americano</option>
-                    <option value="Coffee Crema">Coffee Crema</option>
-                    <option value="Cappuccino">Cappuccino</option>
-                    <option value="Coffee Latte">Coffee Latte</option>
-                    <option value="Latte Macchiato">Latte Macchiato</option>
-                    <option value="Chocolate Milk">Chocolate Milk</option>
-                    <option value="Ice Americano">Ice Americano</option>
-                    <option value="Espresso with Milk">Espresso with Milk</option>
-                    <option value="Americano with Milk">Americano with Milk</option>
-                    <option value="Macchiato">Macchiato</option>
-                    <option value="Ice Coffee Latte">Ice Coffee Latte</option>
-                    <option value="Vanilla ice latte">Vanilla ice latte</option>
-                    <option value="Hazelnut latte">Hazelnut latte</option>
-                    <option value="Strawberry Smoothie">Strawberry Smoothie</option>
-                    <option value="4 seasons Juice">4 seasons Juice</option>
-                    <option value="Lemonade">Lemonade</option>
-                  </Field>
-                </div>
-                </div>
-
-                </div>
-
-
-          
-
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Book Now</button>
               </Form>
             </Formik>
           </div>
         </div>
-      </div>
+      </div>}
 
 
 
@@ -368,7 +415,7 @@ const Header = () => {
               <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">Contact Us</Link></li>
             </ul>
 
-            
+
             <div className="relative hidden header__centereng">
               <HeaderLanguage />
             </div>

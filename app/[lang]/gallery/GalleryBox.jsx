@@ -25,16 +25,17 @@ const GalleryBox = ({lang}) => {
     </div>
 </section>
  <section className="gallery relative">
-        <div className="container mx-auto"></div>
+        <div className="container mx-auto">
     <div className="galleryMain grid grid-cols-3 gap-6">
         {data?.data?.gallery_images.map((item,index) => {
             const {image} = item
             return (
             <Link href={image} key={index} data-fancybox="gallery">
-                <Image src={image} className="w-full rounded-3xl h-[20rem] object-cover" width={500} height={500} loading="lazy" alt="portfolio-img" />
+                <Image src={image} className="w-full rounded-3xl h-[20rem] object-cover shadow-lg" width={500} height={500} loading="lazy" alt="portfolio-img" />
             </Link>
             )
         })}
+            </div>
             </div>
     </section>
     </>

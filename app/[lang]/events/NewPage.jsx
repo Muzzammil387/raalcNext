@@ -52,7 +52,7 @@ const NewPage = ({lang}) => {
                     <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">{author_name}</span> <span className="font-bold">{formattedDate}</span></li>
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
-                  <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
+                  <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
                   <Link href={`events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
                 </div>
             </div>

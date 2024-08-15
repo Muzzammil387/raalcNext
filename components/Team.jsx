@@ -39,7 +39,7 @@ const Team = ({team,count}) => {
 
       </div> 
     </div>
-    <Link href="/team" className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>Read More</Link>
+    <Link href="/team" className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>View All</Link>
   </section>
 
   )

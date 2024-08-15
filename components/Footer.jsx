@@ -1,3 +1,4 @@
+import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
 import { Field, Form, Formik } from 'formik'
@@ -7,6 +8,8 @@ import Script from 'next/script'
 import React, { useContext } from 'react'
 
 const Footer = () => {
+  const { langValue } = useContext(MainLanguageValueContext);
+  const basePath = langValue === "en" ? '' : `${langValue}/`;
   const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
   const initialValues = {
   }
@@ -35,15 +38,15 @@ const Footer = () => {
     </div>
     <div className="footer__topBox grid grid-cols-2 gap-3">
       <ul>
-           <li className="my-3"><a href="index.html" className="font-cormorant font-medium capitalize">Home</a></li>
-        <li className="my-3"><a href="about.html" className="font-cormorant font-medium capitalize">about</a></li>
-        <li className="my-3"><a href="services.html" className="font-cormorant font-medium capitalize">services</a></li>
-        <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">expertise</a></li>
+           <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">Home</Link></li>
+        <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-medium capitalize">about</Link></li>
+        {/* <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">services</Link></li> */}
+        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-medium capitalize">expertise</Link></li>
       </ul>
       <ul>
-        <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">diversity</a></li>
-        <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">legal library</a></li>
-        <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">Other Service</a></li>
+        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-medium capitalize">diversity</Link></li>
+        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-medium capitalize">legal library</Link></li>
+        {/* <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">Other Service</a></li> */}
       </ul>
     </div>
     <div className="footer__topBox">
