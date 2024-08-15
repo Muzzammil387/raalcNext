@@ -2,6 +2,7 @@
 import { Inter } from "next/font/google";
 import "../public/css/customize.css";
 import "./globals.css";
+import "./quill.css";
 import "./_arabic.css";
 import "../public/css/whatsapp.css";
 import "react-toastify/dist/ReactToastify.css";

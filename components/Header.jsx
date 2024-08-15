@@ -218,13 +218,17 @@ const Header = () => {
             <Image src={model1} className="w-full max-h-[80vh] object-cover" alt="" />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
+            <div className="flex justify-between">
+
+          
+            <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book Meeting</div>
             <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
               <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book a <br /> Consultation</div>
+            </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
                 <div className=" overflow-auto h-[42vh]">
