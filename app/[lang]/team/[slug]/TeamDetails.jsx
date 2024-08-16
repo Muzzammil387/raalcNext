@@ -7,7 +7,7 @@ import React, { useContext } from 'react'
 
 const TeamDetails = ({lang,slug}) => {
   const { handleOpenModel } = useContext(MainBookingStatusContext);
-    const { loading, data } = useFetch(`teams/${slug}/${lang}`);
+    const { loading, data } = useFetch(`teams/singleDetail/${slug}/${lang}`);
     if(loading) return ''
     const {name,designation,detail,lowyer_image,educations,memberships,practice_areas,skills} = data?.data
   return (

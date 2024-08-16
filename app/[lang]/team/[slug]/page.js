@@ -10,7 +10,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
  
   // fetch data using Axios
   try {
-    const response = await axios.get(`${config.apiEndPoint}teams/${slug}/${lang}`);
+    const response = await axios.get(`${config.apiEndPoint}teams/singleDetail/${slug}/${lang}`);
     const data = response.data;
     console.log(data?.data,"muzcxgdfgz")
     return {

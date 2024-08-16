@@ -36,9 +36,9 @@ const NewsInner = ({ lang, slug }) => {
                 modules={[Autoplay]}
                 slidesPerView={1}
                 spaceBetween={0}
-                speed={1000}
+                speed={2000}
                 autoplay={{
-                  delay: 2500,
+                  delay: 5000,
                   disableOnInteraction: false,
                 }}
                 className="about2BodySwiper"
