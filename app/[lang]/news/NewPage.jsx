@@ -1,10 +1,12 @@
 "use client"
 import useFetch from '@/app/customHooks/useFetch';
 import Image from 'next/image';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
+import { Pagination } from 'antd';
+import useGet from '@/app/customHooks/useGet';
 
 
 
@@ -20,8 +22,28 @@ const truncateText = (text, maxLength) => {
 
 
 const NewPage = ({lang}) => {
-    const { loading, data } = useFetch(`news/index/${lang}`);
+    const { loading, data } = useFetch(`news/index/${lang}/6?page=1`);
+const [datas, setDatas] = useState("")
+    useEffect(() => {
+    if(data) {
+      setDatas(data?.data)
+    }
+    }, [data])
+
+    
     const basePath = lang === "en" ? '' : `${lang}/`;
+    const [resget, apiMethodGet] = useGet()
+    useEffect(() => {
+      if(resget.data) {
+        setDatas(resget?.data?.data)
+      }
+      }, [resget.data])
+    const [currentPage, setCurrentPage] = useState(1);
+    const onChange = (current, pageSize) => {
+      setCurrentPage(current)
+      apiMethodGet(`news/index/${lang}/6?page=${current}`);
+    };
+
     if (loading) return ''  
 
     return (
@@ -39,7 +61,7 @@ const NewPage = ({lang}) => {
         <section className="section8 relative">
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
-                {  Array.isArray(data?.data) && data?.data.map((item,index) => {
+                {  Array.isArray(datas) && datas.map((item,index) => {
               const {id,slug,news_images,title,author_name,author_details,date,description} = item
               const maxLength = 300;
               const truncatedText = truncateText(description, maxLength);
@@ -63,29 +85,19 @@ const NewPage = ({lang}) => {
               </div>
     
     
-    
+              <div className='my-4'>
+                <Pagination
+                    onChange={onChange}
+                    defaultCurrent={currentPage}
+                    total={data?.pagination?.total}
+                    pageSize={6}
+                />
+            </div>
     
             
             </div>
           </section>
-      {/* <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={setPageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        breakClassName={'page-item'}
-        breakLinkClassName={'page-link'}
-        containerClassName={'pagination'}
-        pageClassName={'page-item'}
-        pageLinkClassName={'page-link'}
-        previousClassName={'page-item'}
-        previousLinkClassName={'page-link'}
-        nextClassName={'page-item'}
-        nextLinkClassName={'page-link'}
-        activeClassName={'active'} /> */}
+         
           </>
     )
 }

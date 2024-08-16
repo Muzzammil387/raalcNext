@@ -1,10 +1,12 @@
 "use client"
 import useFetch from '@/app/customHooks/useFetch';
 import Image from 'next/image';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
+import { Pagination } from 'antd';
+import useGet from '@/app/customHooks/useGet';
 
 
 
@@ -20,7 +22,28 @@ const truncateText = (text, maxLength) => {
 
 
 const NewPage = ({lang}) => {
-    const { loading, data } = useFetch(`events/index/${lang}`);
+    const { loading, data } = useFetch(`events/index/${lang}/6?page=1`);
+    const [datas, setDatas] = useState("")
+    useEffect(() => {
+    if(data) {
+      setDatas(data?.data)
+    }
+    }, [data])
+
+    const basePath = lang === "en" ? '' : `${lang}/`;
+    const [resget, apiMethodGet] = useGet()
+    useEffect(() => {
+      if(resget.data) {
+        setDatas(resget?.data?.data)
+      }
+      }, [resget.data])
+    const [currentPage, setCurrentPage] = useState(1);
+    const onChange = (current, pageSize) => {
+      setCurrentPage(current)
+      apiMethodGet(`events/index/${lang}/6?page=${current}`);
+    };
+
+    
     if (loading) return ''  
     return (
         <>
@@ -37,7 +60,7 @@ const NewPage = ({lang}) => {
         <section className="section8 relative">
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
-                {  Array.isArray(data?.data) && data?.data.map((item,index) => {
+                {  Array.isArray(datas) && datas.map((item,index) => {
               const {id,slug,event_images,title,author_name,date,description} = item
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
               const maxLength = 300;
@@ -53,7 +76,7 @@ const NewPage = ({lang}) => {
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
-                  <Link href={`events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
+                  <Link href={`/${basePath}events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
                 </div>
             </div>
             )
@@ -61,29 +84,18 @@ const NewPage = ({lang}) => {
               </div>
     
     
-    
+              <div className='my-4'>
+                <Pagination
+                    onChange={onChange}
+                    defaultCurrent={currentPage}
+                    total={data?.pagination?.total}
+                    pageSize={6}
+                />
+            </div>
     
             
             </div>
           </section>
-      {/* <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={setPageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        breakClassName={'page-item'}
-        breakLinkClassName={'page-link'}
-        containerClassName={'pagination'}
-        pageClassName={'page-item'}
-        pageLinkClassName={'page-link'}
-        previousClassName={'page-item'}
-        previousLinkClassName={'page-link'}
-        nextClassName={'page-item'}
-        nextLinkClassName={'page-link'}
-        activeClassName={'active'} /> */}
           </>
     )
 }

@@ -21,7 +21,7 @@ const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
-  const { loading, data } = useFetch(`teams/${langValue}`);
+  const { loading, data } = useFetch(`teams/${langValue}/100?page=1`);
   const { handleTeamss, teamss } = useContext(MainTeamContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const [mobleMenuActive, setMobleMenuActive] = useState("")

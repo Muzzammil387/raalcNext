@@ -553,6 +553,26 @@ transform: scaleY(1);
 }
 
 
+.ant-pagination-item-active {
+  background: #ceaf7f !important;
+  border-color: #ceaf7f !important;
+}
+
+li.ant-pagination-item a {
+color: #ceaf7f !important;
+}
+.ant-pagination-item.ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+
+
+ul.ant-pagination {
+  justify-content: center;
+  display: flex;
+}
+
+
 @media screen and (max-width: 1024px) {
   html {
     font-size: 100%;
