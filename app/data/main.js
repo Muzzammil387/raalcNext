@@ -108,4 +108,86 @@ export const main = {
       { id: 18, label: "5:30 PM to 6:00 PM" },
     ],
   },
+  
+};
+
+
+
+export const BeverageList = {
+  "en": [
+    { label: "Espresso" },
+    { label: "Americano" },
+    { label: "Coffee Crema" },
+    { label: "Cappuccino" },
+    { label: "Coffee Latte" },
+    { label: "Latte Macchiato" },
+    { label: "Chocolate Milk" },
+    { label: "Ice Americano" },
+    { label: "Espresso with Milk" },
+    { label: "Americano with Milk" },
+    { label: "Macchiato" },
+    { label: "Ice Coffee Latte" },
+    { label: "Vanilla Ice Latte" },
+    { label: "Hazelnut Latte" },
+    { label: "Strawberry Smoothie" },
+    { label: "4 Seasons Juice" },
+    { label: "Lemonade" },
+  ],
+  "ch": [
+    { label: "浓缩咖啡" }, // Espresso
+    { label: "美式咖啡" }, // Americano
+    { label: "咖啡克雷马" }, // Coffee Crema
+    { label: "卡布奇诺" }, // Cappuccino
+    { label: "咖啡拿铁" }, // Coffee Latte
+    { label: "拿铁玛奇朵" }, // Latte Macchiato
+    { label: "巧克力牛奶" }, // Chocolate Milk
+    { label: "冰美式咖啡" }, // Ice Americano
+    { label: "牛奶浓缩咖啡" }, // Espresso with Milk
+    { label: "牛奶美式咖啡" }, // Americano with Milk
+    { label: "玛奇朵" }, // Macchiato
+    { label: "冰拿铁" }, // Ice Coffee Latte
+    { label: "香草冰拿铁" }, // Vanilla Ice Latte
+    { label: "榛子拿铁" }, // Hazelnut Latte
+    { label: "草莓冰沙" }, // Strawberry Smoothie
+    { label: "四季果汁" }, // 4 Seasons Juice
+    { label: "柠檬水" }, // Lemonade
+  ],
+  "ar": [
+    { label: "إسبريسو" }, // Espresso
+    { label: "أمريكانو" }, // Americano
+    { label: "قهوة كريما" }, // Coffee Crema
+    { label: "كابتشينو" }, // Cappuccino
+    { label: "قهوة لاتيه" }, // Coffee Latte
+    { label: "لاتيه ماكياتو" }, // Latte Macchiato
+    { label: "حليب بالشوكولاتة" }, // Chocolate Milk
+    { label: "آيس أمريكانو" }, // Ice Americano
+    { label: "إسبريسو بالحليب" }, // Espresso with Milk
+    { label: "أمريكانو بالحليب" }, // Americano with Milk
+    { label: "ماكياتو" }, // Macchiato
+    { label: "آيس لاتيه" }, // Ice Coffee Latte
+    { label: "آيس لاتيه بالفانيليا" }, // Vanilla Ice Latte
+    { label: "لاتيه بالبندق" }, // Hazelnut Latte
+    { label: "عصير الفراولة" }, // Strawberry Smoothie
+    { label: "عصير الفصول الأربعة" }, // 4 Seasons Juice
+    { label: "ليمونادة" }, // Lemonade
+  ],
+  "ru": [
+    { label: "Эспрессо" }, // Espresso
+    { label: "Американо" }, // Americano
+    { label: "Кофе Крема" }, // Coffee Crema
+    { label: "Капучино" }, // Cappuccino
+    { label: "Кофе Латте" }, // Coffee Latte
+    { label: "Латте Макиато" }, // Latte Macchiato
+    { label: "Шоколадное Молоко" }, // Chocolate Milk
+    { label: "Ледяной Американо" }, // Ice Americano
+    { label: "Эспрессо с Молоком" }, // Espresso with Milk
+    { label: "Американо с Молоком" }, // Americano with Milk
+    { label: "Макиато" }, // Macchiato
+    { label: "Ледяной Кофе Латте" }, // Ice Coffee Latte
+    { label: "Ванильный Ледяной Латте" }, // Vanilla Ice Latte
+    { label: "Латте с Лесным Орехом" }, // Hazelnut Latte
+    { label: "Клубничный Смузи" }, // Strawberry Smoothie
+    { label: "Сок 4 Сезона" }, // 4 Seasons Juice
+    { label: "Лимонад" }, // Lemonade
+  ],
 };

@@ -16,6 +16,7 @@ import usePost from "@/app/customHooks/usePost";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
 import dayjs from 'dayjs';
+import { BeverageList } from "@/app/data/main";
 
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -337,23 +338,15 @@ const Header = () => {
                     <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
                         <option value="">Beverage</option>
-                        <option value="Espresso">Espresso</option>
-                        <option value="Americano">Americano</option>
-                        <option value="Coffee Crema">Coffee Crema</option>
-                        <option value="Cappuccino">Cappuccino</option>
-                        <option value="Coffee Latte">Coffee Latte</option>
-                        <option value="Latte Macchiato">Latte Macchiato</option>
-                        <option value="Chocolate Milk">Chocolate Milk</option>
-                        <option value="Ice Americano">Ice Americano</option>
-                        <option value="Espresso with Milk">Espresso with Milk</option>
-                        <option value="Americano with Milk">Americano with Milk</option>
-                        <option value="Macchiato">Macchiato</option>
-                        <option value="Ice Coffee Latte">Ice Coffee Latte</option>
-                        <option value="Vanilla ice latte">Vanilla ice latte</option>
-                        <option value="Hazelnut latte">Hazelnut latte</option>
-                        <option value="Strawberry Smoothie">Strawberry Smoothie</option>
-                        <option value="4 seasons Juice">4 seasons Juice</option>
-                        <option value="Lemonade">Lemonade</option>
+                        {
+                          BeverageList[langValue].map((item,index) => {
+                            const {label} = item
+
+                            return (
+                              <option key={index} value={label}>{label}</option>
+                            )
+                          })
+                        }
                       </Field>
                     </div>
                   </div>
