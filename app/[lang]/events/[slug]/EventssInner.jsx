@@ -51,7 +51,7 @@ const NewsInner = ({ lang, slug }) => {
                         <div className="cardMain3Box__img">
                           <Image
                             src={item?.image}
-                            className="rounded-2xl w-full max-h-[30rem] object-cover"
+                            className="rounded-2xl w-full  object-cover"
                             alt=""
                             width={500}
                             height={300}
