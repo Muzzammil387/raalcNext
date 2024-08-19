@@ -1,14 +1,34 @@
 "use client"
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import useFetch from '@/app/customHooks/useFetch';
+import useGet from '@/app/customHooks/useGet';
+import { Pagination } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 const TeamMain = ({lang}) => {
         const { loading, data } = useFetch(`teams/${lang}/8?page=1`);
         const { langValue } = useContext(MainLanguageValueContext);
         const basePath = langValue === "en" ? '' : `${langValue}/`;
+        const [datas, setDatas] = useState("")
+    useEffect(() => {
+    if(data) {
+      setDatas(data?.data)
+    }
+    }, [data])
+        const [resget, apiMethodGet] = useGet()
+        useEffect(() => {
+          if(resget.data) {
+            setDatas(resget?.data?.data)
+          }
+          }, [resget.data])
+        const [currentPage, setCurrentPage] = useState(1);
+        const onChange = (current, pageSize) => {
+          setCurrentPage(current)
+          apiMethodGet(`teams/${lang}/8?page=${current}`);
+        };
+    
     if(loading) return ''
   return (
     <>
@@ -24,7 +44,7 @@ const TeamMain = ({lang}) => {
     <div className="container mx-auto px-20 max-lg:px-0">
       <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-3">
         {
-            Array.isArray(data?.data) && data?.data.map((item,index) => {
+            Array.isArray(datas) && datas.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
@@ -42,6 +62,14 @@ const TeamMain = ({lang}) => {
       
 
       </div> 
+      <div className='my-4'>
+                <Pagination
+                    onChange={onChange}
+                    defaultCurrent={currentPage}
+                    total={data?.pagination?.total}
+                    pageSize={8}
+                />
+            </div>
     </div>
   </section>
     </>
