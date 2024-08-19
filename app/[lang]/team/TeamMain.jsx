@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useContext } from 'react'
 
 const TeamMain = ({lang}) => {
-        const { loading, data } = useFetch(`teams/${lang}8?page=1`);
+        const { loading, data } = useFetch(`teams/${lang}/8?page=1`);
         const { langValue } = useContext(MainLanguageValueContext);
         const basePath = langValue === "en" ? '' : `${langValue}/`;
     if(loading) return ''
