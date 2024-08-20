@@ -1,11 +1,11 @@
+
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
-import Script from 'next/script'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 const Footer = () => {
   const { langValue } = useContext(MainLanguageValueContext);
@@ -13,6 +13,7 @@ const Footer = () => {
   const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
   const initialValues = {
   }
+
   const handleSubmit = (values) => {
     console.log(values)
   }
@@ -28,6 +29,7 @@ const Footer = () => {
       </div>
       </div>
     </div>
+    <div id="BookReader"></div>
   <div className="footer__top relative">
     <div className="container mx-auto px-14 grid grid-cols-[1.2fr,1.4fr,.8fr] gap-10 max-lg:grid-cols-1">
     <div className="footer__topBox">
@@ -51,7 +53,7 @@ const Footer = () => {
     </div>
     <div className="footer__topBox">
       <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleReachUsOpenModel(true)}>Get a Quote</Link>
-      <a href="#" className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">Download Our Company Profile</a>
+      <Link target='_blank' href="https://www.raalc.ae/wp-content/uploads/2024/08/RAALC-ID-Small.pdf" className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">Download Our Company Profile</Link>
       <br />
       <div className="flex gap-2">
         <div className="h6 font-cormorant font-bold text-[1.2rem]">Connect with us</div>
