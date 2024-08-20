@@ -453,9 +453,7 @@ transform: rotate(180deg);
   padding-top: 3rem;
   margin-top: -2rem;
 }
-.container {
-  max-width: 94%;
-}
+
 
 .inputBox select {
   appearance: none;
@@ -573,18 +571,29 @@ ul.ant-pagination {
 }
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1600px) {
+  .container {
+    padding: 0 3rem;
+  }
   html {
     font-size: 100%;
+  }
+  .aboutMain  {
+    gap: 2rem;
+  }
+  .aboutMain__left p,
+  .aboutMain__right p {
+    font-size: .9rem;
+  }
+  .about3_Mainr {
+    width: 100%;
   }
 }
 
 @media not all and (min-width: 1024px) {
 
   
-html {
-  font-size: 100%;
-}
+
 
 
   .s7BOxBottom_ {

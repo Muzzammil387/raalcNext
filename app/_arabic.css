@@ -1,34 +1,34 @@
 
-body.Ar {
+body.ar {
   direction: rtl;
 }
 
-body.Ar .bannertxt2  {
+body.ar .bannertxt2  {
   left: auto;
   right: 9rem;
 }
-body.Ar span::after {
+body.ar span::after {
   left: auto;
   right: -1rem;
 }
-body.Ar .sample-slider,
-body.Ar .bannerRight,
-body.Ar .about2BodySwiper,
-body.Ar .bannerImg,
-body.Ar .section7mySwiper  {
+body.ar .sample-slider,
+body.ar .bannerRight,
+body.ar .about2BodySwiper,
+body.ar .bannerImg,
+body.ar .section7mySwiper  {
   direction: ltr;
 }
-body.Ar .section6btn,
-body.Ar .close svg,
-body.Ar .accordions img   {
+body.ar .section6btn,
+body.ar .close svg,
+body.ar .accordions img   {
   margin-left: 0;
   margin-right: auto;
 }
 
-body.Ar .consModelMainr .h4  {
+body.ar .consModelMainr .h4  {
   padding-right: 1rem;
 }
-body.Ar .consModelMainr .h4::before  {
+body.ar .consModelMainr .h4::before  {
   right: 0;
   left: auto;
 }

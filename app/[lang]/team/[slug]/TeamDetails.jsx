@@ -9,7 +9,7 @@ const TeamDetails = ({lang,slug}) => {
   const { handleOpenModel } = useContext(MainBookingStatusContext);
     const { loading, data } = useFetch(`teams/singleDetail/${slug}/${lang}`);
     if(loading) return ''
-    const {name,designation,detail,lowyer_image,educations,memberships,practice_areas,skills} = data?.data
+    const {name,designation,detail,lowyer_image,educations,memberships,practice_areas,skills,qr_code_image} = data?.data
   return (
     <div className='teampage py-24 max-lg:py-6'>
     <div className='container mx-auto'>
@@ -20,10 +20,11 @@ const TeamDetails = ({lang,slug}) => {
         <div className='teams__Right'>
          <h1 className='font-MluvkaBold text-[4rem] uppercase leading-[1] max-lg:text-[2rem]'>{name}</h1>
          <h2 className='leading-[1]  text-secondary text-[1.3rem]'>{designation}</h2>
-         <div className=' mt-4 w-[90%] max-lg:w-full'>{StringConvert(detail)}</div>
+         <div className=' mt-4  max-lg:w-full'>{StringConvert(detail)}</div>
         </div>
       </div>
-      <div className='TeamFooter mt-14 mx-auto grid grid-cols-2 gap-5 max-lg:grid-cols-1'>
+      
+      <div className='TeamFooter mt-14  mx-auto grid grid-cols-2 gap-5 max-lg:grid-cols-1'>
       <div className="TeamFooterBox">
         <h3 className='text-secondary text-[1.4rem]'>EDUCATION</h3>
         <ul className='list'>
@@ -68,6 +69,11 @@ const TeamDetails = ({lang,slug}) => {
           </ul>
         </div>
       </div>
+      <br />
+      <hr />
+     {qr_code_image && <div className='  pt-5'>
+        <Image className='w-[10rem]' src={qr_code_image ?? ""} alt='dfg' width={0} height={0} />
+      </div>}
         <button onClick={() => handleOpenModel(true)} className="mt-10 btn btn-primary w-fit cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">Book a Consultation</button>
     </div>
   </div>

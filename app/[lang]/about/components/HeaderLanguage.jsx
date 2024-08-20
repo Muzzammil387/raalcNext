@@ -34,10 +34,10 @@ const HeaderLanguage = () => {
   useEffect(() => {
     // Update the body class whenever selectedLanguage changes
     if (selectedLanguage) {
-      document.body.classList.add(selectedLanguage);
+      document.body.classList.add(selectedLanguage.toLowerCase());
       // Clean up by removing the class when the component unmounts or selectedLanguage changes
       return () => {
-        document.body.classList.remove(selectedLanguage);
+        document.body.classList.remove(selectedLanguage.toLowerCase());
       };
     }
   }, [selectedLanguage]);
@@ -64,7 +64,6 @@ const HeaderLanguage = () => {
     }
     // Construct the new path
     const newPath = pathParts.join('/');
-    console.log("muzzammil",newPath)
     if(newPath) {
       router.push(newPath);
       
