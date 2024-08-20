@@ -22,6 +22,7 @@ const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
+  const { loading: loading2, data: data2 } = useFetch(`servicescategory/services_relates_category/${langValue}`);
   const { loading, data } = useFetch(`teams/${langValue}/100?page=1`);
   const { handleTeamss, teamss } = useContext(MainTeamContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
@@ -36,95 +37,7 @@ const Header = () => {
 
 
   const [menuActive, setMenuActive] = useState("")
-  const Menu = [
-    {
-      title: "Corporate Structuring and Governance",
-      data: [
-        {
-          label: "Business Structuring Services"
-        },
-        {
-          label: "Corporate Governance Framework"
-        },
-        {
-          label: "Holding Company Setup"
-        },
-        {
-          label: "Corporate Governance Review and Advisory"
-        },
-        {
-          label: "Partnership and Shareholder Agreements"
-        },
-      ]
-    },
-    {
-      title: "Legal Investigation and Support",
-      data: [
-        {
-          label: "Corporate Governance Review and Advisory"
-        },
-        {
-          label: "Partnership and Shareholder Agreements"
-        },
-      ]
-    },
-    {
-      title: "Banking & Finance",
-      data: []
-    },
-    {
-      title: "Oil & Gas",
-      data: []
-    },
-    {
-      title: "Regulatory and Compliance Services",
-      data: []
-    },
-    {
-      title: "Employment and Laboure Services",
-      data: []
-    },
-    {
-      title: "Maritime",
-      data: []
-    },
-    {
-      title: "Aviation",
-      data: []
-    },
-    {
-      title: "Restructuring and Insolvency",
-      data: []
-    },
-    {
-      title: "Real Estate Legal Services",
-      data: []
-    },
-    {
-      title: "DIFC",
-      data: []
-    },
-    {
-      title: "Construction",
-      data: []
-    },
-    {
-      title: "Intellectual Property (IP) Services",
-      data: []
-    },
-    {
-      title: "Arbitration & Mediation",
-      data: []
-    },
-    {
-      title: "Information & Technology",
-      data: []
-    },
-    {
-      title: "Medical Negligence",
-      data: []
-    },
-  ]
+
   const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
 
   useEffect(() => {
@@ -186,7 +99,7 @@ const Header = () => {
       }
       formdata.append(item, values[item]);
     }
-    if(!selectedDate) {
+    if (!selectedDate) {
       checkerRequried.push("Date")
     }
     if (checkerRequried.length > 0) {
@@ -270,7 +183,7 @@ const Header = () => {
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
-   {bookingModel &&   <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
+      {bookingModel && <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl">
             <Image src={model1} className="w-full max-h-[70vh] object-cover object-top" alt="" />
@@ -326,8 +239,8 @@ const Header = () => {
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="time_slot" id="">
                         <option value="">Time Slot</option>
                         {
-                          Array.isArray(timeSlots)&& timeSlots.map((item) => {
-                            const { id, time_slot,slot_status } = item
+                          Array.isArray(timeSlots) && timeSlots.map((item) => {
+                            const { id, time_slot, slot_status } = item
                             return (
                               <option key={id} value={id} disabled={slot_status === 1 ? true : false}>{time_slot}</option>
                             )
@@ -339,8 +252,8 @@ const Header = () => {
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
                         <option value="">Beverage</option>
                         {
-                          BeverageList[langValue].map((item,index) => {
-                            const {label} = item
+                          BeverageList[langValue].map((item, index) => {
+                            const { label } = item
 
                             return (
                               <option key={index} value={label}>{label}</option>
@@ -375,29 +288,32 @@ const Header = () => {
               <li><Link href={`#`} className="font-bold font-cormorant text-lg">services</Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 ">
                   <div className="servicesMenu-  columns-4 gap-4">
-                    {Menu.map((item, index) => {
-                      const { title, data } = item
+                    {!loading2 &&  data2.data && Object.keys(data2.data).map((item, index) => {
                       return (
                         <div className="servicesMenu-BOx my-3 relative" key={index}>
                           <div className="h2 flex gap-3 items-start">
-                            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{title}</span>
-                            {data.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, title)} src={downarrow} alt="" />}
+                            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
+                            { data2.data[item]?.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, item)} src={downarrow} alt="" />}
                           </div>
-                          {data.length > 0 &&
-                            <div className={`innerMenu  ${menuActive === title ? "active" : ""}`}>
-                              <ul className={`innerMenu_  relative`}>
-                                {data.map((item2, index2) => {
-                                  const { label } = item2
+                          { data2.data[item].length > 0 &&
+                            <div className={`innerMenu ${menuActive === item ? "active" : ""}`}>
+                              <ul className={`innerMenu_ relative`}>
+                                {data2?.data[item].map((item2, index2) => {
+                                  const { service_title, id } = item2;
                                   return (
-                                    <li key={index2} className="flex gap-1 items-start my-2 relative"><Image className="relative top-[.2rem]" src={checkmark} alt="" /> <Link className="text-[.9rem]" href={`/${basePath}services/2`}>{label}</Link></li>
-                                  )
+                                    <li key={index2} className="flex gap-1 items-start my-2 relative">
+                                      <Image className="relative top-[.2rem]" src={checkmark} alt="" />
+                                      <Link className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
+                                    </li>
+                                  );
                                 })}
                               </ul>
                             </div>
                           }
                         </div>
-                      )
+                      );
                     })}
+
                   </div>
                 </div>
 

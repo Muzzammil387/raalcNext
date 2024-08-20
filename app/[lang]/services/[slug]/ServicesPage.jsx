@@ -29,7 +29,7 @@ const ServicesPage = ({ lang, slug }) => {
             <p className="text-[#393946]">{alldata?.sec_one_description}</p>
           </div>
           <div className="innerPage1_Right">
-            <Image src={alldata?.sec_one_image} className="w-full max-h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
+            <Image src={alldata?.sec_one_image ?? ""} className="w-full max-h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ const ServicesPage = ({ lang, slug }) => {
               return (
                 <div className="card2" key={index}>
                   <div className="card2_img sadsad">
-                    <Image className="w-full object-cover h-[13.438rem] rounded-3xl   " src={image} width={10} height={10} alt="" />
+                    <Image className="w-full object-cover h-[13.438rem] rounded-3xl   " src={image ?? ""} width={10} height={10} alt="" />
                   </div>
                   <div className="card2_Body text-center">
                     <div className="h4 capitalize font-bold font-Mluvka text-[2rem]">{heading}</div>
@@ -63,7 +63,7 @@ const ServicesPage = ({ lang, slug }) => {
           <div className="container mx-auto px-6">
             <div className="innerPage1_ grid grid-cols-2 gap-6">
               <div className={`innerPage1_Right ${index%2 !== 0 ? "order-2": "max-lg:order-1"}`}>
-                <Image src={image} className="w-full h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
+                <Image src={image ?? ""} className="w-full h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
               </div>
               <div className={`innerPage1_img ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
                 <h3 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
