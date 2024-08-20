@@ -493,13 +493,15 @@ transform: rotate(180deg);
 .innerMenu {
   transition: .5s;
   transform-origin: top;
-  height: 0;
+ transform: scaleY(0);
   overflow: hidden;
   /* background: rgba(255, 255, 255, 100); */
   /* backdrop-filter: blur(40px);
   filter: drop-shadow(15px 15px 40px rgba(0, 0, 0, 0.4)); */
   z-index: 9;
   border-radius: 1rem;
+  transition: .3s;
+  height: 0;
 }
 .innerMenu_ {
   padding: 10px;
@@ -507,6 +509,7 @@ transform: rotate(180deg);
 
 }
 .innerMenu.active {
+  transform: scaleY(1);
   height: max-content;
 
 }
@@ -1124,6 +1127,8 @@ display:block !important;
 }
 .servicesMenu-  {
   columns: 1;
+  grid-template-columns: 1fr;
+  gap: 0;
 }
 .servicesMenu- .h2 span {
   width: 100%;

@@ -286,33 +286,38 @@ const Header = () => {
               <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">Home</Link></li>
               <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">about</Link></li>
               <li><Link href={`#`} className="font-bold font-cormorant text-lg">services</Link>
-                <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 ">
-                  <div className="servicesMenu-  columns-4 gap-4">
-                    {!loading2 &&  data2.data && Object.keys(data2.data).map((item, index) => {
-                      return (
-                        <div className="servicesMenu-BOx my-3 relative" key={index}>
-                          <div className="h2 flex gap-3 items-start">
-                            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
-                            { data2.data[item]?.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, item)} src={downarrow} alt="" />}
-                          </div>
-                          { data2.data[item].length > 0 &&
-                            <div className={`innerMenu ${menuActive === item ? "active" : ""}`}>
-                              <ul className={`innerMenu_ relative`}>
-                                {data2?.data[item].map((item2, index2) => {
-                                  const { service_title, id } = item2;
-                                  return (
-                                    <li key={index2} className="flex gap-1 items-start my-2 relative">
-                                      <Image className="relative top-[.2rem]" src={checkmark} alt="" />
-                                      <Link className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          }
-                        </div>
-                      );
-                    })}
+                <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
+                  <div className="servicesMenu-  grid grid-cols-4 gap-4">
+                  {!loading2 && data2.data && 
+  [...Array(4)].map((_, groupIndex) => (
+    <div key={groupIndex}>
+      {Object.keys(data2.data).slice(groupIndex * Math.ceil(Object.keys(data2.data).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(data2.data).length / 4)).map((item, index) => (
+        <div className="servicesMenu-BOx my-3 relative" key={index}>
+          <div className="h2 flex gap-3 items-start">
+            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
+            {data2.data[item]?.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, item)} src={downarrow} alt="" />}
+          </div>
+          {data2.data[item]?.length > 0 && 
+            <div className={`innerMenu ${menuActive === item ? "active" : ""}`}>
+              <ul className="innerMenu_ relative">
+                {data2.data[item].map((item2, index2) => {
+                  const { service_title, id } = item2;
+                  return (
+                    <li key={index2} className="flex gap-1 items-start my-2 relative">
+                      <Image className="relative top-[.2rem]" src={checkmark} alt="" />
+                      <Link className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          }
+        </div>
+      ))}
+    </div>
+  ))
+}
+
 
                   </div>
                 </div>
