@@ -18,7 +18,17 @@ const ServicesPage = ({ lang, slug }) => {
 
   if (loading) return ''
   const alldata = data.data
-  const { sec_two,sec_three,sec_four,teams,faqs,laws,news } = alldata
+  const { sec_two,sec_three,sec_four,teams,faqs,laws,news,faqs_heading,faqs_short_heading,laws_short_heading,laws_heading } = alldata
+  const faqsData = {
+    "faqs_heading":faqs_heading,
+    "faqs_short_heading":faqs_short_heading,
+    "faqs":faqs,
+  }
+  const lawsData = {
+    "laws_heading":laws_heading,
+    "laws_short_heading":laws_short_heading,
+    "laws":laws,
+  }
   return (
     <>    <section className="innerPage1 py-10">
       <div className="container mx-auto px-6">
@@ -102,8 +112,8 @@ const ServicesPage = ({ lang, slug }) => {
         </div>
       </section>
      <Team team={teams} />
-    <Faqs data={faqs} />
-    <Laws data={laws} />
+    <Faqs data={faqsData} />
+    <Laws data={lawsData} />
     <RelatedNews data={news} />
     </>
   )

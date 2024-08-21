@@ -20,15 +20,15 @@ const Faqs = ({data}) => {
   return (
     <section className="section7 rounded-[5rem] bg-[#F5F5F5] py-20 relative pr-14">
     <div className="section6Heading   relative grid  grid-cols-[2.5fr,6.5fr] gap-3 items-start  ">
-      <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white faqss">{data?.shortHeading}</a>
+      <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white faqss">{data?.faqs_short_heading}</a>
       <div className="grid  grid-cols-[1fr,auto] items-start">
-        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">{data?.heading}</h3>
-        <Link href={`/${basePath}faq`} className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center py-2 mb-4 px-20">View All</Link>
+        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">{data?.faqs_heading}</h3>
+        {/* <Link href={`/${basePath}faq`} className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center py-2 mb-4 px-20">View All</Link> */}
       </div>
     </div>
     <div className="section6Main mt-4 relative">
-    {Array.isArray(data?.sec_two) && data?.sec_two.map((item,index) => {
-      const {answers,question} = item
+    {Array.isArray(data?.faqs) && data?.faqs.map((item,index) => {
+      const {answer,question} = item
         return (
           <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start" key={index}>
           <div></div>
@@ -38,7 +38,7 @@ const Faqs = ({data}) => {
                 <Image src={arrow} className={`ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300 ${faqActive === index ? "rotate-180":""}`} width={10} height={10} alt="" />
               </div>
               <div className={`section6MainBoxcDOx overflow-hidden transition-all ease-in-out duration-300 ${faqActive === index ? "max-h-max":"max-h-0"}`}>
-                <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">{answers}</p>
+                <p className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  ">{answer}</p>
               </div>
             </div>
           </div>
