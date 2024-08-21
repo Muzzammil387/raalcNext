@@ -1,11 +1,13 @@
 
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
+import usePost from '@/app/customHooks/usePost'
 import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 const Footer = () => {
   const { langValue } = useContext(MainLanguageValueContext);
@@ -14,9 +16,49 @@ const Footer = () => {
   const initialValues = {
   }
 
-  const handleSubmit = (values) => {
-    console.log(values)
+  const [res, apiMethod] = usePost()
+  const requireFeild = ["name", "email"];
+  const handleSubmit = async (values) => {
+    let formdata = new FormData();
+    let requireFeildSwal = {
+      name: "Name",
+      email: "Client Email",
+    };
+    let checkerRequried = [];
+    for (const item in values) {
+      if (requireFeild.includes(item) && values[item] === "") {
+        checkerRequried.push(requireFeildSwal[item]);
+      }
+      formdata.append(item, values[item]);
+    }
+
+    if (checkerRequried.length > 0) {
+      swal({
+        title: "Required Fields are empty! Please fill and try again",
+        text: checkerRequried.join(","),
+        icon: "error",
+        dangerMode: true,
+      });
+    }
+    else {
+      apiMethod(`quote/sendmail/${langValue}`, formdata)
+    }
   }
+
+  useEffect(() => {
+    if (res.data) {
+      const { status, message } = res?.data
+      if (status === "false") {
+        toast.error(message);
+      }
+      else {
+        toast.success(message);
+        handleReachUsOpenModel(false)
+      }
+    }
+  }, [res.data])
+
+
   return (
    <>    
      <footer className="footer overflow-hidden relative z-[2]">

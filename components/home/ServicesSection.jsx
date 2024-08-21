@@ -24,7 +24,7 @@ const ServicesSection = ({department,home}) => {
         <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
           {sec_three_header_one}
         </div>
-        <h2 className="font-MluvkaBold font-bold text-[3.125rem] uppercase leading-10 mb-5">
+        <h2 className="font-MluvkaBold font-bold text-[3.125rem] max-[1400px]:text-[2.5rem] uppercase leading-10 mb-5">
          {sec_three_header_two}
         </h2>
         <p>
@@ -53,7 +53,7 @@ const ServicesSection = ({department,home}) => {
                 <div className="card1_ py-10 overflow-hidden relative">
                   <div className="card1Box relative p-[.2rem]">
                     <Image className="h-[16rem] rounded-[5rem] object-cover w-full" src={department_image} width={0} height={0} alt="" />
-                    <span className="absolute   left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[60%] leading-[1]"  >
+                    <span className="absolute   left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[80%] leading-[1]"  >
                       {title}
                     </span>
                   </div>

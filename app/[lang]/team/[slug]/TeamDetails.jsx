@@ -13,14 +13,14 @@ const TeamDetails = ({lang,slug}) => {
   return (
     <div className='teampage py-24 max-lg:py-6'>
     <div className='container mx-auto'>
-      <div className='teams grid grid-cols-[2fr,8fr] gap-10 items-center max-lg:grid-cols-1'>
+      <div className='teams grid grid-cols-[2fr,8fr] max-[1400px]:grid-cols-[3fr,8fr] gap-10 items-center max-lg:grid-cols-1'>
         <div className='teams__left'>
           <Image src={lowyer_image} className='w-full h-[35rem]  object-cover rounded-[5rem]' width={10} height={10} alt='' />
         </div>
         <div className='teams__Right'>
          <h1 className='font-MluvkaBold text-[4rem] uppercase leading-[1] max-lg:text-[2rem]'>{name}</h1>
          <h2 className='leading-[1]  text-secondary text-[1.3rem]'>{designation}</h2>
-         <div className=' mt-4  max-lg:w-full'>{StringConvert(detail)}</div>
+         <div className=' mt-4  max-[1400px]:text-[.9rem]  max-lg:w-full'>{StringConvert(detail)}</div>
         </div>
       </div>
       
