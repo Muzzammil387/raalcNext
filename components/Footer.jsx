@@ -9,6 +9,7 @@ import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
+
 const Footer = () => {
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;

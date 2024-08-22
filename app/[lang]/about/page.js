@@ -12,11 +12,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // fetch data using Axios
   try {
     const response = await axios.get(`${config.apiEndPoint}webContents/aboutUs/${lang}`);
-    const data = response.data;
-    console.log(data?.data,"fhdasjfhdsajkfh")
+    const data = response.data?.data;
     return {
-      title: data?.data?.meta_tag || "Raalc About",
-      description: data?.data?.meta_description || "Raalc About",
+      title:data?.meta_tag || "Raalc About",
+      description: data?.meta_description || "Raalc About",
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

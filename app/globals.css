@@ -491,6 +491,7 @@ transform: rotate(180deg);
 }
 
 .innerMenu {
+  position: relative;
   transition: .5s;
   transform-origin: top;
  transform: scaleY(0);
@@ -499,15 +500,21 @@ transform: rotate(180deg);
   /* backdrop-filter: blur(40px);
   filter: drop-shadow(15px 15px 40px rgba(0, 0, 0, 0.4)); */
   z-index: 9;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   transition: .3s;
   height: 0;
+  padding-left: 1rem;
 }
-.innerMenu_ {
-  padding: 10px;
-  box-shadow: 0 0 10px #ddd;
+.innerMenu::before {
+  content: '';
+  position: absolute;
+  width: .3rem;
+  height: 80%;
+  left: 0;
+  top: 10%;
+  background: var(--secondary);
+}
 
-}
 .innerMenu.active {
   transform: scaleY(1);
   height: max-content;

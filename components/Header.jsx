@@ -47,9 +47,6 @@ const Header = () => {
   }, [loading])
 
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [window.location.href])
 
 
   const initialValues = {
@@ -285,7 +282,7 @@ const Header = () => {
             <ul className="  flex gap-6    [&_a]:capitalize">
               <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">Home</Link></li>
               <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">about</Link></li>
-              <li><Link href={`#`} className="font-bold font-cormorant text-lg">services</Link>
+              <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">services   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
                   {!loading2 && data2.data && 
