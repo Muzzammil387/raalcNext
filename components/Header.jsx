@@ -76,7 +76,7 @@ const Header = () => {
   }, []);
 
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id","perpose_meeting"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
@@ -87,6 +87,7 @@ const Header = () => {
       beverage: "Beverage",
       number_of_attendees: "Number Of Attendees",
       consultant_id: "Consultant Id",
+      perpose_meeting: "Purpose of the meeting",
     };
     formdata.append("meeting_date", selectedDate2);
     let checkerRequried = [];
@@ -197,17 +198,15 @@ const Header = () => {
             </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
               <Form>
-                <div className=" overflow-auto h-[42vh]">
+                <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
                     <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
                   </div>
                   <div className="inputBox mb-4">
                     <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
                   </div>
-                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                   <div className="inputBox mb-4">
                     <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
-                  </div>
                   </div>
                   <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
@@ -260,8 +259,11 @@ const Header = () => {
                         }
                       </Field>
                     </div>
+                   
 
-                    
+                  </div>
+                  <div className="inputBox my-4">
+                    <Field as={"textarea"} name="perpose_meeting" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Purpose of the meeting"} ></Field>
                   </div>
                 </div>
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Book Now</button>
@@ -291,16 +293,24 @@ const Header = () => {
                   {!loading2 && data2.data && 
   [...Array(4)].map((_, groupIndex) => (
     <div key={groupIndex}>
-      {Object.keys(data2.data).slice(groupIndex * Math.ceil(Object.keys(data2.data).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(data2.data).length / 4)).map((item, index) => (
-        <div className="servicesMenu-BOx my-3 relative" key={index}>
+      {(data2.data).slice(groupIndex * Math.ceil((data2.data).length / 4), (groupIndex + 1) * Math.ceil((data2.data).length / 4)).map((item, index) => {
+        const {title,relatedServices,id} = item
+        return(
+<div className="servicesMenu-BOx my-3 relative" key={index}>
           <div className="h2 flex gap-3 items-start">
-            <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
-            {data2.data[item]?.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, item)} src={downarrow} alt="" />}
+            {
+              relatedServices.length > 0 ?
+<span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{title}</span>
+:
+<Link href={`/${basePath}services/${item.id ?? ""}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{title}</Link>
+            }
+            
+            {relatedServices.length > 0 && <Image className="cursor-pointer" onClick={(event) => handleMenu(event, item.id)} src={downarrow} alt="" />}
           </div>
-          {data2.data[item]?.length > 0 && 
-            <div className={`innerMenu ${menuActive === item ? "active" : ""}`}>
+          {relatedServices.length > 0 && 
+            <div className={`innerMenu ${menuActive === item.id  ? "active" : ""}`}>
               <ul className="innerMenu_ relative">
-                {data2.data[item].map((item2, index2) => {
+                {relatedServices.map((item2, index2) => {
                   const { service_title, id } = item2;
                   return (
                     <li key={index2} className="flex gap-1 items-start my-2 relative">
@@ -313,7 +323,10 @@ const Header = () => {
             </div>
           }
         </div>
-      ))}
+      )}
+        )
+      }
+        
     </div>
   ))
 }

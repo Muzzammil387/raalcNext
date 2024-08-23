@@ -100,7 +100,7 @@ const ServicesPage = ({ lang, slug }) => {
                   const {image} = item
                   return(
                     <li key={index}>
-                    <Image className="h-[5.438rem] mx-auto object-contain w-full" src={image} width={10} height={10} alt="" />
+                    <Image className="h-[5.438rem] mx-auto object-contain w-full" src={image ?? ""} width={10} height={10} alt="" />
                     <span className="uppercase font-bold  font-Mluvka mt-3 block">CREDIBILITY</span>
                   </li>
                   )
