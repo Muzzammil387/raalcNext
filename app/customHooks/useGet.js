@@ -6,7 +6,9 @@ const useGet = () => {
   const [res, setRes] = useState({ data: null, error: null, isLoading: false });
   let headers = {
     "Content-Type": "multipart/form-data",
+    
   }
+  
   const callAPI  = async (url) => {
     setRes((prevState) => ({ ...prevState, isLoading: true }));
     http.get(`${config.apiEndPoint}${url}`, {

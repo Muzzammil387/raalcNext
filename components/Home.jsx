@@ -23,7 +23,7 @@ const Home = ({lang}) => {
             {/* <BOD /> */}
             {<Team team={data?.data?.teams} count={5} home={data.data} />}
            { <NEWS  news={data?.data?.news}  />}
-            <Testimonials />
+            <Testimonials data={data?.data?.reviews} />
         </>
     )
 }

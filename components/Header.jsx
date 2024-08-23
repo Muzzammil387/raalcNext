@@ -204,9 +204,10 @@ const Header = () => {
                   <div className="inputBox mb-4">
                     <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
                   </div>
-
+                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                   <div className="inputBox mb-4">
                     <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
+                  </div>
                   </div>
                   <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
@@ -259,6 +260,8 @@ const Header = () => {
                         }
                       </Field>
                     </div>
+
+                    
                   </div>
                 </div>
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Book Now</button>

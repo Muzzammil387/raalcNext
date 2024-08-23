@@ -8,7 +8,7 @@ import 'swiper/css/autoplay'
 import Link from 'next/link'
 import { Autoplay } from 'swiper/modules'
 
-const Testimonials = () => {
+const Testimonials = ({data}) => {
   return (
     <section className="section7 py-20">
       <div className="container mx-auto">
@@ -18,12 +18,12 @@ const Testimonials = () => {
         </div>
         <div className="section7Main mt-10 w-[60%] mx-auto">
           <Swiper
-            modules={[Autoplay]}
+            // modules={[Autoplay]}
             loop={true}
             speed={1000}
             slidesPerView={5}
             centeredSlides={true}
-            allowTouchMove={false}
+            // allowTouchMove={false}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
@@ -33,28 +33,38 @@ const Testimonials = () => {
               768: { slidesPerView: 1 },
               1024: { slidesPerView: 5 },
             }}
+            on={{
+              click: function () {
+                const clickedIndex = this.clickedIndex;
+                console.log(this.clickedIndex)
+                this.slideTo(clickedIndex);
+              },
+            }}
         
             className="section7mySwiper"
           >
-            {["", "", "", "", "", ""].map((image, index) => (
+            {Array.isArray(data) &&  data.map((item, index) => {
+              const {image,name,occupation,review} = item
+              return(
               <SwiperSlide key={index}>
                 <div className="s7BOx">
                   <div className="s7BOxp text-center hidden items-start">
                     <Image src={dot} alt="" />
-                    <p className="capitalize leading-[1.3] font-MluvkaRegular">Working with [Lawyer&apos;s Name] was an absolute game-changer for me. Their dedication, expertise, and unwavering support throughout my legal journey were unparalleled. From the initial consultation to the courtroom representation, they exhibited professionalism and a deep understanding of my case. Thanks to their strategic approach and tireless advocacy,</p>
+                    <p className="capitalize leading-[1.3] font-MluvkaRegular">{review}</p>
                   </div>
                   <div className="s7BOxBottom mt-14">
                     <div className="s7BOxBottom_2 relative w-fit mx-auto cursor-pointer">
-                      <Image src={review1} className="rounded-[1.875rem] w-[4.875rem] h-[5.063rem]" alt="" />
-                      <div className="s7BOxBottom_ absolute right-[-10rem] top-[3rem] hidden">
-                        <div className="h2 uppercase text-[1.1rem] font-Mluvka font-medium">Adnan Karim</div>
-                        <div className="h3 capitalize text-[.8rem] font-Mluvka text-secondary">LEGAL CONSULTANT</div>
+                      <Image src={image} width={10} height={10} className="rounded-[1.875rem] w-[4.875rem] h-[5.063rem]" alt="" />
+                      <div className="s7BOxBottom_ absolute right-[-2rem] translate-x-[100%] top-[3rem] hidden">
+                        <div className="h2 uppercase text-[1.1rem] font-Mluvka font-medium">{name}</div>
+                        <div className="h3 capitalize text-[.8rem] font-Mluvka text-secondary">{occupation}</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
+
+            )})}
           </Swiper>
         </div>
       </div>
