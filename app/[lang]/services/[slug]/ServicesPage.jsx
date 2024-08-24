@@ -45,7 +45,7 @@ const ServicesPage = ({ lang, slug }) => {
         </div>
       </div>
     </section>
-      <section className="productM py-14 bg-[#F5F5F5] rounded-[5rem]">
+    {sec_two[0].heading &&  <section className="productM py-14 bg-[#F5F5F5] rounded-[5rem]">
         <div className="container mx-auto px-6">
           <div className="productM_ grid grid-cols-3 gap-5">
             {Array.isArray(sec_two) && sec_two.map((item, index) => {
@@ -65,9 +65,9 @@ const ServicesPage = ({ lang, slug }) => {
             })}
           </div>
         </div>
-      </section>
+      </section>}
 
-      {Array.isArray(sec_three) && sec_three.map((item,index) => {
+      {sec_three[0].heading_one && Array.isArray(sec_three) && sec_three.map((item,index) => {
         const {image,heading_one,heading_two,description} = item
         return (
           <section className="innerPage1 py-10" key={index}>
@@ -88,7 +88,7 @@ const ServicesPage = ({ lang, slug }) => {
         )
       })}
 
-      <section className="innerPage3 bg-[#FFF9F0] relative rounded-[5rem] text-center py-16">
+    {alldata?.sec_four_heading &&  <section className="innerPage3 bg-[#FFF9F0] relative rounded-[5rem] text-center py-16">
         <div className="container mx-auto px-24">
           <div className="innerPage3_heading">
             <div className="h3 uppercase text-[3.125rem]  font-bold leading-[1] font-MluvkaBold">{alldata?.sec_four_heading}</div>
@@ -111,10 +111,10 @@ const ServicesPage = ({ lang, slug }) => {
           </div>
           <Link onClick={() => handleOpenModel(true)} href="#" className="btn btn-primary uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka mt-5 block w-fit mx-auto">Book a Consultation</Link>
         </div>
-      </section>
+      </section>}
      <Team team={teams} />
-    <Faqs data={faqsData} />
-    <Laws data={lawsData} />
+    {faqsData?.faqs_heading && <Faqs data={faqsData} />}
+{lawsData?.laws_heading &&    <Laws data={lawsData} />}
     <RelatedNews data={news} />
     </>
   )

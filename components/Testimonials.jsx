@@ -19,11 +19,11 @@ const Testimonials = ({data}) => {
         <div className="section7Main mt-10 w-[60%] mx-auto">
           <Swiper
             modules={[Autoplay]}
-            loop={true}
             speed={1000}
             slidesPerView={5}
             centeredSlides={true}
-            // allowTouchMove={false}
+            allowTouchMove={false}
+            slideToClickedSlide={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,

@@ -35,6 +35,7 @@ const Main = ({ children }) => {
           <MyHome.Provider value={{ home, setHome }}>
             <MyLanguage.Provider value={{ lang, setLang }}>
               <Header language={languagess} data={header} />
+              
               <main className="indexPage">
                 {children}
               </main>

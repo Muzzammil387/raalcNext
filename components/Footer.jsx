@@ -6,6 +6,7 @@ import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
@@ -153,7 +154,7 @@ const Footer = () => {
     <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
 </div>
 
-  <div
+  {/* <div
     className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
     <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
       <Image className="w-full h-full object-cover rounded-full" src={banner3} alt="3.webp" />
@@ -162,7 +163,7 @@ const Footer = () => {
       Hi, How can <br />
       I help you?
     </div>
-  </div>
+  </div> */}
   <div onClick={() => handleReachUsOpenModel(false)} className={`fixedback ${reachUs ? "active" : ""}`}></div>
 
   <div className={`consModel2  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${reachUs ? "active": ""} `}>
@@ -203,6 +204,12 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
+    <Script
+        id="tawkto-script"
+        strategy="lazyOnload"
+        src="https://embed.tawk.to/66c9aa6250c10f7a009ff00c/1i61s34lk"
+        crossorigin="*"
+      />
 
   </div>
    </>

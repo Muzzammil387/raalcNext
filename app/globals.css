@@ -503,16 +503,20 @@ transform: rotate(180deg);
   /* border-radius: 1rem; */
   transition: .3s;
   height: 0;
+
+}
+.servicesMenu-BOx {
   padding-left: 1rem;
 }
-.innerMenu::before {
+.servicesMenu-BOx::before {
   content: '';
   position: absolute;
   width: .3rem;
-  height: 80%;
+  height: 100%;
   left: 0;
-  top: 10%;
+  top: 0%;
   background: var(--secondary);
+  transition: .3s;
 }
 
 .innerMenu.active {
