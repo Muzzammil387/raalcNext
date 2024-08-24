@@ -3,6 +3,7 @@ import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext
 import useFetch from '@/app/customHooks/useFetch';
 import Faqs from '@/components/Faqs';
 import Laws from '@/components/Laws';
+import Loaders from '@/components/Loaders';
 import RelatedNews from '@/components/RelatedNews';
 import Team from '@/components/Team';
 import Image from 'next/image'
@@ -16,7 +17,7 @@ const ServicesPage = ({ lang, slug }) => {
 
   
 
-  if (loading) return ''
+  if (loading) return <Loaders />;
   const alldata = data.data
   const { sec_two,sec_three,sec_four,teams,faqs,laws,news,faqs_heading,faqs_short_heading,laws_short_heading,laws_heading } = alldata
   const faqsData = {

@@ -2,6 +2,7 @@
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import useFetch from '@/app/customHooks/useFetch';
 import useGet from '@/app/customHooks/useGet';
+import Loaders from '@/components/Loaders';
 import { Pagination } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ const TeamMain = ({lang}) => {
           apiMethodGet(`teams/${lang}/8?page=${current}`);
         };
     
-    if(loading) return ''
+    if(loading) return <Loaders />
   return (
     <>
     <section className="innerPage1 relative py-10">

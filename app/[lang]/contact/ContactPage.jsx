@@ -1,11 +1,12 @@
 "use client"
 import useFetch from '@/app/customHooks/useFetch';
+import Loaders from '@/components/Loaders';
 import React from 'react'
 
 const ContactPage = ({lang}) => {
     const { loading, data } = useFetch(`webContents/contact/${lang}`);
 
-      if(loading) return ''
+      if(loading) return <Loaders />;
       let datas = data?.data
   return (
     <div>

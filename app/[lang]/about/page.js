@@ -24,6 +24,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
     };
   }
 }
+
+
 export async function generateStaticParams() {
     // Define all possible language codes
     const languages = ['en', 'ar', 'ch', 'ru'];

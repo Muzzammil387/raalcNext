@@ -7,6 +7,7 @@ import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
 import { Pagination } from 'antd';
 import useGet from '@/app/customHooks/useGet';
+import Loaders from '@/components/Loaders';
 
 
 
@@ -44,7 +45,7 @@ const [datas, setDatas] = useState("")
       apiMethodGet(`news/index/${lang}/6?page=${current}`);
     };
 
-    if (loading) return ''  
+    if (loading) return <Loaders />;  
 
     return (
         <>

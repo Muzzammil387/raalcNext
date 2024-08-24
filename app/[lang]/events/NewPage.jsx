@@ -7,6 +7,7 @@ import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
 import { Pagination } from 'antd';
 import useGet from '@/app/customHooks/useGet';
+import Loaders from '@/components/Loaders';
 
 
 
@@ -44,7 +45,7 @@ const NewPage = ({lang}) => {
     };
 
     
-    if (loading) return ''  
+    if (loading) return <Loaders />  
     return (
         <>
         <div className="InnerPageBox1 absolute w-[22rem] h-[22rem] opacity-5 bg-primary left-0 top-[50%]"></div>

@@ -1,6 +1,7 @@
 "use client"
 import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext';
 import useFetch from '@/app/customHooks/useFetch';
+import Loaders from '@/components/Loaders';
 import { StringConvert } from '@/components/StringConvert';
 import Image from 'next/image';
 import React, { useContext } from 'react'
@@ -8,7 +9,7 @@ import React, { useContext } from 'react'
 const TeamDetails = ({lang,slug}) => {
   const { handleOpenModel } = useContext(MainBookingStatusContext);
     const { loading, data } = useFetch(`teams/singleDetail/${slug}/${lang}`);
-    if(loading) return ''
+    if(loading) return <Loaders />;
     const {name,designation,detail,lowyer_image,educations,memberships,practice_areas,skills,qr_code_image} = data?.data
   return (
     <div className='teampage py-24 max-lg:py-6'>

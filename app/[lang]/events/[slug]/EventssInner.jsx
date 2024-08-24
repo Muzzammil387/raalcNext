@@ -9,6 +9,7 @@ import useFetch from '@/app/customHooks/useFetch';
 import { StringConvert } from '@/components/StringConvert';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import Loaders from '@/components/Loaders';
 const truncateText = (text, maxLength) => {
   if(text) {
     if (text.length <= maxLength) {
@@ -23,7 +24,7 @@ const truncateText = (text, maxLength) => {
 
 const NewsInner = ({ lang, slug }) => {
   const { loading, data } = useFetch(`events/fetch/${slug}/${lang}`);
-  if (loading) return ''  
+  if (loading) return <Loaders />;  
   const {author_name,author_details,title,description,date} = data?.data
   const formattedDate = dayjs(date).format('MMMM D, YYYY');
   return (

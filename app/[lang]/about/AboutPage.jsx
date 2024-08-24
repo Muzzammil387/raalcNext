@@ -6,10 +6,11 @@ import CustomServices from './components/CustomServices'
 import TechnologyDrive from './components/TechnologyDrive'
 import useFetch from '@/app/customHooks/useFetch'
 import CompanyHistory from './components/CompanyHistory'
+import Loaders from '@/components/Loaders'
 
 const AboutPage = ({lang}) => {
     const { loading, data } = useFetch(`webContents/aboutUs/${lang}`);
-    if(loading) return ''
+    if(loading) return <Loaders />
   return (
     <div className='AboutPage'>
            <div className="InnerPageBox1 absolute w-[22rem] h-[22rem] opacity-5 bg-primary left-0 top-[50%]"></div>

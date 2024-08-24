@@ -1,5 +1,5 @@
 'use client'
-import { dot, review1 } from '@/app/untils/imgimport'
+import { dot } from '@/app/untils/imgimport'
 import Image from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -18,7 +18,7 @@ const Testimonials = ({data}) => {
         </div>
         <div className="section7Main mt-10 w-[60%] mx-auto">
           <Swiper
-            // modules={[Autoplay]}
+            modules={[Autoplay]}
             loop={true}
             speed={1000}
             slidesPerView={5}
@@ -32,13 +32,6 @@ const Testimonials = ({data}) => {
               300: { slidesPerView: 1 },
               768: { slidesPerView: 1 },
               1024: { slidesPerView: 5 },
-            }}
-            on={{
-              click: function () {
-                const clickedIndex = this.clickedIndex;
-                console.log(this.clickedIndex)
-                this.slideTo(clickedIndex);
-              },
             }}
         
             className="section7mySwiper"

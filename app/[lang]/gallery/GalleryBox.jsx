@@ -5,6 +5,7 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import useFetch from '@/app/customHooks/useFetch';
+import Loaders from '@/components/Loaders';
 
 const GalleryBox = ({lang}) => {
     const { loading, data } = useFetch(`webContents/gallery/${lang}`);
@@ -13,7 +14,7 @@ const GalleryBox = ({lang}) => {
             //
         });
     }, []);
-    if (loading) return ''  
+    if (loading) return <Loaders />;  
     const {header} = data?.data
   return (
     <>

@@ -183,8 +183,8 @@ const Header = () => {
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
       {bookingModel && <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
-          <div className="consModelMainl">
-            <Image src={model1} className="w-full max-h-[70vh] object-cover object-top" alt="" />
+          <div className="consModelMainl relative">
+            <Image src={model1} className="w-full absolute h-full object-cover object-top" alt="" />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <div className="flex justify-between">
@@ -266,7 +266,7 @@ const Header = () => {
                     <Field as={"textarea"} name="perpose_meeting" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Purpose of the meeting"} ></Field>
                   </div>
                 </div>
-                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Book Now</button>
+                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? "loading": "Book Now"}</button>
               </Form>
             </Formik>
           </div>
@@ -290,7 +290,7 @@ const Header = () => {
               <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">services   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
-                  {!loading2 && data2.data && 
+                  {/* {!loading2 && data2.data && 
   [...Array(4)].map((_, groupIndex) => (
     <div key={groupIndex}>
       {(data2.data).slice(groupIndex * Math.ceil((data2.data).length / 4), (groupIndex + 1) * Math.ceil((data2.data).length / 4)).map((item, index) => {
@@ -329,7 +329,7 @@ const Header = () => {
         
     </div>
   ))
-}
+} */}
 
 
                   </div>
