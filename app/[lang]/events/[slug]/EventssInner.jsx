@@ -31,7 +31,7 @@ const NewsInner = ({ lang, slug }) => {
     <section className="news2 py-5">
       <div className="container mx-auto">
         <div className="news2Main grid grid-cols-[7fr,3fr] gap-6">
-          <div className="news2Main__left" style={{ minWidth: '0' }}>
+          <div className="news2Main__left self-start sticky top-1" style={{ minWidth: '0' }}>
             <div className="cardMain3Box" style={{ minWidth: '0' }}>
               <Swiper
                 modules={[Autoplay]}

@@ -43,14 +43,14 @@ const TeamMain = ({lang}) => {
 
 <section className="section5 py-12">
     <div className="container mx-auto px-20 max-lg:px-0">
-      <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-3">
+      <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
             Array.isArray(datas) && datas.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
                     <div className="section5MainBox1">
-                      <Image src={lowyer_image} width={10} height={10}  className="w-full max-lg:h-[15rem] object-cover rounded-[5rem] h-[27rem] object-top" priority  alt="" />
+                      <Image src={lowyer_image} width={10} height={10}  className="w-full max-lg:h-[25rem] object-cover rounded-[5rem] h-[27rem] object-top" priority  alt="" />
                     </div>
                     <div className="section5MainBox2 relative  transition-all duration-500   py-5 px-3 rounded-[5rem] w-full text-center">
                     <div className="h3 font-bold font-Mluvka uppercase text-[1.438rem] leading-[1] max-lg:text-[.9rem]">{name}</div>

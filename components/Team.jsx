@@ -18,12 +18,12 @@ const Team = ({team,count}) => {
       <h3 className="leading-[1] font-medium font-Mluvka text-[3.125rem] uppercase pb-3">Our Team</h3>
       </div>
       
-      <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-3">
+      <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
           Array.isArray(teamm) && teamm.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
-                    <Link href={`${basePath}/team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[15rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
+                    <Link href={`${basePath}/team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
                     <div className="section5MainBox1 h-full">
                       <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt="" />
                     </div>

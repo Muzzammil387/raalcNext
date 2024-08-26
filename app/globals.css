@@ -1170,8 +1170,12 @@ display:block !important;
 
 
 @media not all and (min-width: 461px) {
+  .section5Main .section5MainBox,
+  .section5MainBox1 img {
+    height: 100%;
+  }
   .section5Main {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(1, 1fr) !important;
   }
   .section5MainBox1 img {
     border-radius: 3rem;

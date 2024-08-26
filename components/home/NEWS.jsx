@@ -74,7 +74,7 @@ else {
                    <Image src={arrow} className={`ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300 ${newsActive === index ? "rotate-180":""}`} alt="" />
                 </div>
                 <div className={`section6MainBoxcDOx overflow-hidden transition-all ease-in-out duration-300 ${newsActive === index ? "max-h-max":"max-h-0"}`}>
-                  <div className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  mx:w-[70%] !font-normal">{StringConvert(truncatedText)}</div>
+                  <div className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  mx:w-[70%] !font-normal pr-10">{StringConvert(truncatedText)}</div>
                 </div>
               </div> 
             </div>

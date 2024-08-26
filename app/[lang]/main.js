@@ -13,10 +13,11 @@ import MainBookingStatusProvider from '../context/MainBookingStatusContext';
 import MainReachUsStatusProvider from '../context/MainReachUsStatusContext';
 import MainLanguageValueProvider from '../context/MainLanguageValue';
 import MainTeamProvider from '../context/MainTeamContext';
+import MainAPiProvider from '../context/MainAPiContext';
 
 const Main = ({ children }) => {
-  const [home, setHome] = useState("");
   const [lang, setLang] = useState("");
+  const [home, setHome] = useState("");
   const { header, languagess } = main;
 
   useEffect(() => {
@@ -24,11 +25,11 @@ const Main = ({ children }) => {
     setHome(main);
   }, []);
 
-  if (!home) return <Loader />;
 
   return (
     <>
       <MainTeamProvider>
+      <MainAPiProvider>
       <MainLanguageValueProvider>
       <MainReachUsStatusProvider>
         <MainBookingStatusProvider>
@@ -46,6 +47,7 @@ const Main = ({ children }) => {
         </MainBookingStatusProvider>
       </MainReachUsStatusProvider>
       </MainLanguageValueProvider>
+      </MainAPiProvider>
       </MainTeamProvider>
     </>
   );

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { burgerMenu, checkmark, downarrow, logo, model1, svgrepo } from '@/app/untils/imgimport'
+import { burgerMenu, checkmark, downarrow, logo, model1 } from '@/app/untils/imgimport'
 import Lenis from 'lenis';
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import { Field, Form, Formik } from "formik";
@@ -17,13 +17,16 @@ import { toast } from "react-toastify";
 import swal from "sweetalert";
 import dayjs from 'dayjs';
 import { BeverageList } from "@/app/data/main";
+import { MainAPiContext } from "@/app/context/MainAPiContext";
 
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
+  const { handleOpenModels } = useContext(MainAPiContext);
   const { loading: loading2, data: data2 } = useFetch(`servicescategory/services_relates_category/${langValue}`);
   const { loading, data } = useFetch(`teams/${langValue}/100?page=1`);
+  const { loading:loading3, data:data3 } = useFetch(`elements/element/${langValue}`);
   const { handleTeamss, teamss } = useContext(MainTeamContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const [mobleMenuActive, setMobleMenuActive] = useState("")
@@ -45,6 +48,11 @@ const Header = () => {
       handleTeamss(data?.data)
     }
   }, [loading])
+  useEffect(() => {
+    if (data3) {
+      handleOpenModels(data3?.data)
+    }
+  }, [loading3])
 
 
 
@@ -152,7 +160,7 @@ const Header = () => {
 
   const disabledDate = (current) => {
     // Disable all dates before today
-    return current && current <= dayjs().endOf('day');
+    return current && current < dayjs().startOf('day');
   };
 
   const [timeSlots, setTimeSlots] = useState([])
@@ -171,7 +179,22 @@ const Header = () => {
         toast.error(message);
       }
       else {
-        setTimeSlots(res2.data.data)
+        const isToday = dayjs().isSame(selectedDate, 'day');
+        const currentTime = dayjs();
+        
+        // Filter time slots for today, removing those before the current time
+        const availableSlots = res2.data.data.filter(slot => {
+          if (isToday) {
+            const [startTime] = slot.time_slot.split(' to ');
+            const slotTime = dayjs(startTime, 'h:mm A');
+            return slotTime.isAfter(currentTime);
+          }
+          return true;
+        });
+        
+        // Handle the filtered time slots (e.g., update state)
+        setTimeSlots(availableSlots)
+        console.log('Available Time Slots:', availableSlots);
       }
     }
   }, [res2.data])

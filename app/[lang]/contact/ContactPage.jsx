@@ -23,7 +23,7 @@ const ContactPage = ({lang}) => {
       <div className="container mx-auto">
         <div className="BRANCHESheading text-center mb-10 relative">
           <h2 className="font-bold text-[3.125rem] uppercase">{datas?.sec_two_heading}</h2>
-          <div className="h3 text-[#F5F5F5] uppercase text-[12.5rem] font-light absolute top-[100%] transform translate-y-[-50%] z-[-1]">{datas?.sec_two_heading}</div>
+          <div className="h3 text-[#F5F5F5] uppercase text-[10rem] font-light absolute left-0 right-0 mx-auto top-[100%] transform translate-y-[-50%] z-[-1]">{datas?.sec_two_heading}</div>
         </div>
         <div className="BRANCHESMain grid grid-cols-3 gap-6">
           <div className="BRANCHESMainBox border-4 border-[#393946]  relative bg-[#393946] text-white rounded-3xl text-center">
