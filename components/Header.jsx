@@ -18,15 +18,25 @@ import swal from "sweetalert";
 import dayjs from 'dayjs';
 import { BeverageList } from "@/app/data/main";
 import { MainAPiContext } from "@/app/context/MainAPiContext";
+import Loaders from "./Loaders";
+import useGet from "@/app/customHooks/useGet";
 
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
-  const { handleOpenModels } = useContext(MainAPiContext);
+  const { handleOpenModels,mainData } = useContext(MainAPiContext);
   const { loading: loading2, data: data2 } = useFetch(`servicescategory/services_relates_category/${langValue}`);
   const { loading, data } = useFetch(`teams/${langValue}/100?page=1`);
+
   const { loading:loading3, data:data3 } = useFetch(`elements/element/${langValue}`);
+  const [resget, apiMethodGet] = useGet()
+  useEffect(() => {
+    if (langValue) {
+      apiMethodGet(`elements/element/${langValue}`);
+    }
+  }, [langValue]);
+
   const { handleTeamss, teamss } = useContext(MainTeamContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const [mobleMenuActive, setMobleMenuActive] = useState("")
@@ -49,10 +59,10 @@ const Header = () => {
     }
   }, [loading])
   useEffect(() => {
-    if (data3) {
-      handleOpenModels(data3?.data)
+    if (resget.data) {
+      handleOpenModels(resget?.data?.data)
     }
-  }, [loading3])
+  }, [resget.isLoading])
 
 
 
@@ -192,14 +202,13 @@ const Header = () => {
           return true;
         });
         
-        // Handle the filtered time slots (e.g., update state)
         setTimeSlots(availableSlots)
         console.log('Available Time Slots:', availableSlots);
       }
     }
   }, [res2.data])
 
-
+if(loading3 && !mainData) return <Loaders />
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
@@ -211,7 +220,7 @@ const Header = () => {
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <div className="flex justify-between">
-              <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Book Meeting</div>
+              <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{mainData["book-meeting"]}</div>
               <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
                 <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
@@ -223,22 +232,22 @@ const Header = () => {
               <Form>
                 <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
-                    <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={"Enter Name"} ></Field>
+                    <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={mainData["enter-name"]} ></Field>
                   </div>
                   <div className="inputBox mb-4">
-                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Email"} ></Field>
+                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["enter-email"]} ></Field>
                   </div>
                   <div className="inputBox mb-4">
-                    <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Phone Number"} ></Field>
+                    <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["phone-number"]} ></Field>
                   </div>
                   <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
-                      <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Number of Attendance"} ></Field>
+                      <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["number-of-attendance"]} ></Field>
                     </div>
 
                     <div className="inputBox">
                       <Field as="select" name="consultant_id" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
-                        <option value="">choose consultant</option>
+                        <option value="">{mainData["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
                           const { id, name } = item
                           return (
@@ -253,11 +262,12 @@ const Header = () => {
                         onChange={onChange}
                         value={selectedDate}
                         disabledDate={disabledDate}
+                        placeholder={mainData["time-slot"]}
                       />
                     </div>
                     <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="time_slot" id="">
-                        <option value="">Time Slot</option>
+                        <option value="">{mainData["time-slot"]}</option>
                         {
                           Array.isArray(timeSlots) && timeSlots.map((item) => {
                             const { id, time_slot, slot_status } = item
@@ -270,7 +280,7 @@ const Header = () => {
                     </div>
                     <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
-                        <option value="">Beverage</option>
+                        <option value="">{mainData["beverage"]}</option>
                         {
                           BeverageList[langValue].map((item, index) => {
                             const { label } = item
@@ -286,17 +296,15 @@ const Header = () => {
 
                   </div>
                   <div className="inputBox my-4">
-                    <Field as={"textarea"} name="perpose_meeting" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Enter Purpose of the meeting"} ></Field>
+                    <Field as={"textarea"} name="perpose_meeting" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["perpose_meeting"]} ></Field>
                   </div>
                 </div>
-                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? "loading": "Book Now"}</button>
+                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? mainData["loading"]: mainData["book-now"]}</button>
               </Form>
             </Formik>
           </div>
         </div>
       </div>}
-
-
 
       <header className="header relative py-4">
         <div className="px-10 mx-auto flex justify-between items-center">
@@ -308,9 +316,9 @@ const Header = () => {
           <nav className={`max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit ${mobleMenuActive ? "active" : ""}`}>
             <div className="hidden close" onClick={() => handleMobileClose(false)}>X</div>
             <ul className="  flex gap-6    [&_a]:capitalize">
-              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">Home</Link></li>
-              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">about</Link></li>
-              <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">services   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
+              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">{mainData?.home}</Link></li>
+              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{mainData?.about}</Link></li>
+              <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{mainData?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
                   {!loading2 && data2.data && 
@@ -356,10 +364,10 @@ const Header = () => {
                 </div>
 
               </li>
-              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">News & Updates </Link></li>
-              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">Events</Link></li>
-              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">Gallery</Link></li>
-              <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">Contact Us</Link></li>
+              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {mainData?.["news-updates"] || 'News & Updates'} </Link></li>
+              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {mainData?.["events"] || 'Events'}</Link></li>
+              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {mainData?.["gallery"] || 'gallery'}</Link></li>
+              <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">  {mainData?.["contact-us"] || 'Contact Us'}</Link></li>
             </ul>
 
 
@@ -369,7 +377,7 @@ const Header = () => {
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">Book a Consultation</button>
+            <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{mainData?.["book-a-consultation"] || "Book a Consultation"}</button>
             <div className="relative header__righeng">
               <HeaderLanguage />
             </div>

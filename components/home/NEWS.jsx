@@ -5,6 +5,7 @@ import Link from 'next/link'
 import dayjs from 'dayjs';
 import React, { useContext, useState } from 'react'
 import { StringConvert } from '../StringConvert';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 
 
 const formatDate = (dateString) => {
@@ -29,6 +30,7 @@ const truncateText = (text, maxLength) => {
 
 const NEWS = ({news}) => {
   const [newsActive, setNewsActive] = useState("")
+  const {mainData } = useContext(MainAPiContext);
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
 
@@ -50,8 +52,8 @@ else {
     <div className="section6BOx2 bg-[#CEAF7F] absolute left-0 -bottom-3 w-[11.313rem] h-[11.313rem] opacity-[.6] blur-[15.438rem]"></div>
     <div className="section6BOx3 bg-[#3D50DF] absolute right-0 -bottom-10 w-[20rem] h-[20rem] opacity-[.6] blur-[15.438rem]"></div>
       <div className="section6Heading max-lg:grid-cols-1  relative grid  grid-cols-[2.5fr,6.5fr] gap-3 items-start ">
-        <a href="#" className="font-Mluvka max-lg:hidden text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white">News and updates</a>
-        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold max-lg:text-center ">News & <br /> Judgements</h3>
+        <a href="#" className="font-Mluvka max-lg:hidden text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white">{mainData?.["News-and-updates"] || "News and updates"}</a>
+        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold max-lg:text-center ">{mainData?.["news-and-judgements"] || "News & Judgements"}</h3>
       </div>
       <div className="section6Main mt-14 relative">
         {Array.isArray(news) && news.slice(0, 5).map((item,index) => {

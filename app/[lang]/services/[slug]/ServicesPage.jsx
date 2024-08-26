@@ -31,7 +31,7 @@ const ServicesPage = ({ lang, slug }) => {
     "laws":laws,
   }
   return (
-    <>    <section className="innerPage1 py-10">
+    <>    <section className="innerPage1 py-20">
       <div className="container mx-auto px-6">
         <div className="innerPage1_ grid grid-cols-2 gap-6">
           <div className="innerPage1_img">
@@ -55,9 +55,9 @@ const ServicesPage = ({ lang, slug }) => {
                   <div className="card2_img sadsad">
                     <Image className="w-full object-cover h-[13.438rem] rounded-3xl   " src={image ?? ""} width={10} height={10} alt="" />
                   </div>
-                  <div className="card2_Body text-center">
-                    <div className="h4 capitalize font-bold font-Mluvka text-[2rem]">{heading}</div>
-                    <p className="text-[#393946] leading-[1.1]">{description}</p>
+                  <div className="card2_Body mt-3">
+                    <div className="h4 capitalize font-bold font-Mluvka leading-[1] text-[2rem]">{heading}</div>
+                    <p className="text-[#393946] leading-[1.1] mt-2">{description}</p>
 
                   </div>
                 </div>

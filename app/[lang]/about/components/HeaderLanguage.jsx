@@ -71,6 +71,7 @@ const HeaderLanguage = () => {
     else {
       router.push("/");
     }
+
   };
 
   const menuItems = items.map(item => ({
