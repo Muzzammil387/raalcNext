@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
       <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        {/* <RedirectComponent /> */}
         <Main>{children}</Main>
       </body>
     </html>

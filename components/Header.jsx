@@ -74,7 +74,8 @@ const Header = () => {
     time_slot: "",
     beverage: "",
     number_of_attendees: "",
-    consultant_id: ""
+    consultant_id: "",
+    meeting_purpose: ""
   }
 
   useEffect(() => {
@@ -94,7 +95,7 @@ const Header = () => {
   }, []);
 
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id","perpose_meeting"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id","meeting_purpose"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
@@ -105,7 +106,7 @@ const Header = () => {
       beverage: "Beverage",
       number_of_attendees: "Number Of Attendees",
       consultant_id: "Consultant Id",
-      perpose_meeting: "Purpose of the meeting",
+      meeting_purpose: "Purpose of the meeting",
     };
     formdata.append("meeting_date", selectedDate2);
     let checkerRequried = [];
@@ -296,7 +297,7 @@ if(loading3 && !mainData) return <Loaders />
 
                   </div>
                   <div className="inputBox my-4">
-                    <Field as={"textarea"} name="perpose_meeting" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["perpose_meeting"]} ></Field>
+                    <Field as={"textarea"} name="meeting_purpose" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["perpose_meeting"]} ></Field>
                   </div>
                 </div>
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? mainData["loading"]: mainData["book-now"]}</button>
