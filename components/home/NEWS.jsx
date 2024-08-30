@@ -58,7 +58,7 @@ else {
       </div>
       <div className="section6Main mt-14 relative">
         {Array.isArray(news) && news.slice(0, 5).map((item,index) => {
-          const {date,title,description,news_images} = item
+          const {date,title,description,news_images,slug} = item
           const formattedDate = formatDate(date);
           const maxLength = 300;
           const truncatedText = truncateText(description, maxLength);
@@ -73,8 +73,10 @@ else {
                 <div className="h3 font-Mluvka capitalize text-[.9rem] font-light leading-[1]">{formattedDate.monthYear}</div>
               </div>
               <div className="section6MainBoxc px-8">
-                <div className="h4  cursor-pointer accordions grid grid-cols-[7fr,3fr]" onClick={() => handleTab(index)}><span className="leading-[1.1] font-MluvkaLight">{title}</span>
+                <div className="h4  cursor-pointer accordions grid grid-cols-[7fr,3fr]" ><span onClick={() => handleTab(index)} className="leading-[1.1] font-MluvkaLight">{title}</span>
+                <Link href={`/${basePath}news/${slug}`}>
                    <Image src={arrow} className={`ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300 ${newsActive === index ? "rotate-180":""}`} alt="" />
+                </Link>
                 </div>
                 <div className={`section6MainBoxcDOx overflow-hidden transition-all ease-in-out duration-300 ${newsActive === index ? "max-h-max":"max-h-0"}`}>
                   <div className="text-[#39394680] text-[.8rem] leading-[1.2] capitalize  mx:w-[70%] !font-normal pr-10">{StringConvert(truncatedText)}</div>
