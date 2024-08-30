@@ -1,4 +1,5 @@
 "use client"
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext';
 import useFetch from '@/app/customHooks/useFetch';
 import Faqs from '@/components/Faqs';
@@ -8,13 +9,13 @@ import RelatedNews from '@/components/RelatedNews';
 import Team from '@/components/Team';
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 const ServicesPage = ({ lang, slug }) => {
   const { handleOpenModel } = useContext(MainBookingStatusContext);
   const { loading, data } = useFetch(`services/fetchPageContent/${slug}/${lang}`);
-
-
+  const { mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
   
 
   if (loading) return <Loaders />;
@@ -74,7 +75,7 @@ const ServicesPage = ({ lang, slug }) => {
           <div className="container mx-auto px-6">
             <div className="innerPage1_ grid items-center grid-cols-2 max-lg:grid-cols-1 gap-6">
               { <div className={`innerPage1_Right relative h-full ${index%2 !== 0 ? "order-2": "max-lg:order-1"}`}>
-                <Image src={image ?? ""} className="w-full  absolute max-lg:relative h-full object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
+              {image &&  <Image src={image ?? ""} className="w-full  absolute max-lg:relative h-full object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />}
               </div> }
               <div className={`innerPage1_img   ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
                 <h3 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
@@ -98,18 +99,18 @@ const ServicesPage = ({ lang, slug }) => {
             <ul className="list flex justify-center gap-10 text-center">
               {
                 Array.isArray(sec_four) && sec_four.map((item,index) => {
-                  const {image} = item
+                  const {image,title} = item
                   return(
                     <li key={index}>
                     <Image className="h-[5.438rem] mx-auto object-contain w-full" src={image ?? ""} width={10} height={10} alt="" />
-                    <span className="uppercase font-bold  font-Mluvka mt-3 block">CREDIBILITY</span>
+                    <span className="uppercase font-bold  font-Mluvka mt-3 block">{title}</span>
                   </li>
                   )
                 })
               }
             </ul>
           </div>
-          <Link onClick={() => handleOpenModel(true)} href="#" className="btn btn-primary uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka mt-5 block w-fit mx-auto">Book a Consultation</Link>
+          <Link onClick={() => handleOpenModel(true)} href="#" className="btn btn-primary uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka mt-5 block w-fit mx-auto">{elements?.["book-a-consultation"]}</Link>
         </div>
       </section>}
      <Team team={teams} />

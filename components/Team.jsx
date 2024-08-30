@@ -1,11 +1,13 @@
 "use client"
 import React, { useContext } from 'react'
-import { MyHome } from '@/app/context/MyHomeContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 
 const Team = ({team,count}) => {
+  const {mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
     const { langValue } = useContext(MainLanguageValueContext);
     const basePath = langValue === "en" ? '' : `${langValue}/`;
 
@@ -39,7 +41,7 @@ const Team = ({team,count}) => {
 
       </div> 
     </div>
-    <Link href="/team" className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>View All</Link>
+    <Link href="/team" className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>{elements?.["view-all"]}</Link>
   </section>
 
   )

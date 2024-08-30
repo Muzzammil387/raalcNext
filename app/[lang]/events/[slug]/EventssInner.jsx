@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -10,6 +10,7 @@ import { StringConvert } from '@/components/StringConvert';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import Loaders from '@/components/Loaders';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 const truncateText = (text, maxLength) => {
   if(text) {
     if (text.length <= maxLength) {
@@ -24,6 +25,8 @@ const truncateText = (text, maxLength) => {
 
 const NewsInner = ({ lang, slug }) => {
   const { loading, data } = useFetch(`events/fetch/${slug}/${lang}`);
+  const {mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
   if (loading) return <Loaders />;  
   const {author_name,author_details,title,description,date} = data?.data
   const formattedDate = dayjs(date).format('MMMM D, YYYY');
@@ -71,7 +74,7 @@ const NewsInner = ({ lang, slug }) => {
                 <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
                   {title}
                 </div>
-                <p className="text-[.9rem] text-[#393946] newdetails">{StringConvert(description)}</p>
+                <div className="text-[.9rem] text-[#393946] newdetails">{StringConvert(description)}</div>
                 <div className="bg-[#FFF2DE] py-3 px-5 rounded-lg mt-4">
                   <h4 className="text-secondary capitalize text-[1.5rem] font-Mluvka">
                     Published by {author_name}
@@ -110,8 +113,8 @@ const NewsInner = ({ lang, slug }) => {
                     </li>
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
-                  <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</p>
-                  <Link href={`/events/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' > Read More </Link>
+                  <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</div>
+                  <Link href={`/events/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' > {elements?.["read-more"]} </Link>
                 </div>
               </div>
               )

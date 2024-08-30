@@ -1,13 +1,14 @@
 "use client"
 import useFetch from '@/app/customHooks/useFetch';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import dayjs from 'dayjs';
 import { StringConvert } from '@/components/StringConvert';
 import Link from 'next/link';
 import { Pagination } from 'antd';
 import useGet from '@/app/customHooks/useGet';
 import Loaders from '@/components/Loaders';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 
 
 
@@ -24,10 +25,12 @@ const truncateText = (text, maxLength) => {
 
 const NewPage = ({lang}) => {
     const { loading, data } = useFetch(`news/index/${lang}/6?page=1`);
+    const {mainData } = useContext(MainAPiContext);
+    const elements = mainData?.elements
 const [datas, setDatas] = useState("")
     useEffect(() => {
     if(data) {
-      setDatas(data?.data)
+      setDatas(data?.data?.news)
     }
     }, [data])
 
@@ -78,7 +81,7 @@ const [datas, setDatas] = useState("")
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
-                  <Link href={`/${basePath}news/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
+                  <Link href={`/${basePath}news/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                 </div>
             </div>
             )

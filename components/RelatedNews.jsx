@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import { StringConvert } from './StringConvert';
 import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 
 
 const truncateText = (text, maxLength) => {
@@ -17,11 +18,13 @@ const truncateText = (text, maxLength) => {
   };
 const RelatedNews = ({data}) => {
     const { langValue } = useContext(MainLanguageValueContext);
+    const {mainData } = useContext(MainAPiContext);
+    const elements = mainData?.elements
     const basePath = langValue === "en" ? '' : `${langValue}/`;
     return (
         <section className="section8">
     <div className="container mx-auto px-32">
-      <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold mb-8">Related Articles</h3>
+      <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold mb-8">{elements?.related_articles}</h3>
       <div className="cardMain3 gap-6 grid grid-cols-3">
         {
             Array.isArray(data) && data.map((item) => {
@@ -39,8 +42,8 @@ const RelatedNews = ({data}) => {
                         <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary"><span className="">{author_name}</span> <span className="font-bold">{formattedDate}</span></li>
                       </ul>
                       <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
-                      <p className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</p>
-                      <Link href={`/${basePath}news/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">Read More</Link>
+                      <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
+                      <Link href={`/${basePath}news/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                     </div>
                   </div>
                 )

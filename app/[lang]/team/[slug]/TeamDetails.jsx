@@ -1,4 +1,5 @@
 "use client"
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext';
 import useFetch from '@/app/customHooks/useFetch';
 import Loaders from '@/components/Loaders';
@@ -8,6 +9,8 @@ import React, { useContext } from 'react'
 
 const TeamDetails = ({lang,slug}) => {
   const { handleOpenModel } = useContext(MainBookingStatusContext);
+  const {mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
     const { loading, data } = useFetch(`teams/singleDetail/${slug}/${lang}`);
     if(loading) return <Loaders />;
     const {name,designation,detail,lowyer_image,educations,memberships,practice_areas,skills,qr_code_image} = data?.data
@@ -27,7 +30,7 @@ const TeamDetails = ({lang,slug}) => {
       
       <div className='TeamFooter mt-14  mx-auto grid grid-cols-2 gap-5 max-lg:grid-cols-1'>
       <div className="TeamFooterBox">
-        <h3 className='text-secondary text-[1.4rem]'>EDUCATION</h3>
+        <h3 className='text-secondary text-[1.4rem]'>{elements?.education}</h3>
         <ul className='list'>
           {educations && educations.map((item,index) => {
             return (
@@ -38,7 +41,7 @@ const TeamDetails = ({lang,slug}) => {
       </div>
       {/* close TeamFooterBox  */}
       <div className="TeamFooterBox">
-        <h3 className='text-secondary text-[1.4rem]'>SKILLS</h3>
+        <h3 className='text-secondary text-[1.4rem]'>{elements?.skills}</h3>
         <ul className='list'>
         {Array.isArray(skills) && skills.map((item,index) => {
             return (
@@ -49,7 +52,7 @@ const TeamDetails = ({lang,slug}) => {
       </div>
       {/* close TeamFooterBox  */}
       <div className="TeamFooterBox">
-        <h3 className='text-secondary text-[1.4rem]'>MEMBERSHIPS</h3>
+        <h3 className='text-secondary text-[1.4rem]'>{elements?.members}</h3>
         <ul className='list'>
         {Array.isArray(memberships) && memberships.map((item,index) => {
             return (
@@ -60,7 +63,7 @@ const TeamDetails = ({lang,slug}) => {
       </div>
       {/* close TeamFooterBox  */}
         <div className="TeamFooterBox">
-          <h3 className='text-secondary text-[1.4rem]'>PRACTICE AREA</h3>
+          <h3 className='text-secondary text-[1.4rem]'>{elements?.["practice_area"]}</h3>
           <ul className='list'>
           {Array.isArray(practice_areas) && practice_areas.map((item,index) => {
             return (
@@ -75,7 +78,7 @@ const TeamDetails = ({lang,slug}) => {
      {qr_code_image && <div className='  pt-5'>
         <Image className='w-[10rem]' src={qr_code_image ?? ""} alt='dfg' width={0} height={0} />
       </div>}
-        <button onClick={() => handleOpenModel(true)} className="mt-10 btn btn-primary w-fit cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">Book a Consultation</button>
+        <button onClick={() => handleOpenModel(true)} className="mt-10 btn btn-primary w-fit cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{elements?.["book-a-consultation"]}</button>
     </div>
   </div>
   )

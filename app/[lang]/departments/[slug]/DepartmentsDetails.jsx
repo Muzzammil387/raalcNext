@@ -20,7 +20,7 @@ const DepartmentsDetails = ({lang,slug}) => {
         </div>
         <div className='teams__Right'>
          <h1 className='font-MluvkaBold text-[4rem] uppercase'>{title}</h1>
-         <p className=' mt-4 max-lg:w-full'>{StringConvert(description)}</p>
+         <div className=' mt-4 max-lg:w-full'>{StringConvert(description)}</div>
          <br />
          <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">Book a Consultation</button>
         </div>

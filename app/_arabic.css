@@ -33,6 +33,13 @@ body.ar .consModelMainr .h4::before  {
   left: auto;
 }
 
+body.ar li.ant-pagination-next {
+  transform: rotate(180deg);
+}
+body.ar li.ant-pagination-prev {
+  transform: rotate(180deg);
+}
+
 
 
 /* Group 33834 */

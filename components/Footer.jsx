@@ -186,13 +186,13 @@ const Footer = () => {
         <Formik initialValues={initialValues}  onSubmit={handleSubmit}>
         <Form>
           <div className="inputBox my-4">
-           <Field name={"fname"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["full-name"]} />
+           <Field name={"name"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["full-name"]} />
           </div>
           <div className="inputBox my-4">
            <Field name={"email"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["email-address"]} />
           </div>
           <div className="inputBox my-4">
-           <Field type={"tel"} name={"tel"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["phone-number"]} />
+           <Field type={"tel"} name={"phone"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["phone-number"]} />
           </div>
           <div className="inputBox my-4">
           <Field
@@ -203,7 +203,7 @@ const Footer = () => {
             />
           </div>
 
-          <button type='submit'  className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{elements?.["submit"]}</button>
+          <button type='submit'  className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res?.isLoading ? elements?.["loading"] : elements?.["submit"]}</button>
           </Form>
           </Formik>
       </div>
