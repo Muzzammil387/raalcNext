@@ -26,14 +26,10 @@ const Header = () => {
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
   const { handleOpenModels,mainData } = useContext(MainAPiContext);
-  const { loading: loading2, data: data2 } = useFetch(`servicescategory/services_relates_category/${langValue}`);
-  const { loading, data } = useFetch(`teams/${langValue}/100?page=1`);
-
-  const { loading:loading3, data:data3 } = useFetch(`elements/element/${langValue}`);
   const [resget, apiMethodGet] = useGet()
   useEffect(() => {
     if (langValue) {
-      apiMethodGet(`elements/element/${langValue}`);
+      apiMethodGet(`webContents/combineContent/${langValue}`);
     }
   }, [langValue]);
 
@@ -54,13 +50,9 @@ const Header = () => {
   const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
 
   useEffect(() => {
-    if (data) {
-      handleTeamss(data?.data)
-    }
-  }, [loading])
-  useEffect(() => {
     if (resget.data) {
       handleOpenModels(resget?.data?.data)
+      handleTeamss(resget?.data?.data?.teams)
     }
   }, [resget.isLoading])
 
@@ -209,7 +201,10 @@ const Header = () => {
     }
   }, [res2.data])
 
-if(loading3 && !mainData) return <Loaders />
+if(!mainData) return <Loaders />;
+
+const elements = mainData?.elements
+const service_catgeories = mainData?.service_catgeories
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
@@ -221,7 +216,7 @@ if(loading3 && !mainData) return <Loaders />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <div className="flex justify-between">
-              <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{mainData["book-meeting"]}</div>
+              <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements["book-meeting"]}</div>
               <Link href="#" onClick={() => handleOpenModel(false)} className="close  mb-3">
                 <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
@@ -233,22 +228,22 @@ if(loading3 && !mainData) return <Loaders />
               <Form>
                 <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
-                    <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={mainData["enter-name"]} ></Field>
+                    <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={elements["enter-name"]} ></Field>
                   </div>
                   <div className="inputBox mb-4">
-                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["enter-email"]} ></Field>
+                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["enter-email"]} ></Field>
                   </div>
                   <div className="inputBox mb-4">
-                    <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["phone-number"]} ></Field>
+                    <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["phone-number"]} ></Field>
                   </div>
                   <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
-                      <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["number-of-attendance"]} ></Field>
+                      <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["number-of-attendance"]} ></Field>
                     </div>
 
                     <div className="inputBox">
                       <Field as="select" name="consultant_id" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
-                        <option value="">{mainData["choose-consultant"]}</option>
+                        <option value="">{elements["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
                           const { id, name } = item
                           return (
@@ -263,12 +258,12 @@ if(loading3 && !mainData) return <Loaders />
                         onChange={onChange}
                         value={selectedDate}
                         disabledDate={disabledDate}
-                        placeholder={mainData["time-slot"]}
+                        placeholder={elements["time-slot"]}
                       />
                     </div>
                     <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="time_slot" id="">
-                        <option value="">{mainData["time-slot"]}</option>
+                        <option value="">{elements["time-slot"]}</option>
                         {
                           Array.isArray(timeSlots) && timeSlots.map((item) => {
                             const { id, time_slot, slot_status } = item
@@ -281,7 +276,7 @@ if(loading3 && !mainData) return <Loaders />
                     </div>
                     <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
-                        <option value="">{mainData["beverage"]}</option>
+                        <option value="">{elements["beverage"]}</option>
                         {
                           BeverageList[langValue].map((item, index) => {
                             const { label } = item
@@ -297,10 +292,10 @@ if(loading3 && !mainData) return <Loaders />
 
                   </div>
                   <div className="inputBox my-4">
-                    <Field as={"textarea"} name="meeting_purpose" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={mainData["perpose_meeting"]} ></Field>
+                    <Field as={"textarea"} name="meeting_purpose" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["perpose_meeting"]} ></Field>
                   </div>
                 </div>
-                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? mainData["loading"]: mainData["book-now"]}</button>
+                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? elements["loading"]: elements["book-now"]}</button>
               </Form>
             </Formik>
           </div>
@@ -317,30 +312,30 @@ if(loading3 && !mainData) return <Loaders />
           <nav className={`max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit ${mobleMenuActive ? "active" : ""}`}>
             <div className="hidden close" onClick={() => handleMobileClose(false)}>X</div>
             <ul className="  flex gap-6    [&_a]:capitalize">
-              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">{mainData?.home}</Link></li>
-              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{mainData?.about}</Link></li>
-              <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{mainData?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
+              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
+              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
+              <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{elements?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
-                  {!loading2 && data2.data && 
+                  {service_catgeories && 
   [...Array(4)].map((_, groupIndex) => (
     <div key={groupIndex}>
-      {Object.keys(data2.data).slice(groupIndex * Math.ceil(Object.keys(data2.data).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(data2.data).length / 4)).map((item, index) => {
+      {Object.keys(service_catgeories).slice(groupIndex * Math.ceil(Object.keys(service_catgeories).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(service_catgeories).length / 4)).map((item, index) => {
         return (
           <div className="servicesMenu-BOx my-3 relative" key={index}>
             <div className="h2 flex gap-3 items-start">
               {
-                data2.data[item].data.length > 0 ?
+                service_catgeories[item].data.length > 0 ?
                 <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
                 :
-                <Link href={`/${basePath}services/${data2.data[item]['\u00edd'] ?? ""}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
+                <Link href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? ""}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
               }
-              {data2.data[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, data2.data[item]['\u00edd'])} src={downarrow} alt="" />}
+              {service_catgeories[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, service_catgeories[item]['\u00edd'])} src={downarrow} alt="" />}
             </div>
-            {data2.data[item].data.length > 0 &&
-              <div className={`innerMenu ${menuActive === data2.data[item]['\u00edd'] ? "active" : ""}`}>
+            {service_catgeories[item].data.length > 0 &&
+              <div className={`innerMenu ${menuActive === service_catgeories[item]['\u00edd'] ? "active" : ""}`}>
                 <ul className="innerMenu_ relative">
-                  {data2.data[item].data.map((item2, index2) => {
+                  {service_catgeories[item].data.map((item2, index2) => {
                     const { service_title, id } = item2;
                     return (
                       <li key={index2} className="flex gap-1 items-start my-2 relative">
@@ -365,10 +360,10 @@ if(loading3 && !mainData) return <Loaders />
                 </div>
 
               </li>
-              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {mainData?.["news-updates"] || 'News & Updates'} </Link></li>
-              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {mainData?.["events"] || 'Events'}</Link></li>
-              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {mainData?.["gallery"] || 'gallery'}</Link></li>
-              <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">  {mainData?.["contact-us"] || 'Contact Us'}</Link></li>
+              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {elements?.["news-updates"] || 'News & Updates'} </Link></li>
+              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {elements?.["events"] || 'Events'}</Link></li>
+              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {elements?.["gallery"] || 'gallery'}</Link></li>
+              <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">  {elements?.["contact-us"] || 'Contact Us'}</Link></li>
             </ul>
 
 
@@ -378,7 +373,7 @@ if(loading3 && !mainData) return <Loaders />
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{mainData?.["book-a-consultation"] || "Book a Consultation"}</button>
+            <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
             <div className="relative header__righeng">
               <HeaderLanguage />
             </div>

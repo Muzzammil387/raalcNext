@@ -1,4 +1,5 @@
 
+import { MainAPiContext } from '@/app/context/MainAPiContext'
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import usePost from '@/app/customHooks/usePost'
@@ -13,6 +14,11 @@ import { toast } from 'react-toastify'
 
 const Footer = () => {
   const { langValue } = useContext(MainLanguageValueContext);
+  const {mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
+  const contact_us = mainData?.contact_us
+  const company_profile = mainData?.company_profile
+  const social_media = mainData?.social_media
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
   const initialValues = {
@@ -84,33 +90,32 @@ const Footer = () => {
     </div>
     <div className="footer__topBox grid grid-cols-2 gap-3">
       <ul>
-           <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">Home</Link></li>
-        <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-medium capitalize">about</Link></li>
+           <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">{elements?.home}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-medium capitalize">{elements?.about}</Link></li>
         {/* <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">services</Link></li> */}
-        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-medium capitalize">expertise</Link></li>
+        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-medium capitalize">{elements?.expertise}</Link></li>
       </ul>
       <ul>
-        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-medium capitalize">diversity</Link></li>
-        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-medium capitalize">legal library</Link></li>
+        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-medium capitalize">{elements?.diversity}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-medium capitalize">{elements?.["legal-library"]}</Link></li>
         {/* <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">Other Service</a></li> */}
       </ul>
     </div>
     <div className="footer__topBox">
-      <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleReachUsOpenModel(true)}>Get a Quote</Link>
-      <Link target='_blank' href="https://www.raalc.ae/wp-content/uploads/2024/08/RAALC-ID-Small.pdf" className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">Download Our Company Profile</Link>
+      <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleReachUsOpenModel(true)}>{elements?.["get-a-quote"]}</Link>
+      <Link target='_blank' href={company_profile?.file ?? ""} className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">{elements?.["download-our-company-profile"]}</Link>
       <br />
       <div className="flex gap-2">
-        <div className="h6 font-cormorant font-bold text-[1.2rem]">Connect with us</div>
+        <div className="h6 font-cormorant font-bold text-[1.2rem]">{elements?.["connect-with-us"]}</div>
         <ul className="list flex gap-2">
-          <li>
-            <a href="#"><Image className="magnetic" src={facebook1} alt="facebook.svg" /></a>
+         {Array.isArray(social_media) && social_media.map((item) => {
+          const {id,image,link} = item
+          return (
+          <li key={id}>
+            <Link href={link} target='_blank'><Image className="magnetic w-[32px]" width={10} height={10} src={image ?? ""} alt={id} /></Link>
           </li>
-          <li>
-            <a href="#"><Image className="magnetic" src={intragram1} alt="intragram.svg" /></a>
-          </li>
-          <li>
-            <a href="#"><Image className="magnetic" src={linkdin1} alt="linkdin.svg" /></a>
-          </li>
+          )
+         }) }
         </ul>
       </div>
     </div>
@@ -119,41 +124,40 @@ const Footer = () => {
   <div className="footer__bottom relative my-16">
     <div className="container items-end mx-auto px-14 grid grid-cols-3 gap-5 max-lg:grid-cols-1 max-lg:px-0">
       <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">HEADQUARTERS</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">Dubai (HQ)</div>
-        <p className="font-medium">Suite 201, 2nd floor,Bldg No. 06 Bay Square Business Bay Dubai - UAE,128334</p>
+        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.headquarters}</div>
+        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_one}</div>
+        <p className="font-medium">{contact_us?.sec_two_location_one}</p>
         <ul className="list font-medium">
-          <li><span>Email:</span><a href="mailto:info@raalc.ae" className="border-b border-black">info@raalc.ae</a></li>
-          <li><span>Phone:</span><a href="tel:+97145693370" className="border-b border-black">+97145693370,</a> <span>Fax</span> <a href="tel:+97145693382" className="border-b border-black">+97145693382</a></li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_one}`} className="border-b border-black">{contact_us?.sec_two_email_one}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_one}`} className="border-b border-black">{contact_us?.sec_two_phone_one}</a> </li>
         </ul>
       </div>
       <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">OUR BRANCHES</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">Sharjah</div>
-        <p className="font-medium">Suite 1307, 13th Floor Sarh Al Emarat Tower Buheirah Corniche Sharjah - UAE</p>
+        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.["our-branches"]}</div>
+        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_two}</div>
+        <p className="font-medium">{contact_us?.sec_two_location_two}</p>
         <ul className="list font-medium">
-          <li><span>Email:</span><a href="mailto:info@raalc.ae" className="border-b border-black">info@raalc.ae</a></li>
-          <li><span>Phone:</span><a href="tel:+97165370010" className="border-b border-black">+97165370010,</a> <span>Fax</span> <a href="tel:+97145693382" className="border-b border-black">+97165370012</a></li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_two}`} className="border-b border-black">{contact_us?.sec_two_email_two}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_two}`} className="border-b border-black">{contact_us?.sec_two_phone_two}</a> </li>
         </ul>
       </div>
       <div className="footer__bottomBox">
 
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">Ras Al Khaimah</div>
-        <p className="font-medium">Suite 1307, 13th Floor Sarh Al Emarat Tower Buheirah Corniche Sharjah - UAE</p>
+      <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_three}</div>
+        <p className="font-medium">{contact_us?.sec_two_location_three}</p>
         <ul className="list font-medium">
-          <li><span>Email:</span><a href="mailto:info@raalc.ae" className="border-b border-black">info@raalc.ae</a></li>
-          <li><span>Phone:</span><a href="tel:+97165370010" className="border-b border-black">+97165370010,</a> <span>Fax</span> <a href="tel:+97145693382" className="border-b border-black">+97165370012</a></li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_three}`} className="border-b border-black">{contact_us?.sec_two_email_three}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="border-b border-black">{contact_us?.sec_two_phone_three}</a> </li>
         </ul>
       </div>
     </div>
   </div>
   </footer>
-  <div id="fc-phone" className="cb-button call_back">
+  <a href={company_profile?.link} target='_blank' id="fc-phone" className="cb-button call_back">
     <div className="cbb-circle"></div>
     <div className="cbb-circle-fill"></div>
     <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
-</div>
-
+</a>
   {/* <div
     className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
     <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
@@ -178,28 +182,28 @@ const Footer = () => {
             <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>     
         </a>
-        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">Reach Us</div>
+        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["reach-us"]}</div>
         <Formik initialValues={initialValues}  onSubmit={handleSubmit}>
         <Form>
           <div className="inputBox my-4">
-           <Field name={"fname"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Full Name"} />
+           <Field name={"fname"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["full-name"]} />
           </div>
           <div className="inputBox my-4">
-           <Field name={"email"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Email Address"} />
+           <Field name={"email"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["email-address"]} />
           </div>
           <div className="inputBox my-4">
-           <Field type={"tel"} name={"tel"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={"Phone Number"} />
+           <Field type={"tel"} name={"tel"}  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements?.["phone-number"]} />
           </div>
           <div className="inputBox my-4">
           <Field
               as="textarea"
               name="message"
               className="w-full h-[10rem] border border-[#ddd] py-3 px-4 rounded-3xl  outline-0"
-              placeholder="Message"
+              placeholder={elements?.["reach-us"]}
             />
           </div>
 
-          <button type='submit'  className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">Submit</button>
+          <button type='submit'  className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{elements?.["submit"]}</button>
           </Form>
           </Formik>
       </div>
