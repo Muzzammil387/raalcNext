@@ -36,7 +36,7 @@ const TeamMain = ({lang}) => {
     <section className="innerPage1 relative py-10">
     <div className="container mx-auto px-6 border-b-2 border-[#ddd] pb-6">
         <div className="innerPage1_ w-[70%] mx-auto  text-center">
-                <h1 className=" text-[3.3rem] font-bold leading-[1] uppercase mb-3 font-MluvkaBold">team</h1>  
+                <h1 className=" text-[3.3rem] font-bold leading-[1] uppercase mb-3 font-MluvkaBold">{datas?.meta?.heading}</h1>  
         </div>
     </div>
 </section>
@@ -45,7 +45,7 @@ const TeamMain = ({lang}) => {
     <div className="container mx-auto px-20 max-lg:px-0">
       <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
-            Array.isArray(datas) && datas.map((item,index) => {
+            Array.isArray(datas) && datas?.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">

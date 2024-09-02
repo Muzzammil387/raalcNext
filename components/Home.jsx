@@ -14,16 +14,18 @@ const Home = ({lang}) => {
     const { loading, data } = useFetch(`webContents/home/pagecontent/7/${lang}`);
 
     if(loading) return <Loaders />;
+    const alldata = data?.data
+    const { departments,teams,news,reviews } = alldata
     return (
         <>
-           { <Banner data={data.data} />}
-           { <AboutSection home={data.data} />}
-           { <ServicesSection department={data?.data?.departments} home={data.data} />}
-           { <Section3 home={data.data} />}
+           { <Banner data={alldata} />}
+           { <AboutSection home={alldata} />}
+           { <ServicesSection department={departments} home={alldata} />}
+           { <Section3 home={alldata} />}
             {/* <BOD /> */}
-            {<Team team={data?.data?.teams} count={5} home={data.data} />}
-           { <NEWS  news={data?.data?.news?.news}  />}
-            <Testimonials data={data?.data?.reviews} />
+            {<Team team={teams} count={5} home={alldata} />}
+           { <NEWS  news={news?.news}  />}
+            <Testimonials data={reviews} />
         </>
     )
 }
