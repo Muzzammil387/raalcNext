@@ -113,7 +113,7 @@ const ServicesPage = ({ lang, slug }) => {
           <Link onClick={() => handleOpenModel(true)} href="#" className="btn btn-primary uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka mt-5 block w-fit mx-auto">{elements?.["book-a-consultation"]}</Link>
         </div>
       </section>}
-     <Team team={teams} />
+     <Team team={teams?.teams} />
     {faqsData?.faqs_heading && <Faqs data={faqsData} />}
 {lawsData?.laws_heading &&    <Laws data={lawsData} />}
     <RelatedNews data={news?.news} />

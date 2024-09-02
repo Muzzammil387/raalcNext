@@ -45,7 +45,7 @@ const TeamMain = ({lang}) => {
     <div className="container mx-auto px-20 max-lg:px-0">
       <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
-            Array.isArray(datas) && datas?.map((item,index) => {
+            Array.isArray(datas?.teams) && datas?.teams?.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
                     <Link href={`${basePath}/team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
