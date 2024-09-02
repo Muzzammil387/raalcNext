@@ -89,7 +89,7 @@ const NewsInner = ({ lang, slug }) => {
 
 
           <div className="news2Main__right">
-          {data?.latest_data.map((item) => {
+          {data?.latest_data?.events.map((item) => {
               const {id,slug,author_name,date,event_images,title,description} = item
 
               const maxLength = 300;
