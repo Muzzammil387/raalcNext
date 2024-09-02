@@ -22,7 +22,7 @@ const Home = ({lang}) => {
            { <Section3 home={data.data} />}
             {/* <BOD /> */}
             {<Team team={data?.data?.teams} count={5} home={data.data} />}
-           { <NEWS  news={data?.data?.news}  />}
+           { <NEWS  news={data?.data?.news?.news}  />}
             <Testimonials data={data?.data?.reviews} />
         </>
     )
