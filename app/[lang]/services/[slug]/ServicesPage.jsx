@@ -116,7 +116,7 @@ const ServicesPage = ({ lang, slug }) => {
      <Team team={teams} />
     {faqsData?.faqs_heading && <Faqs data={faqsData} />}
 {lawsData?.laws_heading &&    <Laws data={lawsData} />}
-    <RelatedNews data={news} />
+    <RelatedNews data={news?.news} />
     </>
   )
 }
