@@ -30,7 +30,7 @@ const NewPage = ({lang}) => {
     const [datas, setDatas] = useState("")
     useEffect(() => {
     if(data) {
-      setDatas(data?.data?.events)
+      setDatas(data?.data)
     }
     }, [data])
 
@@ -56,7 +56,7 @@ const NewPage = ({lang}) => {
         <section className="innerPage1 relative py-10">
             <div className="container mx-auto px-6">
                 <div className="innerPage1_ w-[70%] mx-auto  text-center">
-                        <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">Articles and <br /> legal Updates</h1>  
+                        <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{datas?.meta?.heading}</h1>  
                 </div>
             </div>
         </section>
@@ -64,7 +64,7 @@ const NewPage = ({lang}) => {
         <section className="section8 relative">
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
-                {  Array.isArray(datas) && datas.map((item,index) => {
+                {  Array.isArray(datas?.events) && datas?.events?.map((item,index) => {
               const {id,slug,event_images,title,author_name,date,description} = item
               const formattedDate = dayjs(date).format('MMMM D, YYYY');
               const maxLength = 300;
