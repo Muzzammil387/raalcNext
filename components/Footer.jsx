@@ -121,7 +121,7 @@ const Footer = () => {
     </div>
   </div>
   </div>
-  <div className="footer__bottom relative my-16">
+  <div className="footer__bottom relative mt-16 mb-6">
     <div className="container items-end mx-auto px-14 grid grid-cols-3 gap-5 max-lg:grid-cols-1 max-lg:px-0">
       <div className="footer__bottomBox">
         <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.headquarters}</div>
@@ -150,6 +150,10 @@ const Footer = () => {
           <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="border-b border-black">{contact_us?.sec_two_phone_three}</a> </li>
         </ul>
       </div>
+    </div>
+  </div>
+  <div className="footer_Quick bg-secondary py-2 text-white text-center">
+    <div className="container mx-auto"> {elements?.["developed_by"]} <Link href={"https://quickdigitals.ae/"} target='_blank' className='border-b border-[#fff]'>{elements?.["quick_digitals"]}</Link>
     </div>
   </div>
   </footer>

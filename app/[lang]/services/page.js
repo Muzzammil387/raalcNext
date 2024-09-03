@@ -15,7 +15,7 @@ const page = ({ params }) => {
   const { lang } = params;
   return (
     <div>
-      dsfadasf
+      NO Data
     </div>
   )
 }

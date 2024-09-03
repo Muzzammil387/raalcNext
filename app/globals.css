@@ -1191,3 +1191,16 @@ display:block !important;
 .footer__bottom  {
   padding-bottom: 3rem;
 }
+
+
+
+
+
+.fixedd {
+  height: 100vh;
+  overflow: hidden;
+}
+ .fixedd body {
+  height: 100vh;
+  overflow: hidden;
+}
