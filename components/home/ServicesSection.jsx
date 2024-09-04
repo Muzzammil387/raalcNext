@@ -20,7 +20,7 @@ const ServicesSection = ({department,home}) => {
   
   return (
     <section className="section2 overflow-hidden py-10 z-[2]">
-      <div className="section2_heading w-[40%] mx-auto text-center">
+      <div className="section2_heading w-[40%] max-[1200px]:w-[90%] mx-auto text-center">
         <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#4857db] opacity-35 mb-5">
           {sec_three_header_one}
         </div>
@@ -43,7 +43,7 @@ const ServicesSection = ({department,home}) => {
             200: { slidesPerView: "auto", },
             465: { slidesPerView: "auto", },
             768: { slidesPerView: 3, },
-            1024: { slidesPerView: 4, },
+            1200: { slidesPerView: 4, },
             1624: { slidesPerView: 5, },
           }}
           className="sample-slider">
@@ -51,7 +51,7 @@ const ServicesSection = ({department,home}) => {
             const {department_id,department_image,title,description} = item
             return(
             <SwiperSlide key={index}>
-               <Link href={"#"} className="card1 cursor-pointer relative">
+               <div  className="card1 cursor-pointer relative">
                 <div className="card1_ py-10 overflow-hidden relative">
                   <div className="card1Box relative p-[.2rem]">
                     <Image className="h-[16rem] rounded-[5rem] object-cover w-full" src={department_image} width={0} height={0} alt="" />
@@ -64,7 +64,7 @@ const ServicesSection = ({department,home}) => {
                     <div className="text-[#393946] text-[.8rem] capitalize  leading-[1.1]">{StringConvert(description)}</div>
                   </div>
                 </div>
-              </Link>
+              </div>
             </SwiperSlide>
             )
 })}

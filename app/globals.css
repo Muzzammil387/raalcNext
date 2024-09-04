@@ -1212,9 +1212,12 @@ display:block !important;
   overflow: hidden;
 }
 
-/* 
+
 @media screen and (max-width: 1200px) and (min-width: 979px) {
-html {
-  font-size: .8vw;
+.header__right .btn-primary {
+  font-size: .6rem;
 }
-} */
+.header__center ul li a {
+  font-size: .8rem;
+}
+}
