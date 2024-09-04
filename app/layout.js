@@ -15,6 +15,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Raalc",
   description: "RAALC’s journey began in 2013, when it was co-founded in the Emirate of Sharjah. Our success continued through years and we opened our two new branches in Ras Al Khaimah",
+  robots: {
+    index: false, // this will set 'noindex'
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -22,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
-      <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex" />
       </Head>
       <body className={inter.className}>
         <Main>{children}</Main>

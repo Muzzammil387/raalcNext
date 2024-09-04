@@ -14,6 +14,7 @@ import MainReachUsStatusProvider from '../context/MainReachUsStatusContext';
 import MainLanguageValueProvider from '../context/MainLanguageValue';
 import MainTeamProvider from '../context/MainTeamContext';
 import MainAPiProvider from '../context/MainAPiContext';
+import Head from 'next/head';
 
 const Main = ({ children }) => {
   const [lang, setLang] = useState("");
@@ -35,6 +36,9 @@ const Main = ({ children }) => {
         <MainBookingStatusProvider>
           <MyHome.Provider value={{ home, setHome }}>
             <MyLanguage.Provider value={{ lang, setLang }}>
+            <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
               <Header language={languagess} data={header} />
               
               <main className="indexPage">

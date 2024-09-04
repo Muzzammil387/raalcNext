@@ -34,3 +34,4 @@ export const downarrow = require("../../public/webImages/downarrow.svg");
 export const checkmark = require("../../public/webImages/checkmark-square.svg");
 export const about4 = require("../../public/webImages/about/4.webp");
 export const playButton = require("../../public/webImages/play.svg");
+export const pro = require("../../public/webImages/profile-blank.png");
