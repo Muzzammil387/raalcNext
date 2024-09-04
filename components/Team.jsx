@@ -30,7 +30,7 @@ const Team = ({team,count}) => {
                       <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt="" />
                     </div>
                     <div className="section5MainBox2 max-lg:opacity-100 max-lg:bottom-0 left-0 bottom-[-10rem] transition-all duration-500   opacity-0 absolute bg-white py-5 px-3 rounded-[5rem] w-full text-center">
-                    <div className="h3 font-bold font-Mluvka uppercase text-[1.438rem] leading-[1] max-lg:text-[.9rem]">{name}</div>
+                    <div className="h3 font-bold font-Mluvka uppercase text-[1.438rem] leading-[1] max-lg:text-[1.2rem] mb-2">{name}</div>
                     <div className="h4 leading-[1] text-[1rem] uppercase text-secondary max-lg:text-[.9rem]">{designation}</div>
                     </div>
                   </Link>

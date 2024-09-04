@@ -63,7 +63,7 @@ const Section3 = ({home}) => {
   return (
     <section className="section3 relative bg-[#FFF9F0] rounded-[5rem] z-[2]">
     <div className="container mx-auto">
-      <div className="section2_ gap-16 py-32 max-lg:py-10 max-lg:gap-3 w-[85%] max-lg:w-full max-lg:text-center mx-auto grid justify-center items-center grid-cols-2">
+      <div className="section2_ gap-16 py-32 max-lg:py-10 max-lg:gap-3 w-[85%] max-[1200px]:w-full max-lg:text-center mx-auto grid justify-center items-center grid-cols-2">
         <div className="section2_left">
           <h2 className="font-Mluvka font-bold text-[2.313rem] uppercase leading-[1]">{sec_four_header_one}</h2>
           <div className="section2_leftB mt-4">
@@ -73,7 +73,7 @@ const Section3 = ({home}) => {
 
           <ul ref={counterSectionRef} className="flex justify-center max-lg:flex-col max-lg:items-center gap-14 mt-10">
             <li>
-              <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
+              <div className="h-[5.638rem] w-[8.75rem] max-[1400px]:w-full text-center h2 font-OoohBaby text-[4rem] text-secondary">
                 <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_one} data-postfix="k+">{sec_four_fact_one}k+</span>
                 <span></span>
               </div>
@@ -82,7 +82,7 @@ const Section3 = ({home}) => {
               </div>
             </li>
             <li>
-              <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
+              <div className="h-[5.638rem] w-[8.75rem] max-[1400px]:w-full text-center h2 font-OoohBaby text-[4rem] text-secondary">
                 <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_two} data-postfix="">{sec_four_fact_two}</span>
               </div>
               <div className="h4 font-medium leading-4">
@@ -90,7 +90,7 @@ const Section3 = ({home}) => {
               </div>
             </li>
             <li>
-              <div className="h-[5.638rem] w-[8.75rem] text-center h2 font-OoohBaby text-[4rem] text-secondary">
+              <div className="h-[5.638rem] w-[8.75rem] max-[1400px]:w-full text-center h2 font-OoohBaby text-[4rem] text-secondary">
                 <span className="counter transition-all ease-in-out duration-700" data-target={sec_four_fact_three} data-postfix="+">{sec_four_fact_three}+</span>
                 <span></span>
               </div>

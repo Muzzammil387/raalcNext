@@ -303,7 +303,7 @@ const service_catgeories = mainData?.service_catgeories
       </div>}
 
       <header className="header relative py-4">
-        <div className="px-10 mx-auto flex justify-between items-center">
+        <div className="px-10  max-[1200px]:px-5 mx-auto flex justify-between items-center">
           <div className="header__logo">
             <Link href={`/${basePath}`}>
               <Image src={logo} className="w-[10.313rem]" alt="" />
@@ -311,9 +311,9 @@ const service_catgeories = mainData?.service_catgeories
           </div>
           <nav className={`max-lg:hidden header__center  max-lg:order-4 max-lg:w-fit ${mobleMenuActive ? "active" : ""}`}>
             <div className="hidden close" onClick={() => handleMobileClose(false)}>X</div>
-            <ul className="  flex gap-6    [&_a]:capitalize">
-              <li><Link href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
-              <li><Link href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
+            <ul className="  flex gap-6 max-[1200px]:gap:2    [&_a]:capitalize">
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
               <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{elements?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
@@ -328,7 +328,7 @@ const service_catgeories = mainData?.service_catgeories
                 service_catgeories[item].data.length > 0 ?
                 <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
                 :
-                <Link href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id'] }`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
+                <Link onClick={() => handleMobileClose(false)} href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id'] }`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
               }
               {service_catgeories[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, service_catgeories[item]['\u00edd'])} src={downarrow} alt="" />}
             </div>
@@ -340,7 +340,7 @@ const service_catgeories = mainData?.service_catgeories
                     return (
                       <li key={index2} className="flex gap-1 items-start my-2 relative">
                         <Image className="relative top-[.2rem]" src={checkmark} alt="" />
-                        <Link className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
+                        <Link onClick={() => handleMobileClose(false)} className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
                       </li>
                     );
                   })}
@@ -360,22 +360,22 @@ const service_catgeories = mainData?.service_catgeories
                 </div>
 
               </li>
-              <li><Link href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {elements?.["news-updates"] || 'News & Updates'} </Link></li>
-              <li><Link href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {elements?.["events"] || 'Events'}</Link></li>
-              <li><Link href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {elements?.["gallery"] || 'gallery'}</Link></li>
-              <li><Link href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">  {elements?.["contact-us"] || 'Contact Us'}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {elements?.["news-updates"] || 'News & Updates'} </Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {elements?.["events"] || 'Events'}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {elements?.["gallery"] || 'gallery'}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}contact`} className="font-bold font-cormorant text-lg">  {elements?.["contact-us"] || 'Contact Us'}</Link></li>
             </ul>
 
 
             <div className="relative hidden header__centereng">
-              <HeaderLanguage />
+              <HeaderLanguage  handleclick={(d) => handleMobileClose(d)} />
             </div>
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
+            <button onClick={() => handleOpenModel(true)} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
             <div className="relative header__righeng">
-              <HeaderLanguage />
+              <HeaderLanguage handleclick={(d) => handleMobileClose(d)} />
             </div>
             <div className={`header__centernav hidden max-lg:block  ${mobleMenuActive ? "active" : ""}`} onClick={handleMobile}>
               <Image src={burgerMenu} className="w-full" alt="" />

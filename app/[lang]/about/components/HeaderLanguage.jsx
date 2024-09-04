@@ -24,7 +24,7 @@ const items = [
   },
 ];
 
-const HeaderLanguage = () => {
+const HeaderLanguage = ({handleclick}) => {
   const languages = ['en', 'ar', 'ch', 'ru'];
   const router = useRouter();
   const pathname = usePathname();
@@ -43,6 +43,7 @@ const HeaderLanguage = () => {
   }, [selectedLanguage]);
 
   const handleMenuClick = (e) => {
+    handleclick(false)
     const selectedItem = items.find(item => item.key === e.key);
     setSelectedLanguage(selectedItem.label);
     handleLanguage(selectedItem.key);

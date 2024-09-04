@@ -40,9 +40,11 @@ const ServicesSection = ({department,home}) => {
             disableOnInteraction: false,
           }}
           breakpoints={{
-            300: { slidesPerView: 1, },
+            200: { slidesPerView: "auto", },
+            465: { slidesPerView: "auto", },
             768: { slidesPerView: 3, },
-            1024: { slidesPerView: 5, },
+            1024: { slidesPerView: 4, },
+            1624: { slidesPerView: 5, },
           }}
           className="sample-slider">
           {department.map((item, index) => {
@@ -59,7 +61,7 @@ const ServicesSection = ({department,home}) => {
                   </div>
                   <div className="card1Box2 px-5 py-6 flex flex-col items-center justify-center text-center absolute top-[25rem] transition-all ease-in-out duration-700 w-full h-[16rem] border border-[#D4D4D4]" >
                     <span className="font-Mluvka font-bold text-[1.2rem] uppercase leading-[1] block mb-2">{title}</span>
-                    <div className="text-[#393946] text-[.8rem] capitalize leading-[1.1]">{StringConvert(description)}</div>
+                    <div className="text-[#393946] text-[.8rem] capitalize  leading-[1.1]">{StringConvert(description)}</div>
                   </div>
                 </div>
               </Link>

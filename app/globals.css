@@ -611,6 +611,7 @@ ul.ant-pagination {
   }
 }
 
+
 @media not all and (min-width: 1024px) {
 
   
@@ -786,7 +787,6 @@ ul.ant-pagination {
   }
   .card1Box2 p {
     line-height: 1.2;
-    font-size: 1.1rem;
   }
   .section2__bottom {
     right: 0;
@@ -1154,6 +1154,10 @@ display:block !important;
 .header__center li:hover .servicesMenu {
   top: 1.5rem;
 }
+
+.section1 .container  {
+  padding-bottom: 2rem !important;
+}
 }
 
 
@@ -1165,6 +1169,9 @@ display:block !important;
     width: 80%;
     line-height: 1;
   }
+  .section2__bottom .swiper-slide {
+    width: 78%;
+}
 }
 
 
@@ -1204,3 +1211,10 @@ display:block !important;
   height: 100vh;
   overflow: hidden;
 }
+
+/* 
+@media screen and (max-width: 1200px) and (min-width: 979px) {
+html {
+  font-size: .8vw;
+}
+} */

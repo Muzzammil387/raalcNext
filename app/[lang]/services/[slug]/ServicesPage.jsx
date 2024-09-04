@@ -32,23 +32,23 @@ const ServicesPage = ({ lang, slug }) => {
     "laws":laws,
   }
   return (
-    <>    <section className="innerPage1 py-20">
+    <>    <section className="innerPage1 py-20 max-lg:py-7">
       <div className="container mx-auto px-6">
         <div className="innerPage1_ grid grid-cols-2 gap-6">
-          <div className="innerPage1_img">
+          <div className="innerPage1_img max-lg:order-2">
             <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{alldata?.sec_one_heading_one}</h1>
             <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">{alldata?.sec_one_heading_two}</div>
             <p className="text-[#393946]">{alldata?.sec_one_description}</p>
           </div>
-          <div className="innerPage1_Right">
+          <div className="innerPage1_Right max-lg:order-1">
             <Image src={alldata?.sec_one_image ?? ""} className="w-full max-h-[30rem] object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
           </div>
         </div>
       </div>
     </section>
-    {sec_two[0].heading &&  <section className="productM py-14 bg-[#F5F5F5] rounded-[5rem]">
+    {sec_two[0].heading &&  <section className="productM py-14 bg-[#F5F5F5] rounded-[5rem] max-lg:rounded-xl">
         <div className="container mx-auto px-6">
-          <div className="productM_ grid grid-cols-3 gap-5">
+          <div className="productM_ grid grid-cols-3 gap-5 max-lg:gap-[3rem]">
             {Array.isArray(sec_two) && sec_two.map((item, index) => {
               const { description, heading, image } = item
               return (
@@ -58,7 +58,7 @@ const ServicesPage = ({ lang, slug }) => {
                   </div>
                   <div className="card2_Body mt-3">
                     <div className="h4 capitalize font-bold font-Mluvka leading-[1] text-[2rem]">{heading}</div>
-                    <p className="text-[#393946] leading-[1.1] mt-2">{description}</p>
+                    <p className="text-[#393946] leading-[1.3] mt-2">{description}</p>
 
                   </div>
                 </div>
@@ -73,7 +73,9 @@ const ServicesPage = ({ lang, slug }) => {
         return (
           <section className="innerPage1 py-10" key={index}>
           <div className="container mx-auto px-6">
-            <div className="innerPage1_ grid items-center grid-cols-2 max-lg:grid-cols-1 gap-6">
+            {
+              image ? 
+              <div className="innerPage1_ grid items-center grid-cols-2 max-lg:grid-cols-1 gap-6">
               { <div className={`innerPage1_Right relative h-full ${index%2 !== 0 ? "order-2": "max-lg:order-1"}`}>
               {image &&  <Image src={image ?? ""} className="w-full  absolute max-lg:relative h-full object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />}
               </div> }
@@ -84,6 +86,18 @@ const ServicesPage = ({ lang, slug }) => {
               </div>
   
             </div>
+            :
+            <div className="innerPage1_  text-center max-lg:grid-cols-1 gap-6">
+             
+              <div className={`innerPage1_img   ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
+                <h3 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
+                <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">{heading_two}</div>
+                <p className="text-[#393946]">{description}</p>
+              </div>
+  
+            </div>
+            }
+          
           </div>
         </section>
         )
