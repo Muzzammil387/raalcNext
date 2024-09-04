@@ -734,6 +734,7 @@ ul.ant-pagination {
     right: 0;
     margin: 1rem auto;
     text-align: center;
+    transform: unset;
   }
   .s7BOxBottom_ .h2 {
     font-size: 1.2rem;
@@ -1161,7 +1162,11 @@ display:block !important;
 }
 
 
-
+@media not all and (min-width: 768px) {
+  .section2__bottom .swiper-slide {
+    width: 78%;
+}
+}
 @media not all and (min-width: 461px) {
 
   .bannertxt  {
@@ -1213,7 +1218,7 @@ display:block !important;
 }
 
 
-@media screen and (max-width: 1200px) and (min-width: 979px) {
+@media screen and (max-width: 1200px) and (min-width: 1024px) {
 .header__right .btn-primary {
   font-size: .6rem;
 }
