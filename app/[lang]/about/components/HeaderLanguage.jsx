@@ -85,9 +85,9 @@ const HeaderLanguage = ({handleclick}) => {
     <Dropdown
       overlay={<Menu items={menuItems} />}
       trigger={['click']} >
-      <a onClick={(e) => e.preventDefault()} className="btn btn-secondary bg-white py-2 px-4 flex gap-1 items-center">
+      <a onClick={(e) => e.preventDefault()} className="btn btn-secondary rounded-md bg-white py-2 px-4 flex gap-1 items-center">
         <Image className="w-5" src={svgrepo} alt="global-svgrepo-com.svg" />
-        <span className="font-medium capitalize text-[.9rem] font-Mluvka">{selectedLanguage}</span>
+        <span className=" capitalize text-[.9rem] font-bold font-MluvkaBold">{selectedLanguage}</span>
       </a>
     </Dropdown>
   );

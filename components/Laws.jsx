@@ -19,7 +19,7 @@ const Laws = ({data}) => {
           }
   return (
     <section className="section7  py-20 relative pr-14">
-    <div className="section6Heading   relative grid  grid-cols-[2.5fr,6.5fr] gap-3 items-start  ">
+    <div className="section6Heading   relative grid  grid-cols-[2fr,6.5fr] gap-3 items-start  ">
       <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white Lawss">{data?.laws_short_heading}</a>
       <div className="grid  grid-cols-[1fr,auto] items-start">
         <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">{data?.laws_heading}</h3>
@@ -30,7 +30,7 @@ const Laws = ({data}) => {
     {Array.isArray(data?.laws) && data?.laws.map((item,index) => {
       const {answer,question} = item
         return (
-          <div className="section6MainBox relative grid  grid-cols-[1.5fr,6.5fr] gap-10 items-start" key={index}>
+          <div className="section6MainBox relative grid  grid-cols-[1fr,6.5fr] gap-10 items-start" key={index}>
           <div></div>
           <div className="section6MainBox_ !bg-transparent border-b py-2 border-[#ddd]">
             <div className="section6MainBoxc w-full">

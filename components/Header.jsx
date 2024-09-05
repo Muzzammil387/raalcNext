@@ -25,7 +25,7 @@ const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const { langValue } = useContext(MainLanguageValueContext);
-  const { handleOpenModels,mainData } = useContext(MainAPiContext);
+  const { handleOpenModels, mainData } = useContext(MainAPiContext);
   const [resget, apiMethodGet] = useGet()
   useEffect(() => {
     if (langValue) {
@@ -87,7 +87,7 @@ const Header = () => {
   }, []);
 
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id","meeting_purpose"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id", "meeting_purpose"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
@@ -184,7 +184,7 @@ const Header = () => {
       else {
         const isToday = dayjs().isSame(selectedDate, 'day');
         const currentTime = dayjs();
-        
+
         // Filter time slots for today, removing those before the current time
         const availableSlots = res2.data.data.filter(slot => {
           if (isToday) {
@@ -194,17 +194,17 @@ const Header = () => {
           }
           return true;
         });
-        
+
         setTimeSlots(availableSlots)
         console.log('Available Time Slots:', availableSlots);
       }
     }
   }, [res2.data])
 
-if(!mainData) return <Loaders />;
+  if (!mainData) return <Loaders />;
 
-const elements = mainData?.elements
-const service_catgeories = mainData?.service_catgeories
+  const elements = mainData?.elements
+  const service_catgeories = mainData?.service_catgeories
   return (
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
@@ -288,14 +288,14 @@ const service_catgeories = mainData?.service_catgeories
                         }
                       </Field>
                     </div>
-                   
+
 
                   </div>
                   <div className="inputBox my-4">
                     <Field as={"textarea"} name="meeting_purpose" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["perpose_meeting"]} ></Field>
                   </div>
                 </div>
-                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? elements["loading"]: elements["book-now"]}</button>
+                <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? elements["loading"] : elements["book-now"]}</button>
               </Form>
             </Formik>
           </div>
@@ -314,45 +314,46 @@ const service_catgeories = mainData?.service_catgeories
             <ul className="  flex gap-6 max-[1200px]:gap:2    [&_a]:capitalize">
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
+              
               <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{elements?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
                   <div className="servicesMenu-  grid grid-cols-4 gap-4">
-                  {service_catgeories && 
-  [...Array(4)].map((_, groupIndex) => (
-    <div key={groupIndex}>
-      {Object.keys(service_catgeories).slice(groupIndex * Math.ceil(Object.keys(service_catgeories).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(service_catgeories).length / 4)).map((item, index) => {
-        return (
-          <div className="servicesMenu-BOx my-3 relative" key={index}>
-            <div className="h2 flex gap-3 items-start">
-              {
-                service_catgeories[item].data.length > 0 ?
-                <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
-                :
-                <Link onClick={() => handleMobileClose(false)} href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id'] }`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
-              }
-              {service_catgeories[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, service_catgeories[item]['\u00edd'])} src={downarrow} alt="" />}
-            </div>
-            {service_catgeories[item].data.length > 0 &&
-              <div className={`innerMenu ${menuActive === (service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id']) ? "active" : ""}`}>
-                <ul className="innerMenu_ relative">
-                  {service_catgeories[item].data.map((item2, index2) => {
-                    const { service_title, id } = item2;
-                    return (
-                      <li key={index2} className="flex gap-1 items-start my-2 relative">
-                        <Image className="relative top-[.2rem]" src={checkmark} alt="" />
-                        <Link onClick={() => handleMobileClose(false)} className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            }
-          </div>
-        )
-      })}
-    </div>
-  ))
-}
+                    {service_catgeories &&
+                      [...Array(4)].map((_, groupIndex) => (
+                        <div key={groupIndex}>
+                          {Object.keys(service_catgeories).slice(groupIndex * Math.ceil(Object.keys(service_catgeories).length / 4), (groupIndex + 1) * Math.ceil(Object.keys(service_catgeories).length / 4)).map((item, index) => {
+                            return (
+                              <div className="servicesMenu-BOx my-3 relative" key={index}>
+                                <div className="h2 flex gap-3 items-start">
+                                  {
+                                    service_catgeories[item].data.length > 0 ?
+                                      <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
+                                      :
+                                      <Link onClick={() => handleMobileClose(false)} href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id']}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
+                                  }
+                                  {service_catgeories[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, service_catgeories[item]['\u00edd'])} src={downarrow} alt="" />}
+                                </div>
+                                {service_catgeories[item].data.length > 0 &&
+                                  <div className={`innerMenu ${menuActive === (service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id']) ? "active" : ""}`}>
+                                    <ul className="innerMenu_ relative">
+                                      {service_catgeories[item].data.map((item2, index2) => {
+                                        const { service_title, id } = item2;
+                                        return (
+                                          <li key={index2} className="flex gap-1 items-start my-2 relative">
+                                            <Image className="relative top-[.2rem]" src={checkmark} alt="" />
+                                            <Link onClick={() => handleMobileClose(false)} className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
+                                          </li>
+                                        );
+                                      })}
+                                    </ul>
+                                  </div>
+                                }
+                              </div>
+                            )
+                          })}
+                        </div>
+                      ))
+                    }
 
 
 
@@ -368,7 +369,7 @@ const service_catgeories = mainData?.service_catgeories
 
 
             <div className="relative hidden header__centereng">
-              <HeaderLanguage  handleclick={(d) => handleMobileClose(d)} />
+              <HeaderLanguage handleclick={(d) => handleMobileClose(d)} />
             </div>
 
           </nav>

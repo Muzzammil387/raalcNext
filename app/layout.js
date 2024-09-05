@@ -8,6 +8,7 @@ import "./_arabic.css";
 import "../public/css/whatsapp.css";
 import "react-toastify/dist/ReactToastify.css";
 import Main from "./[lang]/main";
+import Script from "next/script";
 // import RedirectComponent from './RedirectComponent'; // Adjust path if needed
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="noindex" />
       </Head>
       <body className={inter.className}>
+        <Script id="muzzammil"></Script>
         <Main>{children}</Main>
       </body>
     </html>
