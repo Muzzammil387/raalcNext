@@ -90,15 +90,15 @@ const Footer = () => {
     </div>
     <div className="footer__topBox grid grid-cols-2 gap-3">
       <ul>
-           <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">{elements?.home}</Link></li>
-        <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-medium capitalize">{elements?.about}</Link></li>
-        {/* <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-medium capitalize">services</Link></li> */}
-        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-medium capitalize">{elements?.expertise}</Link></li>
+           <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">{elements?.home}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-bold capitalize">{elements?.about}</Link></li>
+        {/* <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">services</Link></li> */}
+        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-bold capitalize">{elements?.expertise}</Link></li>
       </ul>
       <ul>
-        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-medium capitalize">{elements?.diversity}</Link></li>
-        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-medium capitalize">{elements?.["legal-library"]}</Link></li>
-        {/* <li className="my-3"><a href="#" className="font-cormorant font-medium capitalize">Other Service</a></li> */}
+        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-bold capitalize">{elements?.diversity}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-bold capitalize">{elements?.["legal-library"]}</Link></li>
+        {/* <li className="my-3"><a href="#" className="font-cormorant font-bold capitalize">Other Service</a></li> */}
       </ul>
     </div>
     <div className="footer__topBox">
@@ -223,5 +223,6 @@ const Footer = () => {
    </>
   )
 }
+
 
 export default Footer

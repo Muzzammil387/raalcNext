@@ -374,7 +374,7 @@ const Header = () => {
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
+            <button onClick={() => handleOpenModel(true)} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-medium font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
             <div className="relative header__righeng">
               <HeaderLanguage handleclick={(d) => handleMobileClose(d)} />
             </div>

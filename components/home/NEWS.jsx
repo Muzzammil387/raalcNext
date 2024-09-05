@@ -54,7 +54,7 @@ else {
     <div className="section6BOx3 bg-[#3D50DF] absolute right-0 -bottom-10 w-[20rem] h-[20rem] opacity-[.6] blur-[15.438rem]"></div>
       <div className="section6Heading max-lg:grid-cols-1  relative grid  grid-cols-[2.5fr,6.5fr] gap-3 items-start ">
         <a href="#" className="font-Mluvka max-lg:hidden text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white">{elements?.["News-and-updates"] || "News and updates"}</a>
-        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold max-lg:text-center ">{elements?.["news-and-judgements"] || "News & Judgements"}</h3>
+        <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold max-lg:text-center ">{StringConvert(elements?.["news-and-judgements"] || "News & Judgements")}</h3>
       </div>
       <div className="section6Main mt-14 relative">
         {Array.isArray(news) && news.slice(0, 5).map((item,index) => {
@@ -63,7 +63,7 @@ else {
           const maxLength = 300;
           const truncatedText = truncateText(description, maxLength);
           return (
-            <div key={index} className={`section6MainBox relative grid  grid-cols-[2.5fr,6.5fr] gap-10 items-start max-lg:grid-cols-1 ${newsActive === index ? "active":""}`}>
+            <div key={index} className={`section6MainBox relative grid  grid-cols-[2.5fr,6.5fr] gap-10 items-start max-lg:grid-cols-1 ${newsActive === index ? "active bg-white":""}`}>
             <div className={`section6MainBox_img max-lg:hidden transform scale-y-0 transition-all ease-in-out duration-500 ${newsActive === index ? "scale-y-[1]":"scale-y-0"}`}>
               <Image src={news_images[0]} width={10} height={10} className="w-full rounded-r-3xl absolute left-0 translate-y-[-30%]" alt="" />
             </div>
@@ -88,9 +88,9 @@ else {
           )
         })}
       </div>
-      <div className="container">
+      <br />
         <Link href={`/${basePath}news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">View All</Link>
-      </div>
+
   </section>
   )
 }
