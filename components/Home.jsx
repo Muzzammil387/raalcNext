@@ -10,8 +10,11 @@ import Testimonials from './Testimonials';
 import Team from './Team';
 import Loaders from './Loaders';
 
-const Home = ({lang}) => {
+const Home = ({params,lang}) => {
     const { loading, data } = useFetch(`webContents/home/pagecontent/7/${lang}`);
+useEffect(() => {
+console.log(params)
+}, [])
 
     if(loading) return <Loaders />;
     const alldata = data?.data

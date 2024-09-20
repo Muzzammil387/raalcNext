@@ -92,7 +92,7 @@ const [datas, setDatas] = useState("")
               <div className='my-4'>
                 <Pagination
                     onChange={onChange}
-                    defaultCurrent={currentPage}
+                    current={currentPage}
                     total={data?.pagination?.total}
                     pageSize={6}
                 />

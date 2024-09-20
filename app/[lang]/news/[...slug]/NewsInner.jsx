@@ -12,6 +12,7 @@ import Link from 'next/link';
 import Loaders from '@/components/Loaders';
 import { MainAPiContext } from '@/app/context/MainAPiContext';
 
+
 const truncateText = (text, maxLength) => {
   if(text) {
     if (text.length <= maxLength) {
@@ -23,7 +24,7 @@ const truncateText = (text, maxLength) => {
 };
 
 const NewsInner = ({ lang, slug }) => {
-  const { loading, data } = useFetch(`news/fetch/${slug}/${lang}`);
+  const { loading, data } = useFetch(`news/fetch/${slug?.join("/")}/${lang}`);
   const {mainData } = useContext(MainAPiContext);
   const elements = mainData?.elements
   if (loading) return <Loaders />  
@@ -83,9 +84,6 @@ const NewsInner = ({ lang, slug }) => {
               </div>
             </div>
           </div>
-
-
-
 
           <div className="news2Main__right self-start sticky top-1 max-lg:relative">
             {data?.latest_data.news?.map((item) => {

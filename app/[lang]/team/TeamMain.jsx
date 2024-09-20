@@ -10,7 +10,7 @@ import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react'
 
 const TeamMain = ({lang}) => {
-        const { loading, data } = useFetch(`teams/${lang}/8?page=1`);
+        const { loading, data } = useFetch(`teams/${lang}/10?page=1`);
         const { langValue } = useContext(MainLanguageValueContext);
         const basePath = langValue === "en" ? '' : `${langValue}/`;
         const [datas, setDatas] = useState("")
@@ -26,9 +26,11 @@ const TeamMain = ({lang}) => {
           }
           }, [resget.data])
         const [currentPage, setCurrentPage] = useState(1);
+        const [currentPageSize, setCurrentPageSize] = useState(10);
         const onChange = (current, pageSize) => {
           setCurrentPage(current)
-          apiMethodGet(`teams/${lang}/8?page=${current}`);
+          setCurrentPageSize(pageSize)
+          apiMethodGet(`teams/${lang}/${pageSize}?page=${current}`);
         };
     
     if(loading) return <Loaders />
@@ -67,9 +69,9 @@ const TeamMain = ({lang}) => {
       <div className='my-4'>
                 <Pagination
                     onChange={onChange}
-                    defaultCurrent={currentPage}
+                    current={currentPage}
                     total={data?.pagination?.total}
-                    pageSize={8}
+                    pageSize={currentPageSize}
                 />
             </div>
     </div>
