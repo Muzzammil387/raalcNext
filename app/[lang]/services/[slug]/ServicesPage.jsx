@@ -71,7 +71,7 @@ const ServicesPage = ({ lang, slug }) => {
       {sec_three[0].heading_one && Array.isArray(sec_three) && sec_three.map((item,index) => {
         const {image,heading_one,heading_two,description} = item
         return (
-          <section className="innerPage1 py-[6.25rem]" key={index}>
+          <section className="innerPage1 my-[6.25rem]" key={index}>
           <div className="container mx-auto px-6">
             {
               image ? 
@@ -89,7 +89,7 @@ const ServicesPage = ({ lang, slug }) => {
             :
             <div className="innerPage1_  text-center max-lg:grid-cols-1 gap-6">
              
-              <div className={`innerPage1_img   ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
+              <div className={`innerPage1_img py-8   ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
                 <h3 className="font-Mluvka text-[3.3rem] max-lg:text-[2.6rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
                 <div className="h3 text-[1.625rem] text-secondary leading-[1] mb-2">{heading_two}</div>
                 <p className="text-[#393946]">{description}</p>

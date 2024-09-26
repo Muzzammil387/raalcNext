@@ -27,34 +27,34 @@ const Header = () => {
   const { langValue } = useContext(MainLanguageValueContext);
   const { handleOpenModels, mainData } = useContext(MainAPiContext);
   const [resget, apiMethodGet] = useGet();
-  useEffect(() => {
-    // Initialize Pusher
-    const pusher = new Pusher('96a1a9b7ae897a91bf91', {
-      cluster: 'ap2',
-      encrypted: true
-    });
+  // useEffect(() => {
+  //   // Initialize Pusher
+  //   const pusher = new Pusher('96a1a9b7ae897a91bf91', {
+  //     cluster: 'ap2',
+  //     encrypted: true
+  //   });
 
-    // Subscribe to the channel
-    const channel = pusher.subscribe(`booking-notification-51-channel`);
+  //   // Subscribe to the channel
+  //   const channel = pusher.subscribe(`booking-notification-51-channel`);
   
-    // Bind a callback for the `pusher:subscription_succeeded` event
-    channel.bind('pusher:subscription_succeeded', () => {
-      console.log('Successfully subscribed to');
-    });
+  //   // Bind a callback for the `pusher:subscription_succeeded` event
+  //   channel.bind('pusher:subscription_succeeded', () => {
+  //     console.log('Successfully subscribed to');
+  //   });
 
-    // Bind a callback for the `chat` event
-    channel.bind('notify-event', (data) => {
-      console.log('Received message:', data.bookingDetail);
+  //   // Bind a callback for the `chat` event
+  //   channel.bind('notify-event', (data) => {
+  //     console.log('Received message:', data.bookingDetail);
      
-      // setMessages((prevMessages) => [...prevMessages, data.message]);
-    });
+  //     // setMessages((prevMessages) => [...prevMessages, data.message]);
+  //   });
 
-    // Clean up the subscription when component unmounts
-    return () => {
-      channel.unbind_all();
-      channel.unsubscribe();
-    };
-  }, []);
+  //   // Clean up the subscription when component unmounts
+  //   return () => {
+  //     channel.unbind_all();
+  //     channel.unsubscribe();
+  //   };
+  // }, []);
   useEffect(() => {
     if (langValue) {
       apiMethodGet(`webContents/combineContent/${langValue}`);
