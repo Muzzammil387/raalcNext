@@ -1,7 +1,15 @@
 
-body.ar {
+
+
+ body.ar {
   direction: rtl;
+  font-family: "Noto Sans Arabic", sans-serif;
 }
+body.ar .font-cormorant,
+body.ar .font-Mluvka {
+  font-family: "Noto Sans Arabic", sans-serif;
+  letter-spacing: 0;
+} 
 
 body.ar .bannertxt2  {
   left: auto;

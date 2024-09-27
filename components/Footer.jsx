@@ -128,8 +128,8 @@ const Footer = () => {
         <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_one}</div>
         <p className="font-medium">{contact_us?.sec_two_location_one}</p>
         <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_one}`} className="border-b border-black">{contact_us?.sec_two_email_one}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_one}`} className="border-b border-black">{contact_us?.sec_two_phone_one}</a> </li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_one}`} className="underline">{contact_us?.sec_two_email_one}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_one}`} className="underline">{contact_us?.sec_two_phone_one}</a> </li>
         </ul>
       </div>
       <div className="footer__bottomBox">
@@ -137,8 +137,8 @@ const Footer = () => {
         <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_two}</div>
         <p className="font-medium">{contact_us?.sec_two_location_two}</p>
         <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_two}`} className="border-b border-black">{contact_us?.sec_two_email_two}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_two}`} className="border-b border-black">{contact_us?.sec_two_phone_two}</a> </li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_two}`} className="underline">{contact_us?.sec_two_email_two}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_two}`} className="underline">{contact_us?.sec_two_phone_two}</a> </li>
         </ul>
       </div>
       <div className="footer__bottomBox">
@@ -146,8 +146,8 @@ const Footer = () => {
       <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_three}</div>
         <p className="font-medium">{contact_us?.sec_two_location_three}</p>
         <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_three}`} className="border-b border-black">{contact_us?.sec_two_email_three}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="border-b border-black">{contact_us?.sec_two_phone_three}</a> </li>
+          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_three}`} className="underline">{contact_us?.sec_two_email_three}</a></li>
+          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="underline">{contact_us?.sec_two_phone_three}</a> </li>
         </ul>
       </div>
     </div>
