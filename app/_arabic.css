@@ -3,13 +3,17 @@
 
  body.ar {
   direction: rtl;
-  font-family: "Noto Sans Arabic", sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif !important;
 }
 body.ar .font-cormorant,
 body.ar .font-Mluvka {
-  font-family: "Noto Sans Arabic", sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif !important;
   letter-spacing: 0;
 } 
+body.ar   input {
+    text-align: right;
+}
+
 
 body.ar .bannertxt2  {
   left: auto;
