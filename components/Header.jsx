@@ -240,7 +240,7 @@ const Header = () => {
       {bookingModel && <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl relative">
-            <Image src={model1} className="w-full absolute h-full object-cover object-top" alt="" />
+            <Image src={"https://raalc.quickdigitals.ae/storage/web_content_images/zY2rWId1Ea0wl53TPLu40tEJjkMVN0cWQi9MGQkP.jpg"} width={0} height={0} className="w-full absolute h-full object-cover object-top" alt="" />
           </div>
           <div className="consModelMainr bg-white py-14 px-8">
             <div className="flex justify-between">

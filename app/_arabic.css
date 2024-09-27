@@ -54,6 +54,10 @@ body.ar li.ant-pagination-prev {
 body.ar .about3_Mainr .about3_Mainrbox {
   direction: ltr;
 }
+body.ar .section6.pr-14 {
+  padding-right: 0 ;
+  padding-left: 3.5rem;
+}
 
 
 
