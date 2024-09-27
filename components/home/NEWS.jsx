@@ -89,7 +89,7 @@ else {
         })}
       </div>
       <br />
-        <Link href={`/${basePath}news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">View All</Link>
+        <Link href={`/${basePath}news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">{elements?.["view-all"]}</Link>
 
   </section>
   )

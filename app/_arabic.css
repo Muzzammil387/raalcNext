@@ -10,6 +10,9 @@ body.ar .font-Mluvka {
   font-family: "Noto Sans Arabic", sans-serif !important;
   letter-spacing: 0;
 } 
+body.ar .about2BodyBox {
+  direction: rtl;
+} 
 body.ar   input {
     text-align: right;
 }
