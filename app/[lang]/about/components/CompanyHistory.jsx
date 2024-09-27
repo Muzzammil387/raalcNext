@@ -6,8 +6,10 @@ import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
 import { about4, playButton } from '@/app/untils/imgimport';
 import { Modal } from 'antd';
+import { useParams } from 'next/navigation';
 
 const CompanyHistory = ({ data }) => {
+    const {lang} = useParams()
     const [isModalVisible, setIsModalVisible] = useState(false);
     const videoRef = useRef(null);
 
@@ -81,6 +83,7 @@ const CompanyHistory = ({ data }) => {
                         autoplay={{
                             delay: 2500,
                             disableOnInteraction: false,
+                            reverseDirection: lang === "ar",
                         }}
                         breakpoints={{
                             300: { slidesPerView: 1 },
@@ -89,22 +92,21 @@ const CompanyHistory = ({ data }) => {
                         }}
                         className="about2BodySwiper"
                     >
-                        {Array.isArray(sec_three) && sec_three.map((item, index) => {
-                            const { description, heading_one, year } = item;
-                            return (
-                                <SwiperSlide key={index}>
-                                    <div className="about2BodyBox">
-                                        <div className="relative about2BodyBox_">
-                                            <div className="h4 p-2 bg-[#F5F5F5] text-[1.1rem] w-fit block">{year}</div>
-                                        </div>
-                                        <div className="h2 my-3 text-[1.375rem] capitalize font-bold font-Mluvka">
-                                            {heading_one}
-                                        </div>
-                                        <p className='max-[1400px]:text-[.9rem]'>{description}</p>
-                                    </div>
-                                </SwiperSlide>
-                            );
-                        })}
+                     {Array.isArray(sec_three) && sec_three.length > 0 &&
+    (lang === "ar" ?  sec_three.slice().reverse() : sec_three).map(({ description, heading_one, year }, index) => (
+        <SwiperSlide key={index}>
+            <div className="about2BodyBox">
+                <div className="relative about2BodyBox_">
+                    <div className="h4 p-2 bg-[#F5F5F5] text-[1.1rem] w-fit block">{year}</div>
+                </div>
+                <div className="h2 my-3 text-[1.375rem] capitalize font-bold font-Mluvka">
+                    {heading_one}
+                </div>
+                <p className='max-[1400px]:text-[.9rem]'>{description}</p>
+            </div>
+        </SwiperSlide>
+    ))
+}
                     </Swiper>
                 </div>
             </div>

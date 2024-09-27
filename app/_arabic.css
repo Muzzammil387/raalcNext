@@ -39,6 +39,9 @@ body.ar li.ant-pagination-next {
 body.ar li.ant-pagination-prev {
   transform: rotate(180deg);
 }
+body.ar .about3_Mainr .about3_Mainrbox {
+  direction: ltr;
+}
 
 
 

@@ -296,6 +296,9 @@ filter: blur(247.3px);
 .marquee-container {
   animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
 }
+body.ar .marquee-container {
+  animation: scroll2 var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
 
 .scroller_ourWork[data-direction=right] {
   --_animation-direction: reverse;
@@ -318,6 +321,12 @@ filter: blur(247.3px);
       transform: translate(calc(-50% - .5rem))
   }
 }
+
+  @keyframes scroll2 {
+    to {
+        transform: translate(calc(50% - .5rem))
+    }
+  }
 
 
 .about2BodyBox .h4  {
