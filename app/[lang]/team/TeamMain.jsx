@@ -51,7 +51,7 @@ const TeamMain = ({lang}) => {
             Array.isArray(datas?.teams) && datas?.teams?.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
-                    <Link href={`/${basePath}/team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
+                    <Link href={`/${basePath}team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
                     <div className="section5MainBox1">
                       <Image src={lowyer_image ?? ""}  width={10} height={10}  className="w-full max-lg:h-[25rem] object-cover rounded-[5rem] h-[27rem] object-top" priority  alt="" />
                     </div>
