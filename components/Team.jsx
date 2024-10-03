@@ -25,7 +25,7 @@ const Team = ({team,count}) => {
           Array.isArray(teamm) && teamm.map((item,index) => {
               const {id,lowyer_image,name,designation} = item
                 return (
-                    <Link href={`/${basePath}/team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
+                    <Link href={`/${basePath}team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
                     <div className="section5MainBox1 h-full">
                       <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt="" />
                     </div>
@@ -37,11 +37,9 @@ const Team = ({team,count}) => {
                 )
             })
         }
-      
-
       </div> 
     </div>
-    <Link href={`/${basePath}/team`} className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>{elements?.["view-all"]}</Link>
+    <Link href={`/${basePath}team`} className='px-12 py-3 bg-primary rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka mx-auto'>{elements?.["view-all"]}</Link>
   </section>
 
   )
