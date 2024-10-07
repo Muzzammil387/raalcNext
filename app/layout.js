@@ -32,27 +32,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
     
       <body className={inter.className}>
-        <GoogleAnalytics gaId="AW-11060079184" />
+        {/* <GoogleAnalytics gaId="AW-11060079184" />
         <GoogleAnalytics gaId="G-21ZHG3RN35" />
-        <GoogleAnalytics gaId="GTM-KFHJPV7" />
+        <GoogleAnalytics gaId="GTM-KFHJPV7" /> */}
           <Head>
 
-
-        {/* Clarity Analytics */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function(e, t, n, c, a, i) {
-              e[n] = e[n] || function() {
-                (e[n].q = e[n].q || []).push(arguments);
-              }, (a = t.createElement(c)).async = 1, a.src = "https://www.clarity.ms/tag/fip35c5fke",
-              (i = t.getElementsByTagName(c)[0]).parentNode.insertBefore(a, i);
-            })(window, document, "clarity", "script");
-          `,
-        }} />
-        {/* Google Tag Manager */}
-
       </Head>
-        <Script id="muzzammil"></Script>
         <Main>{children}</Main>
       </body>
     </html>
