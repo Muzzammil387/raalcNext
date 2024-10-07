@@ -92,12 +92,16 @@ const Footer = () => {
       <ul>
            <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">{elements?.home}</Link></li>
         <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-bold capitalize">{elements?.about}</Link></li>
-        {/* <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">services</Link></li> */}
-        <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-bold capitalize">{elements?.expertise}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}services`}  className="font-cormorant font-bold capitalize">{elements?.services}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}news`} className="font-cormorant font-bold capitalize">{elements?.["news-updates"] || 'News & Updates'}</Link></li>
+        {/* <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-bold capitalize">{elements?.expertise}</Link></li> */}
       </ul>
       <ul>
-        <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-bold capitalize">{elements?.diversity}</Link></li>
-        <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-bold capitalize">{elements?.["legal-library"]}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}events`} className="font-cormorant font-bold capitalize">{elements?.["events"] || 'Events'}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}gallery`} className="font-cormorant font-bold capitalize"> {elements?.["gallery"] || 'gallery'}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}contact`} className="font-cormorant font-bold capitalize">{elements?.["contact-us"] || 'Contact Us'}</Link></li>
+        {/* <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-bold capitalize">{elements?.diversity}</Link></li> */}
+        {/* <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-bold capitalize">{elements?.["legal-library"]}</Link></li> */}
         {/* <li className="my-3"><a href="#" className="font-cormorant font-bold capitalize">Other Service</a></li> */}
       </ul>
     </div>
