@@ -27,6 +27,7 @@ const NewsInner = ({ lang, slug }) => {
   const { loading, data } = useFetch(`news/fetch/${slug?.join("/")}/${lang}`);
   const {mainData } = useContext(MainAPiContext);
   const elements = mainData?.elements
+  const basePath = lang === "en" ? '' : `${lang}/`;
   if (loading) return <Loaders />  
   const {author_name,author_details,title,description,date} = data?.data
   const formattedDate = dayjs(date).format('MMMM D, YYYY');
@@ -111,7 +112,7 @@ const NewsInner = ({ lang, slug }) => {
                   </ul>
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                   <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</div>
-                  <Link href={`/news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' >{elements?.["read-more"]} </Link>
+                  <Link href={`/${basePath}news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ' >{elements?.["read-more"]} </Link>
                 </div>
               </div>
               )

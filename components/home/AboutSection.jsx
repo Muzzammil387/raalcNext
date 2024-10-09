@@ -4,7 +4,7 @@ import React from 'react'
 const AboutSection = ({home}) => {
   const {sec_two_header_one,sec_two_header_two,sec_two_paragraph,sec_two_image,sec_two_name,sec_two_details} = home
   return (
-    <section className="section1 mt-16" id="counterSection">
+    <section className="section1 mt-16 max-[1024px]:mt-0" id="counterSection">
       <div className="container mx-auto px-4 !pb-14 border-b border-secondary">
         <div className="section1_ [&_p]:text-[#393946] w-[55%] max-lg:w-full mx-auto text-center">
           <h1 className="font-MluvkaBold font-bold text-[3.125rem] leading-[1] uppercase max-lg:text-[2rem]">

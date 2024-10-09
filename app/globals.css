@@ -45,7 +45,7 @@ body {
   mask-image: url('data:image/svg+xml;utf8,<svg width="1433" height="715" viewBox="0 0 1433 715" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="716.805" cy="357.566" rx="733.553" ry="319.481" transform="rotate(13.9766 716.805 357.566)" fill="black"/></svg>');
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  mask-size: 100%;
+  mask-size: 100% 100%;
   mask-position: bottom bottom;
 }
 
@@ -227,12 +227,15 @@ body {
   opacity: 0.6;
   filter: blur(247.3px);
 }
-
+.innerPage1 {
+  overflow: hidden;
+}
 .innerPage1::before {
   content: "";
   top: 50%;
   transform: translateY(-50%);
   left: -30%;
+  /* left: 0; */
   position: absolute;
   width: 22.375rem;
   height: 22.375rem;
@@ -388,7 +391,7 @@ transform: rotate(180deg);
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 0;
 }
 .about5Bodytab .about3_MainrB.active  {
   border: 1px solid #fff;
@@ -404,15 +407,18 @@ transform: rotate(180deg);
 .about3_Mainr .active .about3_Mainl {
   position: relative;
   width: 100%;
+  padding: 0 2rem;
   
 }
 
-.about3_Mainl p,.about3_Mainl .h3,.about3_Mainl  .bg-black {
+.about3_Mainl p,.about3_Mainl .h3,.about3_Mainl  .bg-black,
+.about3_Mainr .about3_MainrB img.w-\[40rem\] {
   display: none;
 }
 .about3_MainrB.active .about3_Mainl  p,
 .about3_MainrB.active .about3_Mainl  .h3, 
-.about3_MainrB.active .about3_Mainl  .bg-black {
+.about3_MainrB.active .about3_Mainl  .bg-black,
+.about3_MainrB.active  img.w-\[40rem\] {
   display: block;
 }
 .consModelMainr .h4::before{
@@ -1168,6 +1174,28 @@ display:block !important;
 .section1 .container  {
   padding-bottom: 2rem !important;
 }
+
+
+
+.news2Main__right .cardMain3Box {
+display: flex;
+margin: 1rem 0;
+gap: 1rem;
+}
+.news2Main__right .cardMain3Box__img {
+  width: 10rem;
+  min-width: 10rem;
+}
+.news2Main__right .cardMain3Box__img img {
+  height: 100%;
+}
+.news2Main__right .undefined {
+ display: none;
+}
+
+.bannerImg_  img {
+  height: auto;
+}
 }
 
 
@@ -1225,6 +1253,17 @@ display:block !important;
   height: 100vh;
   overflow: hidden;
 }
+
+
+/* .section6MainBoxcDOx {
+  max-height: 0;
+  transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  transition-duration: 0.5s;
+  transition-property: max-height;
+}
+.section6MainBoxcDOx.active {
+  max-height: 100rem;
+} */
 
 
 @media screen and (max-width: 1200px) and (min-width: 1024px) {

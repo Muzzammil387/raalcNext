@@ -330,7 +330,7 @@ const Header = () => {
         </div>
       </div>}
 
-      <header className="header relative py-4">
+      <header className="header relative  py-4">
         <div className="px-10  max-[1200px]:px-5 mx-auto flex justify-between items-center">
           <div className="header__logo">
             <Link href={`/${basePath}`}>
