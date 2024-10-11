@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirect to language folders if needed
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z]{2})/(.*)$ /$1/$2 [L]
+
+# Redirect to default folder if no language prefix is found
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /en/$1 [L]

@@ -1,0 +1,73 @@
+
+
+
+ body.ar {
+  direction: rtl;
+  font-family: "Noto Sans Arabic", sans-serif !important;
+}
+body.ar .font-cormorant,
+body.ar .font-Mluvka {
+  font-family: "Noto Sans Arabic", sans-serif !important;
+  letter-spacing: 0;
+} 
+body.ar .about2BodyBox {
+  direction: rtl;
+} 
+body.ar   input {
+    text-align: right;
+}
+
+
+body.ar .bannertxt2  {
+  left: auto;
+  right: 9rem;
+}
+body.ar span::after {
+  left: auto;
+  right: -1rem;
+}
+body.ar .sample-slider,
+body.ar .bannerRight,
+body.ar .about2BodySwiper,
+body.ar .bannerImg,
+body.ar .section7mySwiper  {
+  direction: ltr;
+}
+body.ar .section6btn,
+body.ar .close svg,
+body.ar .accordions img   {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+body.ar .consModelMainr .h4  {
+  padding-right: 1rem;
+}
+body.ar .consModelMainr .h4::before  {
+  right: 0;
+  left: auto;
+}
+
+body.ar li.ant-pagination-next {
+  transform: rotate(180deg);
+}
+body.ar li.ant-pagination-prev {
+  transform: rotate(180deg);
+}
+body.ar .about3_Mainr .about3_Mainrbox {
+  direction: ltr;
+}
+body.ar .section6.pr-14 {
+  padding-right: 0 ;
+  padding-left: 3.5rem;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  body.ar .header__right {
+    margin: 0;
+    margin-right: auto;
+  }
+}
+/* Group 33834 */

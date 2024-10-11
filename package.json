@@ -1,0 +1,38 @@
+{
+  "name": "raalc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@next/third-parties": "^14.2.8",
+    "antd": "^5.18.3",
+    "axios": "^1.7.2",
+    "formik": "^2.4.6",
+    "install": "^0.13.0",
+    "json-server": "^1.0.0-beta.1",
+    "lenis": "^1.1.3",
+    "next": "^14.2.4",
+    "npm": "^10.8.2",
+    "pusher-js": "^8.4.0-rc2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-pageflip": "^2.0.3",
+    "react-pdf": "^9.1.0",
+    "react-toastify": "^10.0.5",
+    "sweetalert": "^2.1.2",
+    "swiper": "^11.1.8",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
