@@ -13,7 +13,7 @@ const Banner = ({data}) => {
           <Image
             src={header_image}
             alt="cloud"
-            className="thumbnail w-full relative h-screen object-cover"
+            className="thumbnail w-full relative h-[calc(100vh+3rem)] object-cover"
             width={10}
             height={10}
             priority
