@@ -245,7 +245,7 @@ const Header = () => {
   const service_catgeories = mainData?.service_catgeories
   return (
     <>
-      <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
+      <div onClick={() => handleOpenModel(false)} className={`fixedback muzzammil ${bookingModel ? "active" : ""}`}></div>
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
       {bookingModel && <div data-lenis-prevent className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
