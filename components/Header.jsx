@@ -239,6 +239,8 @@ const Header = () => {
     }
   }, [res2.data])
 
+  
+
   if (!mainData) return <Loaders />;
 
   const elements = mainData?.elements
@@ -264,12 +266,6 @@ const Header = () => {
             </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             {({ values, setFieldValue }) => {
-        // Use useEffect to update consultant_id field when consultantIdFromContext changes
-        useEffect(() => {
-          if (teamnam) {
-            setFieldValue('consultant_id', teamnam); // Update Formik's consultant_id field
-          }
-        }, [teamnam, setFieldValue]);
 
         return (
               <Form>
