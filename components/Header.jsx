@@ -75,7 +75,7 @@ const Header = () => {
 
   const [menuActive, setMenuActive] = useState("")
 
-  const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
+  const { handleOpenModel, bookingModel,teamnam } = useContext(MainBookingStatusContext);
 
   useEffect(() => {
     if (resget.data) {
@@ -98,22 +98,32 @@ const Header = () => {
     meeting_purpose: ""
   }
 
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Cleanup on unmount
-    return () => {
-      lenis.destroy();  // Assuming Lenis has a destroy method
-    };
-  }, []);
-
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  
+  //   requestAnimationFrame(raf);
+  
+  //   // Temporarily disable Lenis when modal is open
+  //   if (bookingModel) {
+  //     lenis.stop(); // Stop Lenis scroll
+  //   } else {
+  //     lenis.stop();
+  //     // lenis.start(); // Restart Lenis scroll when modal is closed
+  //   }
+  
+  //   // Cleanup on unmount
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, [bookingModel]); // Dependency on bookingModel to detect modal state
+  
+  
+  // modell
   const [res, apiMethod] = usePost()
   const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id", "meeting_purpose"];
   const handleSubmit = async (values) => {
@@ -237,7 +247,7 @@ const Header = () => {
     <>
       <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
-      {bookingModel && <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
+      {bookingModel && <div data-lenis-prevent className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl relative">
             <Image src={bannerImage} width={0} height={0} className="w-full absolute h-full object-cover object-top" alt="" />
@@ -253,6 +263,15 @@ const Header = () => {
               </Link>
             </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            {({ values, setFieldValue }) => {
+        // Use useEffect to update consultant_id field when consultantIdFromContext changes
+        useEffect(() => {
+          if (teamnam) {
+            setFieldValue('consultant_id', teamnam); // Update Formik's consultant_id field
+          }
+        }, [teamnam, setFieldValue]);
+
+        return (
               <Form>
                 <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
@@ -270,7 +289,7 @@ const Header = () => {
                     </div>
 
                     <div className="inputBox">
-                      <Field as="select" name="consultant_id" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
+                      <Field as="select" name="consultant_id"  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                         <option value="">{elements["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
                           const { id, name } = item
@@ -325,6 +344,8 @@ const Header = () => {
                 </div>
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? elements["loading"] : elements["book-now"]}</button>
               </Form>
+             );
+            }}
             </Formik>
           </div>
         </div>

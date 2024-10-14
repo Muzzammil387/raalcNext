@@ -1266,6 +1266,12 @@ gap: 1rem;
 } */
 
 
+.about5BodySw .swiper-slide.swiper-slide-active {
+  background: #ccb082;
+  z-index: 2;
+}
+
+
 @media screen and (max-width: 1200px) and (min-width: 1024px) {
 .header__right .btn-primary {
   font-size: .6rem;

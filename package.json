@@ -11,6 +11,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@next/third-parties": "^14.2.8",
+    "@studio-freight/react-lenis": "^0.0.47",
     "antd": "^5.18.3",
     "axios": "^1.7.2",
     "formik": "^2.4.6",
