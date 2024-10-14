@@ -74,7 +74,7 @@ const Header = () => {
 
 
   const [menuActive, setMenuActive] = useState("")
-
+const [consultan, setConsultan] = useState("")
   const { handleOpenModel, bookingModel,teamnam } = useContext(MainBookingStatusContext);
 
   useEffect(() => {
@@ -83,7 +83,15 @@ const Header = () => {
       handleTeamss(resget?.data?.data?.teams)
     }
   }, [resget.isLoading])
-
+  useEffect(() => {
+    if(teamnam) {
+      setConsultan(teamnam)
+    }
+    else {
+      setConsultan("")
+    }
+    }, [teamnam])
+    
 
 
 
@@ -94,7 +102,6 @@ const Header = () => {
     time_slot: "",
     beverage: "",
     number_of_attendees: "",
-    consultant_id: "",
     meeting_purpose: ""
   }
 
@@ -125,7 +132,7 @@ const Header = () => {
   
   // modell
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id", "meeting_purpose"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "meeting_purpose"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
@@ -135,10 +142,12 @@ const Header = () => {
       time_slot: "Time Slot",
       beverage: "Beverage",
       number_of_attendees: "Number Of Attendees",
-      consultant_id: "Consultant Id",
+      // consultant_id: "Consultant Id",
       meeting_purpose: "Purpose of the meeting",
     };
+    // consultant_id
     formdata.append("meeting_date", selectedDate2);
+    formdata.append("consultant_id", consultan);
     let checkerRequried = [];
     for (const item in values) {
       if (requireFeild.includes(item) && values[item] === "") {
@@ -148,6 +157,9 @@ const Header = () => {
     }
     if (!selectedDate) {
       checkerRequried.push("Date")
+    }
+    if (!consultant_id) {
+      checkerRequried.push("Consultant Id")
     }
     if (checkerRequried.length > 0) {
       swal({
@@ -285,7 +297,7 @@ const Header = () => {
                     </div>
 
                     <div className="inputBox">
-                      <Field as="select" name="consultant_id"  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
+                      <select value={consultan} onInput={(e) => setConsultan(e.target.value)} name="consultant_id"  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                         <option value="">{elements["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
                           const { id, name } = item
@@ -293,7 +305,7 @@ const Header = () => {
                             <option value={id} key={index}>{name}</option>
                           )
                         })}
-                      </Field>
+                      </select>
                     </div>
                     <div className="inputBox">
                       <DatePicker
@@ -419,7 +431,7 @@ const Header = () => {
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-medium font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
+            <button onClick={() => handleOpenModel(true,"")} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-medium font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
             <div className="relative header__righeng">
               <HeaderLanguage handleclick={(d) => handleMobileClose(d)} />
             </div>
