@@ -259,7 +259,7 @@ const Header = () => {
                 <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                </svg>   
               </Link>
             </div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
