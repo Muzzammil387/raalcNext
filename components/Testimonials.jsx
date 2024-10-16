@@ -28,10 +28,10 @@ const Testimonials = ({data}) => {
             centeredSlides={true}
             allowTouchMove={false}
             slideToClickedSlide={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
             breakpoints={{
               300: { slidesPerView: 1 },
               768: { slidesPerView: 1 },

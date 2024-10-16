@@ -63,6 +63,14 @@ body.ar .section6.pr-14 {
 }
 
 
+body.ar .s7BOx {
+  direction: rtl;
+}
+body.ar  .s7BOxp  img {
+  transform: scale(-1);
+}
+
+
 
 @media screen and (max-width: 1024px) {
   body.ar .header__right {
