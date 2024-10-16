@@ -17,7 +17,7 @@ const Team = ({team,count}) => {
     <section className="section5 py-12">
     <div className="container mx-auto px-20 max-lg:px-0">
       <div className="section5__heading mb-6 relative text-center">
-      <h3 className="leading-[1] font-bold font-Mluvka text-[3.125rem] uppercase pb-3">Our Team</h3>
+      <h3 className="leading-[1] font-bold font-Mluvka text-[3.125rem] uppercase pb-3">{elements?.ourteam}</h3>
       </div>
       
       <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
