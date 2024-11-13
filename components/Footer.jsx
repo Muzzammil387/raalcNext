@@ -92,6 +92,8 @@ const Footer = () => {
       <ul>
            <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">{elements?.home}</Link></li>
         <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-bold capitalize">{elements?.about}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}team`} className="font-cormorant font-bold capitalize">{elements?.ourteam}</Link></li>
+        
         <li className="my-3"><Link href={`/${basePath}services`}  className="font-cormorant font-bold capitalize">{elements?.services}</Link></li>
         <li className="my-3"><Link href={`/${basePath}news`} className="font-cormorant font-bold capitalize">{elements?.["news-updates"] || 'News & Updates'}</Link></li>
         {/* <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-bold capitalize">{elements?.expertise}</Link></li> */}

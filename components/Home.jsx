@@ -9,6 +9,7 @@ import NEWS from './home/NEWS';
 import Testimonials from './Testimonials';
 import Team from './Team';
 import Loaders from './Loaders';
+import EventSlider from './home/EventSlider';
 
 const Home = ({params,lang}) => {
     const { loading, data } = useFetch(`webContents/home/pagecontent/7/${lang}`);
@@ -18,7 +19,7 @@ console.log(params)
 
     if(loading) return <Loaders />;
     const alldata = data?.data
-    const { departments,teams,news,reviews } = alldata
+    const { departments,teams,news,events,reviews } = alldata
     return (
         <>
            { <Banner data={alldata} />}
@@ -28,6 +29,7 @@ console.log(params)
             {/* <BOD /> */}
             {<Team team={teams?.teams} count={5} home={alldata} />}
            { <NEWS  news={news?.news}  />}
+           <EventSlider events={events} home={alldata} />
             <Testimonials data={reviews} />
         </>
     )

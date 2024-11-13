@@ -371,6 +371,7 @@ const [consultan, setConsultan] = useState("")
             <ul className="  flex gap-6 max-[1200px]:gap:2    [&_a]:capitalize">
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}team`} className="font-bold font-cormorant text-lg">  {elements?.ourteam} </Link></li>
               
               <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{elements?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
@@ -418,6 +419,7 @@ const [consultan, setConsultan] = useState("")
                 </div>
 
               </li>
+            
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {elements?.["news-updates"] || 'News & Updates'} </Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {elements?.["events"] || 'Events'}</Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {elements?.["gallery"] || 'gallery'}</Link></li>
