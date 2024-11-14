@@ -78,7 +78,7 @@ const TeamDetails = ({lang,slug}) => {
      {qr_code_image && <div className='  pt-5'>
         <Image className='w-[10rem]' src={qr_code_image ?? ""} alt='dfg' width={0} height={0} />
       </div>}
-        <button onClick={() => handleOpenModel(true)} className="mt-10 btn btn-primary w-fit cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{elements?.["book-a-consultation"]}</button>
+        <button onClick={() => handleOpenModel(true,slug)} className="mt-10 btn btn-primary w-fit cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 bookaconsultation font-Mluvka">{elements?.["book-a-consultation"]}</button>
     </div>
   </div>
   )

@@ -37,12 +37,12 @@ const TechnologyDrive = ({data}) => {
                 768: { slidesPerView: 3,  }, 
                 1024: { slidesPerView: 5,  },
             }}
-            className="about5BodymySwiper mt-3 " >
+            className="about5BodymySwiper about5BodySw  mt-3 " >
                  {Array.isArray(sec_six) && sec_six.map((item, index) => {
                   const {heading} = item
                   return(
                   <SwiperSlide key={index}>
- <div className={`abouttabact font-Mluvka transition-all duration-500 py-4 border cursor-pointer text-[1.3rem] text-center font-medium leading-[1] border-transparent rounded-full px-8 text-white ${index === sec_sixIndex ? "active" : ""}`} onClick={() => handleClick(index)}>{heading}</div>
+ <div className={`abouttabact max-[461px]:text-[1rem] font-Mluvka transition-all duration-500 py-4 border cursor-pointer text-[1.3rem] text-center font-medium leading-[1] border-transparent rounded-full px-8 text-white ${index === sec_sixIndex ? "active" : ""}`} onClick={() => handleClick(index)}>{heading}</div>
                   </SwiperSlide>
                   )})}
                 </Swiper>

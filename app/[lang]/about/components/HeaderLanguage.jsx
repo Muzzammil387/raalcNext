@@ -10,18 +10,18 @@ const items = [
     label: "En",
     key: 'en',
   },
-  {
-    label: "Ch",
-    key: 'ch',
-  },
+  // {
+  //   label: "Ch",
+  //   key: 'ch',
+  // },
   {
     label: "Ar",
     key: 'ar',
   },
-  {
-    label: "Ru",
-    key: 'ru',
-  },
+  // {
+  //   label: "Ru",
+  //   key: 'ru',
+  // },
 ];
 
 const HeaderLanguage = ({handleclick}) => {
