@@ -41,27 +41,35 @@ const EventSlider = ({events,home}) => {
             1624: { slidesPerView: 4, },
           }}
           className="sample-slider">
-          {events.map((item, index) => {
-            const {events_id,event_images,title,description,slug} = item 
-            return(
-            <SwiperSlide key={events_id}>
-               <div  className="card1 cursor-pointer relative">
-                <div className="card1_ py-10 overflow-hidden relative">
-                  <div className="card1Box relative p-[.2rem]">
-                    <Link href={`/${basePath}events/${slug}`} >{[<Image className="h-[16rem] rounded-[5rem] object-cover w-full" src={event_images} width={0} height={0} alt="" />]}</Link>
-                    
-                    <span className="absolute z-[1]  left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[80%] leading-[1]"  >
-                      {title}
-                    </span>
+         {events.map((item, index) => {
+  const { events_id, event_images, title, description, slug } = item;
+  return (
+    <SwiperSlide key={index}> {/* Only assign key here */}
+      <div className="card1 cursor-pointer relative">
+        <div className="card1_ py-10 overflow-hidden relative">
+          <div className="card1Box relative p-[.2rem]">
+            <Link href={`/${basePath}events/${slug}`}>
+              <Image
+                className="h-[16rem] rounded-[5rem] object-cover w-full"
+                src={event_images}
+                width={0}
+                height={0}
+                alt=""
+              />
+            </Link>
 
-                  </div>
-                  
-                  <div className='overlay absolute top-11 left-[2px] w-[99%] h-3/4 bg-[rgba(0, 0, 0, 0.5) rounded-[5rem]'></div>
-                </div>
-              </div>
-            </SwiperSlide>
-            )
+            <span className="absolute z-[1] left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[80%] leading-[1]">
+              {title}
+            </span>
+          </div>
+
+          <div className="overlay absolute top-11 left-[2px] w-[99%] h-3/4 bg-[rgba(0, 0, 0, 0.5) rounded-[5rem]"></div>
+        </div>
+      </div>
+    </SwiperSlide>
+  );
 })}
+
         </Swiper>
       </div>
     </section>
