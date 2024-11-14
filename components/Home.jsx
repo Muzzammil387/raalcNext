@@ -29,7 +29,7 @@ console.log(params)
             {/* <BOD /> */}
             {<Team team={teams?.teams} count={5} home={alldata} />}
            { <NEWS  news={news?.news}  />}
-           <EventSlider events={events} home={alldata} />
+           {/* <EventSlider events={events} home={alldata} /> */}
             <Testimonials data={reviews} />
         </>
     )

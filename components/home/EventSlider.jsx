@@ -44,7 +44,7 @@ const EventSlider = ({events,home}) => {
           {events.map((item, index) => {
             const {events_id,event_images,title,description,slug} = item 
             return(
-            <SwiperSlide key={index}>
+            <SwiperSlide key={events_id}>
                <div  className="card1 cursor-pointer relative">
                 <div className="card1_ py-10 overflow-hidden relative">
                   <div className="card1Box relative p-[.2rem]">
