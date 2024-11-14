@@ -43,7 +43,6 @@ const EventSlider = ({events,home}) => {
           className="sample-slider">
           {events.map((item, index) => {
             const {events_id,event_images,title,description,slug} = item 
-            console.log(slug)
             return(
             <SwiperSlide key={index}>
                <div  className="card1 cursor-pointer relative">
