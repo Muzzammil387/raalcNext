@@ -62,10 +62,6 @@ const EventSlider = ({events,home}) => {
                 height={0}
                 alt=""
               />
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             <span className="absolute z-[1] left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[80%] leading-[1]">
               {title}
             </span>
