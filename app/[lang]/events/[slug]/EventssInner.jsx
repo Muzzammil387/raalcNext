@@ -158,7 +158,7 @@ const NewsInner = ({ lang, slug }) => {
   if (loading) return <Loaders />;
 
   const { author_name, author_details, title, description, date } = data?.data;
-  const formattedDate = dayjs(date).locale(lang === 'ar' ? 'ar' : 'en').format('MMMM D, YYYY');
+  const formattedDate = dayjs(date).locale(lang === 'ar' ? 'ar' : 'en').format('MMMM DD, YYYY');
 
   return (
     <section className="news2 py-5">
@@ -220,7 +220,7 @@ const NewsInner = ({ lang, slug }) => {
               const { id, slug, author_name, date, event_images, title, description } = item;
               const maxLength = 300;
               const truncatedText2 = truncateText(description, maxLength);
-              const formattedDate = dayjs(date).locale(lang === 'ar' ? 'ar' : 'en').format('MMMM D, YYYY');
+              const formattedDate = dayjs(date).locale(lang === 'ar' ? 'ar' : 'en').format('MMMM DD, YYYY');
               return (
                 <div className="cardMain3Box" key={id}>
                   <div className="cardMain3Box__img">

@@ -7,12 +7,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue';
 import { StringConvert } from '../StringConvert';
+import { MainAPiContext } from '@/app/context/MainAPiContext';
 
 
 const EventSlider = ({events,home}) => {
   const {sec_three_header_one,sec_three_header_two,sec_three_paragraph} = home
   const { langValue } = useContext(MainLanguageValueContext);
   const basePath = langValue === "en" ? '' : `${langValue}/`;
+  const {mainData } = useContext(MainAPiContext);
+  const elements = mainData?.elements
 
 
 
@@ -21,7 +24,10 @@ const EventSlider = ({events,home}) => {
   
   return (
     <section className="section2 overflow-hidden py-10 z-[2]">
-      
+      <div class="section2_heading w-[40%] max-[1200px]:w-[90%] mx-auto text-center">
+        {/* <div class="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#C3C8F3] opacity-35 mb-5">Events</div> */}
+        <h2 class="font-MluvkaBold font-bold text-[3.125rem] max-[1400px]:text-[2.5rem] uppercase leading-10 mb-5">{elements?.eventupdate}</h2>
+        </div>
         
       <div className="section2__bottom relative -right-24 mt-10 mb-5">
         <Swiper
@@ -56,6 +62,10 @@ const EventSlider = ({events,home}) => {
                 height={0}
                 alt=""
               />
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             <span className="absolute z-[1] left-0 right-0 mx-auto top-[50%] transform translate-y-[-50%] text-center uppercase text-white font-bold text-[1.25rem] w-[80%] leading-[1]">
               {title}
             </span>
