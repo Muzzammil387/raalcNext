@@ -236,7 +236,7 @@ const NewPage = ({ lang }) => {
           </div>
 
           <div className="my-4">
-            <Pagination onChange={onChange} current={currentPage} total={data?.pagination?.total} pageSize={6} />
+            <Pagination showSizeChanger={false} onChange={onChange} current={currentPage} total={data?.pagination?.total} pageSize={6} />
           </div>
         </div>
       </section>

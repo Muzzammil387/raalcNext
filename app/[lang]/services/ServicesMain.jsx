@@ -88,6 +88,7 @@ const [datas, setDatas] = useState("")
                     current={currentPage}
                     total={data?.pagination?.total}
                     pageSize={6}
+                    showSizeChanger={false}
                 />
             </div>
     
