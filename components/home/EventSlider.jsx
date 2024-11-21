@@ -24,9 +24,9 @@ const EventSlider = ({events,home}) => {
   
   return (
     <section className="section2 overflow-hidden py-10 z-[2]">
-      <div class="section2_heading w-[40%] max-[1200px]:w-[90%] mx-auto text-center">
-        {/* <div class="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#C3C8F3] opacity-35 mb-5">Events</div> */}
-        <h2 class="font-MluvkaBold font-bold text-[3.125rem] max-[1400px]:text-[2.5rem] uppercase leading-10 mb-5">{elements?.eventupdate}</h2>
+      <div className="section2_heading w-[40%] max-[1200px]:w-[90%] mx-auto text-center">
+        {/* <div className="h6 text-[1.677rem] font-Mluvka tracking-[2rem] uppercase text-[#C3C8F3] opacity-35 mb-5">Events</div> */}
+        <h2 className="font-MluvkaBold font-bold text-[3.125rem] max-[1400px]:text-[2.5rem] uppercase leading-10 mb-5">{elements?.eventupdate}</h2>
         </div>
         
       <div className="section2__bottom relative -right-24 mt-10 mb-5">

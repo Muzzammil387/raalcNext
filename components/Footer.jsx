@@ -39,7 +39,7 @@ const Footer = () => {
       }
       formdata.append(item, values[item]);
     }
-
+    console.log(checkerRequried,"ghdsfkjghsfjkdghkj")
     if (checkerRequried.length > 0) {
       swal({
         title: "Required Fields are empty! Please fill and try again",
@@ -163,11 +163,11 @@ const Footer = () => {
     </div>
   </div>
   </footer>
-  <a href={company_profile?.link} target='_blank' id="fc-phone" className="cb-button call_back">
+  {/* <a href={company_profile?.link} target='_blank' id="fc-phone" className="cb-button call_back">
     <div className="cbb-circle"></div>
     <div className="cbb-circle-fill"></div>
     <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
-</a>
+</a> */}
   {/* <div
     className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
     <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
@@ -218,12 +218,12 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
-    <Script
+    {/* <Script
         id="tawkto-script"
         strategy="lazyOnload"
         src="https://embed.tawk.to/66c9aa6250c10f7a009ff00c/1i61s34lk"
         crossorigin="*"
-      />
+      /> */}
 
   </div>
    </>
