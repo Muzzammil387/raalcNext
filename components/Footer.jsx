@@ -129,33 +129,20 @@ const Footer = () => {
   </div>
   <div className="footer__bottom relative mt-16 mb-6">
     <div className="container items-end mx-auto px-14 grid grid-cols-3 gap-5 max-lg:grid-cols-1 max-lg:px-0">
-      <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.headquarters}</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_one}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_one}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_one}`} className="underline">{contact_us?.sec_two_email_one}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_one}`} className="underline">{contact_us?.sec_two_phone_one}</a> </li>
-        </ul>
-      </div>
-      <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.["our-branches"]}</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_two}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_two}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_two}`} className="underline">{contact_us?.sec_two_email_two}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_two}`} className="underline">{contact_us?.sec_two_phone_two}</a> </li>
-        </ul>
-      </div>
-      <div className="footer__bottomBox">
-
-      <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_three}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_three}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_three}`} className="underline">{contact_us?.sec_two_email_three}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="underline">{contact_us?.sec_two_phone_three}</a> </li>
-        </ul>
-      </div>
+      {contact_us?.branches.slice(0,3).map((item,index) => {
+        const {branch_heading,branch_location,branch_email,branch_phone} = item
+        return (
+          <div className="footer__bottomBox" key={index}>
+          {/* <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{index === 0 ? elements?.headquarters : }</div> */}
+          <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{branch_heading}</div>
+          <p className="font-medium">{branch_location}</p>
+          <ul className="list font-medium">
+            <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${branch_email}`} className="underline">{branch_email}</a></li>
+            <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${branch_phone}`} className="underline">{branch_phone}</a> </li>
+          </ul>
+        </div>
+        )
+      })}
     </div>
   </div>
   <div className="footer_Quick bg-secondary py-2 text-white text-center">
@@ -192,7 +179,8 @@ const Footer = () => {
             <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>     
         </a>
-        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["reach-us"]}</div>
+        {/* <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["reach-us"]}</div> */}
+        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["get-a-quote"]}</div>
         <Formik initialValues={initialValues}  onSubmit={handleSubmit}>
         <Form>
           <div className="inputBox my-4">
@@ -209,7 +197,7 @@ const Footer = () => {
               as="textarea"
               name="message"
               className="w-full h-[10rem] border border-[#ddd] py-3 px-4 rounded-3xl  outline-0"
-              placeholder={elements?.["reach-us"]}
+              placeholder={elements?.["message"]}
             />
           </div>
 

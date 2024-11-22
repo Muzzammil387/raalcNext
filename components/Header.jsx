@@ -147,7 +147,7 @@ const [consultan, setConsultan] = useState("")
     };
     // consultant_id
     formdata.append("meeting_date", selectedDate2);
-    formdata.append("consultant_id", consultan);
+    // formdata.append("consultant_id", consultan);
     let checkerRequried = [];
     for (const item in values) {
       if (requireFeild.includes(item) && values[item] === "") {
@@ -158,9 +158,9 @@ const [consultan, setConsultan] = useState("")
     if (!selectedDate) {
       checkerRequried.push("Date")
     }
-    if (!consultant_id) {
-      checkerRequried.push("Consultant Id")
-    }
+    // if (!consultant_id) {
+    //   checkerRequried.push("Consultant Id")
+    // }
     if (checkerRequried.length > 0) {
       swal({
         title: "Required Fields are empty! Please fill and try again",
@@ -296,7 +296,7 @@ const [consultan, setConsultan] = useState("")
                       <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["number-of-attendance"]} ></Field>
                     </div>
 
-                    <div className="inputBox">
+                    {/* <div className="inputBox">
                       <select value={consultan} onInput={(e) => setConsultan(e.target.value)} name="consultant_id"  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                         <option value="">{elements["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
@@ -306,7 +306,7 @@ const [consultan, setConsultan] = useState("")
                           )
                         })}
                       </select>
-                    </div>
+                    </div> */}
                     <div className="inputBox">
                       <DatePicker
                         className="w-full border border-[#ddd] py-3 px-4 rounded-3xl outline-0"

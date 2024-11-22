@@ -26,39 +26,22 @@ const ContactPage = ({lang}) => {
           <div className="h3 text-[#F5F5F5] uppercase text-[10rem] font-light absolute left-0 right-0 mx-auto top-[100%] transform translate-y-[-50%] z-[-1]">{datas?.sec_two_heading}</div>
         </div>
         <div className="BRANCHESMain grid grid-cols-3 gap-6">
-          <div className="BRANCHESMainBox border-4 border-[#393946]  relative bg-[#393946] text-white rounded-[4rem] text-center">
+          {datas?.branches.map((item,index) => {
+             const {branch_heading,branch_location,branch_email,branch_phone,branch_map_url} = item
+            return (
+              <div className="BRANCHESMainBox border-4 border-[#393946]  relative bg-[#393946] text-white rounded-[4rem] text-center" key={index}>
               <div className="BRANCHESMainBox_top py-6 px-5">
-                <div className="h2 text-[2.2rem] font-bold mb-8 font-Mluvka">{datas?.sec_two_sub_head_one}</div>
-                <p className='min-h-[3rem] w-[80%] max-lg:w-[100%] mx-auto'>{datas?.sec_two_location_one}</p>
-                <a href={`tel:${datas?.sec_two_phone_one}`} className="text-secondary text-[2.3rem] block font-bold mt-3">{datas?.sec_two_phone_one}</a>
-                <a href={`mailto:${datas?.sec_two_email_one}`} className="text-[1.5rem] font-bold font-Mluvka">{datas?.sec_two_email_one}</a>
+                <div className="h2 text-[2.2rem] font-bold mb-8 font-Mluvka">{branch_heading}</div>
+                <p className='min-h-[3rem] w-[80%] max-lg:w-[100%] mx-auto'>{branch_location}</p>
+                <a href={`tel:${branch_phone}`} className="text-secondary text-[2.3rem] block font-bold mt-3">{branch_phone}</a>
+                <a href={`mailto:${branch_email}`} className="text-[1.5rem] font-bold font-Mluvka">{branch_email}</a>
               </div> 
               <div className="BRANCHESMainBox_bottom">
-                <iframe className="w-full h-[15rem] " style={{"borderRadius": "0 0 4rem 4rem"}} src={datas?.sec_two_url_one} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <iframe className="w-full h-[15rem] " style={{"borderRadius": "0 0 4rem 4rem"}} src={branch_map_url} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
           </div>
-          <div className="BRANCHESMainBox border-4 border-[#393946]  relative bg-[#393946] text-white rounded-[4rem] text-center">
-              <div className="BRANCHESMainBox_top py-6 px-5">
-                <div className="h2 text-[2.2rem] font-bold mb-8 font-Mluvka">{datas?.sec_two_sub_head_two}</div>
-                <p className='min-h-[3rem] w-[80%] max-lg:w-[100%] mx-auto'>{datas?.sec_two_location_two}</p>
-                <a href={`tel:${datas?.sec_two_phone_two}`} className="text-secondary text-[2.3rem] block font-bold mt-3">{datas?.sec_two_phone_two}</a>
-                <a href={`mailto:${datas?.sec_two_email_two}`} className="text-[1.5rem] font-bold font-Mluvka">{datas?.sec_two_email_two}</a>
-              </div> 
-              <div className="BRANCHESMainBox_bottom">
-                <iframe className="w-full h-[15rem] " style={{"borderRadius": "0 0 4rem 4rem"}} src={datas?.sec_two_url_two} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-          </div>
-          <div className="BRANCHESMainBox border-4 border-[#393946]  relative bg-[#393946] text-white rounded-[4rem] text-center">
-              <div className="BRANCHESMainBox_top py-6 px-5">
-                <div className="h2 text-[2.2rem] font-bold mb-8 font-Mluvka">{datas?.sec_two_sub_head_three}</div>
-                <p className='min-h-[3rem] w-[80%] max-lg:w-[100%] mx-auto'>{datas?.sec_two_location_three}</p>
-                <a href={`tel:${datas?.sec_two_phone_three}`} className="text-secondary text-[2.3rem] block font-bold mt-3">{datas?.sec_two_phone_three}</a>
-                <a href={`mailto:${datas?.sec_two_email_three}`} className="text-[1.5rem] font-bold font-Mluvka">{datas?.sec_two_email_three}</a>
-              </div> 
-              <div className="BRANCHESMainBox_bottom">
-                <iframe className="w-full h-[15rem] " style={{"borderRadius": "0 0 4rem 4rem"}} src={datas?.sec_two_url_three} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-          </div>
+            )
+          })}
         </div>
       </div>
     </section>
