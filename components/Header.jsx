@@ -140,7 +140,7 @@ const [consultan, setConsultan] = useState("")
       client_email: "Client Email",
       client_phone: "Client Phone",
       time_slot: "Time Slot",
-      beverage: "Beverage",
+      // beverage: "Beverage",
       number_of_attendees: "Number Of Attendees",
       // consultant_id: "Consultant Id",
       meeting_purpose: "Purpose of the meeting",
@@ -288,10 +288,11 @@ const [consultan, setConsultan] = useState("")
                   <div className="inputBox mb-4">
                     <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["enter-email"]} ></Field>
                   </div>
+                
+                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                   <div className="inputBox mb-4">
                     <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["phone-number"]} ></Field>
                   </div>
-                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
                       <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["number-of-attendance"]} ></Field>
                     </div>
@@ -329,7 +330,7 @@ const [consultan, setConsultan] = useState("")
                         }
                       </Field>
                     </div>
-                    <div className="inputBox">
+                    {/* <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
                         <option value="">{elements["beverage"]}</option>
                         {
@@ -342,7 +343,7 @@ const [consultan, setConsultan] = useState("")
                           })
                         }
                       </Field>
-                    </div>
+                    </div> */}
 
 
                   </div>
