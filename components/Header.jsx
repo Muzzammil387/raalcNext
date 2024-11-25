@@ -132,7 +132,7 @@ const [consultan, setConsultan] = useState("")
   
   // modell
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "meeting_purpose"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "number_of_attendees", "meeting_purpose"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
