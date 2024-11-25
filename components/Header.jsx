@@ -314,7 +314,7 @@ const [consultan, setConsultan] = useState("")
                         onChange={onChange}
                         value={selectedDate}
                         disabledDate={disabledDate}
-                        placeholder={elements["time-slot"]}
+                        placeholder={elements["select-date"]}
                       />
                     </div>
                     <div className="inputBox">
