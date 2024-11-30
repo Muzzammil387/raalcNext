@@ -64,6 +64,19 @@ const nextConfig = {
       },
     ];
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.(mp4|webm|ogg)$/, // Match video file types
+      use: {
+        loader: 'file-loader', // Use file-loader for these file types
+        options: {
+          outputPath: 'static/videos', // Output path for video files
+          publicPath: '/_next/static/videos', // Public path for accessing the videos
+        },
+      },
+    });
+    return config;
+  },
 };
 
 export default nextConfig;
