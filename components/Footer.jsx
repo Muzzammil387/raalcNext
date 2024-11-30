@@ -3,11 +3,10 @@ import { MainAPiContext } from '@/app/context/MainAPiContext'
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import usePost from '@/app/customHooks/usePost'
-import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
+import {  logo, model2 } from '@/app/untils/imgimport'
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
-import Script from 'next/script'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
@@ -22,6 +21,10 @@ const Footer = () => {
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
   const initialValues = {
+    name:"",
+    email:"",
+    phone:"",
+    message:"",
   }
 
   const [res, apiMethod] = usePost()
@@ -30,16 +33,20 @@ const Footer = () => {
     let formdata = new FormData();
     let requireFeildSwal = {
       name: "Name",
-      email: "Client Email",
+      email: "Email",
     };
     let checkerRequried = [];
     for (const item in values) {
+      console.log( values[item])
       if (requireFeild.includes(item) && values[item] === "") {
         checkerRequried.push(requireFeildSwal[item]);
       }
       formdata.append(item, values[item]);
     }
-    console.log(checkerRequried,"ghdsfkjghsfjkdghkj")
+
+
+    
+    console.log(checkerRequried)
     if (checkerRequried.length > 0) {
       swal({
         title: "Required Fields are empty! Please fill and try again",
@@ -150,23 +157,7 @@ const Footer = () => {
     </div>
   </div>
   </footer>
-  {/* <a href={company_profile?.link} target='_blank' id="fc-phone" className="cb-button call_back">
-    <div className="cbb-circle"></div>
-    <div className="cbb-circle-fill"></div>
-    <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
-</a> */}
-  {/* <div
-    className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
-    <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
-      <Image className="w-full h-full object-cover rounded-full" src={banner3} alt="3.webp" />
-    </div>
-    <div className="bannerRight_ leading-4 py-2 text-[.8rem] px-4 rounded-[7rem] bg-[#30303D] text-white capitalize pr-14">
-      Hi, How can <br />
-      I help you?
-    </div>
-  </div> */}
   <div onClick={() => handleReachUsOpenModel(false)} className={`fixedback ${reachUs ? "active" : ""}`}></div>
-
   <div className={`consModel2  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${reachUs ? "active": ""} `}>
     <div className="consModelMain grid grid-cols-2">
       <div className="consModelMainl">
@@ -206,13 +197,6 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
-    {/* <Script
-        id="tawkto-script"
-        strategy="lazyOnload"
-        src="https://embed.tawk.to/66c9aa6250c10f7a009ff00c/1i61s34lk"
-        crossorigin="*"
-      /> */}
-
   </div>
    </>
   )

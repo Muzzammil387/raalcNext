@@ -3,8 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { bannerImage, burgerMenu, checkmark, downarrow, logo, model1 } from '@/app/untils/imgimport'
-import Lenis from 'lenis';
+import { bannerImage, burgerMenu, checkmark, downarrow, logo } from '@/app/untils/imgimport'
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import { Field, Form, Formik } from "formik";
 import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
@@ -15,11 +14,10 @@ import usePost from "@/app/customHooks/usePost";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
 import dayjs from 'dayjs';
-import { BeverageList } from "@/app/data/main";
 import { MainAPiContext } from "@/app/context/MainAPiContext";
 import Loaders from "./Loaders";
 import useGet from "@/app/customHooks/useGet";
-import Pusher from 'pusher-js';
+// import Pusher from 'pusher-js';
 
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -246,7 +244,6 @@ const [consultan, setConsultan] = useState("")
         });
 
         setTimeSlots(availableSlots)
-        console.log('Available Time Slots:', availableSlots);
       }
     }
   }, [res2.data])
@@ -276,10 +273,7 @@ const [consultan, setConsultan] = useState("")
                 </svg>   
               </Link>
             </div>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-            {({ values, setFieldValue }) => {
-
-        return (
+            <Formik initialValues={initialValues} onSubmit={handleSubmit}>  
               <Form>
                 <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
@@ -353,8 +347,6 @@ const [consultan, setConsultan] = useState("")
                 </div>
                 <button type="submit" className="py-3 px-20 mt-10 block bg-primary w-fit text-white rounded-2xl transition-all duration-300 hover:bg-secondary">{res.isLoading ? elements["loading"] : elements["book-now"]}</button>
               </Form>
-             );
-            }}
             </Formik>
           </div>
         </div>

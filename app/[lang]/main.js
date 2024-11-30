@@ -15,7 +15,7 @@ import MainLanguageValueProvider from '../context/MainLanguageValue';
 import MainTeamProvider from '../context/MainTeamContext';
 import MainAPiProvider from '../context/MainAPiContext';
 import Head from 'next/head';
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import { ReactLenis } from '@studio-freight/react-lenis'
 
 const Main = ({ children }) => {
   const [lang, setLang] = useState("");

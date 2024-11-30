@@ -1,6 +1,6 @@
 "use client"
 import useFetch from '@/app/customHooks/useFetch';
-import React, { useEffect } from 'react'
+import React from 'react'
 import Banner from './home/Banner';
 import AboutSection from './home/AboutSection';
 import ServicesSection from './home/ServicesSection';
@@ -11,11 +11,9 @@ import Team from './Team';
 import Loaders from './Loaders';
 import EventSlider from './home/EventSlider';
 
-const Home = ({params,lang}) => {
+const Home = ({lang}) => {
     const { loading, data } = useFetch(`webContents/home/pagecontent/7/${lang}`);
-useEffect(() => {
-console.log(params)
-}, [])
+
 
     if(loading) return <Loaders />;
     const alldata = data?.data
