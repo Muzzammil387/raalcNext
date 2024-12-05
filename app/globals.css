@@ -18,7 +18,7 @@ body {
 .header::before {
   content: "";
   position: absolute;
-  right: 0;
+  right: 0;    
   top: 0;
   width: 29.925rem;
   height: 29.925rem;
