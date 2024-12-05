@@ -33,6 +33,18 @@ const Consultation = () => {
       />
       {/* Container for the form */}
       <div id="hubspotForm"></div>
+        <br />
+      <p className='text-[1.2rem]'>Thank you for your interest in our legal services.</p>
+      <p className='text-[1.2rem]'>Please fill out the form below with your details and submit your request. </p>
+      <p className='text-[1.2rem]'>One of our team members will contact you shortly to coordinate a convenient time for your free consultation session..</p>
+      <p className='text-[1.2rem]'>We look forward to assisting you!</p>
+      <br />
+      <br />
+      <p className='text-[1.2rem]'>感谢您的咨询。</p>
+      <p className='text-[1.2rem]'>请填写以下表格，提供您的详细信息并提交请求。</p>
+      <p className='text-[1.2rem]'>我们的团队成员将很快与您联系，协调并安排一次免费的咨询。</p>
+      <p className='text-[1.2rem]'>期待与您的合作！</p>
+
                 {/* <div className='mb-3'>
                 <label htmlFor="" className='text-[.9rem]'>Name</label>
                 <input type="text" className='w-full border border-[#cbd6e2] outline-none py-1 px-2 rounded-md' />
