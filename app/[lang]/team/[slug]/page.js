@@ -12,7 +12,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   try {
     const response = await axios.get(`${config.apiEndPoint}teams/singleDetail/${slug}/${lang}`);
     const data = response.data;
-    console.log(data?.data,"muzcxgdfgz")
     return {
       title: data?.data?.name || "abc",
     };

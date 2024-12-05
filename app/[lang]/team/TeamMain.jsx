@@ -72,6 +72,7 @@ const TeamMain = ({lang}) => {
                     current={currentPage}
                     total={data?.pagination?.total}
                     pageSize={currentPageSize}
+                    showSizeChanger={false}
                 />
             </div>
     </div>

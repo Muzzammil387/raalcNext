@@ -3,8 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { bannerImage, burgerMenu, checkmark, downarrow, logo, model1 } from '@/app/untils/imgimport'
-import Lenis from 'lenis';
+import { bannerImage, burgerMenu, checkmark, downarrow, logo } from '@/app/untils/imgimport'
 import { MainBookingStatusContext } from "@/app/context/MainBookingStatusContext";
 import { Field, Form, Formik } from "formik";
 import HeaderLanguage from "@/app/[lang]/about/components/HeaderLanguage";
@@ -15,11 +14,10 @@ import usePost from "@/app/customHooks/usePost";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
 import dayjs from 'dayjs';
-import { BeverageList } from "@/app/data/main";
 import { MainAPiContext } from "@/app/context/MainAPiContext";
 import Loaders from "./Loaders";
 import useGet from "@/app/customHooks/useGet";
-import Pusher from 'pusher-js';
+// import Pusher from 'pusher-js';
 
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -74,8 +72,8 @@ const Header = () => {
 
 
   const [menuActive, setMenuActive] = useState("")
-
-  const { handleOpenModel, bookingModel } = useContext(MainBookingStatusContext);
+const [consultan, setConsultan] = useState("")
+  const { handleOpenModel, bookingModel,teamnam } = useContext(MainBookingStatusContext);
 
   useEffect(() => {
     if (resget.data) {
@@ -83,7 +81,15 @@ const Header = () => {
       handleTeamss(resget?.data?.data?.teams)
     }
   }, [resget.isLoading])
-
+  useEffect(() => {
+    if(teamnam) {
+      setConsultan(teamnam)
+    }
+    else {
+      setConsultan("")
+    }
+    }, [teamnam])
+    
 
 
 
@@ -94,28 +100,37 @@ const Header = () => {
     time_slot: "",
     beverage: "",
     number_of_attendees: "",
-    consultant_id: "",
     meeting_purpose: ""
   }
 
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Cleanup on unmount
-    return () => {
-      lenis.destroy();  // Assuming Lenis has a destroy method
-    };
-  }, []);
-
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  
+  //   requestAnimationFrame(raf);
+  
+  //   // Temporarily disable Lenis when modal is open
+  //   if (bookingModel) {
+  //     lenis.stop(); // Stop Lenis scroll
+  //   } else {
+  //     lenis.stop();
+  //     // lenis.start(); // Restart Lenis scroll when modal is closed
+  //   }
+  
+  //   // Cleanup on unmount
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, [bookingModel]); // Dependency on bookingModel to detect modal state
+  
+  
+  // modell
   const [res, apiMethod] = usePost()
-  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "beverage", "number_of_attendees", "consultant_id", "meeting_purpose"];
+  const requireFeild = ["client_name", "client_email", "client_phone", "time_slot", "number_of_attendees", "meeting_purpose"];
   const handleSubmit = async (values) => {
     let formdata = new FormData();
     let requireFeildSwal = {
@@ -123,12 +138,14 @@ const Header = () => {
       client_email: "Client Email",
       client_phone: "Client Phone",
       time_slot: "Time Slot",
-      beverage: "Beverage",
+      // beverage: "Beverage",
       number_of_attendees: "Number Of Attendees",
-      consultant_id: "Consultant Id",
+      // consultant_id: "Consultant Id",
       meeting_purpose: "Purpose of the meeting",
     };
+    // consultant_id
     formdata.append("meeting_date", selectedDate2);
+    // formdata.append("consultant_id", consultan);
     let checkerRequried = [];
     for (const item in values) {
       if (requireFeild.includes(item) && values[item] === "") {
@@ -139,6 +156,9 @@ const Header = () => {
     if (!selectedDate) {
       checkerRequried.push("Date")
     }
+    // if (!consultant_id) {
+    //   checkerRequried.push("Consultant Id")
+    // }
     if (checkerRequried.length > 0) {
       swal({
         title: "Required Fields are empty! Please fill and try again",
@@ -224,10 +244,11 @@ const Header = () => {
         });
 
         setTimeSlots(availableSlots)
-        console.log('Available Time Slots:', availableSlots);
       }
     }
   }, [res2.data])
+
+  
 
   if (!mainData) return <Loaders />;
 
@@ -235,9 +256,9 @@ const Header = () => {
   const service_catgeories = mainData?.service_catgeories
   return (
     <>
-      <div onClick={() => handleOpenModel(false)} className={`fixedback ${bookingModel ? "active" : ""}`}></div>
+      <div onClick={() => handleOpenModel(false)} className={`fixedback muzzammil ${bookingModel ? "active" : ""}`}></div>
       <div onClick={() => handleMobileClose(false)} className={`fixedback ${mobleMenuActive ? "active" : ""}`}></div>
-      {bookingModel && <div className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
+      {bookingModel && <div data-lenis-prevent className={`consModel  w-[80%] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${bookingModel ? "active" : ""}`} >
         <div className="consModelMain grid grid-cols-2">
           <div className="consModelMainl relative">
             <Image src={bannerImage} width={0} height={0} className="w-full absolute h-full object-cover object-top" alt="" />
@@ -249,10 +270,10 @@ const Header = () => {
                 <svg className="ml-auto" width="30" height="30" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M40.1992 3.24219L3.19922 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                </svg>   
               </Link>
             </div>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit}>  
               <Form>
                 <div className=" overflow-auto h-[42vh] pr-5">
                   <div className="inputBox mb-4">
@@ -261,16 +282,17 @@ const Header = () => {
                   <div className="inputBox mb-4">
                     <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["enter-email"]} ></Field>
                   </div>
+                
+                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                   <div className="inputBox mb-4">
                     <Field name="client_phone" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["phone-number"]} ></Field>
                   </div>
-                  <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">
                     <div className="inputBox">
                       <Field type={"number"} name="number_of_attendees" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["number-of-attendance"]} ></Field>
                     </div>
 
-                    <div className="inputBox">
-                      <Field as="select" name="consultant_id" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
+                    {/* <div className="inputBox">
+                      <select value={consultan} onInput={(e) => setConsultan(e.target.value)} name="consultant_id"  className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize">
                         <option value="">{elements["choose-consultant"]}</option>
                         {teamss.map((item, index) => {
                           const { id, name } = item
@@ -278,15 +300,15 @@ const Header = () => {
                             <option value={id} key={index}>{name}</option>
                           )
                         })}
-                      </Field>
-                    </div>
+                      </select>
+                    </div> */}
                     <div className="inputBox">
                       <DatePicker
                         className="w-full border border-[#ddd] py-3 px-4 rounded-3xl outline-0"
                         onChange={onChange}
                         value={selectedDate}
                         disabledDate={disabledDate}
-                        placeholder={elements["time-slot"]}
+                        placeholder={elements["select-date"]} 
                       />
                     </div>
                     <div className="inputBox">
@@ -302,7 +324,7 @@ const Header = () => {
                         }
                       </Field>
                     </div>
-                    <div className="inputBox">
+                    {/* <div className="inputBox">
                       <Field as="select" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" name="beverage" id="">
                         <option value="">{elements["beverage"]}</option>
                         {
@@ -315,7 +337,7 @@ const Header = () => {
                           })
                         }
                       </Field>
-                    </div>
+                    </div> */}
 
 
                   </div>
@@ -342,6 +364,7 @@ const Header = () => {
             <ul className="  flex gap-6 max-[1200px]:gap:2    [&_a]:capitalize">
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}`} className="font-bold font-cormorant text-lg">{elements?.home}</Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}about`} className="font-bold font-cormorant text-lg">{elements?.about}</Link></li>
+              <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}team`} className="font-bold font-cormorant text-lg">  {elements?.ourteam} </Link></li>
               
               <li><Link href={`#`} className="font-bold font-cormorant text-lg flex items-center gap-2">{elements?.services}   <Image className="cursor-pointer relative top-[.1rem]" src={downarrow} alt="" /></Link>
                 <div className="servicesMenu bg-[#fff] w-[80%] absolute top-[4rem]  left-[10%] z-[10] p-10 transition-all duration-300 ">
@@ -389,6 +412,7 @@ const Header = () => {
                 </div>
 
               </li>
+            
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}news`} className="font-bold font-cormorant text-lg">  {elements?.["news-updates"] || 'News & Updates'} </Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}events`} className="font-bold font-cormorant text-lg">  {elements?.["events"] || 'Events'}</Link></li>
               <li><Link onClick={() => handleMobileClose(false)} href={`/${basePath}gallery`} className="font-bold font-cormorant text-lg">  {elements?.["gallery"] || 'gallery'}</Link></li>
@@ -402,8 +426,8 @@ const Header = () => {
 
           </nav>
           <div className="header__right flex gap-3 items-center max-lg:ml-auto">
-            <button onClick={() => handleOpenModel(true)} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-medium font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
-            <div className="relative header__righeng">
+            <button onClick={() => handleOpenModel(true,"")} className="btn  btn-primary cursor-pointer uppercase bg-primary text-white rounded-md px-4 py-2 max-[1200px]:px-3  bookaconsultation font-medium font-Mluvka">{elements?.["book-a-consultation"] || "Book a Consultation"}</button>
+            <div className="relative header__righeng cursor-pointer">
               <HeaderLanguage handleclick={(d) => handleMobileClose(d)} />
             </div>
             <div className={`header__centernav hidden max-lg:block  ${mobleMenuActive ? "active" : ""}`} onClick={handleMobile}>

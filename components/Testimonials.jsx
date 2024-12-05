@@ -20,7 +20,7 @@ const Testimonials = ({data}) => {
           <Link href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white">{elements?.["testimonials"]}</Link>
           <h3 className="uppercase leading-[1] font-bold text-[3.125rem] font-MluvkaBold">{StringConvert(elements?.["customer-reviews"])}</h3>
         </div>
-        <div className="section7Main mt-10 w-[60%] mx-auto">
+        <div className="section7Main mt-10 w-[84%] mx-auto">
           <Swiper
             modules={[Autoplay]}
             speed={1000}
@@ -28,10 +28,10 @@ const Testimonials = ({data}) => {
             centeredSlides={true}
             allowTouchMove={false}
             slideToClickedSlide={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
             breakpoints={{
               300: { slidesPerView: 1 },
               768: { slidesPerView: 1 },

@@ -3,11 +3,10 @@ import { MainAPiContext } from '@/app/context/MainAPiContext'
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import usePost from '@/app/customHooks/usePost'
-import { banner3, facebook1, intragram1, linkdin1, logo, model2, whatsapp } from '@/app/untils/imgimport'
+import {  logo, model2 } from '@/app/untils/imgimport'
 import { Field, Form, Formik } from 'formik'
 import Image from 'next/image'
 import Link from 'next/link'
-import Script from 'next/script'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
@@ -22,6 +21,10 @@ const Footer = () => {
   const basePath = langValue === "en" ? '' : `${langValue}/`;
   const { handleReachUsOpenModel, reachUs } = useContext(MainReachUsStatusContext);
   const initialValues = {
+    name:"",
+    email:"",
+    phone:"",
+    message:"",
   }
 
   const [res, apiMethod] = usePost()
@@ -30,16 +33,20 @@ const Footer = () => {
     let formdata = new FormData();
     let requireFeildSwal = {
       name: "Name",
-      email: "Client Email",
+      email: "Email",
     };
     let checkerRequried = [];
     for (const item in values) {
+      console.log( values[item])
       if (requireFeild.includes(item) && values[item] === "") {
         checkerRequried.push(requireFeildSwal[item]);
       }
       formdata.append(item, values[item]);
     }
 
+
+    
+    console.log(checkerRequried)
     if (checkerRequried.length > 0) {
       swal({
         title: "Required Fields are empty! Please fill and try again",
@@ -92,6 +99,8 @@ const Footer = () => {
       <ul>
            <li className="my-3"><Link href={`/${basePath}`}  className="font-cormorant font-bold capitalize">{elements?.home}</Link></li>
         <li className="my-3"><Link href={`/${basePath}about`}  className="font-cormorant font-bold capitalize">{elements?.about}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}team`} className="font-cormorant font-bold capitalize">{elements?.ourteam}</Link></li>
+        
         <li className="my-3"><Link href={`/${basePath}services`}  className="font-cormorant font-bold capitalize">{elements?.services}</Link></li>
         <li className="my-3"><Link href={`/${basePath}news`} className="font-cormorant font-bold capitalize">{elements?.["news-updates"] || 'News & Updates'}</Link></li>
         {/* <li className="my-3"><Link href={`/${basePath}expertise`} className="font-cormorant font-bold capitalize">{elements?.expertise}</Link></li> */}
@@ -127,33 +136,20 @@ const Footer = () => {
   </div>
   <div className="footer__bottom relative mt-16 mb-6">
     <div className="container items-end mx-auto px-14 grid grid-cols-3 gap-5 max-lg:grid-cols-1 max-lg:px-0">
-      <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.headquarters}</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_one}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_one}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_one}`} className="underline">{contact_us?.sec_two_email_one}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_one}`} className="underline">{contact_us?.sec_two_phone_one}</a> </li>
-        </ul>
-      </div>
-      <div className="footer__bottomBox">
-        <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{elements?.["our-branches"]}</div>
-        <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_two}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_two}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_two}`} className="underline">{contact_us?.sec_two_email_two}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_two}`} className="underline">{contact_us?.sec_two_phone_two}</a> </li>
-        </ul>
-      </div>
-      <div className="footer__bottomBox">
-
-      <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{contact_us?.sec_two_sub_head_three}</div>
-        <p className="font-medium">{contact_us?.sec_two_location_three}</p>
-        <ul className="list font-medium">
-          <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${contact_us?.sec_two_email_three}`} className="underline">{contact_us?.sec_two_email_three}</a></li>
-          <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${contact_us?.sec_two_phone_three}`} className="underline">{contact_us?.sec_two_phone_three}</a> </li>
-        </ul>
-      </div>
+      {contact_us?.branches.slice(0,3).map((item,index) => {
+        const {branch_heading,branch_location,branch_email,branch_phone} = item
+        return (
+          <div className="footer__bottomBox" key={index}>
+          {/* <div className="h3 font-cormorant font-bold  text-[#9F865F] uppercase">{index === 0 ? elements?.headquarters : }</div> */}
+          <div className="h4 font-cormorant font-bold text-[1.2rem] text-secondary mt-6">{branch_heading}</div>
+          <p className="font-medium">{branch_location}</p>
+          <ul className="list font-medium">
+            <li><span className='capitalize'>{elements?.email}:</span><a href={`mailto:${branch_email}`} className="underline">{branch_email}</a></li>
+            <li><span className='capitalize'>{elements?.phone}:</span><a href={`tel:${branch_phone}`} className="underline">{branch_phone}</a> </li>
+          </ul>
+        </div>
+        )
+      })}
     </div>
   </div>
   <div className="footer_Quick bg-secondary py-2 text-white text-center">
@@ -161,23 +157,7 @@ const Footer = () => {
     </div>
   </div>
   </footer>
-  <a href={company_profile?.link} target='_blank' id="fc-phone" className="cb-button call_back">
-    <div className="cbb-circle"></div>
-    <div className="cbb-circle-fill"></div>
-    <div className="cbb-circle-img"><Image src={whatsapp} alt="phone" className="faa-ring animated" /></div>
-</a>
-  {/* <div
-    className="z-[9] bannerRight w-fit fixed bottom-2 right-[-9rem] hover:right-[-2rem] flex items-center gap-1 transition-all ease-in-out duration-700 cursor-pointer">
-    <div className="bannerRightBOx p-2 bg-[#30303D] rounded-full w-[3.188rem] h-[3.188rem] border-setext-secondary border-2">
-      <Image className="w-full h-full object-cover rounded-full" src={banner3} alt="3.webp" />
-    </div>
-    <div className="bannerRight_ leading-4 py-2 text-[.8rem] px-4 rounded-[7rem] bg-[#30303D] text-white capitalize pr-14">
-      Hi, How can <br />
-      I help you?
-    </div>
-  </div> */}
   <div onClick={() => handleReachUsOpenModel(false)} className={`fixedback ${reachUs ? "active" : ""}`}></div>
-
   <div className={`consModel2  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${reachUs ? "active": ""} `}>
     <div className="consModelMain grid grid-cols-2">
       <div className="consModelMainl">
@@ -190,7 +170,8 @@ const Footer = () => {
             <path d="M3.19922 3.24219L40.1992 40.2422" stroke="#000" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>     
         </a>
-        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["reach-us"]}</div>
+        {/* <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["reach-us"]}</div> */}
+        <div className="h4 relative text-[2rem] font-medium leading-[1] pl-4 mb-6">{elements?.["get-a-quote"]}</div>
         <Formik initialValues={initialValues}  onSubmit={handleSubmit}>
         <Form>
           <div className="inputBox my-4">
@@ -207,7 +188,7 @@ const Footer = () => {
               as="textarea"
               name="message"
               className="w-full h-[10rem] border border-[#ddd] py-3 px-4 rounded-3xl  outline-0"
-              placeholder={elements?.["reach-us"]}
+              placeholder={elements?.["message"]}
             />
           </div>
 
@@ -216,13 +197,6 @@ const Footer = () => {
           </Formik>
       </div>
     </div>
-    <Script
-        id="tawkto-script"
-        strategy="lazyOnload"
-        src="https://embed.tawk.to/66c9aa6250c10f7a009ff00c/1i61s34lk"
-        crossorigin="*"
-      />
-
   </div>
    </>
   )

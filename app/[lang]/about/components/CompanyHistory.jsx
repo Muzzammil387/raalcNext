@@ -47,7 +47,7 @@ const CompanyHistory = ({ data }) => {
                             >
                                 <div className="video-container">
                                     <video ref={videoRef} className='w-full h-[60vh]' width="320" height="240" controls preload="none">
-                                        <source src="http://raalc.testingdigitaldmcc.com/raalc.mp4" type="video/mp4" />
+                                        <source src={"/webImages/raalc.mp4"} type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>

@@ -124,3 +124,27 @@ html {
 
  */
 
+
+
+
+ .bannerImage::before {
+content: '';
+position: absolute;
+inset: 0;
+background: #0000006b;
+ }
+
+
+ .bookForm {
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
+ }
+ .roundd::before {
+content: '';
+position: absolute;
+left: 0;
+bottom: -.2rem;
+width: 3rem;
+height: .2rem;
+border-radius: 2rem;
+background: #CEAF7F;
+ }

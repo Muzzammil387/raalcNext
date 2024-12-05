@@ -3,6 +3,7 @@ import { accordion1, arrow } from '@/app/untils/imgimport'
 import Image from 'next/image'
 import Link from 'next/link'
 import dayjs from 'dayjs';
+import 'dayjs/locale/ar'; // Import Arabic locale
 import React, { useContext, useState } from 'react'
 import { StringConvert } from '../StringConvert';
 import { MainAPiContext } from '@/app/context/MainAPiContext';
@@ -12,7 +13,7 @@ const formatDate = (dateString) => {
   const date = dayjs(dateString);
   return {
     day: date.format('DD'), // "02"
-    monthYear: date.format('MMM YYYY') // "Feb 2024"
+    monthYear: date.format('MMM, YYYY') // "Feb 2024"
   };
 };
 
@@ -33,7 +34,7 @@ const NEWS = ({news}) => {
   const {mainData } = useContext(MainAPiContext);
   const elements = mainData?.elements
   const { langValue } = useContext(MainLanguageValueContext);
-  const basePath = langValue === "en" ? '' : `${langValue}/`;
+  const basePath = dayjs.locale(langValue === "en" ? 'en' : 'ar');
 
   const handleTab = (index) => {
 if(index === newsActive) {
@@ -69,13 +70,13 @@ else {
             </div>
             <div className="section6MainBox_ border-b py-5 border-[#ddd] grid grid-cols-[auto,1fr] items-start">
               <div className="section6MainBoxl pr-5 border-r border-secondary">
-                <div className="h2 text-[2.5rem] font-light uppercase text-secondary font-Mluvka leading-[1]">{formattedDate.day}</div>
+                <div className="h2 text-[2.5rem] font-light uppercase text-secondary font-Mluvka leading-[1] text-center">{formattedDate.day}</div>
                 <div className="h3 font-Mluvka capitalize text-[.9rem] font-light leading-[1]">{formattedDate.monthYear}</div>
               </div>
               <div className="section6MainBoxc px-8">
                 <div className="h4  cursor-pointer accordions grid grid-cols-[7fr,3fr]" ><span onClick={() => handleTab(index)} className="leading-[1.1] font-MluvkaLight">{title}</span>
-                <Link href={`/${basePath}news/${slug}`}>
-                   <Image src={arrow} className={`ml-auto  w-[1.438rem] relative chevron transition-all ease-in-out duration-300 ${newsActive === index ? "rotate-180":""}`} alt="" />
+                <Link href={`/${basePath}/news/${slug}`}>
+                  <Image src={arrow} className={`ml-auto w-[1.438rem] relative chevron transition-all ease-in-out duration-300 ${newsActive === index ? "rotate-180" : ""}`} alt="" />
                 </Link>
                 </div>
                 <div className={`section6MainBoxcDOx overflow-hidden transition-all ease-in-out duration-300 ${newsActive === index ? "max-h-max":"max-h-0"}`}>
@@ -89,8 +90,9 @@ else {
         })}
       </div>
       <br />
-        <Link href={`/${basePath}news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">{elements?.["view-all"]}</Link>
-
+      <Link href={`/${basePath}/news`} className="section6btn px-24 py-3 bg-black rounded-full relative text-white mt-10 ml-auto block w-fit max-lg:mx-auto font-Mluvka">
+    {elements?.["view-all"]}
+</Link>
   </section>
   )
 }

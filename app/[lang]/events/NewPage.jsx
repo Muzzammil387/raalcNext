@@ -80,7 +80,8 @@ const NewPage = ({ lang }) => {
           <div className="cardMain3 gap-6 grid grid-cols-3">
             {Array.isArray(datas?.events) && datas?.events.map((item, index) => {
               const { id, slug, event_images, title, author_name, date, description } = item;
-              const formattedDate = formatDate(date, langValue);
+              // const formattedDate = formatDate(date, langValue);
+              const formattedDate = dayjs(date).locale(lang === 'ar' ? 'ar' : 'en').format('MMMM DD, YYYY');
               const truncatedText = truncateText(description, 300);
               return (
                 <div className="cardMain3Box" key={index}>
@@ -91,7 +92,7 @@ const NewPage = ({ lang }) => {
                     <ul className="list my-4">
                       <li className="flex justify-between text-[.9rem] font-light capitalize text-secondary">
                         <span>{author_name}</span>
-                        <span className="font-bold">{formattedDate.monthYear}</span>
+                        <span className="font-bold">{formattedDate}</span>
                       </li>
                     </ul>
                     <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
