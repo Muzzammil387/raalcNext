@@ -280,7 +280,7 @@ const [consultan, setConsultan] = useState("")
                     <Field name="client_name" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0 capitalize" placeholder={elements["enter-name"]} ></Field>
                   </div>
                   <div className="inputBox mb-4">
-                    <Field name="client_email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["enter-email"]} ></Field>
+                    <Field name="client_email" type="email" className="w-full border border-[#ddd] py-3 px-4 rounded-3xl  outline-0" placeholder={elements["enter-email"]} ></Field>
                   </div>
                 
                   <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-3">

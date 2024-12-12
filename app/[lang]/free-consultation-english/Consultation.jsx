@@ -1,5 +1,6 @@
 "use client";
 
+import { bannerImage222 } from '@/app/untils/imgimport';
 import Image from 'next/image'
 import Script from 'next/script';
 import React from 'react'
@@ -9,7 +10,7 @@ const Consultation = () => {
     <div>
         <div className='bannerImage relative'>
             {/* <div className='absolute top-[50%] max-w-[35%] mx-auto leading-[1] font-MluvkaBold transform translate-y-[-50%] text-center left-0 right-0 text-white text-[3rem] '>Please fill out the form below with your details and submit your request. </div> */}
-            <Image className='w-full h-[40rem] object-cover object-center' src="https://api.raalc.ae/storage/web_content_images/ddMo6EVCMA3XWvm8SJP1PznKWGTDYBQj89ZnOLKl.webp" width={0} height={0} alt="" />
+            <Image className='w-full h-[40rem] object-cover object-center' src={bannerImage222} width={0} height={0} alt="" />
         </div>
 
 

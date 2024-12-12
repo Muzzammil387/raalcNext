@@ -36,3 +36,4 @@ export const about4 = require("../../public/webImages/about/4.webp");
 export const playButton = require("../../public/webImages/play.svg");
 export const pro = require("../../public/webImages/profile-blank.png");
 export const bannerImage = require("../../public/webImages/bannerImage.webp");    
+export const bannerImage222 = require("../../public/webImages/ddMo6EVCMA3XWvm8SJP1PznKWGTDYBQj89ZnOLKl.webp");    

@@ -1,5 +1,4 @@
 import React, { useState, createContext } from "react";
-import { getLanguage } from "../utils/common";
 import { useParams } from "next/navigation";
 
 export const MainLanguageValueContext = createContext();

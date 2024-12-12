@@ -1,5 +1,6 @@
 
 import { MainAPiContext } from '@/app/context/MainAPiContext'
+import { MainBookingStatusContext } from '@/app/context/MainBookingStatusContext'
 import { MainLanguageValueContext } from '@/app/context/MainLanguageValue'
 import { MainReachUsStatusContext } from '@/app/context/MainReachUsStatusContext'
 import usePost from '@/app/customHooks/usePost'
@@ -14,6 +15,7 @@ import { toast } from 'react-toastify'
 const Footer = () => {
   const { langValue } = useContext(MainLanguageValueContext);
   const {mainData } = useContext(MainAPiContext);
+  const { handleOpenModel } = useContext(MainBookingStatusContext);
   const elements = mainData?.elements
   const contact_us = mainData?.contact_us
   const company_profile = mainData?.company_profile
@@ -115,7 +117,7 @@ const Footer = () => {
       </ul>
     </div>
     <div className="footer__topBox">
-      <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleReachUsOpenModel(true)}>{elements?.["get-a-quote"]}</Link>
+      <Link href="#" className="block border border-secondary rounded-full font-cormorant font-bold capitalize text-center quote py-2 mb-4" onClick={() => handleOpenModel(true,"")}>{elements?.["get-a-quote"]}</Link>
       <Link target='_blank' href={company_profile?.file ?? ""} className="block bg-secondary rounded-full font-cormorant font-bold capitalize text-center py-2">{elements?.["download-our-company-profile"]}</Link>
       <br />
       <div className="flex gap-2">
