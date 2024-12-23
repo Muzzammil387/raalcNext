@@ -37,6 +37,7 @@ const EventSlider = ({events,home}) => {
           spaceBetween={20}
           autoplay={{
             delay: 2500,
+            reverseDirection:langValue === "ar" ? true : false,
             disableOnInteraction: false,
           }}
           breakpoints={{
