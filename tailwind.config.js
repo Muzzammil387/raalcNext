@@ -20,7 +20,7 @@ module.exports = {
         'bubble-gum': '#ff77e9',
         'bermuda': '#78dcca',
         'black': '#000',
-        'secondary': '#CEAF7F',
+        'secondary': '#ceaf7f',
       },
       fontFamily: {
       cormorant: ['Cormorant', 'serif'],
