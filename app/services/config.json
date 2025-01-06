@@ -1,3 +1,4 @@
 {
-    "apiEndPoint": "https://api.raalc.ae/api/"
+    "apiEndPoint2": "https://api.raalc.ae/api/",
+    "apiEndPoint": "https://raalc.testqds.com/api/"
 }   
