@@ -18,11 +18,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Raalc",
   description: "RAALC’s journey began in 2013, when it was co-founded in the Emirate of Sharjah. Our success continued through years and we opened our two new branches in Ras Al Khaimah",
-  robots: {
-    index: false, // this will set 'noindex'
-  },
+  // robots: {
+  //   index: false,
+  // },
   verification: {
-    google: "SfmJMQbEn55NU98hNr2dAVHwyvMdKVNlaT-pDrguRiM"
+    google: "kvKmamV1GmbVp8AZbTRautEsWCs1-84lLD5oB5rjj4g"
   }
 };
 
@@ -32,9 +32,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
     
       <body className={inter.className}>
-        {/* <GoogleAnalytics gaId="AW-11060079184" />
-        <GoogleAnalytics gaId="G-21ZHG3RN35" />
-        <GoogleAnalytics gaId="GTM-KFHJPV7" /> */}
+        <GoogleAnalytics gaId="GTM-NK2H57S" />
+        <GoogleAnalytics gaId="GTM-NK2H57S" />
+        <GoogleAnalytics gaId="G-4VM2WNCYK1" />
           <Head>
 
       </Head>
