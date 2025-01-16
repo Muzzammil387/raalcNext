@@ -10,7 +10,7 @@ import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react'
 
 const TeamMain = ({lang}) => {
-        const { loading, data } = useFetch(`teams/${lang}/10?page=1`);
+        const { loading, data } = useFetch(`teams/${lang}/8?page=1`);
         const { langValue } = useContext(MainLanguageValueContext);
         const basePath = langValue === "en" ? '' : `${langValue}/`;
         const [datas, setDatas] = useState("")
@@ -26,7 +26,7 @@ const TeamMain = ({lang}) => {
           }
           }, [resget.data])
         const [currentPage, setCurrentPage] = useState(1);
-        const [currentPageSize, setCurrentPageSize] = useState(10);
+        const [currentPageSize, setCurrentPageSize] = useState(8);
         const onChange = (current, pageSize) => {
           setCurrentPage(current)
           setCurrentPageSize(pageSize)
@@ -49,9 +49,9 @@ const TeamMain = ({lang}) => {
       <div className="section5Main grid grid-cols-4 gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
             Array.isArray(datas?.teams) && datas?.teams?.map((item,index) => {
-              const {id,lowyer_image,name,designation} = item
+              const {slug,lowyer_image,name,designation} = item
                 return (
-                    <Link href={`/${basePath}team/${id}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
+                    <Link href={`/${basePath}team/${slug}`}  key={index} className="section5MainBox max-lg:w-full   transition-all duration-500 cursor-pointer !w-full   relative">
                     <div className="section5MainBox1">
                       <Image src={lowyer_image ?? ""}  width={10} height={10}  className="w-full max-lg:h-[25rem] object-cover rounded-[5rem] h-[27rem] object-top" priority  alt="" />
                     </div>

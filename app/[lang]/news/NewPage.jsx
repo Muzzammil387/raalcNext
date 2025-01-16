@@ -155,7 +155,7 @@ const NewPage = ({ lang }) => {
   const elements = mainData?.elements;
   const [datas, setDatas] = useState("");
   const { langValue } = useContext(MainLanguageValueContext);
-  const basePath = dayjs.locale(langValue === "en" ? 'en' : 'ar');
+  const basePath = lang === "en" ? '' : `${lang}/`;
   const [resget, apiMethodGet] = useGet();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -224,7 +224,7 @@ const NewPage = ({ lang }) => {
                       </div>
                       <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
                       <Link
-                        href={`/${langValue}/news/${slug}`}
+                        href={`/${basePath}news/${slug}`}
                         className="mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka"
                       >
                         {elements?.["read-more"]}

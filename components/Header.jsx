@@ -380,7 +380,7 @@ const [consultan, setConsultan] = useState("")
                                     service_catgeories[item].data.length > 0 ?
                                       <span className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</span>
                                       :
-                                      <Link onClick={() => handleMobileClose(false)} href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id']}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
+                                      <Link onClick={() => handleMobileClose(false)} href={`/${basePath}services/${service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['slug']}`} className="font-cormorant text-[1.2rem] leading-[1] text-black font-bold w-[60%]">{item}</Link>
                                   }
                                   {service_catgeories[item].data.length > 0 && <Image className="cursor-pointer top-[.4rem] relative" onClick={(event) => handleMenu(event, service_catgeories[item]['\u00edd'])} src={downarrow} alt="" />}
                                 </div>
@@ -388,11 +388,11 @@ const [consultan, setConsultan] = useState("")
                                   <div className={`innerMenu ${menuActive === (service_catgeories[item]['\u00edd'] ?? service_catgeories[item]['id']) ? "active" : ""}`}>
                                     <ul className="innerMenu_ relative">
                                       {service_catgeories[item].data.map((item2, index2) => {
-                                        const { service_title, id } = item2;
+                                        const { service_title, slug } = item2;
                                         return (
                                           <li key={index2} className="flex gap-1 items-start my-2 relative">
                                             <Image className="relative top-[.2rem]" src={checkmark} alt="" />
-                                            <Link onClick={() => handleMobileClose(false)} className="text-[.9rem]" href={`/${basePath}services/${id}`}>{service_title}</Link>
+                                            <Link onClick={() => handleMobileClose(false)} className="text-[.9rem]" href={`/${basePath}services/${slug}`}>{service_title}</Link>
                                           </li>
                                         );
                                       })}

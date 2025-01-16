@@ -248,7 +248,7 @@ const NewsInner = ({ lang, slug }) => {
                     </ul>
                     <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                     <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</div>
-                    <Link href={`${basePath}/news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka'>
+                    <Link href={`/${basePath}news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka'>
                       {elements?.["read-more"]}
                     </Link>
                   </div>

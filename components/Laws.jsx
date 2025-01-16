@@ -18,7 +18,7 @@ const Laws = ({data}) => {
         }
           }
   return (
-    <section className="section7  py-20 relative pr-14">
+    <section className="section7 section77 py-20 relative pr-14">
     <div className="section6Heading   relative grid  grid-cols-[2fr,6.5fr] gap-3 items-start  ">
       <a href="#" className="font-Mluvka text-[#9F865F] py-3 px-4 rounded-[3rem] w-fit ml-auto mr-10 capitalize border border-[#E7E7E7] bg-white Lawss">{data?.laws_short_heading}</a>
       <div className="grid  grid-cols-[1fr,auto] items-start">

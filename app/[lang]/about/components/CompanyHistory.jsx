@@ -23,7 +23,7 @@ const CompanyHistory = ({ data }) => {
             videoRef.current.pause(); // Pause the video when the modal is closed
         }
     };
-
+    
     const { sec_three } = data;
 
     return (

@@ -23,9 +23,9 @@ const Team = ({team,count}) => {
       <div className="section5Main flex justify-center gap-6 overflow-hidden max-lg:grid max-lg:grid-cols-2">
         {
           Array.isArray(teamm) && teamm.map((item,index) => {
-              const {id,lowyer_image,name,designation} = item
+              const {slug,lowyer_image,name,designation} = item
                 return (
-                    <Link href={`/${basePath}team/${id}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
+                    <Link href={`/${basePath}team/${slug}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
                     <div className="section5MainBox1 h-full">
                       <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt="" />
                     </div>

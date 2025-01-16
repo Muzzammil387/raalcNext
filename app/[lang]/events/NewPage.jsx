@@ -43,7 +43,7 @@ const NewPage = ({ lang }) => {
   const { langValue } = useContext(MainLanguageValueContext);
   const [resget, apiMethodGet] = useGet();
   const [currentPage, setCurrentPage] = useState(1);
-
+  const basePath = lang === "en" ? '' : `${lang}/`;
   useEffect(() => {
     if (data) {
       setDatas(data?.data);
@@ -97,7 +97,7 @@ const NewPage = ({ lang }) => {
                     </ul>
                     <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
                     <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
-                    <Link href={`/${langValue}/events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka">
+                    <Link href={`/${basePath}events/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka">
                       {elements?.["read-more"]}
                     </Link>
                   </div>

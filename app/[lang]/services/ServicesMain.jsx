@@ -66,7 +66,7 @@ const [datas, setDatas] = useState("")
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
                 {  Array.isArray(datas) && datas?.map((item,index) => {
-              const {id,sec_one_image,sec_one_heading_one} = item
+              const {slug,sec_one_image,sec_one_heading_one} = item
               return (
               <div className="cardMain3Box " key={index}>
                 <div className="cardMain3Box__img">
@@ -74,7 +74,7 @@ const [datas, setDatas] = useState("")
                 </div>
                 <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">
                   <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{sec_one_heading_one}</div>
-                  <Link href={`/${basePath}services/${id}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
+                  <Link href={`/${basePath}services/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                 </div>
             </div>
             )
