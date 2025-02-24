@@ -12,7 +12,7 @@ const AboutPage = ({lang}) => {
     const { loading, data } = useFetch(`webContents/aboutUs/${lang}`);
     if(loading) return <Loaders />
   return (
-    <div className='AboutPage'>
+    <div className='AboutPage Saad'>
            <div className="InnerPageBox1 absolute w-[22rem] h-[22rem] opacity-5 bg-primary left-0 top-[50%]"></div>
     <div className="InnerPageBox2"></div>
     <section className="innerPage1 relative py-10">
