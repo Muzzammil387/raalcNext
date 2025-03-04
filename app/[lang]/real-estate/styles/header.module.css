@@ -44,7 +44,16 @@ justify-content: center;
 .background_image_style {
     position: relative;
     width: 100vw;
-    height: 88vh;
+    min-height: 88vh; /* Ensure at least 88vh height */
+    height: auto; /* Allow dynamic height expansion */
+    background-image: url('/webImages/landing_page/home_page_bg_image.png');
+    background-size: cover; /* Ensure full coverage */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .overlay_styling {
@@ -182,6 +191,11 @@ justify-content: center;
   }
 
   @media (max-width: 899px) {
+    .background_image_style {
+        min-height: 100vh; /* Ensures the background extends fully */
+        height: auto; /* Allows dynamic height increase */
+        padding-bottom: 50px; /* Prevents content cutoff */
+      }
     .what_can_we_do {
         margin-top: 3%;
     }
@@ -199,7 +213,7 @@ justify-content: center;
     }
     .background_image_style {
         height: 83vh;
-    }    
+    }  
   }
 
   @media (max-width: 427px) {
