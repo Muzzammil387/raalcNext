@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@fancyapps/ui": "^5.0.36",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
     "@next/third-parties": "^14.2.8",
     "@studio-freight/react-lenis": "^0.0.47",
     "antd": "^5.18.3",
@@ -22,6 +26,7 @@
     "pusher-js": "^8.4.0-rc2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
     "react-toastify": "^10.0.5",
     "sweetalert": "^2.1.2",
     "swiper": "^11.1.14",

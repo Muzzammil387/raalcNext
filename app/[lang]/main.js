@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { usePathname } from "next/navigation";
 import { main } from "../data/main";
 import { MyLanguage } from "../context/MyLanguageContext";
 import { language } from "../data/language";
@@ -18,6 +19,7 @@ import Head from 'next/head';
 import { ReactLenis } from '@studio-freight/react-lenis'
 
 const Main = ({ children }) => {
+  const pathname = usePathname();
   const [lang, setLang] = useState("");
   const [home, setHome] = useState("");
   const { header, languagess } = main;
@@ -27,37 +29,41 @@ const Main = ({ children }) => {
     setHome(main);
   }, []);
 
+  const hideHeaderFooter = pathname === "/real-estate";
 
   return (
     <>
-     <ReactLenis root>
-      <MainTeamProvider>
-      <MainAPiProvider>
-      <MainLanguageValueProvider>
-      <MainReachUsStatusProvider>
-        <MainBookingStatusProvider>
-          <MyHome.Provider value={{ home, setHome }}>
-            <MyLanguage.Provider value={{ lang, setLang }}>
-            <Head>
-        <meta name="robots" content="noindex" />
-      </Head>
-              <Header language={languagess} data={header} />
-              
-              <main className="indexPage">
-                {children}
-              </main>
-              <Footer />
-              <ToastContainer />
-            </MyLanguage.Provider>
-          </MyHome.Provider>
-        </MainBookingStatusProvider>
-      </MainReachUsStatusProvider>
-      </MainLanguageValueProvider>
-      </MainAPiProvider>
-      </MainTeamProvider>
+      <ReactLenis root>
+        <MainTeamProvider>
+          <MainAPiProvider>
+            <MainLanguageValueProvider>
+              <MainReachUsStatusProvider>
+                <MainBookingStatusProvider>
+                  <MyHome.Provider value={{ home, setHome }}>
+                    <MyLanguage.Provider value={{ lang, setLang }}>
+                      <Head>
+                        <meta name="robots" content="noindex" />
+                      </Head>
+
+                      {/* Hide Header/Footer only for /real-estate */}
+                      {!hideHeaderFooter && <Header language={languagess} data={header} />}
+
+                      <main className="indexPage">{children}</main>
+
+                      {!hideHeaderFooter && <Footer />}
+
+                      <ToastContainer />
+                    </MyLanguage.Provider>
+                  </MyHome.Provider>
+                </MainBookingStatusProvider>
+              </MainReachUsStatusProvider>
+            </MainLanguageValueProvider>
+          </MainAPiProvider>
+        </MainTeamProvider>
       </ReactLenis>
     </>
   );
 };
+
 
 export default Main;

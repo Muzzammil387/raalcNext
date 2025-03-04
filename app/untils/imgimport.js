@@ -37,3 +37,7 @@ export const playButton = require("../../public/webImages/play.svg");
 export const pro = require("../../public/webImages/profile-blank.png");
 export const bannerImage = require("../../public/webImages/bannerImage.webp");    
 export const bannerImage222 = require("../../public/webImages/ddMo6EVCMA3XWvm8SJP1PznKWGTDYBQj89ZnOLKl.webp");    
+export const raalc_white_logo = require("../../public/webImages/landing_page/raalc_white_logo.png");    
+export const white_whatsapp_icon = require("../../public/webImages/landing_page/white_whatsapp_icon.png"); 
+export const home_page_bg_image = require("../../public/webImages/landing_page/home_page_bg_image.png");    
+export const right_arrow = require("../../public/webImages/landing_page/right_arrow.png");    
