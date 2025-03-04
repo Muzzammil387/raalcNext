@@ -237,7 +237,7 @@ const Header = ({ lang }) => {
             </h2>
             <Grid container spacing={0} style={{display: "flex", alignItems: "center"}}>
           <Grid item xs={12} md={5}>
-          <div style={{height: 600, marginTop: 30}}>
+          <div className={styles.history_main_image_container}>
                 <Image 
             src={history_main_image ?? ""} 
             width={1000} 

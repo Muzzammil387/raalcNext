@@ -166,6 +166,11 @@ justify-content: center;
     margin-top: 10px;
 }
 
+.history_main_image_container {
+    height: 100%;
+    margin-top: 30px;
+}
+
 .form_container {
     background-color: #ffffff;
     padding-left: 50px;
@@ -325,6 +330,18 @@ justify-content: center;
         padding: 8px 25px !important;
     }
 }
+
+@media (max-width: 700px) {
+    .history_main_image_container {
+        height: auto;
+    }
+  }
+
+@media (max-width: 455px) {
+    .section_text {
+        font-size: 15px;
+    }
+  }
 
   @media (max-width: 427px) {
     .ensure_protection {
