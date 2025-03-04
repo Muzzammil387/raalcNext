@@ -22,12 +22,12 @@ import HubSpotForm from './HubSpotForm';
 
 const pages = [
     { label: 'Home', link: '/real-estate' },
-    { label: 'About Us', link: '/real-estate/about-us' },
-    { label: 'Services', link: '/real-estate/services' },
-    { label: 'Our Team', link: '/real-estate/our-team' },
-    { label: 'Gallery', link: '/real-estate/gallery' },
-    { label: 'Clients', link: '/real-estate/clients' },
-    { label: 'Contact Us', link: '/real-estate/contact-us' }
+    { label: 'About Us', link: '/real-estate' },
+    { label: 'Services', link: '/real-estate' },
+    { label: 'Our Team', link: '/real-estate' },
+    { label: 'Gallery', link: '/real-estate' },
+    { label: 'Clients', link: '/real-estate' },
+    { label: 'Contact Us', link: '/real-estate' }
   ];
 
 const Header = ({ lang }) => {
