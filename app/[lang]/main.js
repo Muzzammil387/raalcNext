@@ -29,7 +29,7 @@ const Main = ({ children }) => {
     setHome(main);
   }, []);
 
-  const hideHeaderFooter = pathname === "/real-estate";
+  const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate";
 
   return (
     <>
