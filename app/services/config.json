@@ -1,5 +1,5 @@
 {
     "apiEndPoint2": "https://raalc.testqds.com/api/",
     "apiEndPoint22": "https://raalc.testqds.com/public/api/",
-    "apiEndPoint": "http://127.0.0.1:8001/api/"
+    "apiEndPoint": "https://api.raalc.ae/api/"
 }   
