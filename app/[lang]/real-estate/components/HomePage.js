@@ -17,7 +17,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { 
     tridition,
     trust,
-    history_main_image
+    history_main_image,
+    technology
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 import ForwardIcon from '@mui/icons-material/Forward';
@@ -141,7 +142,7 @@ const HomePage = ({ lang }) => {
           <p className={styles.ensure_protection_trust} style={{display: "flex"}}>
                 <div>
                 <Image 
-            src={trust ?? ""} 
+            src={technology ?? ""} 
             width={300} 
             height={200} 
             alt="Technology Logo" 
