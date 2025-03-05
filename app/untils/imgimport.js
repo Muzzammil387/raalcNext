@@ -43,4 +43,5 @@ export const home_page_bg_image = require("../../public/webImages/landing_page/h
 export const right_arrow = require("../../public/webImages/landing_page/right_arrow.png");  
 export const tridition = require("../../public/webImages/landing_page/tridition.png");  
 export const trust = require("../../public/webImages/landing_page/trust.png"); 
-export const history_main_image = require("../../public/webImages/landing_page/history_main_image.png");    
+export const history_main_image = require("../../public/webImages/landing_page/history_main_image.png");  
+export const about_us = require("../../public/webImages/landing_page/about_us.png");    
