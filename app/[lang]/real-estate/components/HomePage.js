@@ -59,8 +59,8 @@ const HomePage = ({ lang }) => {
            <Typewriter
         words={[
             "BEST REAL ESTATE LAWYER", 
-            "BEST PROPERTY LAWYERS IN DUBAI", 
-            "PROPERTY DISPUTE LAWYER DUBAI",
+            "BEST PROPERTY LAWYERS", 
+            "PROPERTY DISPUTE LAWYER",
             "BEST LAWYER FOR REAL ESTATE DISPUTE",
             "BEST LAWYERS FOR PROPERTY DISPUTES"
         ]}

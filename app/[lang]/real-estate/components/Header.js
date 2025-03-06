@@ -18,6 +18,7 @@ import HomePage from './HomePage';
 import AboutUs from './AboutUs';
 import OurClients from './Clients';
 import Team from './Team';
+import TeamMembers from './TeamMembers';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -140,6 +141,9 @@ const Header = ({ lang }) => {
     </div>
     <div id='team'>
     <Team/>
+    </div>
+    <div>
+    <TeamMembers/>
     </div>
     </div>
 
