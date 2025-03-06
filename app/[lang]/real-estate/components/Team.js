@@ -62,7 +62,7 @@ const Team = ({ lang }) => {
 
 <div className={styles.teamContainer}>
         {teamMembers.map((member, index) => (
-         <div className={styles.team_card_container}>
+         <div key={index} className={styles.team_card_container}>
              <div key={index} className={styles.teamCard}>
             <div className={styles.imageWrapper}>
               <Image src={member.image} alt={member.name} width={300} height={300} className={styles.image_styling} />
