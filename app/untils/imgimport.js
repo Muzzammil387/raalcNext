@@ -89,5 +89,5 @@ export const gallery_3 = require("../../public/webImages/landing_page/gallery_3.
 export const gallery_4 = require("../../public/webImages/landing_page/gallery_4.JPG");
 export const gallery_5 = require("../../public/webImages/landing_page/gallery_5.JPG");
 export const gallery_6 = require("../../public/webImages/landing_page/gallery_6.JPG");
-export const gallery_7 = require("../../public/webImages/landing_page/gallery_7.JPEG");
+export const gallery_7 = require("../../public/webImages/landing_page/gallery_7.jpeg");
 export const gallery_8 = require("../../public/webImages/landing_page/gallery_8.JPG");
