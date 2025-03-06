@@ -36,7 +36,7 @@
 .history_heading {
     font-family: Montserrat, sans-serif;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 23px;
     margin-top: 15px;
 }
 
@@ -131,7 +131,7 @@
   }
   
   .memberInfo h3 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 900;
     margin: 0;
     color: #ffffff;
@@ -139,7 +139,7 @@
   }
   
   .memberInfo p {
-    font-size: 22px;
+    font-size: 20px;
     margin: 5px 0 0 0;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
