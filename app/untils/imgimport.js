@@ -72,3 +72,6 @@ export const star = require("../../public/webImages/landing_page/star.png");
 export const transparency = require("../../public/webImages/landing_page/transparency.png");  
 export const legal = require("../../public/webImages/landing_page/legal.png");  
 export const client_background = require("../../public/webImages/landing_page/client_background.png");  
+export const ehab = require("../../public/webImages/landing_page/ehab.jpg");  
+export const abdelaziz = require("../../public/webImages/landing_page/abdelaziz.jpg");  
+export const lina = require("../../public/webImages/landing_page/lina.jpg");  

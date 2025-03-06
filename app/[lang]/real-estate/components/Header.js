@@ -17,6 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import HomePage from './HomePage';
 import AboutUs from './AboutUs';
 import OurClients from './Clients';
+import Team from './Team';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -28,7 +29,7 @@ const pages = [
     { label: 'About Us', link: '#about_us' },
     { label: 'Clients', link: '#our_clients' },
     { label: 'Services', link: '/real-estate' },
-    { label: 'Our Team', link: '/real-estate' },
+    { label: 'Our Team', link: '#team' },
     { label: 'Gallery', link: '/real-estate' },
     { label: 'Contact Us', link: '/real-estate' }
   ];
@@ -136,6 +137,9 @@ const Header = ({ lang }) => {
     </div>
     <div id='our_clients'>
     <OurClients/>
+    </div>
+    <div id='team'>
+    <Team/>
     </div>
     </div>
 

@@ -4,16 +4,9 @@ import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
 import styles from '../styles/home.module.css'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { Typewriter } from "react-simple-typewriter";
 import { 
     tridition,
     trust,
@@ -63,7 +56,22 @@ const HomePage = ({ lang }) => {
             YOUR SEARCH FOR
            </p>
            <p className={styles.real_estate_lawyer}>
-            “BEST REAL ESTATE LAWYER”</p>
+           <Typewriter
+        words={[
+            "BEST REAL ESTATE LAWYER", 
+            "BEST PROPERTY LAWYERS IN DUBAI", 
+            "PROPERTY DISPUTE LAWYER DUBAI",
+            "BEST LAWYER FOR REAL ESTATE DISPUTE",
+            "BEST LAWYERS FOR PROPERTY DISPUTES"
+        ]}
+        loop={true}
+        cursor
+        cursorStyle="_"
+        typeSpeed={80}
+        deleteSpeed={50}
+        delaySpeed={1000}
+      />
+      </p>
             <p className={styles.your_search_for}>
             ENDS HERE.</p>
            </div>

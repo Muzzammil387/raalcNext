@@ -308,6 +308,15 @@ justify-content: center;
     background-color: #D4B05A !important;
 }
 
+@media (max-width: 899px) {
+    .ensure_protection {
+        font-size: 18px;
+    }
+    .ensure_protection_trust {
+        font-size: 18px; 
+    }
+}
+
 /* 📱 Mobile Responsive */
 @media (max-width: 768px) {
     .section_container {

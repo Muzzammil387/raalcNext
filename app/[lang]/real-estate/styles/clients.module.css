@@ -61,11 +61,31 @@
     font-family: Montserrat, sans-serif;
 }
 
-.section_line {
-    flex-grow: 1;
-    height: 3px;
-    background-color: white;
-    margin: 0 20px;
+.background {
+    position: relative;
+    width: 100%;
+    background-image: url('/webImages/landing_page/client_background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.client_p {
+    display: flex;
+    align-items: center;
+    background-color: #f4c766;
+    border-radius: 40px;
+    padding-top: 2%;
 }
 
 .get_started_btn {
@@ -114,6 +134,9 @@
         font-size: 18px;
     } 
     .commitment_subheading {
+        font-size: 18px;
+    }
+    .clients_points {
         font-size: 18px;
     }
   }

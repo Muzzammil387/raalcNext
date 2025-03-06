@@ -112,26 +112,11 @@ const OurClients = ({ lang }) => {
       </div>
 
       <div
-  style={{
-    position: "relative",
-    width: "100%",
-    backgroundImage: "url('/webImages/landing_page/client_background.png')", // Background image path
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
+  className={styles.background}
 >
   {/* Dark Overlay */}
   <div
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)", // 50% dark overlay
-      zIndex: 1, // Keeps it behind the content
-    }}
+   className={styles.overlay}
   ></div>
 
   {/* Content inside */}
@@ -143,7 +128,7 @@ const OurClients = ({ lang }) => {
     </div>
 
     <div style={{ marginTop: "30px"}}>
-    <Grid container spacing={0} style={{display: "flex", alignItems: "center", backgroundColor: '#f4c766', borderRadius: "40px", paddingTop: "2%"}}>
+    <Grid container spacing={0} className={styles.client_p}>
           <Grid item xs={12} md={4}>
           <p className={styles.clients_points} style={{display: "flex", alignItems: "center"}}>
                 <div style={{height: "100%", width: "100%"}}>
@@ -151,7 +136,7 @@ const OurClients = ({ lang }) => {
             src={star ?? ""} 
             width={250} 
             height={100} 
-            alt="High Success Rate Logo" 
+            alt="High Success Rate Logo"
             />
                 </div>
 <div style={{marginLeft: 15}}>
