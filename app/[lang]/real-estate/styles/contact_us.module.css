@@ -44,10 +44,52 @@ justify-content: center;
 .background_image_style {
     position: relative;
     width: 100%;
-    background-image: url('/webImages/landing_page/home_page_bg_image.png');
+    background-image: url('/webImages/landing_page/contact_us_main_image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.phone_icon_style {
+    padding: 8px;
+    padding-right: 7px;
+    padding-left: 11px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.call_text {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    margin-left: 2%;
+    margin-bottom: 8px;
+}
+
+.footer_heading {
+    font-family: 'Montserrat', sans-serif;
+    color: #f4c766;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.footer_content {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.phone_number_style {
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: white;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+    color: #f4c766;
 }
 
 .overlay {
@@ -56,8 +98,25 @@ justify-content: center;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 1;
+}
+
+.footer_container {
+    z-index: 20;
+    position: relative;
+    background-color: #000000;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.social_media_container {
+    gap: 15px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .left_grid {
@@ -70,25 +129,9 @@ justify-content: center;
     padding-bottom: 35px;
     align-items: center;
     justify-content: center;
-    height: 88vh;
+    height: 75vh;
     z-index: 20;
     position: relative;
-}
-
-.margin_up {
-    margin-top: 22%;
-}
-
-.welcome_to_raalc {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 26px;
-}
-
-.your_search_for {
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 45px;
-    font-weight: 600;
 }
 
 .real_estate_lawyer {
@@ -114,40 +157,16 @@ justify-content: center;
     margin-bottom: 25px;
 }
 
-.legal_experts {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 26px;
-    font-weight: 600;
-}
-
 .ensure_protection {
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    background-color: #f4c766;
-    padding: 30px;
-    padding-left: 40px;
-    border-radius: 40px;
-}
-
-.ensure_protection_trust {
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    background-color: #f4c766;
-    padding: 30px;
-    padding-left: 20px;
-    border-radius: 40px;
+    padding-top: 30px;
 }
 
 .bold {
     font-weight: 600;
-}
-
-.about_us_content {
-    padding-left: 50px;
 }
 
 .form_heading {
@@ -169,25 +188,12 @@ justify-content: center;
     margin-top: 10px;
 }
 
-.history_main_image_container {
-    height: 100%;
-    margin-top: 30px;
-}
-
 .form_container {
     background-color: #ffffff;
     padding-left: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-right: 25px;
-}
-
-.history_container {
-    background-color: #000000;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
 }
 
 .about_us_footer {
@@ -197,18 +203,9 @@ justify-content: center;
     font-weight: bold;
 }
 
-.history_heading {
-    font-family: Montserrat, sans-serif;
-    color: #ffffff;
-    font-size: 25px;
-}
-  
 @media (max-width: 1522px) {
     .what_can_we_do {
         margin-top: 5%;
-    }
-    .your_search_for {
-        font-size: 34px;
     }
     .real_estate_lawyer {
         font-size: 34px;
@@ -224,9 +221,6 @@ justify-content: center;
   @media (max-width: 1048px) {
     .what_can_we_do {
         margin-top: 3%;
-    }
-    .your_search_for {
-        font-size: 24px;
     }
     .real_estate_lawyer {
         font-size: 24px;
@@ -244,23 +238,11 @@ justify-content: center;
         height: auto;
     }
     
-    .margin_up {
-        margin-top: 0;
-    }
-    .history_heading {
-        font-size: 18px;
-    }
     .form_container {
         margin-right: 15px;
     }
-    .about_us_content {
-        padding-left: 0px !important;
-    }
     .what_can_we_do {
         margin-top: 3%;
-    }
-    .your_search_for {
-        font-size: 18px;
     }
     .real_estate_lawyer {
         font-size: 18px;
@@ -317,9 +299,6 @@ justify-content: center;
     .ensure_protection {
         font-size: 18px;
     }
-    .ensure_protection_trust {
-        font-size: 18px; 
-    }
 }
 
 /* 📱 Mobile Responsive */
@@ -345,20 +324,9 @@ justify-content: center;
     }
 }
 
-@media (max-width: 700px) {
-    .history_main_image_container {
-        height: auto;
-    }
-  }
 
 @media (max-width: 455px) {
     .section_text {
         font-size: 15px;
-    }
-  }
-
-  @media (max-width: 427px) {
-    .ensure_protection {
-        font-size: 18px;
     }
   }

@@ -30,6 +30,9 @@ const HomePage = ({ lang }) => {
     <div>
     <div>
     <div className={styles.background_image_style}>
+    <div
+   className={styles.overlay}
+  ></div>
       <div className={styles.left_grid}>
         <Grid container spacing={2} style={{marginLeft: "4%", marginRight: "4%"}}>
           <Grid item xs={12} md={7}>
@@ -81,7 +84,7 @@ const HomePage = ({ lang }) => {
                 <p className={styles.form_heading}>
                 Speak to a Real Estate Lawyer Now
                 </p>
-            <HubSpotForm />
+            <HubSpotForm formId="hubspotForm1"/>
             <p className={styles.form_footer}>
             Your information is 100% secure & confidential.
             </p>

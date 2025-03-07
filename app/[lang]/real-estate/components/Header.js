@@ -20,6 +20,7 @@ import OurClients from './Clients';
 import Team from './Team';
 import TeamMembers from './TeamMembers';
 import Gallery from './Gallery';
+import ContactUs from './ContactUs';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -33,7 +34,7 @@ const pages = [
     { label: 'Services', link: '/real-estate' },
     { label: 'Our Team', link: '#team' },
     { label: 'Gallery', link: '#gallery' },
-    { label: 'Contact Us', link: '/real-estate' }
+    { label: 'Contact Us', link: '#contact_us' }
   ];
 
 const Header = ({ lang }) => {
@@ -148,6 +149,9 @@ const Header = ({ lang }) => {
     </div>
     <div id='gallery'>
     <Gallery/>
+    </div>
+    <div id='contact_us'>
+    <ContactUs/>
     </div>
     </div>
 

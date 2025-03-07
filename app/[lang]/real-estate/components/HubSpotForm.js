@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-const HubSpotForm = () => {
+const HubSpotForm = ({ formId }) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//js.hsforms.net/forms/embed/v2.js";
@@ -15,15 +15,15 @@ const HubSpotForm = () => {
           portalId: "20189826",
           formId: "a52a74e0-b6ad-4feb-b8dd-fcecc2b73eb0",
           region: "na1",
-          target: "#hubspotForm"
+          target: `#${formId}`
         });
       }
     };
 
     document.body.appendChild(script);
-  }, []);
+  }, [formId]);
 
-  return <div id="hubspotForm"></div>;
+  return <div id={formId}></div>;
 };
 
 export default HubSpotForm;
