@@ -23,7 +23,7 @@ const HubSpotForm = () => {
     document.body.appendChild(script);
   }, []);
 
-  return <div id="hubspotForm"></div>; // The form will be rendered here
+  return <div id="hubspotForm"></div>;
 };
 
 export default HubSpotForm;

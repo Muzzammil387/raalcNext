@@ -43,35 +43,21 @@ justify-content: center;
 
 .background_image_style {
     position: relative;
-    width: 100vw;
-    min-height: 88vh; /* Ensure at least 88vh height */
-    height: auto; /* Allow dynamic height expansion */
-    background-image: url('/webImages/landing_page/home_page_bg_image.png');
-    background-size: cover; /* Ensure full coverage */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent tiling */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.overlay_styling {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url('/webImages/landing_page/home_page_bg_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .left_grid {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    margin-top: 35px;
+    padding-top: 35px;
+    padding-bottom: 35px;
     align-items: center;
     justify-content: center;
 }
@@ -176,7 +162,7 @@ justify-content: center;
     padding-left: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-right: 40px;
+    margin-right: 25px;
 }
 
 .history_container {
@@ -237,17 +223,15 @@ justify-content: center;
   }
 
   @media (max-width: 899px) {
+    .history_heading {
+        font-size: 18px;
+    }
     .form_container {
         margin-right: 15px;
     }
     .about_us_content {
         padding-left: 0px !important;
     }
-    .background_image_style {
-        min-height: 100vh; /* Ensures the background extends fully */
-        height: auto; /* Allows dynamic height increase */
-        padding-bottom: 50px; /* Prevents content cutoff */
-      }
     .what_can_we_do {
         margin-top: 3%;
     }
@@ -263,9 +247,6 @@ justify-content: center;
     .transaction_services {
         font-size: 18px;
     }
-    .background_image_style {
-        height: 83vh;
-    }  
   }
 
   .section_container {

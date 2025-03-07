@@ -30,21 +30,6 @@ const HomePage = ({ lang }) => {
     <div>
     <div>
     <div className={styles.background_image_style}>
-      <div
-        style={{
-          backgroundImage: "url('/webImages/landing_page/home_page_bg_image.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "left",
-          backgroundRepeat: "no-repeat",
-          width: "100%",
-          height: "100%",
-        }}
-      />
-
-      <div
-        className={styles.overlay_styling}
-      />
-
       <div className={styles.left_grid}>
         <Grid container spacing={2} style={{marginLeft: "4%", marginRight: "4%"}}>
           <Grid item xs={12} md={7}>
@@ -61,8 +46,8 @@ const HomePage = ({ lang }) => {
             "BEST REAL ESTATE LAWYER", 
             "BEST PROPERTY LAWYERS", 
             "PROPERTY DISPUTE LAWYER",
-            "BEST LAWYER FOR REAL ESTATE DISPUTE",
-            "BEST LAWYERS FOR PROPERTY DISPUTES"
+            // "BEST LAWYER FOR REAL ESTATE DISPUTE",
+            // "BEST LAWYERS FOR PROPERTY DISPUTES"
         ]}
         loop={true}
         cursor
