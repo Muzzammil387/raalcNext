@@ -169,6 +169,12 @@ justify-content: center;
     font-weight: 600;
 }
 
+.contact_us_container {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+}
+
 .form_heading {
     color: #dab35c;
     font-size: 26px;
@@ -176,7 +182,7 @@ justify-content: center;
     font-weight: bold;
     margin-right: 60px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 .form_footer {
     color: #dab35c;

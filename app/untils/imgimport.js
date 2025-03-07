@@ -97,3 +97,4 @@ export const twitter_icon = require("../../public/webImages/landing_page/twitter
 export const linkedin_icon = require("../../public/webImages/landing_page/linkedin_icon.png");
 export const whatsapp_icon = require("../../public/webImages/landing_page/whatsapp_icon.png");
 export const phone_icon = require("../../public/webImages/landing_page/phone_icon.png");
+export const email_ic = require("../../public/webImages/landing_page/email_ico_latest.png");

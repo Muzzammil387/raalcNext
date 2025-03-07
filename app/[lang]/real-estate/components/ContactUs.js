@@ -13,7 +13,8 @@ import {
     history_main_image,
     twitter_icon,linkedin_icon,
     whatsapp_icon,
-    phone_icon
+    phone_icon,
+    email_ic
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 import ForwardIcon from '@mui/icons-material/Forward';
@@ -37,7 +38,7 @@ const ContactUs = ({ lang }) => {
   ></div>
       <div className={styles.left_grid}>
         <Grid container spacing={2} style={{marginLeft: "4%", marginRight: "4%"}}>
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={7} className={styles.contact_us_container}>
            <div style={{lineHeight: "60px", marginTop: 20}}>
            <p className={styles.real_estate_lawyer}>
            Secure Your Property with RAALC’s Legal Experts
@@ -109,8 +110,41 @@ const ContactUs = ({ lang }) => {
           +971 4569 3370</span>
       </Link>
       </div>
+      
 
     </div>
+
+    <div>
+      <h3 className={styles.call_text}>
+          Write Us On:
+          </h3>
+{/* WhatsApp Button */}
+<Link
+        href="mailto:inquiry@raalc.ae"
+        target="_blank"
+        className="flex items-center gap-1 px-6 py-3 bg-green-500 text-white rounded-full border-4 border-green-700 shadow-md hover:bg-green-600 transition-all"
+        style={{
+          backgroundColor: "#338aff",
+          borderColor: "#338aff",
+          padding: "7px",
+          color: "#338aff",
+          width: "fit-content"
+        }}
+     >
+         <span className={`text-2xl`}>
+         <Image 
+            src={email_ic ?? ""} 
+            width={50} 
+            height={50} 
+            alt="Whatsapp Icon" 
+            />
+         </span>
+        <span 
+        className={`font-bold text-lg text-yellow-900 ${styles.phone_number_style}`}
+        >
+          inquiry@raalc.ae</span>
+      </Link>
+      </div>
 
           </Grid>
 
