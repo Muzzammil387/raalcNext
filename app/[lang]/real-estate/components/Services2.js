@@ -53,7 +53,7 @@ const Services2 = ({ lang }) => {
     <p className={styles.commitment_sub_heading}>2) Dispute Resolution Services: </p>
 <div>
 <h2 className={styles.history_heading}>
-RFrom ownership conflicts to tenancy issues, we offer expert legal representation to resolve a variety of real estate disputes efficiently and effectively.
+From ownership conflicts to tenancy issues, we offer expert legal representation to resolve a variety of real estate disputes efficiently and effectively.
 </h2>
 </div>
 
