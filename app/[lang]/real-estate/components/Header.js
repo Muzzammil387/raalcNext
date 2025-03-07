@@ -23,6 +23,8 @@ import Gallery from './Gallery';
 import ContactUs from './ContactUs';
 import Services from './Services';
 import ServicesDetail from './ServicesDetail';
+import Services2 from './Services2';
+import Services2Detail from './Services2Detail';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -148,6 +150,12 @@ const Header = ({ lang }) => {
     </div>
     <div>
     <ServicesDetail/>
+    </div>
+    <div>
+    <Services2/>
+    </div>
+    <div>
+    <Services2Detail/>
     </div>
     <div id='team'>
     <Team/>

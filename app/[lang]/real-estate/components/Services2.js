@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
-import styles from '../styles/services.module.css'
+import styles from '../styles/services_two.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import { 
@@ -13,20 +13,24 @@ import {
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 
-const Services = ({ lang }) => {
+const Services2 = ({ lang }) => {
     const service_content = [
         {
-          heading: "Sale and Purchase Agreements & Form F Services",
-          content: "At RAALC, we ensure your journey is legally secure by expertly drafting, reviewing, and vetting Sale and Purchase Agreements."
+          heading: "Real Estate Disputes",
+          content: "Ownership conflicts, contract breaches, and property rights disputes can disrupt your life and investments. RAALC’s real estate dispute lawyer is here to turn legal challenges into solutions."
         },
         {
-          heading: "Property Conveyancing",
-          content: "Whether buying or selling, our conveyancing solicitors handle contracts, due diligence, and compliance, ensuring a seamless transaction from start to finish."
+          heading: "Rental Disputes",
+          content: "RAALC’s rental dispute lawyer provides swift, effective legal solutions for both landlords and tenants, ensuring compliance with UAE tenancy laws and protecting your interests."
         },
         {
-          heading: "Power of Attorney for Sale & Purchase",
-          content: "Whether you're overseas or unavailable, we craft legally binding powers of attorney, ensuring your trusted representative can act with clarity and authority."
+          heading: "Jointly Owned Property Disputes",
+          content: "Whether it’s a disagreement over property management or a need to dissolve joint ownership, RAALC helps co-owners navigate disputes and reach fair, legally sound resolutions."
         },
+        {
+            heading: "Cancelled Real Estate Projects",
+            content: "We help investors recover their funds by handling legal claims and providing strong representation to ensure you get what you’re owed."
+          },
       ];
   return (
     <div>
@@ -46,16 +50,11 @@ const Services = ({ lang }) => {
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>COMPREHENSIVE REAL ESTATE LEGAL SERVICES</p>
-      <div className={styles.section_line}></div>
-    </div>
-    <p className={styles.commitment_sub_heading}>1) Property Transaction Services: </p>
+    <p className={styles.commitment_sub_heading}>2) Dispute Resolution Services: </p>
 <div>
 <h2 className={styles.history_heading}>
-Real estate and conveyancing require expert legal guidance to ensure smooth processes and secure investments.
-RAALC specializes in a range of services, offering professional support through every step of property dealings in the UAE.
-            </h2>
+RFrom ownership conflicts to tenancy issues, we offer expert legal representation to resolve a variety of real estate disputes efficiently and effectively.
+</h2>
 </div>
 
 <div className={styles.teamContainer}>
@@ -84,4 +83,4 @@ RAALC specializes in a range of services, offering professional support through 
   );
 };
 
-export default Services;
+export default Services2;
