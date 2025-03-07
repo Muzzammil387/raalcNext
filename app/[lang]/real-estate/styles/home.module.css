@@ -60,6 +60,11 @@ justify-content: center;
     padding-bottom: 35px;
     align-items: center;
     justify-content: center;
+    height: 88vh;
+}
+
+.margin_up {
+    margin-top: 22%;
 }
 
 .welcome_to_raalc {
@@ -223,6 +228,13 @@ justify-content: center;
   }
 
   @media (max-width: 899px) {
+    .left_grid {
+        height: auto;
+    }
+    
+    .margin_up {
+        margin-top: 0;
+    }
     .history_heading {
         font-size: 18px;
     }

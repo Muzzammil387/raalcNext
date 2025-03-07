@@ -61,15 +61,15 @@ const HomePage = ({ lang }) => {
             ENDS HERE.</p>
            </div>
           
-            <p className={styles.what_can_we_do}>
+            {/* <p className={styles.what_can_we_do}>
             WHAT CAN WE DO?</p>
 
             <p className={styles.transaction_services}>
            <span>Property Transaction Services</span>  <span><ForwardIcon style={{ fontSize: 50 }} /></span>
-           </p>
+           </p> */}
 
            <div>
-            <p className={styles.ensure_protection}>
+           <p className={`${styles.ensure_protection} ${styles.margin_up}`}>
             Ensure the protection of your property and investments with expert legal support. We handle real estate challenges, giving you peace of mind. Book a consultation today!
             </p>
           </div>
