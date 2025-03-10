@@ -9,6 +9,7 @@ import "../public/css/whatsapp.css";
 import "react-toastify/dist/ReactToastify.css";
 import Main from "./[lang]/main";
 import Script from "next/script";
+import WhatsAppButton from "./[lang]/real-estate/components/WhatsappButton";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +57,7 @@ export default function RootLayout({ children }) {
         <GoogleTagManager gaId="GTM-NK2H57S" />
         <GoogleAnalytics gaId="G-4VM2WNCYK1" />
         <Main>{children}</Main>
+        <WhatsAppButton />
       </body>
     </html>
   );
