@@ -41,7 +41,7 @@ const HomePage = ({ lang }) => {
            </p>
            <div style={{lineHeight: "60px", marginTop: 20}}>
            <p className={styles.your_search_for}>
-            YOUR SEARCH FOR
+            Your Search For
            </p>
            <p className={styles.real_estate_lawyer}>
            <Typewriter
@@ -61,7 +61,7 @@ const HomePage = ({ lang }) => {
       />
       </p>
             <p className={styles.your_search_for}>
-            ENDS HERE.</p>
+            Ends here.</p>
            </div>
           
             {/* <p className={styles.what_can_we_do}>

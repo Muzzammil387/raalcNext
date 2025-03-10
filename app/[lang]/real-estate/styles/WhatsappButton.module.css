@@ -1,7 +1,7 @@
 .whatsapp_button {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px; /* Moved from right to left */
     width: 100px;
     height: 100px;
     z-index: 1000;
