@@ -199,6 +199,12 @@ justify-content: center;
     color: #ffffff;
     font-size: 25px;
 }
+
+@media (max-width: 1528px) {
+    .navbar_styling {
+        font-size: 18px !important;
+    }
+  }
   
 @media (max-width: 1522px) {
     .what_can_we_do {
