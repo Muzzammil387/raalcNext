@@ -86,7 +86,7 @@ const ContactUs = ({ lang }) => {
           </h3>
 {/* WhatsApp Button */}
 <Link
-        href="https://wa.me/97145693370"
+        href="https://wa.me/97145693370?text=How%20can%20I%20assist%20you?&type=phone_number&app_absent=0"
         target="_blank"
         className="flex items-center gap-1 px-6 py-3 bg-green-500 text-white rounded-full border-4 border-green-700 shadow-md hover:bg-green-600 transition-all"
         style={{
