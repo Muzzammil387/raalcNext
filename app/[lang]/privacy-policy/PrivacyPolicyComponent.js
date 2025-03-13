@@ -88,7 +88,7 @@ const PrivacyPolicyComponent = ({lang}) => {
 
   <ListItem sx={{ display: "list-item" }}>
   <p className={styles.paragraph}>
-  Our website uses these "cookies" to collect information and to improve our Service. You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. If you choose to refuse our cookies, you may not be able to use some portions of our Service.
+  Our website uses these &quot;cookies&quot; to collect information and to improve our Service. You have the option to either accept or refuse these cookies, and know when a cookie is being sent to your computer. If you choose to refuse our cookies, you may not be able to use some portions of our Service.
     </p>
   </ListItem>
     </List>
@@ -177,7 +177,7 @@ const PrivacyPolicyComponent = ({lang}) => {
       <h3
        className={styles.sub_heading}
        >
-       6. CHILDREN'S PRIVACY
+       7. CHILDREN&apos;S PRIVACY
 	</h3>
     <List sx={{ listStyleType: "lower-alpha", pl: 8 }}>
     <ListItem sx={{ display: "list-item" }}>
@@ -192,7 +192,7 @@ const PrivacyPolicyComponent = ({lang}) => {
       <h3
        className={styles.sub_heading}
        >
-       7. CHANGES TO THIS PRIVACY POLICY
+       8. CHANGES TO THIS PRIVACY POLICY
 	</h3>
     <List sx={{ listStyleType: "lower-alpha", pl: 8 }}>
     <ListItem sx={{ display: "list-item" }}>
@@ -207,7 +207,7 @@ const PrivacyPolicyComponent = ({lang}) => {
       <h3
        className={styles.sub_heading}
        >
-       8. CONTACT US
+       9. CONTACT US
 	</h3>
     <List sx={{ listStyleType: "lower-alpha", pl: 8 }}>
     <ListItem sx={{ display: "list-item" }}>
