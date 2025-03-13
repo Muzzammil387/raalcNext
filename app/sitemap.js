@@ -2,6 +2,7 @@ export default function sitemap() {
     return [
       { url: 'https://www.raalc.ae/', lastModified: new Date(), priority: 1.0 },
       { url: 'https://www.raalc.ae/about', lastModified: new Date(), priority: 0.8 },
+      { url: 'https://www.raalc.ae/privacy-policy', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/ehab-mohamed', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/abdelaziz-alkhamiri', lastModified: new Date(), priority: 0.7 },
