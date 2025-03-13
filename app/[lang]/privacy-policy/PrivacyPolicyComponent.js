@@ -105,28 +105,35 @@ const PrivacyPolicyComponent = ({ lang }) => {
       </div>
 
       <div className={styles.sub_heading_container}>
-        <h3 className={styles.sub_heading}>4. SERVICE PROVIDERS</h3>
-        <List sx={{ listStyleType: "lower-alpha", pl: 4 }}>
-          <ListItem sx={{ display: "list-item" }}>
-            <p className={styles.paragraph}>
-              We may employ third-party companies and individuals due to the following
-              reasons:
-            </p>
-          </ListItem>
-        </List>
-        <List sx={{ listStyleType: "lower-roman", pl: 6 }}>
-          <ListItem sx={{ display: "list-item" }}>To facilitate our Service;</ListItem>
-          <ListItem sx={{ display: "list-item" }}>
-            To provide the Service on our behalf;
-          </ListItem>
-          <ListItem sx={{ display: "list-item" }}>
-            To perform Service-related services; or
-          </ListItem>
-          <ListItem sx={{ display: "list-item" }}>
-            To assist us in analyzing how our Service is used.
-          </ListItem>
-        </List>
-      </div>
+  <h3 className={styles.sub_heading}>4. SERVICE PROVIDERS</h3>
+
+  {/* Lower-alpha list with continuous numbering */}
+  <List sx={{ listStyleType: "lower-alpha", pl: 4 }}>
+    <ListItem sx={{ display: "list-item" }}>
+      <p className={styles.paragraph}>
+        We may employ third-party companies and individuals due to the following reasons:
+      </p>
+    </ListItem>
+
+    {/* Roman numeral sublist (indented inside alpha list) */}
+    <List sx={{ listStyleType: "lower-roman", pl: 6 }}>
+      <ListItem sx={{ display: "list-item" }}>To facilitate our Service;</ListItem>
+      <ListItem sx={{ display: "list-item" }}>To provide the Service on our behalf;</ListItem>
+      <ListItem sx={{ display: "list-item" }}>To perform Service-related services; or</ListItem>
+      <ListItem sx={{ display: "list-item" }}>To assist us in analyzing how our Service is used.</ListItem>
+    </List>
+
+    {/* Continuation of the main alpha list (ensures 'b' is used) */}
+    <ListItem sx={{ display: "list-item" }}>
+      <p className={styles.paragraph}>
+        We want to inform our Service users that these third parties have access to your Personal Information. 
+        The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to 
+        disclose or use the information for any other purpose.
+      </p>
+    </ListItem>
+  </List>
+</div>
+
 
       <div className={styles.sub_heading_container}>
         <h3 className={styles.sub_heading}>5. SECURITY</h3>

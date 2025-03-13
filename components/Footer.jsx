@@ -112,6 +112,7 @@ const Footer = () => {
         <li className="my-3"><Link href={`/${basePath}gallery`} className="font-cormorant font-bold capitalize"> {elements?.["gallery"] || 'gallery'}</Link></li>
         <li className="my-3"><Link href={`/${basePath}contact`} className="font-cormorant font-bold capitalize">{elements?.["contact-us"] || 'Contact Us'}</Link></li>
         <li className="my-3"><Link href={`/${basePath}privacy-policy`} className="font-cormorant font-bold capitalize">{elements?.["privacy-policy"] || 'Privacy Policy'}</Link></li>
+        <li className="my-3"><Link href={`/${basePath}terms-and-conditions`} className="font-cormorant font-bold capitalize">{elements?.["terms-and-conditions"] || 'Terms and Conditions'}</Link></li>
         {/* <li className="my-3"><Link href={`/${basePath}diversity`} className="font-cormorant font-bold capitalize">{elements?.diversity}</Link></li> */}
         {/* <li className="my-3"><Link href={`/${basePath}legallibrary`} className="font-cormorant font-bold capitalize">{elements?.["legal-library"]}</Link></li> */}
         {/* <li className="my-3"><a href="#" className="font-cormorant font-bold capitalize">Other Service</a></li> */}
