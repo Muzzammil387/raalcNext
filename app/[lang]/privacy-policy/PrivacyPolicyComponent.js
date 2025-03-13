@@ -16,7 +16,7 @@ const PrivacyPolicyComponent = ({ lang }) => {
   return (
     <div className={styles.main_container}>
       <div className={styles.heading_container}>
-        <h1 className={styles.main_heading}>Privacy Policy of Website</h1>
+        <h1 className={styles.main_heading}>Privacy Policy</h1>
       </div>
 
       <p className={styles.paragraph}>
