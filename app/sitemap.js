@@ -3,6 +3,7 @@ export default function sitemap() {
       { url: 'https://www.raalc.ae/', lastModified: new Date(), priority: 1.0 },
       { url: 'https://www.raalc.ae/about', lastModified: new Date(), priority: 0.8 },
       { url: 'https://www.raalc.ae/privacy-policy', lastModified: new Date(), priority: 0.7 },
+      { url: 'https://www.raalc.ae/terms-and-conditions', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/ehab-mohamed', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/abdelaziz-alkhamiri', lastModified: new Date(), priority: 0.7 },
