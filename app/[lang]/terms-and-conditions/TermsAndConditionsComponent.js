@@ -273,7 +273,7 @@ const TermsAndConditionsComponent = ({ lang }) => {
 
     <ListItem sx={{ display: "list-item" }}>
       <p className={styles.paragraph}>
-      Users must not submit or upload Content that falls under any of the following categories (&quot;“Prohibited Content”&quot;):
+      Users must not submit or upload Content that falls under any of the following categories (&quot;Prohibited Content&quot;):
       </p>
     </ListItem>
 
