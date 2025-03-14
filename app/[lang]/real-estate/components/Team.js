@@ -55,8 +55,7 @@ const Team = ({ lang }) => {
     </div>
 <div>
 <h2 className={styles.history_heading}>
-            Founded in 2013, RAALC has grown into a powerhouse of legal excellence, serving clients across the UAE with a
-            commitment to innovation and strategic legal solutions.
+Our multilingual experts collaborate seamlessly, merging international perspectives with deep local expertise. Diversity isn’t just our identity—it’s the spark behind bold, effective legal strategies designed around you.
             </h2>
 </div>
 

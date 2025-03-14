@@ -29,7 +29,7 @@
 }
 
 .get_started_btn {
-    background-color: #E5C16C !important;
+    background-color: #dab35c !important;
     color: #ffffff !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
@@ -42,7 +42,7 @@
 }
 
 .get_started_btn:hover {
-    background-color: #D4B05A !important;
+    background-color: #E5C16C !important;
 }
 
 .about_us_image {

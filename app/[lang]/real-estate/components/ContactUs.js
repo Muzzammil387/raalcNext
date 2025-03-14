@@ -41,12 +41,12 @@ const ContactUs = ({ lang }) => {
           <Grid item xs={12} md={7} className={styles.contact_us_container}>
            <div style={{lineHeight: "60px", marginTop: 20}}>
            <p className={styles.real_estate_lawyer}>
-           Secure Your Property with RAALC’s Legal Experts
+           Protect & Manage Your Real Estate with RAALC
            </p>
            </div>
            <div>
            <p className={`${styles.ensure_protection}`}>
-            Ensure the protection of your property and investments with expert legal support. We handle real estate challenges, giving you peace of mind. Book a consultation today!
+           From trusts and private wealth management to inheritance, property, and developer legal support, we secure your assets.
             </p>
           </div>
 
@@ -60,10 +60,10 @@ const ContactUs = ({ lang }) => {
         href="tel:+97145693370"
         className="flex items-center gap-1 px-6 py-3 text-white rounded-full border-4 shadow-md transition-all"
         style={{
-          backgroundColor: "#f4c766",
-          borderColor: "#f4c766",
+          backgroundColor: "#dab35c",
+          borderColor: "#dab35c",
           padding: "7px",
-          color: "#f4c766",
+          color: "#dab35c",
         }}
       >
        <span className={`text-2xl ${styles.phone_icon_style}`}>

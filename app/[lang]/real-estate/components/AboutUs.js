@@ -45,7 +45,7 @@ const AboutUs = ({ lang }) => {
     <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
     <div className={styles.section_line}></div>
     <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      GET STARTED
+    BOOK A CONSULATION
     </Button>
   </div>
 </div>

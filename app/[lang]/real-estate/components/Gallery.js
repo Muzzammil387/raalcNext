@@ -63,12 +63,12 @@ const Gallery = ({ lang }) => {
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Gallery</p>
+      <p className={styles.commitment_heading}>Our Gallery: Bridging Borders, Building Connections</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
 <h2 className={styles.history_heading}>
-Shaped by diverse legal traditions and global experiences. Our multilingual experts collaborate seamlessly, merging international perspectives with deep local expertise. Diversity isn’t just our identity—it’s the spark behind bold, effective legal strategies designed around you.
+From Dubai to international legal hubs, our journey is marked by active participation in key events. Each moment reflects our dedication to innovation, collaboration, and shaping the future of law.
             </h2>
 </div>
 

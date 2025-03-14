@@ -1,5 +1,5 @@
 .client_heading {
-    color: #f7ce76;
+    color: #dab35c;
     font-family: 'Montserrat', sans-serif;
     font-size: 45px;
     font-weight: 900;
@@ -83,13 +83,13 @@
 .client_p {
     display: flex;
     align-items: center;
-    background-color: #f4c766;
+    background-color: #dab35c;
     border-radius: 40px;
     padding-top: 2%;
 }
 
 .get_started_btn {
-    background-color: #E5C16C !important;
+    background-color: #dab35c !important;
     color: #ffffff !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
@@ -102,7 +102,7 @@
 }
 
 .get_started_btn:hover {
-    background-color: #D4B05A !important;
+    background-color: #E5C16C !important;
 }
 @media (max-width: 1522px) {
     .client_heading {

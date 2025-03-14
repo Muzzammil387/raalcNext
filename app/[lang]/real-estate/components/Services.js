@@ -50,10 +50,8 @@ const Services = ({ lang }) => {
       <p className={styles.commitment_heading}>COMPREHENSIVE REAL ESTATE LEGAL SERVICES</p>
       <div className={styles.section_line}></div>
     </div>
-    <p className={styles.commitment_sub_heading}>1) Property Transaction Services: </p>
 <div>
 <h2 className={styles.history_heading}>
-Real estate and conveyancing require expert legal guidance to ensure smooth processes and secure investments.
 RAALC specializes in a range of services, offering professional support through every step of property dealings in the UAE.
             </h2>
 </div>

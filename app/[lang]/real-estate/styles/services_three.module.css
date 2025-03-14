@@ -129,7 +129,7 @@
 
   
   .memberInfo {
-    background-color: #f4c766;
+    background-color: #dab35c;
     padding: 70px 20px;
     border-radius: 35px;
     display: flex;
@@ -177,7 +177,7 @@
 }
 
 .get_started_btn {
-    background-color: #E5C16C !important;
+    background-color: #dab35c !important;
     color: #ffffff !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
@@ -190,7 +190,7 @@
 }
 
 .get_started_btn:hover {
-    background-color: #D4B05A !important;
+    background-color: #E5C16C !important;
 }
 
 

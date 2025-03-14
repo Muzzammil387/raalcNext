@@ -155,14 +155,14 @@ const OurClients = ({ lang }) => {
             src={legal ?? ""} 
             width={250} 
             height={100} 
-            alt="High Success Rate Logo" 
+            alt="Tailored Legal Solutions Logo" 
             />
                 </div>
 <div style={{marginLeft: 15}}>
 <p className={styles.bold}>
-            High Success Rate
+            Tailored Legal Solutions
             </p>
-            We’ve secured successful outcomes for clients in real estate disputes, including millions of compensation claims.
+            Every case is unique, which is why we create personalized legal plans that align with your specific goals, maximizing your chances of success.
 </div>
             </p>
           </Grid>
@@ -174,14 +174,14 @@ const OurClients = ({ lang }) => {
             src={transparency ?? ""} 
             width={250} 
             height={100} 
-            alt="High Success Rate Logo" 
+            alt="Trust and Transparency Logo" 
             />
                 </div>
 <div style={{marginLeft: 15}}>
 <p className={styles.bold}>
-            High Success Rate
+            Trust and Transparency
             </p>
-            We’ve secured successful outcomes for clients in real estate disputes, including millions of compensation claims.
+            Ee prioritize trust through transparent communication, providing consistent updates to keep you fully informed at every stage of your case.
 </div>
             </p>
           </Grid>
@@ -194,7 +194,7 @@ const OurClients = ({ lang }) => {
       <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
       <div className={styles.section_line}></div>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-        GET STARTED
+      BOOK A CONSULATION
       </Button>
     </div>
   </div>

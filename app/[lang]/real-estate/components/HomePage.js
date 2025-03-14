@@ -46,8 +46,8 @@ const HomePage = ({ lang }) => {
            <p className={styles.real_estate_lawyer}>
            <Typewriter
         words={[
-            "BEST REAL ESTATE LAWYER", 
-            "BEST PROPERTY LAWYERS", 
+            "THE BEST REAL ESTATE LAWYER", 
+            "THE BEST PROPERTY LAWYERS", 
             "PROPERTY DISPUTE LAWYER",
             // "BEST LAWYER FOR REAL ESTATE DISPUTE",
             // "BEST LAWYERS FOR PROPERTY DISPUTES"
@@ -130,11 +130,11 @@ const HomePage = ({ lang }) => {
 <p className={styles.bold}>
             Tradition of Excellence
             </p>
-            With a strong foundation in real estate, corporate, and financial law, we provide expert representation and strategic counsel to safeguard our clients’ interests.
+            With a strong foundation in real estate law, we provide expert representation and strategic counsel to safeguard our clients’ interests.
 </div>
             </p>
           </div>
-          <div style={{marginTop: 25}}>
+          {/* <div style={{marginTop: 25}}>
           <p className={styles.ensure_protection_trust} style={{display: "flex"}}>
                 <div>
                 <Image 
@@ -151,7 +151,7 @@ const HomePage = ({ lang }) => {
             RAALC is shaping the future of law by integrating AI and blockchain solutions into our practice, making us one of the UAE’s pioneers in smart-law innovation.
             </div>
             </p>
-          </div>
+          </div> */}
           <div style={{marginTop: 25}}>
           <p className={styles.ensure_protection_trust} style={{display: "flex"}}>
                 <div>
@@ -179,7 +179,7 @@ const HomePage = ({ lang }) => {
       <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
       <div className={styles.section_line}></div>
       <Button  onClick={scrollToHomePage} className={styles.get_started_btn}>
-        GET STARTED
+        BOOK A CONSULATION
       </Button>
     </div>
         </div>

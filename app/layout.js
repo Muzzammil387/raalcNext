@@ -15,7 +15,7 @@ import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Raalc",
+  title: "Raalc Law Firm",
   description: "RAALC’s journey began in 2013, when it was co-founded in the Emirate of Sharjah. Our success continued through years and we opened our two new branches in Ras Al Khaimah",
   verification: {
     google: "kvKmamV1GmbVp8AZbTRautEsWCs1-84lLD5oB5rjj4g"
