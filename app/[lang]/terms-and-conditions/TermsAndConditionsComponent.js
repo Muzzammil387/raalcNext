@@ -410,7 +410,7 @@ const TermsAndConditionsComponent = ({ lang }) => {
           </ListItem>
           <ListItem sx={{ display: "list-item" }}>
             <p className={styles.paragraph}>
-            Your access to and interactions with any Third-Party Website are governed by the respective website's own terms, conditions, and policies. We do not control or oversee such websites and are not responsible for their content, privacy practices, or operations.
+            Your access to and interactions with any Third-Party Website are governed by the respective website&apos;s own terms, conditions, and policies. We do not control or oversee such websites and are not responsible for their content, privacy practices, or operations.
             </p>
           </ListItem>
           <ListItem sx={{ display: "list-item" }}>
