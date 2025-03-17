@@ -142,7 +142,8 @@ const HomePage = ({ lang }) => {
 resolution practice, helping businesses and individuals navigate
 complex commercial conflicts efficiently. Our Arbitration Section
 represents clients in arbitration proceedings across the world,
-handling disputes
+handling disputes under various international Arbitration rules
+and jurisdictions.
 </div>
             </p>
           </div>
