@@ -42,7 +42,7 @@ const Main = ({ children }) => {
                   <MyHome.Provider value={{ home, setHome }}>
                     <MyLanguage.Provider value={{ lang, setLang }}>
                       <Head>
-                        <meta name="robots" content="noindex" />
+                      <meta name="robots" content="index, follow" />
                       </Head>
 
                       {/* Hide Header/Footer only for /real-estate */}
