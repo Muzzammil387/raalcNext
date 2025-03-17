@@ -1,0 +1,251 @@
+.background {
+    position: relative;
+    width: 100%;
+    background-image: url('/webImages/landing_page/services_2_background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.get_started_btn {
+    background-color: #E5C16C !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    height: 65px !important;
+    font-size: 24px !important;
+    padding: 10px 30px !important;
+    border-radius: 15px !important;
+    transition: background-color 0.3s ease-in-out;
+    font-family: Montserrat, sans-serif;
+}
+
+.get_started_btn:hover {
+    background-color: #D4B05A !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.commitment_heading {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.commitment_sub_heading {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.client_container {
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.section_line {
+    flex-grow: 1;
+    height: 3px;
+    background-color: white;
+    margin: 0 20px;
+}
+.history_heading {
+    font-family: Montserrat, sans-serif;
+    color: #ffffff;
+    font-size: 23px;
+    margin-top: 15px;
+}
+
+
+
+.teamSection {
+    position: relative;
+    width: 100%;
+    padding: 5% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .teamContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2%;
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+
+  .team_card_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .centerize_content {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+  word-break: break-word;
+  }
+
+  .section_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    padding-right: 0% !important;
+}
+
+.section_text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    font-family: Montserrat, sans-serif;
+}
+
+  
+  .memberInfo {
+    background-color: #dab35c;
+    padding: 70px 20px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 350px;
+    width: 350px;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .memberInfo h3 {
+    font-size: 26px;
+    font-weight: 900;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .section_line {
+    flex-grow: 1;
+    height: 3px;
+    background-color: white;
+    margin: 0 20px;
+}
+  
+  .memberInfo p {
+    font-size: 20px;
+    margin: 5px 0 0 0;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
+
+  
+
+@media (max-width: 1522px) {
+    .commitment_heading {
+        font-size: 34px;
+    }
+    .commitment_sub_heading {
+        font-size: 34px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .teamContainer {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    } 
+  }
+  
+  @media (max-width: 768px) {
+    .teamContainer {
+      flex-direction: column;
+      align-items: center;
+      padding-right: 3%;
+      padding-left: 3%;
+    }
+    .memberInfo {
+      width: 100%;
+    }
+
+    .section_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section_text {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 1048px) {
+    .commitment_heading {
+        font-size: 24px;
+    }
+    .commitment_sub_heading {
+        font-size: 24px;
+    }
+  }
+  @media (max-width: 899px) {
+    .history_heading {
+        font-size: 18px;
+    }
+    .commitment_heading {
+        font-size: 18px;
+    } 
+    .commitment_sub_heading {
+        font-size: 18px;
+    } 
+    .memberInfo h3 {
+        font-size: 22px;
+      }
+      
+      .memberInfo p {
+        font-size: 18px;
+      }
+      
+  }
+  @media (max-width: 768px) {
+
+    .section_line {
+        display: none;
+    }
+
+}
+
+@media (max-width: 455px) {
+    .section_text {
+        font-size: 15px;
+    }
+  }

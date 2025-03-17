@@ -98,3 +98,4 @@ export const linkedin_icon = require("../../public/webImages/landing_page/linked
 export const whatsapp_icon = require("../../public/webImages/landing_page/whatsapp_icon.png");
 export const phone_icon = require("../../public/webImages/landing_page/phone_icon.png");
 export const email_ic = require("../../public/webImages/landing_page/email_ico_latest.png");
+export const paris_team = require("../../public/webImages/landing_page/paris_team.jpeg");
