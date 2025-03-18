@@ -181,7 +181,7 @@ const OurClients = ({ lang }) => {
 <p className={styles.bold}>
             Trust and Transparency
             </p>
-            Ee prioritize trust through transparent communication, providing consistent updates to keep you fully informed at every stage of your case.
+            We prioritize trust through transparent communication, providing consistent updates to keep you fully informed at every stage of your case.
 </div>
             </p>
           </Grid>
