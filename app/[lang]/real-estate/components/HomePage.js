@@ -179,7 +179,7 @@ const HomePage = ({ lang }) => {
       <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
       <div className={styles.section_line}></div>
       <Button  onClick={scrollToHomePage} className={styles.get_started_btn}>
-        BOOK A CONSULATION
+        BOOK A CONSULTATION
       </Button>
     </div>
         </div>

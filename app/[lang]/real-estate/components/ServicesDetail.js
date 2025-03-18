@@ -69,7 +69,7 @@ const ServicesDetail = ({ lang }) => {
       <span className={styles.section_text}>Book Your Consultation Now</span>
       <div className={styles.section_line}></div>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      BOOK A CONSULATION
+      BOOK A CONSULTATION
       </Button>
     </div>
 
