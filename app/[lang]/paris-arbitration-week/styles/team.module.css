@@ -1,10 +1,11 @@
 .background {
-    position: relative;
+  background: linear-gradient(to left, #063a5f, #1a4669, #466f9b);
+    /* position: relative;
     width: 100%;
     background-image: url('/webImages/landing_page/team.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 .overlay {

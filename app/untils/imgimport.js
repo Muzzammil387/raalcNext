@@ -99,4 +99,5 @@ export const whatsapp_icon = require("../../public/webImages/landing_page/whatsa
 export const phone_icon = require("../../public/webImages/landing_page/phone_icon.png");
 export const email_ic = require("../../public/webImages/landing_page/email_ico_latest.png");
 export const paris_team = require("../../public/webImages/landing_page/paris_team.jpeg");
+export const paris_home = require("../../public/webImages/landing_page/paris_home.png");
 export const raw_logo = require("../../public/webImages/landing_page/raw_logo.png");

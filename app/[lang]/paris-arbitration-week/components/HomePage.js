@@ -5,7 +5,8 @@ import styles from '../styles/home.module.css'
 import Button from '@mui/material/Button';
 import { 
     paris_team,
-    raw_logo
+    raw_logo,
+    paris_home
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 import HubSpotForm from './HubSpotForm';
@@ -77,12 +78,12 @@ const HomePage = ({ lang }) => {
     <div>
         <div className={styles.history_container}>
             <Grid container spacing={0} style={{display: "flex", alignItems: "center"}}>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={5} style={{paddingLeft: "2%", paddingRight: "2%"}}>
           <div className={styles.history_main_image_container}>
                 <Image 
             src={paris_team ?? ""} 
-            width={1000} 
-            height={1000} 
+            width={680} 
+            height={680} 
             style={{height: "100%"}}
             alt="Paris Team Image" 
             />
@@ -90,8 +91,9 @@ const HomePage = ({ lang }) => {
           </Grid>
 
           <Grid item xs={12} md={7} className={styles.about_us_content}>
-          <div style={{marginTop: 40}}>
-            <p className={styles.ensure_protection} style={{display: "flex"}}>
+          <div style={{height: "100%", display: "flex", alignItems: "center"}}>
+          <div>
+            <p className={styles.ensure_protection_home} style={{display: "flex"}}>
             <div style={{marginLeft: 15}}>
             At RAALC Law Firm, Arbitration is a key part of our dispute
 resolution practice, helping businesses and individuals navigate
@@ -102,11 +104,12 @@ and jurisdictions.
             </div>
             </p>
           </div>
+          </div>
           </Grid>
         
         </Grid>
 
-        <div>
+        {/* <div>
         <div className={styles.section_container}>
       <span className={styles.section_text}>Contact Us</span>
       <div className={styles.section_line}></div>
@@ -114,7 +117,7 @@ and jurisdictions.
         BOOK A CONSULTATION
       </Button>
     </div>
-        </div>
+        </div> */}
 
         </div>
     </div>

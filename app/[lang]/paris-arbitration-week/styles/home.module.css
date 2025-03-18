@@ -96,7 +96,7 @@ justify-content: center;
     width: 100%;
     display: flex;
     padding-top: 35px;
-    padding-bottom: 35px;
+    /* padding-bottom: 35px; */
     /* align-items: center;
     justify-content: center; */
     /* height: 100vh; */
@@ -156,10 +156,21 @@ justify-content: center;
     font-size: 20px;
     font-weight: 400;
     background-color: #dab35c;
-    padding: 30px;
+    padding: 40px;
     padding-left: 40px;
     border-radius: 20px;
     margin-top: 1%;
+}
+
+.ensure_protection_home {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #00000090;
+    padding: 40px;
+    padding-left: 40px;
+    /* margin-top: 1%; */
 }
 
 .ensure_protection_first {
@@ -189,7 +200,15 @@ justify-content: center;
 }
 
 .about_us_content {
-    padding-left: 50px;
+    /* padding-left: 50px; */
+    position: relative;
+    width: 100%;
+    background-image: url('/webImages/landing_page/paris_home.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 950px;
+    /* margin-top: 22px !important; */
 }
 
 .form_heading {
@@ -213,7 +232,7 @@ justify-content: center;
 
 .history_main_image_container {
     height: 100%;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .form_container {
@@ -226,10 +245,10 @@ justify-content: center;
 
 .history_container {
     background-color: #000000;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
+    /* padding-left: 1.55%; */
+    /* padding-right: 5%;
+    padding-top: 2.5%; */
+    /* padding-bottom: 2%; */
 }
 
 .about_us_footer {
@@ -380,6 +399,9 @@ justify-content: center;
     .ensure_protection {
         font-size: 18px;
     }
+    .ensure_protection_home {
+        font-size: 18px;
+    }
     .ensure_protection_first {
         font-size: 18px;
     }
@@ -425,6 +447,9 @@ justify-content: center;
 
   @media (max-width: 427px) {
     .ensure_protection {
+        font-size: 18px;
+    }
+    .ensure_protection_home {
         font-size: 18px;
     }
     .ensure_protection_first {

@@ -33,7 +33,7 @@ const Team = ({ lang }) => {
                 },
                 {
                     name: "Kate Chen",
-                    position: "Corporate Consultant",
+                    position: "Senior Corporate Consultant",
                     image: kate,
                   },
       ];
