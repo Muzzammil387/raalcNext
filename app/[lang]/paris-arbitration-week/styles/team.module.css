@@ -15,19 +15,36 @@
   padding-right: 8%;
   padding-left: 8%;
 }
-
 .get_started_btn {
   background-color: #dab35c !important;
   color: #ffffff !important;
   font-weight: bold !important;
   text-transform: none !important;
-  height: 65px !important;
-  font-size: 24px !important;
-  padding: 10px 30px !important;
+  height: auto !important;  /* Adjusts height dynamically */
+  font-size: clamp(14px, 2vw, 24px) !important; /* Responsive text size */
+  padding: 12px 24px !important;  /* Adjusted padding */
   border-radius: 15px !important;
   transition: background-color 0.3s ease-in-out;
   font-family: Montserrat, sans-serif;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .get_started_btn {
+    padding: 10px 16px !important; /* Reduces padding for smaller screens */
+    font-size: 16px !important; /* Smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .get_started_btn {
+    padding: 8px 12px !important; /* Further reduce padding on very small screens */
+    font-size: 14px !important;
+  }
+}
+
+
 
 .get_started_btn:hover {
   background-color: #E5C16C !important;
@@ -38,13 +55,42 @@
   color: #ffffff !important;
   font-weight: bold !important;
   text-transform: none !important;
+  height: auto !important;  /* Adjusts height dynamically */
+  font-size: clamp(14px, 2vw, 24px) !important; /* Responsive text size */
+  padding: 12px 24px !important;  /* Adjusted padding */
+  border-radius: 15px !important;
+  transition: background-color 0.3s ease-in-out;
+  font-family: Montserrat, sans-serif;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .get_started_btn_lawyer {
+    padding: 10px 16px !important; /* Reduces padding for smaller screens */
+    font-size: 16px !important; /* Smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .get_started_btn_lawyer {
+    padding: 8px 12px !important; /* Further reduce padding on very small screens */
+    font-size: 14px !important;
+  }
+}
+
+/* .get_started_btn_lawyer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  text-transform: none !important;
   height: 65px !important;
   font-size: 24px !important;
   padding: 10px 30px !important;
   border-radius: 15px !important;
   transition: background-color 0.3s ease-in-out;
   font-family: Montserrat, sans-serif;
-}
+} */
 
 .get_started_btn_lawyer:hover {
   background-color: #ffffff !important;
@@ -230,16 +276,16 @@
   }
   
   @media (max-width: 768px) {
-    .get_started_btn_lawyer {
+    /* .get_started_btn_lawyer {
       font-size: 20px !important;
       height: 50px !important;
       padding: 8px 25px !important;
-  }
-    .get_started_btn {
+  } */
+    /* .get_started_btn {
       font-size: 20px !important;
       height: 50px !important;
       padding: 8px 25px !important;
-  }
+  } */
     .teamContainer {
       flex-direction: column;
       align-items: center;

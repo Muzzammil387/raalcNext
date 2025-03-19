@@ -65,12 +65,13 @@ const Header = ({ lang }) => {
                 />
               </Link>
               
-              <Box>
+              <Box style={{display: "flex"}}>
+             <Box style={{marginRight: 60}}>
                 {pages.map((page) => (
                   <Link key={page.label} href={page.link} passHref>
                     <Button
                       className={styles.navbar_styling}
-                      sx={{ my: 2, color: "white", textTransform: "none", fontSize: 24, marginRight: 3 }}
+                      sx={{ my: 2, color: "white", textTransform: "none", fontSize: 24, marginRight: 0 }}
                     >
                       {page.label}
                     </Button>
@@ -88,6 +89,7 @@ const Header = ({ lang }) => {
                   +97145693370
                 </Typography>
               </Box>
+             </Box>
             </Box>
 
             {/* Mobile Menu with Centered Logo */}

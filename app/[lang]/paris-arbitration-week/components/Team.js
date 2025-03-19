@@ -105,7 +105,7 @@ With a team of highly skilled lawyers from diverse legal backgrounds, we offer a
     {/* Second Button */}
     <Grid item xs={12} sm={6} md={5} lg={4}>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn} fullWidth>
-        Book Your Free Consultation Now!
+        Book Your Free Consultation
       </Button>
     </Grid>
 
