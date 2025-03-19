@@ -15,6 +15,12 @@ import {
 import { Grid, Paper } from "@mui/material";
 
 const Team = ({ lang }) => {
+  const scrollToHomePage = () => {
+    const homePageSection = document.getElementById("home_page");
+    if (homePageSection) {
+      homePageSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
     const teamMembers = [
         {
           name: "Ehab Mohamed",
@@ -80,9 +86,32 @@ With a team of highly skilled lawyers from diverse legal backgrounds, we offer a
          </div>
         ))}
       </div>
-
-
   </div>
+
+  <div className={styles.btn_container}>
+  <Grid container spacing={2} justifyContent="center">
+    
+    {/* First Button */}
+    <Grid item xs={12} sm={6} md={5} lg={4}>
+    <Button 
+  className={styles.get_started_btn_lawyer} 
+  fullWidth
+  onClick={() => window.open('/webImages/paw_2025_raalc_event_calendar.pdf', '_blank')}
+>
+        Meet our Lawyers at PAW
+      </Button>
+    </Grid>
+
+    {/* Second Button */}
+    <Grid item xs={12} sm={6} md={5} lg={4}>
+      <Button onClick={scrollToHomePage} className={styles.get_started_btn} fullWidth>
+        Book Your Free Consultation Now!
+      </Button>
+    </Grid>
+
+  </Grid>
+</div>
+
 </div>
 
 

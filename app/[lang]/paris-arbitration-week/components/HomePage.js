@@ -90,34 +90,28 @@ const HomePage = ({ lang }) => {
                 </div>
           </Grid>
 
-          <Grid item xs={12} md={7} className={styles.about_us_content}>
-          <div style={{height: "100%", display: "flex", alignItems: "center"}}>
-          <div>
-            <p className={styles.ensure_protection_home} style={{display: "flex"}}>
-            <div style={{marginLeft: 15}}>
-            At RAALC Law Firm, Arbitration is a key part of our dispute
-resolution practice, helping businesses and individuals navigate
-complex commercial conflicts efficiently. Our Arbitration Section
-represents clients in arbitration proceedings across the world,
-handling disputes under various international Arbitration rules
-and jurisdictions.
-            </div>
-            </p>
-          </div>
-          </div>
-          </Grid>
+          <Grid 
+  item 
+  xs={12} 
+  md={7} 
+  className={styles.about_us_content}
+  style={{ display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }}
+>
+  <div style={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+    <p className={styles.ensure_protection_home}>
+      At RAALC Law Firm, Arbitration is a key part of our dispute resolution practice, helping businesses and individuals navigate complex commercial conflicts efficiently. Our Arbitration Section represents clients in arbitration proceedings across the world, handling disputes under various international Arbitration rules and jurisdictions.
+    </p>
+  </div>
+
+  <div style={{ textAlign: "right", marginTop: "auto", marginBottom: 60 }}>
+  <Button  onClick={scrollToHomePage} className={styles.get_started_btn}>
+        Book Your Free Consultation Now!
+      </Button>
+  </div>
+</Grid>
+
         
         </Grid>
-
-        {/* <div>
-        <div className={styles.section_container}>
-      <span className={styles.section_text}>Contact Us</span>
-      <div className={styles.section_line}></div>
-      <Button  onClick={scrollToHomePage} className={styles.get_started_btn}>
-        BOOK A CONSULTATION
-      </Button>
-    </div>
-        </div> */}
 
         </div>
     </div>
