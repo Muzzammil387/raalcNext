@@ -22,7 +22,7 @@ const Team = ({ lang }) => {
         },
         {
           name: "Abdelaziz Alkhamiri",
-          position: "Advocate",
+          position: "Head of Advocacy",
           image: abdelaziz,
         },
         {

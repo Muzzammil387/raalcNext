@@ -40,27 +40,27 @@ const TeamMembers = ({ lang }) => {
         },
         {
             name: "Kate Chen",
-            position: "Corporate Consultant",
+            position: "Senior Corporate Consultant",
             image: kate,
           },
           {
             name: "Zaur Kurbanov",
-            position: "Corporate Consultant",
+            position: "Senior Corporate Consultant",
             image: zaur,
           },
           {
             name: "Anda Musaraj",
-            position: "Corporate Consultant",
+            position: "Senior Corporate Consultant",
             image: anda,
           },
           {
             name: "Mohamed El-Beltagy",
-            position: "Corporate Consultant",
+            position: "Senior Corporate Consultant",
             image: tarek,
           },
           {
             name: "Mohamed Selim",
-            position: "Legal Advisor",
+            position: "Senior Legal Advisor",
             image: mohamed,
           },
       ];
