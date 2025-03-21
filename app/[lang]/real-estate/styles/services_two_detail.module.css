@@ -128,30 +128,54 @@
 }
 
   
-  .memberInfo {
-    background-color: #dab35c;
-    padding: 70px 20px;
-    border-radius: 35px;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-    height: 350px;
-    width: 350px;
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .memberInfo h3 {
-    font-size: 26px;
-    font-weight: 900;
-    margin: 0;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-  }
+.memberInfo {
+  background-color: #dab35c;
+  padding: 70px 20px;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 15px;
+  width: 100%;
+  height: 100px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
 
+.memberInfoContent {
+  background-color: #000000;
+  opacity: 0.8;
+  padding: 70px 20px;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  min-width: 100%;
+  height: 100px;
+  /* width: 500px; */
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memberInfo h3 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.memberInfoContent h3 {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
   .section_line {
     flex-grow: 1;
     height: 3px;
@@ -159,12 +183,20 @@
     margin: 0 20px;
 }
   
-  .memberInfo p {
-    font-size: 20px;
-    margin: 5px 0 0 0;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-  }
+.memberInfo p {
+  font-size: 20px;
+  margin: 5px 0 0 0;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.memberInfoContent p {
+  font-size: 21px;
+  /* margin: 5px 0 0 0; */
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
   
 
 
@@ -195,6 +227,9 @@
       padding-left: 3%;
     }
     .memberInfo {
+      width: 100%;
+    }
+    .memberInfoContent {
       width: 100%;
     }
 
@@ -232,6 +267,13 @@
       }
       
       .memberInfo p {
+        font-size: 18px;
+      }
+      .memberInfoContent h3 {
+        font-size: 22px;
+      }
+      
+      .memberInfoContent p {
         font-size: 18px;
       }
       

@@ -149,18 +149,18 @@ const Header = ({ lang }) => {
     <div id='services'>
     <Services/>
     </div>
-    <div>
+    {/* <div>
     <ServicesDetail/>
-    </div>
+    </div> */}
     <div>
     <Services2/>
     </div>
     <div>
     <Services2Detail/>
     </div>
-    <div>
+    {/* <div>
     <Services3/>
-    </div>
+    </div> */}
     <div id='team'>
     <Team/>
     </div>

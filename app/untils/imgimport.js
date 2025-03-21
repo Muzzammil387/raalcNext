@@ -101,3 +101,4 @@ export const email_ic = require("../../public/webImages/landing_page/email_ico_l
 export const paris_team = require("../../public/webImages/landing_page/paris_team.jpeg");
 export const paris_home = require("../../public/webImages/landing_page/paris_home.png");
 export const raw_logo = require("../../public/webImages/landing_page/raw_logo.png");
+export const arrow_icon_services = require("../../public/webImages/landing_page/arrow_icon_services.png");

@@ -7,30 +7,24 @@ import styles from '../styles/services_two.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import { 
-    ehab,
-    abdelaziz,
-    lina
+    arrow_icon_services
 } from '@/app/untils/imgimport';
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Box } from "@mui/material";
 
 const Services2 = ({ lang }) => {
     const service_content = [
         {
-          heading: "Real Estate Disputes",
-          content: "Ownership conflicts, contract breaches, and property rights disputes can disrupt your life and investments. RAALC’s real estate dispute lawyer is here to turn legal challenges into solutions."
+          heading: "Property Sale, Purchase & Conveyancing",
+          content: "We provide legal support for property transactions, including off-plan, primary, and secondary market deals. Our services include drafting and reviewing Sale and Purchase Agreements (including Form F), conducting due diligence, and managing the conveyancing process for secure transfers."
         },
         {
-          heading: "Rental Disputes",
-          content: "RAALC’s rental dispute lawyer provides swift, effective legal solutions for both landlords and tenants, ensuring compliance with UAE tenancy laws and protecting your interests."
+          heading: "Legal Representation for Property Sales & Purchases",
+          content: "We provide legally binding powers of attorney, allowing us to represent you in property transactions with confidence and compliance. Whether you're unavailable or abroad, we ensure your interests are protected, and your deals proceed seamlessly."
         },
         {
-          heading: "Jointly Owned Property Disputes",
-          content: "Whether it’s a disagreement over property management or a need to dissolve joint ownership, RAALC helps co-owners navigate disputes and reach fair, legally sound resolutions."
-        },
-        {
-            heading: "Cancelled Real Estate Projects",
-            content: "We help investors recover their funds by handling legal claims and providing strong representation to ensure you get what you’re owed."
-          },
+          heading: "Real Estate Escrow Services",
+          content: "A property deal is built on trust. Our escrow services securely manage funds, ensuring payments are released only when all conditions are met, protecting both buyers and sellers. With escrow account in real estate, every transaction is transparent and secure."
+        }
       ];
   return (
     <div>
@@ -50,14 +44,40 @@ const Services2 = ({ lang }) => {
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
-    <p className={styles.commitment_sub_heading}>2) Dispute Resolution Services: </p>
-<div>
-<h2 className={styles.history_heading}>
-From ownership conflicts to tenancy issues, we offer expert legal representation to resolve a variety of real estate disputes efficiently and effectively.
-</h2>
-</div>
 
-<div className={styles.teamContainer}>
+<Grid container spacing={0} style={{marginTop: 25}}>
+      {service_content.map((member, index) => (
+        <React.Fragment key={index}>
+          {/* Left Column: Heading */}
+          <Grid item xs={12} sm={4} md={4}>
+            <Box>
+              <div className={styles.team_card_container}>
+                <div className={styles.memberInfo}>
+                  <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
+                    {member.heading}
+                  </h3>
+                  <Image 
+                  src={arrow_icon_services ?? ""} 
+                  width={80} 
+                  height={80} 
+                  alt=""
+                  />
+                </div>
+              </div>
+            </Box>
+          </Grid>
+
+          {/* Right Column: Description */}
+          <Grid item xs={12} sm={8} md={8}>
+            <Box className={styles.memberInfoContent}>
+              <p className={styles.centerize_content}>{member.content}</p>
+            </Box>
+          </Grid>
+        </React.Fragment>
+      ))}
+    </Grid>
+
+{/* <div className={styles.teamContainer}>
         {service_content.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
           <div className={styles.memberInfo}>
@@ -71,7 +91,7 @@ From ownership conflicts to tenancy issues, we offer expert legal representation
         </div>
          </div>
         ))}
-      </div>
+      </div> */}
 
   </div>
 </div>

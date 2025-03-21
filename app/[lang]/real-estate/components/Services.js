@@ -7,25 +7,35 @@ import styles from '../styles/services.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import { 
-    ehab,
-    abdelaziz,
-    lina
+   arrow_icon_services
 } from '@/app/untils/imgimport';
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Box } from "@mui/material";
 
 const Services = ({ lang }) => {
     const service_content = [
         {
-          heading: "Sale and Purchase Agreements & Form F Services",
-          content: "At RAALC, we ensure your journey is legally secure by expertly drafting, reviewing, and vetting Sale and Purchase Agreements."
+          heading: "Real Estate Transactions & Family Office Advisory",
+          content: "We assist family offices and private investors in high-value real estate transactions, contract negotiations, due diligence, and dispute resolution. Our expertise covers acquisitions, sales, leasing, and development while ensuring seamless legal compliance."
         },
         {
-          heading: "Property Conveyancing",
-          content: "Whether buying or selling, our conveyancing solicitors handle contracts, due diligence, and compliance, ensuring a seamless transaction from start to finish."
+          heading: "Investment Structuring, Trusts & Asset Protection",
+          content: "We provide legal guidance on structuring real estate investments through trusts, foundations, and asset protection solutions. Our team ensures full compliance while mitigating risks. We help family offices create tailored frameworks for long-term wealth preservation."
         },
         {
-          heading: "Power of Attorney for Sale & Purchase",
-          content: "Whether you're overseas or unavailable, we craft legally binding powers of attorney, ensuring your trusted representative can act with clarity and authority."
+          heading: "Trusts & Private Wealth Management for Real Estate Holdings",
+          content: "We assist in establishing trusts, foundations, and private wealth structures to protect real estate assets and ensure smooth succession planning. Our legal strategies focus on secure property ownership transitions, tax compliance, and long-term asset protection."
+        },
+        {
+          heading: "Inheritance & Property Management",
+          content: "We provide legal guidance on inheritance and property management, ensuring smooth transfers and compliance with succession laws. Our services include estate planning, asset protection, wills, trust, heirship certificate and seamless property transition for long-term value preservation."
+        },
+        {
+          heading: "Legal Support for Developers & Contractors",
+          content: "We offer legal services to real estate developers and contractors, ensuring compliance with zoning laws and construction agreements. Our expertise includes contract negotiation, risk management, dispute resolution, and securing permits for smooth project execution."
+        },
+        {
+          heading: "Legal Assistance for Property Management Companies",
+          content: "We provide legal support to property management companies in navigating lease agreements, tenant disputes, regulatory compliance, and risk management. Our services ensure efficient property administration and legal protection for property owners and management firms."
         },
       ];
   return (
@@ -56,7 +66,60 @@ RAALC specializes in a range of services, offering professional support through 
             </h2>
 </div>
 
-<div className={styles.teamContainer}>
+{/* New Card */}
+<Grid container spacing={0} style={{marginTop: 25}}>
+      {service_content.map((member, index) => (
+        <React.Fragment key={index}>
+          {/* Left Column: Heading */}
+          <Grid item xs={12} sm={4} md={4}>
+            <Box>
+              <div className={styles.team_card_container}>
+                <div className={styles.memberInfo}>
+                  <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
+                    {member.heading}
+                  </h3>
+                  <Image 
+                  src={arrow_icon_services ?? ""} 
+                  width={80} 
+                  height={80} 
+                  alt=""
+                  />
+                </div>
+              </div>
+            </Box>
+          </Grid>
+
+          {/* Right Column: Description */}
+          <Grid item xs={12} sm={8} md={8}>
+            <Box className={styles.memberInfoContent}>
+              <p className={styles.centerize_content}>{member.content}</p>
+            </Box>
+          </Grid>
+        </React.Fragment>
+      ))}
+    </Grid>
+
+{/* <div className={styles.teamContainer}>
+        {service_content.map((member, index) => (
+         <div key={index} className={styles.team_card_container}>
+          <div className={styles.memberInfo}>
+          <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
+  {member.heading}
+</h3>
+
+        </div>
+        <div className={styles.memberInfoContent}>
+<p className={styles.centerize_content}>
+  {member.content}
+</p>
+</div>
+         </div>
+        ))}
+      </div> */}
+
+      {/* New Card End */}
+
+{/* <div className={styles.teamContainer}>
         {service_content.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
           <div className={styles.memberInfo}>
@@ -70,7 +133,7 @@ RAALC specializes in a range of services, offering professional support through 
         </div>
          </div>
         ))}
-      </div>
+      </div> */}
 
   </div>
 </div>
