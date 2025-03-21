@@ -113,7 +113,7 @@ const Services2Detail = ({ lang }) => {
 
   {/* Call to Action Section */}
   <div className={styles.section_container}>
-      <span className={styles.section_text}>Book Your Consultation Now</span>
+      <span className={styles.section_text}>Protect Your Investments</span>
       <div className={styles.section_line}></div>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
       BOOK A CONSULTATION
