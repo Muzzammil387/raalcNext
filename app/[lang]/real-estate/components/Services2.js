@@ -44,13 +44,12 @@ const Services2 = ({ lang }) => {
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
-
-<Grid container spacing={0} style={{marginTop: 25}}>
+  <Grid container spacing={0} style={{marginTop: 25}}>
       {service_content.map((member, index) => (
         <React.Fragment key={index}>
-          {/* Left Column: Heading */}
+          <span className={styles.card_container}>
           <Grid item xs={12} sm={4} md={4}>
-            <Box>
+            <Box style={{height: "100%"}}>
               <div className={styles.team_card_container}>
                 <div className={styles.memberInfo}>
                   <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
@@ -60,19 +59,19 @@ const Services2 = ({ lang }) => {
                   src={arrow_icon_services ?? ""} 
                   width={80} 
                   height={80} 
+                  className={styles.arrow_styling}
                   alt=""
                   />
                 </div>
               </div>
             </Box>
           </Grid>
-
-          {/* Right Column: Description */}
           <Grid item xs={12} sm={8} md={8}>
             <Box className={styles.memberInfoContent}>
               <p className={styles.centerize_content}>{member.content}</p>
             </Box>
           </Grid>
+          </span>
         </React.Fragment>
       ))}
     </Grid>
