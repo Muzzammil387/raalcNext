@@ -30,6 +30,7 @@ import {
     eleven,
     twelve,
     thirteen,
+    twenty_three,
     fourteen,
     fifteen,
     sixteen,
@@ -56,7 +57,7 @@ const OurClients = ({ lang }) => {
       };
     const images = [
         one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve,
-        thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty,
+        twenty_three, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty,
         twenty_one, twenty_two
     ];
     const responsive = {
