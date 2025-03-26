@@ -41,12 +41,15 @@ const ContactUs = ({ lang }) => {
           <Grid item xs={12} md={7} className={styles.contact_us_container}>
            <div style={{lineHeight: "60px", marginTop: 20}}>
            <p className={styles.real_estate_lawyer}>
-           Protect & Manage Your Real Estate with RAALC
+           Turning Your Business Challenges into Opportunities
            </p>
            </div>
            <div>
            <p className={`${styles.ensure_protection}`}>
-           From trusts and private wealth management to inheritance, property, and developer legal support, we secure your assets.
+           We turn legal complexities into strategic advantages. Whether you're
+launching a business, handling high-stakes mergers, or navigating
+corporate restructuring, our expert legal team ensures seamless
+solutions and compliance.
             </p>
           </div>
 

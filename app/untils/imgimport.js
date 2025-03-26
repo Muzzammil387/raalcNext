@@ -107,3 +107,6 @@ export const corporate_home_image = require("../../public/webImages/landing_page
 export const corporate_main_image = require("../../public/webImages/landing_page/corporate_main_image.png");
 export const corporate_home_logo = require("../../public/webImages/landing_page/corporate_home_logo.png");
 export const corporate_home_2 = require("../../public/webImages/landing_page/corporate_home_2.png");
+export const corporate_client_icon_1 = require("../../public/webImages/landing_page/corporate_client_icon_1.png");
+export const corporate_client_icon_2 = require("../../public/webImages/landing_page/corporate_client_icon_2.png");
+export const corporate_client_icon_3 = require("../../public/webImages/landing_page/corporate_client_icon_3.png");

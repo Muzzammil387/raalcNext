@@ -44,10 +44,20 @@ justify-content: center;
 .background_image_style {
     position: relative;
     width: 100%;
-    background-image: url('/webImages/landing_page/contact_us_main_image.png');
+    background-image: url('/webImages/landing_page/corporate_main_image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .phone_icon_style {
@@ -92,20 +102,10 @@ justify-content: center;
     color: #f4c766;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    z-index: 1;
-}
-
 .footer_container {
     z-index: 20;
     position: relative;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.4);
     padding-right: 5%;
     padding-left: 5%;
     padding-top: 2.5%;

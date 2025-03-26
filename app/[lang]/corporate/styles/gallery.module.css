@@ -16,7 +16,7 @@
 .section_line {
     flex-grow: 1;
     height: 3px;
-    background-color: white;
+    background-color: #dab35c;
     margin: 0 20px;
 }
 .history_heading {
