@@ -46,10 +46,13 @@ const ContactUs = ({ lang }) => {
            </div>
            <div>
            <p className={`${styles.ensure_protection}`}>
-           We turn legal complexities into strategic advantages. Whether you're
-launching a business, handling high-stakes mergers, or navigating
-corporate restructuring, our expert legal team ensures seamless
-solutions and compliance.
+           <p>
+  We turn legal complexities into strategic advantages. Whether you&apos;re
+  launching a business, handling high-stakes mergers, or navigating
+  corporate restructuring, our expert legal team ensures seamless
+  solutions and compliance.
+</p>
+
             </p>
           </div>
 
