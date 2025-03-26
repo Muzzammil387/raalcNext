@@ -103,3 +103,7 @@ export const paris_team = require("../../public/webImages/landing_page/paris_tea
 export const paris_home = require("../../public/webImages/landing_page/paris_home.png");
 export const raw_logo = require("../../public/webImages/landing_page/raw_logo.png");
 export const arrow_icon_services = require("../../public/webImages/landing_page/arrow_icon_services.png");
+export const corporate_home_image = require("../../public/webImages/landing_page/corporate_home_image.png");
+export const corporate_main_image = require("../../public/webImages/landing_page/corporate_main_image.png");
+export const corporate_home_logo = require("../../public/webImages/landing_page/corporate_home_logo.png");
+export const corporate_home_2 = require("../../public/webImages/landing_page/corporate_home_2.png");
