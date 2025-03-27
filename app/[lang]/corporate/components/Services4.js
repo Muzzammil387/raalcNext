@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
-import styles from '../styles/services_two.module.css'
+import styles from '../styles/services_four.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -14,7 +14,7 @@ import {
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 
-const Services2 = ({ lang }) => {
+const Services4 = ({ lang }) => {
   const scrollToHomePage = () => {
     const homePageSection = document.getElementById("home_page");
     if (homePageSection) {
@@ -23,17 +23,13 @@ const Services2 = ({ lang }) => {
   };
     const service_content = [
         {
-          heading: "Mergers and Acquisitions (M&A) Advisory",
-          content: "RAALC offers strategic M&A advisory services, including due diligence and negotiations. We help you optimize value, minimize risks, and navigate complex transactions, ensuring smooth integrations and acquisitions."
+          heading: "Oil & Gas Legal Advisory",
+          content: "Our firm provides corporate clients with strategic legal counsel on oil and gas ventures, covering contract structuring, risk management, and regulatory compliance. We ensure legal security in mergers, acquisitions, and investment transactions."
         },
         {
-          heading: "Due Diligence Services",
-          content: "Our due diligence services assess legal and operational risks in business transactions. We provide thorough analysis and actionable insights, ensuring that your decisions are fully informed and strategically sound."
-        },
-        {
-          heading: "Contract Drafting and Legal Documentation",
-          content: "Our legal experts draft and review commercial contracts, ensuring they are legally sound and aligned with your business goals. We minimize risks and protect your interests in every agreement, ensuring clarity and enforceability."
-        },
+          heading: "Escrow Services for Corporate Transactions",
+          content: "We provide secure escrow solutions for corporate transactions, safeguarding funds and documents in mergers, acquisitions, and joint ventures.Our services ensure financialtransparency and mitigate risks in high-value deals."
+        }
       ];
   return (
     <div>
@@ -53,15 +49,6 @@ const Services2 = ({ lang }) => {
 
   {/* Content inside */}
   <div className={styles.client_container}>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Transactions, Risk Management, and Documentation</p>
-      <div className={styles.section_line}></div>
-    </div>
-<div>
-<h2 className={styles.history_heading}>
-Strategic advisory and documentation services to mitigate risks and ensure compliance in business transactions.
-            </h2>
-</div>
 
 <div className={styles.teamContainer}>
         {service_content.map((member, index) => (
@@ -84,7 +71,7 @@ Strategic advisory and documentation services to mitigate risks and ensure compl
   <div className={styles.section_container}>
       <div
       className={styles.section_text}>
-       Protect your business with expert M&A advice and contract drafting.
+       Secure your assets and intellectual property with our expert legal services.
       </div>
 
       <div className={styles.section_line}></div>
@@ -104,4 +91,4 @@ Strategic advisory and documentation services to mitigate risks and ensure compl
   );
 };
 
-export default Services2;
+export default Services4;

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import styles from '../styles/services_three.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { 
     ehab,
     abdelaziz,
@@ -14,25 +15,25 @@ import {
 import { Grid, Paper } from "@mui/material";
 
 const Services3 = ({ lang }) => {
-    const scrollToHomePage = () => {
-        const homePageSection = document.getElementById("home_page");
-        if (homePageSection) {
-          homePageSection.scrollIntoView({ behavior: "smooth" });
-        }
-      };
+  const scrollToHomePage = () => {
+    const homePageSection = document.getElementById("home_page");
+    if (homePageSection) {
+      homePageSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
     const service_content = [
         {
-          heading: "Off-Plan Property Legal Support",
-          content: "RAALC secures your investment by reviewing contracts, overseeing escrow accounts, and shielding you from delays or legal disputes."
+          heading: "Trusts, Foundations, and Estate Planning",
+          content: "We provide tailored estate planning services, including trusts and foundations, to protect assets and ensure smooth wealth transfer. Our solutions are designed for high-net-worth individuals and businesses, supporting long-term succession planning."
         },
         {
-          heading: "Inheritance Property Transfers",
-          content: "At RAALC, we guide families through every step, ensuring rightful heirs receive their assets efficiently and without complications."
+          heading: "Intellectual Property (IP) Services",
+          content: "Protect your brand and innovations with RAALC Law Firm’s IP services, including patent and trademark registration and enforcement. We provide tailored strategies to safeguard your intellectual assets, maximizing their value and protecting your market position."
         },
         {
-          heading: "Property Guardianship",
-          content: "We offer expert legal support to ensure compliance with UAE laws and protect the interests of the young or vulnerable property owners."
-        }
+          heading: "Maritime and Shipping Legal Services",
+          content: "We provide specialized legal services including regulatory compliance, contract negotiation, and dispute resolution. We help businesses manage legal complexities in shipping and maritime operations, ensuring seamless transactions and compliance."
+        },
       ];
   return (
     <div>
@@ -51,12 +52,15 @@ const Services3 = ({ lang }) => {
   ></div>
 
   {/* Content inside */}
-  <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
-    <p className={styles.commitment_sub_heading}>3) Specialized Real Estate Services: </p>
+  <div className={styles.client_container}>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <p className={styles.commitment_heading}>Asset Protection and Industry-Specific Services</p>
+      <div className={styles.section_line}></div>
+    </div>
 <div>
 <h2 className={styles.history_heading}>
-We ensure your investments are safeguarded and navigate specialized issues with expert guidance and protection.
-</h2>
+Tailored services to safeguard your assets and ensure compliance in specialized industries like maritime and IP.
+            </h2>
 </div>
 
 <div className={styles.teamContainer}>
@@ -75,20 +79,26 @@ We ensure your investments are safeguarded and navigate specialized issues with 
         ))}
       </div>
 
-       {/* Call to Action Section */}
+  </div>
+
   <div className={styles.section_container}>
-      <span className={styles.section_text}>Book Your Consultation Now</span>
+      <div
+      className={styles.section_text}>
+        Secure your assets and intellectual property with our expert legal services.
+      </div>
+
       <div className={styles.section_line}></div>
-      <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      BOOK A CONSULTATION
+      <Button
+        onClick={scrollToHomePage}
+        className={styles.get_started_btn}>
+        GET STARTED
       </Button>
     </div>
 
-  </div>
 </div>
 
-
         </div>
+
     </div>
 
   );
