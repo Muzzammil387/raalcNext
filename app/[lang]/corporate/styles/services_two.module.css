@@ -119,7 +119,7 @@
 .teamContainer {
   display: flex;
   height: 88%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 30px;
   flex-wrap: wrap;
