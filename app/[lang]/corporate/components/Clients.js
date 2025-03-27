@@ -137,6 +137,7 @@ const OurClients = ({ lang }) => {
             src={corporate_client_icon_1 ?? ""} 
             width={350} 
             height={100} 
+            className={styles.client_icons}
             alt="Comprehensive Legal Expertise Logo"
             />
                 </div>
@@ -158,6 +159,7 @@ secure, compliant, and successful.
                 <Image 
             src={corporate_client_icon_2 ?? ""} 
             width={300} 
+            className={styles.client_icons}
             height={100} 
             alt="Business-First Approach Logo" 
             />
@@ -181,6 +183,7 @@ fostering growth.
             src={corporate_client_icon_3 ?? ""} 
             width={300} 
             height={100} 
+            className={styles.client_icons}
             alt="Trust & Integrity:" 
             />
                 </div>
