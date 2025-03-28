@@ -137,7 +137,7 @@ const Faq = ({ lang }) => {
         }}
       >
         Each business location has its advantages. We help you decide between mainland, free
-zones, or offshore setups based on your needs, whether it's flexibility, tax benefits, or ease of
+zones, or offshore setups based on your needs, whether it&rsquo;s flexibility, tax benefits, or ease of
 operation. RAALC ensures you pick the best option for your business.
       </div>
     </div>
