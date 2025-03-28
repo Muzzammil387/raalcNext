@@ -23,6 +23,10 @@ const Services4 = ({ lang }) => {
   };
     const service_content = [
         {
+          heading: "Corporate Arbitration",
+          content: "RAALC Law Firm provides expert arbitration support to resolve corporate and commercial disputes quickly and privately. From shareholder disagreements to cross-border conflicts, we ensure a smooth process that protects your interests and minimizes business disruption."
+        },
+        {
           heading: "Oil & Gas Legal Advisory",
           content: "Our firm provides corporate clients with strategic legal counsel on oil and gas ventures, covering contract structuring, risk management, and regulatory compliance. We ensure legal security in mergers, acquisitions, and investment transactions."
         },

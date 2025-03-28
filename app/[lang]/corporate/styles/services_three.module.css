@@ -119,13 +119,14 @@
 .teamContainer {
   display: flex;
   height: 88%;
-  /* justify-content: space-around; */
+  justify-content: space-around;
   align-items: center;
-  /* gap: 30px;
+  gap: 30px;
   flex-wrap: wrap;
-  width: 100%; */
-  /* padding-right: 3%;
-  padding-left: 3%; */
+  width: 100%;
+  /* margin-top: 2%; */
+  padding-right: 3%;
+  padding-left: 3%;
 }
 
 .team_card_container {
