@@ -220,7 +220,7 @@ handles audits, so you can focus on your business while staying legally secure.
           fontFamily: 'Montserrat, sans-serif',
         }}
       >
-       What’s involved in Mergers
+       What&rsquo;s involved in Mergers
        and Acquisitions (M&A)?
       </div>
       <div
