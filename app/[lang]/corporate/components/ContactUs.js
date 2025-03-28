@@ -157,7 +157,7 @@ const ContactUs = ({ lang }) => {
           <Grid item xs={12} md={5}>
             <div className={styles.form_container}>
                 <p className={styles.form_heading}>
-                Speak to a Real Estate Lawyer Now
+                Speak to a Corporate Lawyer Now
                 </p>
                 <HubSpotForm formId="hubspotForm2"/>
             <p className={styles.form_footer}>
