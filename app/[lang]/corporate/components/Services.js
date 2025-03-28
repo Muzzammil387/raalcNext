@@ -23,8 +23,8 @@ const Services = ({ lang }) => {
   };
     const service_content = [
         {
-          heading: "Company Set-up in the UAE",
-          content: "We provide expert services for setting up companies across the UAE, handling all regulatory compliance and business licensing. Our team ensures a seamless and efficient company formation process, giving you a strong foundation in the UAE market."
+          heading: "Company Setup in the UAE",
+          content: "We offer expert support for company formation in the UAE, covering mainland, free zones, and offshore jurisdictions. Our team handles all regulatory compliance and business licensing, ensuring a seamless and efficient setup process for a strong market entry."
         },
         {
           heading: "Corporate Governance and Compliance",
