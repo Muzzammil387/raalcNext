@@ -204,10 +204,10 @@ partner.
 
     {/* Call to Action Section */}
     <div className={styles.section_container}>
-      <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
+      <span className={styles.section_text}>Get Expert Legal Guidance Now!</span>
       <div className={styles.section_line}></div>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      BOOK A CONSULTATION
+      GET STARTED
       </Button>
     </div>
   </div>

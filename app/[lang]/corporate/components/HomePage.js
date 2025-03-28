@@ -44,13 +44,6 @@ const HomePage = ({ lang }) => {
            Your Legal Partner for Success & Compliance
            </p>
            </div>
-          
-            {/* <p className={styles.what_can_we_do}>
-            WHAT CAN WE DO?</p>
-
-            <p className={styles.transaction_services}>
-           <span>Property Transaction Services</span>  <span><ForwardIcon style={{ fontSize: 50 }} /></span>
-           </p> */}
 
            <div>
            <p className={`${styles.your_search_for} ${styles.margin_up}`} style={{marginBottom: 25}}>
@@ -82,7 +75,11 @@ const HomePage = ({ lang }) => {
     </div>
 
     <div>
-        <div className={styles.history_container}>
+    <div className={styles.background_image_style_second}>
+        <div
+   className={styles.overlay}
+  ></div>
+          <div className={styles.history_container}>
             <h2 className={styles.history_heading}>
             RAALC is a <span style={{fontWeight: 700}}>premier law firm</span>, providing expert legal advisory, dispute resolution, and corporate compliance solutions to businesses in the UAE and beyond.
             </h2>
@@ -153,14 +150,15 @@ Global Experience, Local Expertise
 
         <div>
         <div className={styles.section_container}>
-      <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
+      <span className={styles.section_text}>Speak to a Corporate Lawyer Now</span>
       <div className={styles.section_line}></div>
       <Button  onClick={scrollToHomePage} className={styles.get_started_btn}>
-        BOOK A CONSULTATION
+        GET STARTED
       </Button>
     </div>
         </div>
 
+        </div>
         </div>
     </div>
 

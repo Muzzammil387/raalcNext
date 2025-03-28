@@ -28,11 +28,15 @@ const Services3 = ({ lang }) => {
         },
         {
           heading: "Intellectual Property (IP) Services",
-          content: "Protect your brand and innovations with RAALC Law Firm’s IP services, including patent and trademark registration and enforcement. We provide tailored strategies to safeguard your intellectual assets, maximizing their value and protecting your market position."
+          content: "Protect your brand and innovations with RAALC Law Firm’s IP services, including patent and trademark registration, enforcement and Litigations. We provide tailored strategies to safeguard your intellectual assets, maximizing their value and protecting your market position."
         },
         {
           heading: "Maritime and Shipping Legal Services",
           content: "We provide specialized legal services including regulatory compliance, contract negotiation, and dispute resolution. We help businesses manage legal complexities in shipping and maritime operations, ensuring seamless transactions and compliance."
+        },
+        {
+          heading: "Corporate Arbitration",
+          content: "RAALC Law Firm provides expert arbitration support to resolve corporate and commercial disputes quickly and privately. From shareholder disagreements to cross-border conflicts, we ensure a smooth process that protects your interests and minimizes business disruption."
         },
       ];
   return (
@@ -63,21 +67,29 @@ Tailored services to safeguard your assets and ensure compliance in specialized 
             </h2>
 </div>
 
-<div className={styles.teamContainer}>
-        {service_content.map((member, index) => (
-         <div key={index} className={styles.team_card_container}>
-          <div className={styles.memberInfo}>
-          <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
-  {member.heading}
-</h3>
-<p className={styles.centerize_content} style={{ paddingTop: 15 }}>
-  {member.content}
-</p>
-
-        </div>
-         </div>
-        ))}
+<Grid container spacing={2} className={styles.teamContainer}>
+  {service_content.map((member, index) => (
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={3}
+      key={index}
+      className={styles.team_card_container}
+      display="flex"
+      justifyContent="center"
+    >
+      <div className={styles.memberInfo}>
+        <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
+          {member.heading}
+        </h3>
+        <p className={styles.centerize_content} style={{ paddingTop: 15 }}>
+          {member.content}
+        </p>
       </div>
+    </Grid>
+  ))}
+</Grid>
 
   </div>
 

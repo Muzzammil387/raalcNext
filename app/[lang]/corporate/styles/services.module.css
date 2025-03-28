@@ -92,10 +92,6 @@
   position: relative;
   margin: 20px 0;
   min-width: 100px;
-  /* flex-grow: 1;
-  height: 3px;
-  background-color: white;
-  margin: 0 20px; */
 }
 .history_heading {
   font-family: Montserrat, sans-serif;
