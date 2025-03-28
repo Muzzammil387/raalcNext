@@ -25,6 +25,7 @@ import Services from './Services';
 import Services2 from './Services2';
 import Services3 from './Services3';
 import Services4 from './Services4';
+import Faq from './FAQ';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -173,6 +174,9 @@ const Header = ({ lang }) => {
     </div>
     <div id='contact_us'>
     <ContactUs/>
+    </div>
+    <div id='faq'>
+    <Faq/>
     </div>
     </div>
 

@@ -63,7 +63,7 @@ const Gallery = ({ lang }) => {
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Gallery Section</p>
+      <p className={styles.commitment_heading}>Gallery</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
