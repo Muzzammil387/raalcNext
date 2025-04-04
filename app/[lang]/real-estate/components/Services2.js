@@ -6,25 +6,34 @@ import { useState } from 'react';
 import styles from '../styles/services_two.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { 
-    arrow_icon_services
+    ehab,
+    abdelaziz,
+    lina
 } from '@/app/untils/imgimport';
-import { Grid, Paper, Box } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 
 const Services2 = ({ lang }) => {
+  const scrollToHomePage = () => {
+    const homePageSection = document.getElementById("home_page");
+    if (homePageSection) {
+      homePageSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
     const service_content = [
         {
-          heading: "Property Sale, Purchase & Conveyancing",
-          content: "We provide legal support for property transactions, including off-plan, primary, and secondary market deals. Our services include drafting and reviewing Sale and Purchase Agreements (including Form F), conducting due diligence, and managing the conveyancing process for secure transfers."
+          heading: "Inheritance & Property Management",
+          content: "We provide legal guidance on inheritance and property management, ensuring smooth transfers and compliance with succession laws. Our services include estate planning, asset protection, wills, trust, heirship certificate and seamless property transition for long-term value preservation."
         },
         {
-          heading: "Legal Representation for Property Sales & Purchases",
-          content: "We provide legally binding powers of attorney, allowing us to represent you in property transactions with confidence and compliance. Whether you're unavailable or abroad, we ensure your interests are protected, and your deals proceed seamlessly."
+          heading: "Legal Support for Developers & Contractors",
+          content: "We offer legal services to real estate developers and contractors, ensuring compliance with zoning laws and construction agreements. Our expertise includes contract negotiation, risk management, dispute resolution, and securing permits for smooth project execution."
         },
         {
-          heading: "Real Estate Escrow Services",
-          content: "A property deal is built on trust. Our escrow services securely manage funds, ensuring payments are released only when all conditions are met, protecting both buyers and sellers. With escrow account in real estate, every transaction is transparent and secure."
-        }
+          heading: "Legal Assistance for Property Management",
+          content: "We provide legal support to property management companies in navigating lease agreements, tenant disputes, regulatory compliance, and risk management. Our services ensure efficient property administration and legal protection for property owners and management firms."
+        },
       ];
   return (
     <div>
@@ -43,40 +52,9 @@ const Services2 = ({ lang }) => {
   ></div>
 
   {/* Content inside */}
-  <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
-  <Grid container spacing={0} style={{marginTop: 25}}>
-      {service_content.map((member, index) => (
-        <React.Fragment key={index}>
-          <span className={styles.card_container}>
-          <Grid item xs={12} sm={4} md={4}>
-            <Box style={{height: "100%"}}>
-              <div className={styles.team_card_container}>
-                <div className={styles.memberInfo}>
-                  <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
-                    {member.heading}
-                  </h3>
-                  <Image 
-                  src={arrow_icon_services ?? ""} 
-                  width={80} 
-                  height={80} 
-                  className={styles.arrow_styling}
-                  alt=""
-                  />
-                </div>
-              </div>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={8} md={8}>
-            <Box className={styles.memberInfoContent}>
-              <p className={styles.centerize_content}>{member.content}</p>
-            </Box>
-          </Grid>
-          </span>
-        </React.Fragment>
-      ))}
-    </Grid>
+  <div className={styles.client_container}>
 
-{/* <div className={styles.teamContainer}>
+<div className={styles.teamContainer}>
         {service_content.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
           <div className={styles.memberInfo}>
@@ -90,13 +68,23 @@ const Services2 = ({ lang }) => {
         </div>
          </div>
         ))}
-      </div> */}
+      </div>
 
   </div>
+
+    {/* Call to Action Section */}
+    <div className={styles.section_container}>
+      <span className={styles.section_text}>Speak to a Real Estate lawyer now</span>
+      <div className={styles.section_line}></div>
+      <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
+      GET STARTED
+      </Button>
+    </div>
+
 </div>
 
-
         </div>
+
     </div>
 
   );

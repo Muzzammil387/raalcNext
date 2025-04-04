@@ -44,13 +44,7 @@ import {
     transparency,
     legal,
     star,
-    client_background,
-    corporate_client_icon_1,
-    corporate_client_icon_2,
-    corporate_client_icon_3,
-    realestate_client_one,
-    realestate_client_two,
-    realestate_client_three
+    client_background
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 
@@ -92,7 +86,7 @@ const OurClients = ({ lang }) => {
     <div>
         <div className={styles.client_container}>
         <p className={styles.client_heading}>
-            OUR CLIENTS : <span style={{fontWeight: 600}}>Trusted By Industry Leaders</span>
+            OUR CLIENTS
          </p>
          <Carousel
       responsive={responsive}
@@ -104,7 +98,7 @@ const OurClients = ({ lang }) => {
     >
       {images.map((src, index) => (
         <div key={index} style={{ padding: "10px" }}>
-          <Image src={src} alt={`Image ${index + 1}`} width={250} height={200} style={{ borderRadius: "10px" }} />
+          <Image src={src} alt={`Image ${index + 1}`} width={300} height={200} style={{ borderRadius: "10px" }} />
         </div>
       ))}
     </Carousel>
@@ -128,76 +122,67 @@ const OurClients = ({ lang }) => {
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%" }}>
-  <p className={`${styles.your_search_for} ${styles.margin_up}`} style={{marginBottom: 25}}>
-  When it comes to real estate legal services, RAALC leads the way with <span className={styles.bold}>expertise</span> and <span className={styles.bold}>dedication</span> to your success.
-           </p>
+    <p className={styles.commitment_heading}>RAALC’S COMMITMENT TO EXCELLENCE IN</p>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <p className={styles.commitment_subheading}>Real Estate Law</p>
+      <div className={styles.section_line}></div>
+    </div>
+
     <div style={{ marginTop: "30px"}}>
     <Grid container spacing={0} className={styles.client_p}>
           <Grid item xs={12} md={4}>
           <p className={styles.clients_points} style={{display: "flex", alignItems: "center"}}>
-                <div style={{height: "100%", width: 300}}>
+                <div style={{height: "100%", width: "100%"}}>
                 <Image 
-            src={realestate_client_one ?? ""} 
-            width={300} 
+            src={star ?? ""} 
+            width={250} 
             height={100} 
-            className={styles.client_icons}
             alt="High Success Rate Logo"
             />
                 </div>
 <div style={{marginLeft: 15}}>
 <p className={styles.bold}>
-High Success Rate
+            High Success Rate
             </p>
-            We&#39;ve secured successful
-outcomes for clients in real estate
-disputes, including millions of
-compensation claims.
+            We’ve secured successful outcomes for clients in real estate disputes, including millions of compensation claims.
 </div>
             </p>
           </Grid>
 
           <Grid item xs={12} md={4}>
           <p className={styles.clients_points} style={{display: "flex", alignItems: "center"}}>
-                <div style={{height: "100%", width: 350}}>
+                <div style={{height: "100%", width: "100%"}}>
                 <Image 
-            src={realestate_client_two ?? ""} 
-            width={350} 
-            className={styles.client_icons}
+            src={legal ?? ""} 
+            width={250} 
             height={100} 
             alt="Tailored Legal Solutions Logo" 
             />
                 </div>
 <div style={{marginLeft: 15}}>
 <p className={styles.bold}>
-Tailored Legal Solutions
+            Tailored Legal Solutions
             </p>
-            We understand that every case is
-unique, which is why we create
-personalized legal plans that align with
-your specific goals, maximizing your
-chances of success.
+            Every case is unique, which is why we create personalized legal plans that align with your specific goals, maximizing your chances of success.
 </div>
             </p>
           </Grid>
 
           <Grid item xs={12} md={4}>
           <p className={styles.clients_points} style={{display: "flex", alignItems: "center"}}>
-                <div style={{height: "100%", width: 250}}>
+                <div style={{height: "100%", width: "100%"}}>
                 <Image 
-            src={realestate_client_three ?? ""} 
+            src={transparency ?? ""} 
             width={250} 
             height={100} 
-            className={styles.client_icons}
             alt="Trust and Transparency Logo" 
             />
                 </div>
 <div style={{marginLeft: 15}}>
 <p className={styles.bold}>
-Trust and Transparency
+            Trust and Transparency
             </p>
-            Providing consistent updates to
-keep you fully informed at every
-stage of your case.
+            We prioritize trust through transparent communication, providing consistent updates to keep you fully informed at every stage of your case.
 </div>
             </p>
           </Grid>
@@ -207,10 +192,10 @@ stage of your case.
 
     {/* Call to Action Section */}
     <div className={styles.section_container}>
-      <span className={styles.section_text}>Get Expert Legal Guidance Now!</span>
+      <span className={styles.section_text}>Speak to a Real Estate Lawyer Now</span>
       <div className={styles.section_line}></div>
       <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      GET STARTED
+      BOOK A CONSULTATION
       </Button>
     </div>
   </div>

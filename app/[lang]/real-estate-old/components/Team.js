@@ -3,50 +3,33 @@ import React from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
-import styles from '../styles/gallery.module.css'
+import styles from '../styles/team.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import { 
     ehab,
     abdelaziz,
-    lina,
-    gallery_1,
-    gallery_2,
-    gallery_3,
-    gallery_4,
-    gallery_5,
-    gallery_6,
-    gallery_7,
-    gallery_8
+    lina
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 
-const Gallery = ({ lang }) => {
+const Team = ({ lang }) => {
     const teamMembers = [
         {
-          image: gallery_1,
+          name: "Ehab Mohamed",
+          position: "CEO - Senior Legal Consultant",
+          image: ehab,
         },
         {
-            image: gallery_2,
-          },
-          {
-            image: gallery_3,
-          },
-          {
-            image: gallery_4,
-          },
-          {
-            image: gallery_5,
-          },
-          {
-            image: gallery_6,
-          },
-          {
-            image: gallery_7,
-          },
-          {
-            image: gallery_8,
-          },
+          name: "Abdelaziz Alkhamiri",
+          position: "Head of Advocacy",
+          image: abdelaziz,
+        },
+        {
+          name: "Lina Khudairi",
+          position: "Chief Operating Officer",
+          image: lina,
+        },
       ];
   return (
     <div>
@@ -59,27 +42,35 @@ const Gallery = ({ lang }) => {
       <div
   className={styles.background}
 >
+  {/* Dark Overlay */}
+  <div
+   className={styles.overlay}
+  ></div>
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Gallery</p>
+      <p className={styles.commitment_heading}>Our Team: Where Diversity Fuels Excellence</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
 <h2 className={styles.history_heading}>
-We go beyond legal counsel—we engage, innovate, and lead. From Dubai’s corporate landscape to international arbitration hubs, our presence at prestigious legal events reflects our commitment to excellence, collaboration and shaping the future of law
+Our multilingual experts collaborate seamlessly, merging international perspectives with deep local expertise. Diversity isn’t just our identity—it’s the spark behind bold, effective legal strategies designed around you.
             </h2>
 </div>
 
 <div className={styles.teamContainer}>
         {teamMembers.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
-             {/* <div key={index} className={styles.teamCard}> */}
-            <div className={styles.imageWrapper} key={index}>
+             <div key={index} className={styles.teamCard}>
+            <div className={styles.imageWrapper}>
               <Image src={member.image} alt={member.name} width={300} height={300} className={styles.image_styling} />
             </div>
-          {/* </div> */}
+          </div>
+          <div className={styles.memberInfo}>
+          <h3 className={styles.centerize_content}>{member.name}</h3>
+          <p className={styles.centerize_content}>{member.position}</p>
+        </div>
          </div>
         ))}
       </div>
@@ -95,4 +86,4 @@ We go beyond legal counsel—we engage, innovate, and lead. From Dubai’s corpo
   );
 };
 
-export default Gallery;
+export default Team;

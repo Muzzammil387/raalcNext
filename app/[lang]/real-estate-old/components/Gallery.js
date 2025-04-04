@@ -3,33 +3,50 @@ import React from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
-import styles from '../styles/team.module.css'
+import styles from '../styles/gallery.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
 import { 
     ehab,
     abdelaziz,
-    lina
+    lina,
+    gallery_1,
+    gallery_2,
+    gallery_3,
+    gallery_4,
+    gallery_5,
+    gallery_6,
+    gallery_7,
+    gallery_8
 } from '@/app/untils/imgimport';
 import { Grid, Paper } from "@mui/material";
 
-const Team = ({ lang }) => {
+const Gallery = ({ lang }) => {
     const teamMembers = [
         {
-          name: "Ehab Mohamed",
-          position: "CEO - Senior Legal Consultant",
-          image: ehab,
+          image: gallery_1,
         },
         {
-          name: "Abdelaziz Alkhamiri",
-          position: "Head of Advocacy",
-          image: abdelaziz,
-        },
-        {
-          name: "Lina Khudairi",
-          position: "Chief Operating Officer",
-          image: lina,
-        },
+            image: gallery_2,
+          },
+          {
+            image: gallery_3,
+          },
+          {
+            image: gallery_4,
+          },
+          {
+            image: gallery_5,
+          },
+          {
+            image: gallery_6,
+          },
+          {
+            image: gallery_7,
+          },
+          {
+            image: gallery_8,
+          },
       ];
   return (
     <div>
@@ -42,35 +59,27 @@ const Team = ({ lang }) => {
       <div
   className={styles.background}
 >
-  {/* Dark Overlay */}
-  <div
-   className={styles.overlay}
-  ></div>
 
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Our Team: Expertise That Drives Business Success</p>
+      <p className={styles.commitment_heading}>Our Gallery: Bridging Borders, Building Connections</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
 <h2 className={styles.history_heading}>
-At RAALC, our multidisciplinary legal experts bring a powerful combination of global insight and local legal mastery. We deliver strategic legal solutions tailored to the unique challenges of businesses operating in the UAE and beyond.
+From Dubai to international legal hubs, our journey is marked by active participation in key events. Each moment reflects our dedication to innovation, collaboration, and shaping the future of law.
             </h2>
 </div>
 
 <div className={styles.teamContainer}>
         {teamMembers.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
-             <div key={index} className={styles.teamCard}>
-            <div className={styles.imageWrapper}>
+             {/* <div key={index} className={styles.teamCard}> */}
+            <div className={styles.imageWrapper} key={index}>
               <Image src={member.image} alt={member.name} width={300} height={300} className={styles.image_styling} />
             </div>
-          </div>
-          <div className={styles.memberInfo}>
-          <h3 className={styles.centerize_content}>{member.name}</h3>
-          <p className={styles.centerize_content}>{member.position}</p>
-        </div>
+          {/* </div> */}
          </div>
         ))}
       </div>
@@ -86,4 +95,4 @@ At RAALC, our multidisciplinary legal experts bring a powerful combination of gl
   );
 };
 
-export default Team;
+export default Gallery;

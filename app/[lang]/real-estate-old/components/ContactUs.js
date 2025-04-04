@@ -46,11 +46,7 @@ const ContactUs = ({ lang }) => {
            </div>
            <div>
            <p className={`${styles.ensure_protection}`}>
-           <p>
-           From trusts and private wealth management to inheritance, property,
-           and developer legal support, we secure your assets.
-</p>
-
+           From trusts and private wealth management to inheritance, property, and developer legal support, we secure your assets.
             </p>
           </div>
 

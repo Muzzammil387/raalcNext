@@ -1,10 +1,27 @@
 .background {
     position: relative;
     width: 100%;
-    background-image: url('/webImages/landing_page/team_main_background.png');
+    background-image: url('/webImages/landing_page/services_three.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.get_started_btn {
+    background-color: #E5C16C !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    height: 65px !important;
+    font-size: 24px !important;
+    padding: 10px 30px !important;
+    border-radius: 15px !important;
+    transition: background-color 0.3s ease-in-out;
+    font-family: Montserrat, sans-serif;
+}
+
+.get_started_btn:hover {
+    background-color: #D4B05A !important;
 }
 
 .overlay {
@@ -13,15 +30,24 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 .commitment_heading {
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 900;
 }
+
+.commitment_sub_heading {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
 .client_container {
     padding-left: 5%;
     padding-top: 2%;
@@ -59,40 +85,9 @@
     gap: 30px;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 4%;
+    margin-top: 2%;
     padding-right: 3%;
     padding-left: 3%;
-  }
-
-  .image_styling {
-    height: 350px;
-    width: 350px;
-    transition: all 0.5s ease-in-out;
-  }
-  
-  .teamCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: white;
-    border-radius: 50%;
-    width: 350px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s ease-in-out;
-  }
-  .teamCard:hover {
-    width: 360px;
-    transform: scale(1.1);
-  }
-  
-  .imageWrapper {
-    width: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .team_card_container {
@@ -113,16 +108,35 @@
   line-height: 1.5;
   word-break: break-word;
   }
+
+  .section_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    padding-right: 0% !important;
+}
+
+.section_text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    font-family: Montserrat, sans-serif;
+}
+
   
   .memberInfo {
     background-color: #dab35c;
-    padding: 40px 20px;
+    padding: 70px 20px;
     border-radius: 35px;
     display: flex;
     justify-content: center;
     margin-top: 10px;
     width: 100%;
-    height: 150px;
+    height: 350px;
     width: 350px;
     font-family: "Montserrat", sans-serif;
     display: flex;
@@ -137,6 +151,13 @@
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
   }
+
+  .section_line {
+    flex-grow: 1;
+    height: 3px;
+    background-color: white;
+    margin: 0 20px;
+}
   
   .memberInfo p {
     font-size: 20px;
@@ -144,13 +165,61 @@
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
   }
-  
+
+  .section_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    padding-right: 0% !important;
+}
+
+.get_started_btn {
+    background-color: #dab35c !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    height: 65px !important;
+    font-size: 24px !important;
+    padding: 10px 30px !important;
+    border-radius: 15px !important;
+    transition: background-color 0.3s ease-in-out;
+    font-family: Montserrat, sans-serif;
+}
+
+.get_started_btn:hover {
+    background-color: #E5C16C !important;
+}
 
 
-  
+.section_text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    font-family: Montserrat, sans-serif;
+}
+
+@media (max-width: 768px) {
+
+    .section_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section_text {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+  }
 
 @media (max-width: 1522px) {
     .commitment_heading {
+        font-size: 34px;
+    }
+    .commitment_sub_heading {
         font-size: 34px;
     }
   }
@@ -160,29 +229,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-    }
-
-    .image_styling {
-        height: 280px;
-        width: 280px;
-        transition: all 0.5s ease-in-out;
-      }
-      .image_styling:hover {
-        height: 290px;
-        width: 290px;
-        transform: scale(1.1);
-      }
-      
-  
-    .teamCard {
-      width: 280px;
-      height: 280px;
-      transition: all 0.5s ease-in-out;
-    }
-  
-    .imageWrapper {
-      width: 100%;
-    }
+    } 
   }
   
   @media (max-width: 768px) {
@@ -190,18 +237,26 @@
       flex-direction: column;
       align-items: center;
     }
-  
-    .imageWrapper {
-      width: 100%;
-    }
-  
     .memberInfo {
       width: 100%;
+    }
+
+    .section_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section_text {
+        font-size: 24px;
+        margin-bottom: 10px;
     }
   }
 
   @media (max-width: 1048px) {
     .commitment_heading {
+        font-size: 24px;
+    }
+    .commitment_sub_heading {
         font-size: 24px;
     }
   }
@@ -210,6 +265,9 @@
         font-size: 18px;
     }
     .commitment_heading {
+        font-size: 18px;
+    } 
+    .commitment_sub_heading {
         font-size: 18px;
     } 
     .memberInfo h3 {
@@ -228,3 +286,9 @@
     }
 
 }
+
+@media (max-width: 455px) {
+    .section_text {
+        font-size: 15px;
+    }
+  }

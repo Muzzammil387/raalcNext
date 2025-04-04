@@ -63,12 +63,12 @@ const Gallery = ({ lang }) => {
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Our Gallery: Bridging Borders, Building Connections</p>
+      <p className={styles.commitment_heading}>Gallery</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
 <h2 className={styles.history_heading}>
-From Dubai to international legal hubs, our journey is marked by active participation in key events. Each moment reflects our dedication to innovation, collaboration, and shaping the future of law.
+We go beyond legal counsel—we engage, innovate, and lead. From Dubai’s corporate landscape to international arbitration hubs, our presence at prestigious legal events reflects our commitment to excellence, collaboration and shaping the future of law
             </h2>
 </div>
 

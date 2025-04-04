@@ -1,8 +1,14 @@
 .client_heading {
     color: #dab35c;
     font-family: 'Montserrat', sans-serif;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 900;
+    margin-bottom: 25px;
+}
+.your_search_for {
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
 }
 .commitment_heading {
     color: #ffffff;
@@ -37,11 +43,12 @@
     padding: 30px;
     padding-left: 40px;
     border-radius: 40px;
-    padding-top: 10px;
+    padding-top: 8px;
     padding-bottom: 40px;
+    padding-right: 0;
 }
 .bold {
-    font-weight: 600;
+    font-weight: 800 !important;
 }
 .section_container {
     display: flex;
@@ -49,7 +56,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 20px;
-    margin-top: 15px;
+    margin-top: 25px;
     padding-right: 0% !important;
 }
 
@@ -64,7 +71,7 @@
 .background {
     position: relative;
     width: 100%;
-    background-image: url('/webImages/landing_page/client_background.png');
+    background-image: url('/webImages/landing_page/client_background_corporate.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,7 +91,6 @@
     display: flex;
     align-items: center;
     background-color: #dab35c;
-    border-radius: 40px;
     padding-top: 2%;
 }
 
@@ -105,6 +111,9 @@
     background-color: #E5C16C !important;
 }
 @media (max-width: 1522px) {
+    .your_search_for {
+        font-size: 30px;
+    }
     .client_heading {
         font-size: 34px;
     }
@@ -116,6 +125,9 @@
     }
   }
   @media (max-width: 1048px) {
+    .your_search_for {
+        font-size: 24px;
+    }
     .client_heading {
         font-size: 24px;
     }
@@ -127,6 +139,12 @@
     }
   }
   @media (max-width: 899px) {
+    .client_icons {
+        width: 80px !important;
+    }
+    .your_search_for {
+        font-size: 18px;
+    }
     .client_heading {
         font-size: 18px;
     } 
@@ -154,6 +172,12 @@
     .section_text {
         font-size: 24px;
         margin-bottom: 10px;
+    }
+
+    .get_started_btn {
+        font-size: 20px !important;
+        height: 50px !important;
+        padding: 8px 25px !important;
     }
 
 }

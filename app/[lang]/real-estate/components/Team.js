@@ -50,12 +50,12 @@ const Team = ({ lang }) => {
   {/* Content inside */}
   <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "3.5%" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
-      <p className={styles.commitment_heading}>Our Team: Where Diversity Fuels Excellence</p>
+      <p className={styles.commitment_heading}>Our Team: Expertise That Drives Business Success</p>
       <div className={styles.section_line}></div>
     </div>
 <div>
 <h2 className={styles.history_heading}>
-Our multilingual experts collaborate seamlessly, merging international perspectives with deep local expertise. Diversity isn’t just our identity—it’s the spark behind bold, effective legal strategies designed around you.
+At RAALC, our multidisciplinary legal experts bring a powerful combination of global insight and local legal mastery. We deliver strategic legal solutions tailored to the unique challenges of businesses operating in the UAE and beyond.
             </h2>
 </div>
 

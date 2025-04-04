@@ -22,10 +22,11 @@ import TeamMembers from './TeamMembers';
 import Gallery from './Gallery';
 import ContactUs from './ContactUs';
 import Services from './Services';
-import ServicesDetail from './ServicesDetail';
 import Services2 from './Services2';
-import Services2Detail from './Services2Detail';
 import Services3 from './Services3';
+import Services4 from './Services4';
+import Services5 from './Services5';
+import Faq from './FAQ';
 import { 
     raalc_white_logo, 
     white_whatsapp_icon
@@ -33,7 +34,7 @@ import {
 
 
 const pages = [
-    { label: 'Home', link: '/real-estate' },
+    { label: 'Home', link: '/corporate' },
     { label: 'About Us', link: '#about_us' },
     { label: 'Clients', link: '#our_clients' },
     { label: 'Services', link: '#services' },
@@ -60,8 +61,8 @@ const Header = ({ lang }) => {
         <Toolbar disableGutters className={styles.toolbar_styling}>
           {/* Desktop Layout */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", flexGrow: 1 }}>
-            <Link href="/real-estate" passHref>
-  <Image 
+            <Link href="/corporate" passHref>
+  <Image
     src={raalc_white_logo ?? ""} 
     width={220} 
     height={220} 
@@ -79,7 +80,7 @@ const Header = ({ lang }) => {
     </Button>
   </Link>
 ))}
-            <Box sx={{ borderRight: '5px solid #dab35c', height: "7.5rem", display: { xs: "none", md: "block" }, marginLeft: "20px" }}></Box>
+            <Box sx={{ height: "7.5rem", display: { xs: "none", md: "block" }, marginLeft: "20px" }}></Box>
             <Box 
             sx={{ marginLeft: "20px", display: { xs: "none", md: "block" }, cursor: "pointer" }}
             onClick={() => window.location.href = 'tel:+97145693370'}
@@ -146,21 +147,27 @@ const Header = ({ lang }) => {
     <div id='our_clients'>
     <OurClients/>
     </div>
+
     <div id='services'>
     <Services/>
     </div>
-    {/* <div>
-    <ServicesDetail/>
-    </div> */}
+
     <div>
     <Services2/>
     </div>
+
     <div>
-    <Services2Detail/>
-    </div>
-    {/* <div>
     <Services3/>
-    </div> */}
+    </div>
+
+    <div>
+    <Services4/>
+    </div>
+
+    <div>
+    <Services5/>
+    </div>
+
     <div id='team'>
     <Team/>
     </div>
@@ -172,6 +179,9 @@ const Header = ({ lang }) => {
     </div>
     <div id='contact_us'>
     <ContactUs/>
+    </div>
+    <div id='faq'>
+    <Faq/>
     </div>
     </div>
 

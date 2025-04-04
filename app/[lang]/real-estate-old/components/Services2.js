@@ -3,24 +3,15 @@ import React from 'react'
 import Image from 'next/image'
 import Link from "next/link";
 import { useState } from 'react';
-import styles from '../styles/services_three.module.css'
+import styles from '../styles/services_two.module.css'
 import Button from '@mui/material/Button';
 import 'react-multi-carousel/lib/styles.css';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { 
-    ehab,
-    abdelaziz,
-    lina
+    arrow_icon_services
 } from '@/app/untils/imgimport';
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Box } from "@mui/material";
 
-const Services3 = ({ lang }) => {
-  const scrollToHomePage = () => {
-    const homePageSection = document.getElementById("home_page");
-    if (homePageSection) {
-      homePageSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+const Services2 = ({ lang }) => {
     const service_content = [
         {
           heading: "Property Sale, Purchase & Conveyancing",
@@ -33,7 +24,7 @@ const Services3 = ({ lang }) => {
         {
           heading: "Real Estate Escrow Services",
           content: "A property deal is built on trust. Our escrow services securely manage funds, ensuring payments are released only when all conditions are met, protecting both buyers and sellers. With escrow account in real estate, every transaction is transparent and secure."
-        },
+        }
       ];
   return (
     <div>
@@ -52,8 +43,40 @@ const Services3 = ({ lang }) => {
   ></div>
 
   {/* Content inside */}
-  <div className={styles.client_container}>
-<div className={styles.teamContainer}>
+  <div className={styles.client_container} style={{ position: "relative", zIndex: 2, paddingLeft: "5%", paddingRight: "5%", paddingBottom: "4%" }}>
+  <Grid container spacing={0} style={{marginTop: 25}}>
+      {service_content.map((member, index) => (
+        <React.Fragment key={index}>
+          <span className={styles.card_container}>
+          <Grid item xs={12} sm={4} md={4}>
+            <Box style={{height: "100%"}}>
+              <div className={styles.team_card_container}>
+                <div className={styles.memberInfo}>
+                  <h3 className={`${styles.centerize_content} ${styles.border_heading}`}>
+                    {member.heading}
+                  </h3>
+                  <Image 
+                  src={arrow_icon_services ?? ""} 
+                  width={80} 
+                  height={80} 
+                  className={styles.arrow_styling}
+                  alt=""
+                  />
+                </div>
+              </div>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={8} md={8}>
+            <Box className={styles.memberInfoContent}>
+              <p className={styles.centerize_content}>{member.content}</p>
+            </Box>
+          </Grid>
+          </span>
+        </React.Fragment>
+      ))}
+    </Grid>
+
+{/* <div className={styles.teamContainer}>
         {service_content.map((member, index) => (
          <div key={index} className={styles.team_card_container}>
           <div className={styles.memberInfo}>
@@ -67,27 +90,16 @@ const Services3 = ({ lang }) => {
         </div>
          </div>
         ))}
-      </div>
+      </div> */}
 
   </div>
-
-
-   {/* Call to Action Section */}
-   <div className={styles.section_container}>
-      <span className={styles.section_text}>Speak to a Real Estate lawyer now</span>
-      <div className={styles.section_line}></div>
-      <Button onClick={scrollToHomePage} className={styles.get_started_btn}>
-      GET STARTED
-      </Button>
-    </div>
-
 </div>
 
-        </div>
 
+        </div>
     </div>
 
   );
 };
 
-export default Services3;
+export default Services2;
