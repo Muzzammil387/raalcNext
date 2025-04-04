@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/home.module.css'
 import Button from '@mui/material/Button';
 import { Typewriter } from "react-simple-typewriter";
+import ContactForm from './ContactForm';
 import { 
     paris_team,
     raw_logo,
@@ -80,7 +81,9 @@ const HomePage = ({ lang }) => {
                 <p className={styles.form_heading}>
                 Book Your Free Consultation Today!
                 </p>
-            <HubSpotForm formId="hubspotForm1"/>
+                {/* <iframe aria-label='TEST 1' frameborder="0" style={{height:'500px', width:'99%', border:'none'}} src='https://forms.zohopublic.com/raalcraalc1gm1/form/TEST1/formperma/NvgzpN5oY0vqW3TiOtZa-EVsKrhpGp1ago5bAqm64lc'></iframe> */}
+            {/* <HubSpotForm formId="hubspotForm1"/> */}
+            <ContactForm />
             <p className={styles.form_footer}>
             Your information is 100% secure & confidential.
             </p>
