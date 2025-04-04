@@ -83,11 +83,11 @@ const Header = ({ lang }) => {
             <Box sx={{ height: "7.5rem", display: { xs: "none", md: "block" }, marginLeft: "20px" }}></Box>
             <Box 
             sx={{ marginLeft: "20px", display: { xs: "none", md: "block" }, cursor: "pointer" }}
-            onClick={() => window.location.href = 'tel:+97145693370'}
+            onClick={() => window.location.href = 'tel:8007225223'}
             >
               <Image src={white_whatsapp_icon ?? ""} width={40} height={40} alt="WhatsApp Icon" />
             </Box>
-            <Typography className={styles.navbar_styling} onClick={() => window.open('tel:+97145693370', '_self')} >+97145693370</Typography>
+            <Typography className={styles.navbar_styling} onClick={() => window.open('tel:8007225223', '_self')} >800-7225223</Typography>
           </Box>
           
           {/* Mobile Layout */}

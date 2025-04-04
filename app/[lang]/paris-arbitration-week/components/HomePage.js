@@ -40,7 +40,7 @@ const HomePage = ({ lang }) => {
            Resolve Your Dispute with Expert <span style={{fontWeight: "700", fontStyle: "italic"}}>Arbitration Support</span>
             </p>
            <p className={`${styles.ensure_protection}`}>
-           RAALC is a proud sponsor of Paris Arbitration Week – <span style={{fontWeight: "700"}}>PAW 2025</span>. Engage with global arbitration leaders, explore innovative legal solutions, and safeguard your interests with expert representation.
+           RAALC is a proud partner of Paris Arbitration Week – <span style={{fontWeight: "700"}}>PAW 2025</span>. Engage with global arbitration leaders, explore innovative legal solutions, and safeguard your interests with expert representation.
             </p>
           </div>
 

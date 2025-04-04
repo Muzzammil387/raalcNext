@@ -109,7 +109,7 @@
 .commitment_heading {
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 45px;
+    font-size: 36px;
     font-weight: 900;
 }
 .client_container {
@@ -241,7 +241,7 @@
 
 @media (max-width: 1522px) {
     .commitment_heading {
-        font-size: 34px;
+        font-size: 32px;
     }
   }
 
@@ -302,7 +302,7 @@
 
   @media (max-width: 1048px) {
     .commitment_heading {
-        font-size: 24px;
+        font-size: 22px;
     }
   }
   @media (max-width: 899px) {

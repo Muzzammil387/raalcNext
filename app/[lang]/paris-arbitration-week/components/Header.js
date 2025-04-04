@@ -19,11 +19,13 @@ import OurClients from './Clients';
 import Services from './Services';
 import styles from '../styles/header.module.css';
 import ContactUs from './ContactUs';
+import TimeTable from './TimeTable';
 import { raalc_white_logo, white_whatsapp_icon } from '@/app/untils/imgimport';
 
 const pages = [
     { label: 'Home', link: '/paris-arbitration-week' },
     { label: 'Our Team', link: '#team' },
+    { label: 'Schedule', link: '#schedule' },
 ];
 
 const Header = ({ lang }) => {
@@ -82,11 +84,11 @@ const Header = ({ lang }) => {
               {/* WhatsApp Icon & Phone Number */}
               <Box 
                 sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
-                onClick={() => window.location.href = 'tel:+97145693370'}
+                onClick={() => window.location.href = 'tel:8007225223'}
               >
-                <Image src={white_whatsapp_icon ?? ""} width={40} height={40} alt="WhatsApp Icon" />
-                <Typography className={styles.navbar_styling} onClick={() => window.open('tel:+97145693370', '_self')}>
-                  +97145693370
+                <Image src={white_whatsapp_icon ?? ""} width={40} height={40} alt="Phone Icon" />
+                <Typography className={styles.navbar_styling} onClick={() => window.open('tel:8007225223', '_self')}>
+                  800-7225223
                 </Typography>
               </Box>
              </Box>
@@ -161,6 +163,10 @@ const Header = ({ lang }) => {
 
       <div id="team">
         <Team />
+      </div>
+
+      <div id="schedule">
+        <TimeTable />
       </div>
     </>
   );

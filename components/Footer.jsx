@@ -156,10 +156,10 @@ const Footer = () => {
       })}
     </div>
   </div>
-  <div className="footer_Quick bg-secondary py-2 text-white text-center">
+  {/* <div className="footer_Quick bg-secondary py-2 text-white text-center">
     <div className="container mx-auto"> {elements?.["developed_by"]} <Link href={"https://quickdigitals.ae/"} target='_blank' className='border-b border-[#fff]'>{elements?.["quick_digitals"]}</Link>
     </div>
-  </div>
+  </div> */}
   </footer>
   <div onClick={() => handleReachUsOpenModel(false)} className={`fixedback ${reachUs ? "active" : ""}`}></div>
   <div className={`consModel2  w-[60rem] fixed top-[50%] transform translate-y-[-50%] scale-x-0 transition-all duration-300 mx-auto left-0 right-0 z-[999] ${reachUs ? "active": ""} `}>
