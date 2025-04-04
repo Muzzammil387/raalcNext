@@ -94,8 +94,7 @@ With a team of highly skilled lawyers from diverse legal backgrounds, we offer a
     {/* First Button */}
     <Grid item xs={12} sm={6} md={5} lg={4}>
     <Button 
-  className={styles.get_started_btn_lawyer} 
-  fullWidth
+  className={styles.get_started_btn} fullWidth
   onClick={() => window.open('/webImages/paw_2025_raalc_event_calendar.pdf', '_blank')}
 >
         Meet our Lawyers at PAW

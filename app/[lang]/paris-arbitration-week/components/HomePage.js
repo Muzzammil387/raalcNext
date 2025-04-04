@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/home.module.css'
 import Button from '@mui/material/Button';
+import { Typewriter } from "react-simple-typewriter";
 import { 
     paris_team,
     raw_logo,
@@ -35,10 +36,30 @@ const HomePage = ({ lang }) => {
            Leaders in Arbitration & Legal Expertise
            </div>
            </p>
+
+           <div style={{lineHeight: "45px"}}>
+           <p className={styles.real_estate_lawyer}>
+           Resolve Your Dispute with Expert
+           </p>
+           <p className={styles.real_estate_lawyer} style={{fontStyle: "italic", fontWeight: 700}}>
+           <Typewriter
+        words={[
+            "Arbitration Support"
+        ]}
+        loop={true}
+        cursor
+        cursorStyle="_"
+        typeSpeed={80}
+        deleteSpeed={50}
+        delaySpeed={1000}
+      />
+      </p>
+           </div>
+
           <div>
-           <p className={`${styles.ensure_protection_first} ${styles.margin_up}`}>
+           {/* <p className={`${styles.ensure_protection_first} ${styles.margin_up}`}>
            Resolve Your Dispute with Expert <span style={{fontWeight: "700", fontStyle: "italic"}}>Arbitration Support</span>
-            </p>
+            </p> */}
            <p className={`${styles.ensure_protection}`}>
            RAALC is a proud partner of Paris Arbitration Week – <span style={{fontWeight: "700"}}>PAW 2025</span>. Engage with global arbitration leaders, explore innovative legal solutions, and safeguard your interests with expert representation.
             </p>
