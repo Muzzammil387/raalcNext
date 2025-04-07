@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Main from "./[lang]/main";
 import Script from "next/script";
 import WhatsAppButton from "./[lang]/real-estate/components/WhatsappButton";
+import WhatsAppButtonParis from "./[lang]/paris-arbitration-week/components/WhatsappButton";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ["latin"] });

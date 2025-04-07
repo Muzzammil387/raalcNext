@@ -30,7 +30,7 @@ const WhatsAppButton = () => {
 
       {/* WhatsApp Floating Button */}
       <Link
-        href="https://wa.me/97145693370?text=Hi,%20I'm%20interested%20in%20your%20services.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
+        href="https://wa.me/97145693370?text=Hi!%20%F0%9F%91%8B%20Get%20your%20free%20consultation%20now%E2%80%94just%20drop%20us%20a%20message%21%0A"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp_button}

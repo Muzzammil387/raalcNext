@@ -1,6 +1,26 @@
-import { useState } from "react";
+import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import styles from '../styles/contact_form.module.css'
+import CircularProgress from '@mui/material/CircularProgress';
+import { useSearchParams } from "next/navigation";
+import { Snackbar, Alert } from "@mui/material";
 
 export default function ContactForm() {
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const isSuccess = searchParams.get("success");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(false);
+    if (isSuccess == "true") {
+      setOpen(true);
+    }
+  }, [isSuccess]);
+
+
   const [formData, setFormData] = useState({
     Name_First: "",
     Name_Last: "",
@@ -16,10 +36,16 @@ export default function ContactForm() {
     Email: "",
   });
 
+ 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  // const startLoading = () => {
+  //   setIsLoading(true);
+  // }
 
   const validate = () => {
     const newErrors = {};
@@ -64,11 +90,45 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
     const form = e.target;
+    setIsLoading(true);
     form.submit();
   };
 
   return (
     <>
+  <Snackbar
+  open={open}
+  onClose={() => setOpen(false)}
+  autoHideDuration={3000}
+  anchorOrigin={{ vertical: "center", horizontal: "right" }}
+  sx={{
+    position: "fixed",
+    top: "100px",            
+    right: "24px",            
+    zIndex: 13000,             
+    width: "auto",
+    maxWidth: "400px",
+  }}
+>
+  <Alert
+    severity="success"
+    variant="filled"
+    onClose={() => setOpen(false)}
+    sx={{
+      minHeight: "100px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: "1rem",
+      fontWeight: 500,
+      textAlign: "center",
+      px: 3,
+    }}
+  >
+    Thank you for your interest! We’ll get back to you shortly.
+  </Alert>
+</Snackbar>
+
       <style jsx>{`
         .form-wrapper {
           padding-right: 50px;
@@ -107,18 +167,18 @@ export default function ContactForm() {
           font-size: 12px;
           margin-bottom: 10px;
         }
-        button {
-          padding: 10px 20px;
-          color: white;
-          background: #dab35c;
-          border: none;
-          border-radius: 2px;
-          cursor: pointer;
-          font-size: 20px
-        }
-        button:hover {
-          background: #dab35c;
-        }
+        // button {
+        //   padding: 10px 20px;
+        //   color: white;
+        //   background: #dab35c;
+        //   border: none;
+        //   border-radius: 2px;
+        //   cursor: pointer;
+        //   font-size: 20px
+        // }
+        // button:hover {
+        //   background: #dab35c;
+        // }
       `}</style>
 
       <div className="form-wrapper">
@@ -180,7 +240,9 @@ export default function ContactForm() {
           ></textarea>
 
           <div style={{display: "flex", justifyContent: "center"}}>
-          <button type="submit">Submit</button>
+          <Button className={styles.btn_styling} type="submit">
+             {isLoading && (<CircularProgress size="30px" color="#dab35c" style={{marginRight: 20}}/>)} 
+             Submit</Button>
           </div>
         </form>
       </div>

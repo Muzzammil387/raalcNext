@@ -162,7 +162,9 @@ const Header = ({ lang }) => {
     <div>
     <Services4/>
     </div>
-
+    <div id='faq'>
+    <Faq/>
+    </div>
     <div id='team'>
     <Team/>
     </div>
@@ -174,9 +176,6 @@ const Header = ({ lang }) => {
     </div>
     <div id='contact_us'>
     <ContactUs/>
-    </div>
-    <div id='faq'>
-    <Faq/>
     </div>
     </div>
 
