@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
         <GoogleTagManager gaId="GTM-NK2H57S" />
         <GoogleAnalytics gaId="G-4VM2WNCYK1" />
         <Main>{children}</Main>
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
       </body>
     </html>
   );

@@ -16,7 +16,10 @@ import MainLanguageValueProvider from '../context/MainLanguageValue';
 import MainTeamProvider from '../context/MainTeamContext';
 import MainAPiProvider from '../context/MainAPiContext';
 import Head from 'next/head';
+// import WhatsAppButton from "./[lang]/real-estate/components/WhatsappButton";
 import { ReactLenis } from '@studio-freight/react-lenis'
+import WhatsAppButton from './real-estate/components/WhatsappButton';
+import WhatsAppButtonParis from "./paris-arbitration-week/components/WhatsappButton";
 
 const Main = ({ children }) => {
   const pathname = usePathname();
@@ -30,6 +33,9 @@ const Main = ({ children }) => {
   }, []);
 
   const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate" || pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week" || pathname == "/en/corporate" || pathname == "/corporate";
+  const parisPage = pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week";
+  console.log("debugging parispage", parisPage)
+  console.log("debugging pathname", pathname)
 
   return (
     <>
@@ -49,6 +55,7 @@ const Main = ({ children }) => {
                       {!hideHeaderFooter && <Header language={languagess} data={header} />}
 
                       <main className="indexPage">{children}</main>
+                      {parisPage ? <WhatsAppButtonParis/> : <WhatsAppButton/>}
 
                       {!hideHeaderFooter && <Footer />}
 
