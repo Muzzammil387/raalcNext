@@ -34,8 +34,6 @@ const Main = ({ children }) => {
 
   const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate" || pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week" || pathname == "/en/corporate" || pathname == "/corporate";
   const parisPage = pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week";
-  console.log("debugging parispage", parisPage)
-  console.log("debugging pathname", pathname)
 
   return (
     <>

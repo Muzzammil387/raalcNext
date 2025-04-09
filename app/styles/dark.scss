@@ -1,0 +1,309 @@
+$template_color: #ff2c57;
+
+.dark {
+  body {
+    background-color: #111111;
+  }
+  p { 
+    color: #dddddd;
+  }
+  .bg-f6f6f6 {
+    background: #111111;
+  }
+
+
+  .header-sticky {
+    &.is-sticky {
+      background: #000 !important;
+      border-bottom: 1px solid #333;
+    }
+  }
+
+  .navbar-light {
+    &.header-sticky {
+      &.is-sticky {
+        .navbar-brand {
+          color: #fff;
+        }    
+        .navbar-nav {
+          .nav-link {
+            color: #fff; 
+
+            &.active {
+              color: $template_color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .section-title {
+    h2 { 
+      color: #fff;
+    }
+  }
+
+  .single-box {
+    background-color: #000;
+
+    h3 {
+      color: #fff;
+    }
+  }
+
+  .about-area { 
+    background: #000;
+  }
+  .about-addax {
+    ul {
+      li {
+        color: #ddd;
+      }
+    }
+  }
+
+  .about-strategy {
+    ul {
+      li {
+        color: #ddd;
+      }
+    }
+  }
+
+  .single-who-we-are {
+    background-color: #000;
+
+    h4 {
+      color: #fff;
+    }
+  }
+  .how-work {
+    background: #222222;
+    background-image: none !important;
+  }
+
+  .single-how-work { 
+    background: #000; 
+
+    h4 {
+      color: #fff;
+    }
+  }
+
+  .single-services {
+    .services-content {
+      h3 {
+        color: #fff;
+      }
+    }
+  }
+
+  .pricingTable {
+    .price-value {
+      .month {
+        color: #ddd; 
+      }
+    }
+    .pricing-content {
+      li {
+        color: #ddd; 
+      }
+    }
+  }
+
+  .work-area {
+    background-color: #000;
+  }
+  .faq-area {
+    background-color: #000;
+  }
+
+  .accordion__item {
+    border: none !important;
+
+    .accordion__button {
+      background-color: #272525;
+      color: #fff; 
+    }
+    .accordion__panel {
+      border-top: 1px solid #000;
+      background: #272525;
+    }
+  }
+
+  .single-feedback {
+    background-color: #000;
+
+    .client-info {
+      .client-title {
+        h4 {
+          color: #fff;
+        }
+        h5 {
+          color: #ddd;
+        }
+      }
+    }
+  }
+
+  .blog-area {
+    background-color: #000;
+  }
+
+  .single-blog-item {
+    border: 1px solid #1e1c1c;
+
+    span {
+      color: #ddd;
+    }
+    h4 {
+      a {
+        color: #fff;
+      }
+    }
+
+    &::before {
+      background-color: #1e1c1c;
+    }
+  }
+
+  .subscribe-area {
+    background: #000;
+  }
+  .newsletter {
+    background: #232121; 
+
+    h4 {
+      color: #fff;
+    }
+  }
+
+  .contact-form {
+    background-color: #222222;
+
+    .form-group {
+      label { 
+        color: #fff;
+      }
+    }
+    .form-control { 
+      border-color: #000;
+      background: #000;
+      color: #fff;
+    }
+  }
+
+  .contact-info { 
+    background: #222222; 
+
+    ul {
+      li {
+        color: #ddd;
+
+        a {
+          color: #ddd;
+        }
+      }
+    }
+  }
+
+  .go-top {
+    border: 1px solid #393434;
+  }
+
+  .blog-details {
+    .article-text {
+      background: #000;
+    }
+  }
+
+  .blog-details-area {
+    .title {
+      color: #fff;
+    }
+  }
+
+  .blog-details {
+    .article-text {
+      .article-author {
+        .author-title {
+          h4 {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .post-comments {
+    .single-comment {
+      background: #000;
+
+      .comment-content {
+        h4 {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .form-control {
+    background-color: #000000;
+    border: 1px solid #000000; 
+    color: #fff;
+
+    &::placeholder {
+      color: #ddd;
+      opacity: 1; 
+    }
+    &::-ms-input-placeholder { 
+      color: #ddd;
+    }
+  }
+
+  .team-slider, .blog-slider {
+    .swiper-pagination {
+      .swiper-pagination-bullet {
+        background-color: #fff;
+
+        &.swiper-pagination-bullet-active {
+          background-color: $template_color;
+        }
+      }
+    }
+  }
+
+  
+  // Responsive
+  @media screen and (max-width: 767px) {
+    .navbar {
+      &.navbar-light {
+        .navbar-brand {
+          color: #fff; 
+        }
+        .navbar-nav {
+          .nav-link {
+            color: #fff; 
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar {
+      &.navbar-light {
+        .navbar-brand {
+          color: #fff; 
+        }
+        .navbar-nav {
+          .nav-link {
+            color: #fff; 
+          }
+        }
+      }
+    }
+  }
+
+}

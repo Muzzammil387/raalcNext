@@ -1,0 +1,191 @@
+.dark body {
+  background-color: #111111;
+}
+.dark p {
+  color: #dddddd;
+}
+.dark .bg-f6f6f6 {
+  background: #111111;
+}
+.dark .header-sticky.is-sticky {
+  background: #000 !important;
+  border-bottom: 1px solid #333;
+}
+.dark .navbar-light.header-sticky.is-sticky .navbar-brand {
+  color: #fff;
+}
+.dark .navbar-light.header-sticky.is-sticky .navbar-nav .nav-link {
+  color: #fff;
+}
+.dark .navbar-light.header-sticky.is-sticky .navbar-nav .nav-link.active {
+  color: #ff2c57;
+}
+.dark .section-title h2 {
+  color: #fff;
+}
+.dark .single-box {
+  background-color: #000;
+}
+.dark .single-box h3 {
+  color: #fff;
+}
+.dark .about-area {
+  background: #000;
+}
+.dark .about-addax ul li {
+  color: #ddd;
+}
+.dark .about-strategy ul li {
+  color: #ddd;
+}
+.dark .single-who-we-are {
+  background-color: #000;
+}
+.dark .single-who-we-are h4 {
+  color: #fff;
+}
+.dark .how-work {
+  background: #222222;
+  background-image: none !important;
+}
+.dark .single-how-work {
+  background: #000;
+}
+.dark .single-how-work h4 {
+  color: #fff;
+}
+.dark .single-services .services-content h3 {
+  color: #fff;
+}
+.dark .pricingTable .price-value .month {
+  color: #ddd;
+}
+.dark .pricingTable .pricing-content li {
+  color: #ddd;
+}
+.dark .work-area {
+  background-color: #000;
+}
+.dark .faq-area {
+  background-color: #000;
+}
+.dark .accordion__item {
+  border: none !important;
+}
+.dark .accordion__item .accordion__button {
+  background-color: #272525;
+  color: #fff;
+}
+.dark .accordion__item .accordion__panel {
+  border-top: 1px solid #000;
+  background: #272525;
+}
+.dark .single-feedback {
+  background-color: #000;
+}
+.dark .single-feedback .client-info .client-title h4 {
+  color: #fff;
+}
+.dark .single-feedback .client-info .client-title h5 {
+  color: #ddd;
+}
+.dark .blog-area {
+  background-color: #000;
+}
+.dark .single-blog-item {
+  border: 1px solid #1e1c1c;
+}
+.dark .single-blog-item span {
+  color: #ddd;
+}
+.dark .single-blog-item h4 a {
+  color: #fff;
+}
+.dark .single-blog-item::before {
+  background-color: #1e1c1c;
+}
+.dark .subscribe-area {
+  background: #000;
+}
+.dark .newsletter {
+  background: #232121;
+}
+.dark .newsletter h4 {
+  color: #fff;
+}
+.dark .contact-form {
+  background-color: #222222;
+}
+.dark .contact-form .form-group label {
+  color: #fff;
+}
+.dark .contact-form .form-control {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+.dark .contact-info {
+  background: #222222;
+}
+.dark .contact-info ul li {
+  color: #ddd;
+}
+.dark .contact-info ul li a {
+  color: #ddd;
+}
+.dark .go-top {
+  border: 1px solid #393434;
+}
+.dark .blog-details .article-text {
+  background: #000;
+}
+.dark .blog-details-area .title {
+  color: #fff;
+}
+.dark .blog-details .article-text .article-author .author-title h4 {
+  color: #fff;
+}
+.dark .post-comments .single-comment {
+  background: #000;
+}
+.dark .post-comments .single-comment .comment-content h4 {
+  color: #fff;
+}
+.dark .form-control {
+  background-color: #000000;
+  border: 1px solid #000000;
+  color: #fff;
+}
+.dark .form-control::-moz-placeholder {
+  color: #ddd;
+  opacity: 1;
+}
+.dark .form-control::placeholder {
+  color: #ddd;
+  opacity: 1;
+}
+.dark .form-control::-ms-input-placeholder {
+  color: #ddd;
+}
+.dark .team-slider .swiper-pagination .swiper-pagination-bullet, .dark .blog-slider .swiper-pagination .swiper-pagination-bullet {
+  background-color: #fff;
+}
+.dark .team-slider .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, .dark .blog-slider .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #ff2c57;
+}
+@media screen and (max-width: 767px) {
+  .dark .navbar.navbar-light .navbar-brand {
+    color: #fff;
+  }
+  .dark .navbar.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .dark .navbar.navbar-light .navbar-brand {
+    color: #fff;
+  }
+  .dark .navbar.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+  }
+}/*# sourceMappingURL=dark.css.map */
