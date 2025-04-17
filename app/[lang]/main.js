@@ -18,8 +18,10 @@ import MainAPiProvider from '../context/MainAPiContext';
 import Head from 'next/head';
 // import WhatsAppButton from "./[lang]/real-estate/components/WhatsappButton";
 import { ReactLenis } from '@studio-freight/react-lenis'
-import WhatsAppButton from './real-estate/components/WhatsappButton';
+import WhatsAppButtonRealEstate from './real-estate/components/WhatsappButton';
 import WhatsAppButtonParis from "./paris-arbitration-week/components/WhatsappButton";
+import WhatsAppButtonCorporate from './corporate/components/WhatsappButton';
+import WhatsAppButtonWebsite from './WhatsappButton';
 
 const Main = ({ children }) => {
   const pathname = usePathname();
@@ -33,7 +35,12 @@ const Main = ({ children }) => {
   }, []);
 
   const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate" || pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week" || pathname == "/en/corporate" || pathname == "/corporate" || pathname == "/en/commercial" || pathname == "/commercial";
-  const parisPage = pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week";
+  const parisPage = "/paris-arbitration-week";
+  const parisPageEng = "/en/paris-arbitration-week";
+  const realEstatePage = "/real-estate";
+  const realEstatePageEng = "/en/real-estate";
+  const corporatePage = "/corporate";
+  const corporatePageEng = "/en/corporate";
 
   return (
     <>
@@ -53,7 +60,19 @@ const Main = ({ children }) => {
                       {!hideHeaderFooter && <Header language={languagess} data={header} />}
 
                       <main className="indexPage">{children}</main>
-                      {parisPage ? <WhatsAppButtonParis/> : <WhatsAppButton/>}
+
+                      {
+  pathname === parisPage || pathname === parisPageEng ? (
+    <WhatsAppButtonParis />
+  ) : pathname === corporatePage || pathname === corporatePageEng ? (
+    <WhatsAppButtonCorporate />
+  ) : pathname === realEstatePage || pathname === realEstatePageEng ? (
+    <WhatsAppButtonRealEstate />
+  ) : (
+    <WhatsAppButtonWebsite />
+  )
+}
+                      {/* {pathname == parisPage || pathname == parisPageEng ? <WhatsAppButtonParis/> : (pathname == corporatePage || pathname == corporatePageEng) ? <WhatsAppButtonCorporate/> : <WhatsAppButtonRealEstate/>} */}
 
                       {!hideHeaderFooter && <Footer />}
 

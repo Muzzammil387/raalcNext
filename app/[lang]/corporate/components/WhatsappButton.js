@@ -8,6 +8,27 @@ import styles from "../styles/WhatsappButton.module.css";
 const WhatsAppButton = () => {
   const [showMessage, setShowMessage] = useState(false);
 
+  const saveLog = async () => {
+    try {
+      await fetch('https://api.raalc.ae/api/save_log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: 'WhatsApp button clicked from Corporate Landing Page',
+          origin: "corporate",
+          type: "whatsapp",
+          source: "web",
+          page_url: window.location.href
+        }),
+      });
+      console.log('Log sent!');
+    } catch (error) {
+      console.error('Log failed:', error);
+    }
+  };
+
   useEffect(() => {
     // Check if the user has already seen the greeting in this session
     const hasSeenMessage = sessionStorage.getItem("whatsappGreeting");
@@ -30,10 +51,13 @@ const WhatsAppButton = () => {
 
       {/* WhatsApp Floating Button */}
       <Link
-        href="https://wa.me/97145693370?text=Hi,%20I'm%20interested%20in%20your%20services.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
+        href="https://wa.me/97145693370?text=Hi,%20I'm%20interested%20in%20your%20services%20regarding%20Corporate.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp_button}
+        onClick={() => {
+        saveLog();
+        }}
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"

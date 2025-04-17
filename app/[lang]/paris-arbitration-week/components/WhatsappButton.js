@@ -8,6 +8,27 @@ import styles from "../styles/WhatsappButton.module.css";
 const WhatsAppButton = () => {
   const [showMessage, setShowMessage] = useState(false);
 
+  const saveLog = async () => {
+    try {
+      await fetch('https://api.raalc.ae/api/save_log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: 'WhatsApp Button clicked from Paris Arbitration Week Landing Page',
+          origin: "paris_arbitration_week",
+          type: "whatsapp",
+          source: "web",
+          page_url: window.location.href
+        }),
+      });
+      console.log('Log sent!');
+    } catch (error) {
+      console.error('Log failed:', error);
+    }
+  };
+
   useEffect(() => {
     // Check if the user has already seen the greeting in this session
     const hasSeenMessage = sessionStorage.getItem("whatsappGreeting");
@@ -34,6 +55,9 @@ const WhatsAppButton = () => {
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp_button}
+        onClick={() => {
+          saveLog();
+        }}
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"

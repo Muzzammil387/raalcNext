@@ -1,9 +1,9 @@
-"use client";  // Ensure this runs as a Client Component
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/WhatsappButton.module.css";
+import styles from "../[lang]/WhatsappButton.module.css";
 
 const WhatsAppButton = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -16,8 +16,8 @@ const WhatsAppButton = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: 'WhatsApp button clicked from Real Estate Landing Page',
-          origin: "real_estate",
+          message: 'WhatsApp button clicked from Website',
+          origin: "website",
           type: "whatsapp",
           source: "web",
           page_url: window.location.href
@@ -28,6 +28,7 @@ const WhatsAppButton = () => {
       console.error('Log failed:', error);
     }
   };
+
 
   useEffect(() => {
     const hasSeenMessage = sessionStorage.getItem("whatsappGreeting");
@@ -40,17 +41,14 @@ const WhatsAppButton = () => {
 
   return (
     <div className={styles.whatsappContainer}>
-      {/* Greeting Message (Shows once per session) */}
       {showMessage && (
         <div className={styles.greetingMessage}>
           👋 Hi there! Need help? Chat with us on WhatsApp.
           <button onClick={() => setShowMessage(false)}>✖</button>
         </div>
       )}
-
-      {/* WhatsApp Floating Button */}
       <Link
-       href="https://wa.me/97145693370?text=Hi,%20I'm%20interested%20in%20your%20services%20regarding%20Real%20Estate.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
+        href="https://wa.me/97145693370?text=Hi%20RAALC,%20I'm%20interested%20in%20your%20services.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp_button}
