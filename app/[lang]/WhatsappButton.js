@@ -17,9 +17,9 @@ const WhatsAppButton = () => {
         },
         body: JSON.stringify({
           message: 'WhatsApp button clicked from Website',
-          origin: "website",
-          type: "whatsapp",
-          source: "web",
+          origin: "Website",
+          type: "Whatsapp",
+          source: "Web",
           page_url: window.location.href
         }),
       });

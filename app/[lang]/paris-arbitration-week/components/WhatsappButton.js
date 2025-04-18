@@ -17,9 +17,9 @@ const WhatsAppButton = () => {
         },
         body: JSON.stringify({
           message: 'WhatsApp Button clicked from Paris Arbitration Week Landing Page',
-          origin: "paris_arbitration_week",
-          type: "whatsapp",
-          source: "web",
+          origin: "Paris Arbitration Week",
+          type: "Whatsapp",
+          source: "Web",
           page_url: window.location.href
         }),
       });

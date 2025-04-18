@@ -17,9 +17,9 @@ const WhatsAppButton = () => {
         },
         body: JSON.stringify({
           message: 'WhatsApp button clicked from Real Estate Landing Page',
-          origin: "real_estate",
-          type: "whatsapp",
-          source: "web",
+          origin: "Real Estate",
+          type: "Whatsapp",
+          source: "Web",
           page_url: window.location.href
         }),
       });
