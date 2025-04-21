@@ -4,22 +4,26 @@ import TeamMain from './TeamMain';
 import axios from 'axios';
 import config from "../../services/config.json";
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  // read route params
-  const { lang, slug } = params;
- 
-  // fetch data using Axios
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+
   try {
-    const response = await axios.get(`${config.apiEndPoint}webContents/metadata/teams/${lang}`);
-    const data = response.data?.data;
+    const res = await fetch(`${config.apiEndPoint}webContents/metadata/teams/${lang}`, {
+      cache: "no-store",
+    });
+
+    const json = await res.json();
+    const data = json.data;
+
     return {
-      title:data?.meta_tag || "Raalc Team",
-      description: data?.meta_description || "Raalc Team",
+      title: data?.meta_tag || "Raalc News",
+      description: data?.meta_description || "Raalc News",
     };
-  } catch (error) {
-    console.error('Error fetching product data:', error);
+  } catch (err) {
+    console.error("Metadata fetch failed", err);
     return {
-      title: 'Raalc Teams', // fallback title in case of an error
+      title: "Raalc News",
+      description: "Raalc Legal News in UAE",
     };
   }
 }
