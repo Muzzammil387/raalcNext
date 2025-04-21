@@ -186,7 +186,7 @@ const NewPage = ({ lang }) => {
         <div className="container mx-auto px-6">
           <div className="innerPage1_ w-[70%] mx-auto text-center">
             <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">
-              {datas?.meta?.meta_tag}
+              {datas?.meta?.heading}
             </h1>
           </div>
         </div>
