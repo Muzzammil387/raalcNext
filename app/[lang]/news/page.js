@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const { lang } = params;
 
   try {
-    const res = await fetch(`https://api.raalc.ae/webContents/metadata/news/${lang}`, {
+    const res = await fetch(`${config.apiEndPoint}webContents/metadata/news/${lang}`, {
       cache: "no-store", // or "force-cache" depending on your logic
     });
 
