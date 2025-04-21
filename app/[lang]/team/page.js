@@ -18,6 +18,9 @@ export async function generateMetadata({ params }) {
     return {
       title: data?.meta_tag || "Raalc News",
       description: data?.meta_description || "Raalc News",
+      alternates: {
+        canonical: "https://www.raalc.ae/team",
+      },
     };
   } catch (err) {
     console.error("Metadata fetch failed", err);
