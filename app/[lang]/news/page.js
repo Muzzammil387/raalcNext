@@ -11,7 +11,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
  
   // fetch data using Axios
   try {
-    const response = await axios.get(`${config.apiEndPoint}webContents/metadata/news/${lang}`);
+    const response = await axios.get(`https://api.raalc.ae/webContents/metadata/news/${lang}`);
     const data = response.data?.data;
     return {
       title:data?.meta_tag || "Raalc News",
