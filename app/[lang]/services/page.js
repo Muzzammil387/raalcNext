@@ -4,22 +4,26 @@ import ServicesMain from './ServicesMain';
 import config from "../../services/config.json";
 import axios from 'axios';
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  // read route params
-  const { lang, slug } = params;
- 
-  // fetch data using Axios
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+
   try {
-    const response = await axios.get(`https://api.raalc.ae/webContents/metadata/services/${lang}`);
-    const data = response.data?.data;
+    const res = await fetch(`${config.apiEndPoint}webContents/metadata/services/${lang}`, {
+      cache: "no-store", // or "force-cache" depending on your logic
+    });
+
+    const json = await res.json();
+    const data = json.data;
+
     return {
-      title:data?.meta_tag || "Raalc News",
+      title: data?.meta_tag || "Raalc News",
       description: data?.meta_description || "Raalc News",
     };
-  } catch (error) {
-    console.error('Error fetching product data:', error);
+  } catch (err) {
+    console.error("Metadata fetch failed", err);
     return {
-      title: 'Raalc News', // fallback title in case of an error
+      title: "Raalc News",
+      description: "Raalc Legal News in UAE",
     };
   }
 }
