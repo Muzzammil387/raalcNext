@@ -68,7 +68,7 @@ const ServicesPage = ({ lang, slug }) => {
         </div>
       </section>}
 
-      {sec_three[0].heading_one && Array.isArray(sec_three) && sec_three.map((item,index) => {
+      {sec_three && sec_three[0] && sec_three[0].heading_one && Array.isArray(sec_three) && sec_three.map((item,index) => {
         const {image,heading_one,heading_two,description} = item
         return (
           <section className="innerPage1 my-[6.25rem]" key={index}>
