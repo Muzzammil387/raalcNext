@@ -1,5 +1,6 @@
 {
     "apiEndPoint2": "https://raalc.testqds.com/api/",
     "apiEndPoint22": "https://raalc.testqds.com/public/api/",
-    "apiEndPoint": "https://api.raalc.ae/api/"
+    "apiEndPoint": "https://api.raalc.ae/api/",
+    "websiteRootUrl": "https://www.raalc.ae/"
 }   

@@ -25,7 +25,11 @@ export async function middleware(req) {
       (locale) => path.startsWith(`/${locale}/`) || path === `/${locale}`
     ) || defaultLocale;
 
-  return NextResponse.next();
+    const response = NextResponse.next();
+    response.headers.set("X-Robots-Tag", "index, follow");
+    return response;
+
+  // return NextResponse.next();
 }
 
 export const config = {

@@ -14,6 +14,24 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
       title:data?.meta_tag || "Raalc Home",
       description: data?.meta_description || "Raalc Home",
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: false,
+        },
+      },
+      alternates: {
+        canonical: 'https://www.raalc.ae/',
+        languages: {
+          'en': `https://www.raalc.ae/en`,
+          'ar': `https://www.raalc.ae/ar`,
+          'x-default': 'https://www.raalc.ae/',
+        },
+      },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

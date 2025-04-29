@@ -16,6 +16,24 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
       title: data?.data?.meta_tag || "Raalc Gallery",
       description: data?.data?.meta_description || "Raalc Gallery",
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: false,
+        },
+      },
+      alternates: {
+        canonical: 'https://www.raalc.ae/gallery',
+        languages: {
+          'en': `https://www.raalc.ae/en/gallery`,
+          'ar': `https://www.raalc.ae/ar/gallery`,
+          'x-default': `https://www.raalc.ae/gallery`,
+        },
+      },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

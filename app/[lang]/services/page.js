@@ -18,8 +18,23 @@ export async function generateMetadata({ params }) {
     return {
       title: data?.meta_tag || "Raalc News",
       description: data?.meta_description || "Raalc News",
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: false,
+        },
+      },
       alternates: {
-        canonical: "https://www.raalc.ae/services",
+        canonical: 'https://www.raalc.ae/services',
+        languages: {
+          'en': `https://www.raalc.ae/en/services`,
+          'ar': `https://www.raalc.ae/ar/services`,
+          'x-default': `https://www.raalc.ae/services`,
+        },
       },
     };
   } catch (err) {

@@ -15,6 +15,24 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
       title:data?.meta_tag || "Raalc Event",
       description: data?.meta_description || "Raalc Event",
+      robots: {
+        index: true,
+        follow: true,
+        nocache: false,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: false,
+        },
+      },
+      alternates: {
+        canonical: 'https://www.raalc.ae/events',
+        languages: {
+          'en': `https://www.raalc.ae/en/events`,
+          'ar': `https://www.raalc.ae/ar/events`,
+          'x-default': `https://www.raalc.ae/events`,
+        },
+      },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);
