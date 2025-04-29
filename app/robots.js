@@ -194,7 +194,9 @@ export default function robots() {
             "/ar/team/34",
             "/ar/team/82",
             "/ar/team/68",
-            "/ar/team/95"
+            "/ar/team/95",
+            "/*?l=",
+            "/*?sv="
           ],
         },
         {
