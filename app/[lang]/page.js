@@ -6,6 +6,24 @@ import axios from 'axios';
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
   const { lang, slug } = params;
+
+  const baseUrl = `${config.websiteRootUrl}`;
+ 
+   // Construct the path
+   const path = `/${lang}`;
+   const language_for_con = lang === 'ar' ? `${lang}` : '';
+ 
+ 
+   // Construct the query string from searchParams
+   const queryString = new URLSearchParams(
+     Object.entries(searchParams || {}).reduce((acc, [key, value]) => {
+       acc[key] = Array.isArray(value) ? value[0] : value || '';
+       return acc;
+     }, {})
+   ).toString();
+ 
+   const fullPath = queryString ? `${language_for_con}?${queryString}` : language_for_con;
+   const canonicalUrl = `${baseUrl}${fullPath}`;
  
   // fetch data using Axios
   try {
@@ -25,7 +43,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
       },
       alternates: {
-        canonical: 'https://www.raalc.ae/',
+        canonical: canonicalUrl ?? canonicalUrl,
         languages: {
           'en': `https://www.raalc.ae/en`,
           'ar': `https://www.raalc.ae/ar`,

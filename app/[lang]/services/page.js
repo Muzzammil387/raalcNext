@@ -4,8 +4,26 @@ import ServicesMain from './ServicesMain';
 import config from "../../services/config.json";
 import axios from 'axios';
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params, searchParams }) {
   const { lang } = params;
+
+  const baseUrl = `${config.websiteRootUrl}`;
+     
+       // Construct the path
+       const path = `/${lang}/services`;
+       const language_for_con = lang === 'ar' ? `${lang}/services` : 'services';
+     
+     
+       // Construct the query string from searchParams
+       const queryString = new URLSearchParams(
+         Object.entries(searchParams || {}).reduce((acc, [key, value]) => {
+           acc[key] = Array.isArray(value) ? value[0] : value || '';
+           return acc;
+         }, {})
+       ).toString();
+     
+       const fullPath = queryString ? `${language_for_con}?${queryString}` : language_for_con;
+       const canonicalUrl = `${baseUrl}${fullPath}`;
 
   try {
     const res = await fetch(`${config.apiEndPoint}webContents/metadata/services/${lang}`, {
@@ -29,7 +47,7 @@ export async function generateMetadata({ params }) {
         },
       },
       alternates: {
-        canonical: 'https://www.raalc.ae/services',
+        canonical: canonicalUrl ?? canonicalUrl,
         languages: {
           'en': `https://www.raalc.ae/en/services`,
           'ar': `https://www.raalc.ae/ar/services`,
