@@ -8,6 +8,7 @@ export default function robots() {
             "/corporate/",
             "/real-estate/",
             "/ru/*",
+            "/en/*",
             "/ch/*",
             "/services/30",
             "/services/31",
