@@ -2,7 +2,6 @@ import React from 'react';
 import Home from '@/components/Home';
 import config from "../services/config.json";
 import axios from 'axios';
-import Head from 'next/head';
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
@@ -45,11 +44,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
       },
       alternates: {
         canonical: canonicalUrl ?? canonicalUrl,
-        // languages: {
-        //   'en': `https://www.raalc.ae/en`,
-        //   'ar': `https://www.raalc.ae/ar`,
-        //   'x-default': 'https://www.raalc.ae/',
-        // },
+        languages: {
+          'en': `https://www.raalc.ae/en`,
+          'ar': `https://www.raalc.ae/ar`,
+          'x-default': 'https://www.raalc.ae/',
+        },
       },
     };
   } catch (error) {
@@ -74,11 +73,6 @@ const page = ({ params }) => {
   
   return (
     <>
-    <Head>
-        <link rel="alternate" hreflang="en" href="https://www.raalc.ae/en" />
-        <link rel="alternate" hreflang="ar" href="https://www.raalc.ae/ar" />
-        <link rel="alternate" hreflang="x-default" href="https://www.raalc.ae/" />
-      </Head>
       <Home lang={lang} />
     </>
   );
