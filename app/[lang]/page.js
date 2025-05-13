@@ -75,9 +75,9 @@ const page = ({ params }) => {
   return (
     <>
     <Head>
-        <link rel="alternate" hrefLang="en" href="https://www.raalc.ae/en" />
-        <link rel="alternate" hrefLang="ar" href="https://www.raalc.ae/ar" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.raalc.ae/" />
+        <link rel="alternate" hreflang="en" href="https://www.raalc.ae/en" />
+        <link rel="alternate" hreflang="ar" href="https://www.raalc.ae/ar" />
+        <link rel="alternate" hreflang="x-default" href="https://www.raalc.ae/" />
       </Head>
       <Home lang={lang} />
     </>
