@@ -29,6 +29,27 @@ const ContactUs = ({ lang }) => {
     }
   };
 
+  const saveLogForRealEstate = async () => {
+    try {
+      await fetch('https://api.raalc.ae/api/save_log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: 'Phone button clicked from Real Estate Landing Page',
+          origin: "Real Estate",
+          type: "Phone",
+          source: "Web",
+          page_url: window.location.href
+        }),
+      });
+      console.log('Log sent!');
+    } catch (error) {
+      console.error('Log failed:', error);
+    }
+  };
+
   return (
     <div>
     <div>
@@ -62,6 +83,7 @@ const ContactUs = ({ lang }) => {
       {/* Call Button */}
       <Link
         href="tel:8007225223"
+        onClick={saveLogForRealEstate}
         className="flex items-center gap-1 px-6 py-3 text-white rounded-full border-4 shadow-md transition-all"
         style={{
           backgroundColor: "#dab35c",

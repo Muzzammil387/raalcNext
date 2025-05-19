@@ -2,9 +2,31 @@
 import useFetch from '@/app/customHooks/useFetch';
 import Loaders from '@/components/Loaders';
 import React from 'react'
+import Link from "next/link";
 
 const ContactPage = ({lang}) => {
     const { loading, data } = useFetch(`webContents/contact/${lang}`);
+
+    const saveLogContactPage = async () => {
+      try {
+        await fetch('https://api.raalc.ae/api/save_log', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: 'Phone button clicked from Website',
+            origin: "Website",
+            type: "Phone",
+            source: "Web",
+            page_url: window.location.href
+          }),
+        });
+        console.log('Log sent!');
+      } catch (error) {
+        console.error('Log failed:', error);
+      }
+    };
 
       if(loading) return <Loaders />;
       let datas = data?.data
@@ -33,7 +55,9 @@ const ContactPage = ({lang}) => {
               <div className="BRANCHESMainBox_top py-6 px-5">
                 <div className="h2 text-[2.2rem] font-bold mb-8 font-Mluvka">{branch_heading}</div>
                 <p className='min-h-[3rem] w-[80%] max-lg:w-[100%] mx-auto'>{branch_location}</p>
-                <a href={`tel:${branch_phone}`} className="text-secondary text-[2.3rem] block font-bold mt-3">{branch_phone}</a>
+                <Link href={`tel:${branch_phone}`} onClick={() => {
+          saveLogContactPage();
+        }} className="text-secondary text-[2.3rem] block font-bold mt-3">{branch_phone}</Link>
                 <a href={`mailto:${branch_email}`} className="text-[1.5rem] font-bold font-Mluvka">{branch_email}</a>
               </div> 
               <div className="BRANCHESMainBox_bottom">

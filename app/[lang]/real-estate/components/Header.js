@@ -54,6 +54,27 @@ const Header = ({ lang }) => {
     setAnchorElNav(null);
   };
 
+  const saveLogForRealEstate = async () => {
+    try {
+      await fetch('https://api.raalc.ae/api/save_log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: 'Phone button clicked from Real Estate Landing Page',
+          origin: "Real Estate",
+          type: "Phone",
+          source: "Web",
+          page_url: window.location.href
+        }),
+      });
+      console.log('Log sent!');
+    } catch (error) {
+      console.error('Log failed:', error);
+    }
+  };
+
   return (
     <div>
         <AppBar position="static" className={styles.header_styling}>
@@ -83,11 +104,20 @@ const Header = ({ lang }) => {
             <Box sx={{ height: "7.5rem", display: { xs: "none", md: "block" }, marginLeft: "20px" }}></Box>
             <Box 
             sx={{ marginLeft: "20px", display: { xs: "none", md: "block" }, cursor: "pointer" }}
-            onClick={() => window.location.href = 'tel:8007225223'}
+            onClick={() => {
+              saveLogForRealEstate();
+              window.location.href = 'tel:8007225223';
+            }}
             >
               <Image src={white_whatsapp_icon ?? ""} width={40} height={40} alt="WhatsApp Icon" />
             </Box>
-            <Typography className={styles.navbar_styling} onClick={() => window.open('tel:8007225223', '_self')} >800-7225223</Typography>
+            <Typography className={styles.navbar_styling} 
+            // onClick={() => window.open('tel:8007225223', '_self')}
+            onClick={() => {
+              saveLogForRealEstate();
+              window.open('tel:8007225223', '_self');
+            }}
+             >800-7225223</Typography>
           </Box>
           
           {/* Mobile Layout */}

@@ -29,6 +29,27 @@ const ContactUs = ({ lang }) => {
     }
   };
 
+  const saveLogForCorporate = async () => {
+    try {
+      await fetch('https://api.raalc.ae/api/save_log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: 'Phone button clicked from Corporate Landing Page',
+          origin: "Corporate",
+          type: "Phone",
+          source: "Web",
+          page_url: window.location.href
+        }),
+      });
+      console.log('Log sent!');
+    } catch (error) {
+      console.error('Log failed:', error);
+    }
+  };
+
   return (
     <div>
     <div>
@@ -63,7 +84,8 @@ const ContactUs = ({ lang }) => {
           </h3>
       {/* Call Button */}
       <Link
-        href="tel:+97145693370"
+         href="tel:8007225223"
+        onClick={saveLogForCorporate}
         className="flex items-center gap-1 px-6 py-3 text-white rounded-full border-4 shadow-md transition-all"
         style={{
           backgroundColor: "#dab35c",
@@ -82,7 +104,7 @@ const ContactUs = ({ lang }) => {
        </span>
         <span 
         className={`font-bold text-lg text-yellow-900 ${styles.phone_number_style}`}
-        >+971 4569 3370</span>
+        >800-7225223</span>
       </Link>
             </div>
 
