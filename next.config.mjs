@@ -65,6 +65,29 @@ const nextConfig = {
       },
     ];
   },
+
+  async headers() {
+  return [
+    {
+      source: '/:path*/ch/:rest*',
+      headers: [
+        {
+          key: 'X-Robots-Tag',
+          value: 'noindex, nofollow',
+        },
+      ],
+    },
+    {
+      source: '/:path*/ru/:rest*',
+      headers: [
+        {
+          key: 'X-Robots-Tag',
+          value: 'noindex, nofollow',
+        },
+      ],
+    },
+  ];
+}
 };
 
 export default nextConfig;
