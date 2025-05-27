@@ -12,6 +12,7 @@ export async function generateStaticParams() {
   export async function generateMetadata({ params, searchParams }) {
     const { lang } = params;
     const baseUrl = config.websiteRootUrl;
+    const shouldNoIndex = ['ch', 'ru'].includes(lang);
   
     // Construct the path based on the language
     const path = lang === 'ar' ? `${lang}/privacy-policy` : 'privacy-policy';
@@ -35,16 +36,16 @@ export async function generateStaticParams() {
         // lang === 'ar'
         //   ? 'اقرأ سياسة الخصوصية الخاصة بـ RAALC لفهم كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية عند زيارتك لموقعنا الإلكتروني أو استخدامك لخدماتنا القانونية.'
         //   : 'Read RAALC Law Firm’s Privacy Policy to understand how we collect, use, and protect your personal information when you visit our website or use our legal services.',
-      robots: {
-        index: true,
-        follow: true,
-        nocache: false,
-        googleBot: {
-          index: true,
-          follow: true,
-          noimageindex: false,
-        },
+       robots: {
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: false,
+      googleBot: {
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: false,
       },
+    },
       alternates: {
         canonical: canonicalUrl,
         languages: {

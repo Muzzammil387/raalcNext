@@ -8,6 +8,7 @@ export async function generateMetadata({ params, searchParams }) {
   const { lang } = params;
 
   const baseUrl = `${config.websiteRootUrl}`;
+  const shouldNoIndex = ['ch', 'ru'].includes(lang);
      
        // Construct the path
        const path = `/${lang}/services`;
@@ -37,15 +38,15 @@ export async function generateMetadata({ params, searchParams }) {
       title: data?.meta_tag || "Raalc News",
       description: data?.meta_description || "Raalc News",
       robots: {
-        index: true,
-        follow: true,
-        nocache: false,
-        googleBot: {
-          index: true,
-          follow: true,
-          noimageindex: false,
-        },
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: false,
+      googleBot: {
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: false,
       },
+    },
       alternates: {
         canonical: canonicalUrl ?? canonicalUrl,
         languages: {
@@ -66,7 +67,7 @@ export async function generateMetadata({ params, searchParams }) {
 
 export async function generateStaticParams() {
   // Define all possible language codes
-  const languages = ['en', 'ar', 'ch', 'ru'];
+  const languages = ['en', 'ar'];
   
   // Generate the paths for each language
   const paths = languages.map((lang) => ({ lang }));
