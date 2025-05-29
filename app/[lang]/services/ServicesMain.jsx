@@ -77,7 +77,7 @@ const [datas, setDatas] = useState("")
                   <Image src={sec_one_image} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
                 </div>
                 <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">
-                  <div className="h1 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{sec_one_heading_one}</div>
+                  <div className="h2 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{sec_one_heading_one}</div>
                   <Link href={`/${basePath}services/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                 </div>
             </div>
