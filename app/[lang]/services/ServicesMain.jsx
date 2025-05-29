@@ -57,7 +57,9 @@ const [datas, setDatas] = useState("")
         <section className="innerPage1 relative py-10">
             <div className="container mx-auto px-6">
                 <div className="innerPage1_ w-[70%] mx-auto  text-center">
-                        <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">{datas?.meta?.heading}</h1>  
+                        <h1 className="font-Mluvka text-[3.3rem] font-bold leading-[1] uppercase mb-3">
+                          {datas?.meta?.heading}
+                          </h1>  
                 </div>
             </div>
         </section>
@@ -65,7 +67,9 @@ const [datas, setDatas] = useState("")
         <section className="section8 relative">
             <div className="container mx-auto">
               <div className="cardMain3 gap-6 grid grid-cols-3">
-                {  Array.isArray(datas) && datas?.map((item,index) => {
+                {/* {  Array.isArray(datas) && datas?.services.map((item,index) => { */}
+                  {Array.isArray(datas?.services) &&
+              datas?.services.map((item, index) => {
               const {slug,sec_one_image,sec_one_heading_one} = item
               return (
               <div className="cardMain3Box " key={index}>
@@ -73,7 +77,7 @@ const [datas, setDatas] = useState("")
                   <Image src={sec_one_image} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
                 </div>
                 <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">
-                  <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{sec_one_heading_one}</div>
+                  <div className="h1 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{sec_one_heading_one}</div>
                   <Link href={`/${basePath}services/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                 </div>
             </div>

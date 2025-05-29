@@ -219,7 +219,7 @@ const NewPage = ({ lang }) => {
                           <span className="font-bold">{formattedDate.monthdayYear}</span>
                         </li>
                       </ul>
-                      <div className="h3 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
+                      <div className="h2 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
                         {title}
                       </div>
                       <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText)}</div>
