@@ -48,7 +48,7 @@ const WhatsAppButton = () => {
         </div>
       )}
       <Link
-        href="https://wa.me/97145693370?text=Hi%20RAALC,%20I'm%20interested%20in%20your%20services.%20Can%20you%20please%20provide%20more%20information?&type=phone_number&app_absent=0"
+        href="https://api.whatsapp.com/send/?phone=97145693370&text=Hi+RAALC%2C+I'm+interested+in+your+services.+Can+you+please+provide+more+information%3F&type=phone_number&app_absent=0&utm_source=Organic&utm_medium=SEO&utm_campaign=Website"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.whatsapp_button}

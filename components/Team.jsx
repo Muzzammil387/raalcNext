@@ -27,7 +27,7 @@ const Team = ({team,count}) => {
                 return (
                     <Link href={`/${basePath}team/${slug}`} key={index} className="section5MainBox max-lg:w-full max-lg:h-[25rem]  transition-all duration-500 cursor-pointer w-[8rem] h-[27rem]  relative">
                     <div className="section5MainBox1 h-full">
-                      <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt="" />
+                      <Image src={lowyer_image} width={10} height={10}  className="w-full h-full object-cover rounded-[5rem] object-top" priority  alt={name ?? ""} />
                     </div>
                     <div className="section5MainBox2 max-lg:opacity-100 max-lg:bottom-0 left-0 bottom-[-10rem] transition-all duration-500   opacity-0 absolute bg-white py-5 px-3 rounded-[5rem] w-full text-center">
                     <div className="h3 font-bold font-Mluvka uppercase text-[1.438rem] leading-[1] max-lg:text-[1.2rem] mb-2">{name}</div>

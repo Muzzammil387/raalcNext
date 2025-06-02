@@ -32,7 +32,7 @@ const AboutPage = ({lang}) => {
                         <div className="h3 capitalize text-[1.4rem] text-secondary mt-4">{data?.data?.sec_two_heading_two}</div>
                 </div>
                 <div className="aboutMain__center h-full">
-                    <Image src={data?.data?.sec_two_image} width={10} height={10} className="w-full h-full rounded-full object-cover object-left" alt="" />
+                    <Image src={data?.data?.sec_two_image} width={10} height={10} className="w-full h-full rounded-full object-cover object-left" alt={data?.data?.main_heading ?? ""} />
                 </div>
                 <div className="aboutMain__right">
                  <p>{data?.data?.sec_two_para_right}</p>

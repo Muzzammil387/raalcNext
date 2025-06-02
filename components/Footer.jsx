@@ -129,7 +129,7 @@ const Footer = () => {
           const {id,image,link} = item
           return (
           <li key={id}>
-            <Link href={link} target='_blank'><Image className="magnetic w-[32px]" width={10} height={10} src={image ?? ""} alt={id} /></Link>
+            <Link href={link} target='_blank'><Image className="magnetic w-[32px]" width={10} height={10} src={image ?? ""} alt={link ?? ""} /></Link>
           </li>
           )
          }) }

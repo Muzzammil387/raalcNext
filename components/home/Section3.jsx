@@ -102,7 +102,7 @@ const Section3 = ({home}) => {
          </div>
         <div className="section2_right  relative">
           <div className="section2_right_  absolute border border-white rounded-[5rem] w-[17rem] h-[13rem] top-[-1rem] left-[-2rem]"></div>
-          <Image className="relative max-lg:mx-auto w-full rounded-[10rem]" src={sec_four_image} width={10} height={10} alt="section2_right" />
+          <Image className="relative max-lg:mx-auto w-full rounded-[10rem]" src={sec_four_image} width={10} height={10} alt={sec_four_header_one ?? ""} />
         </div>
       </div>
     </div>

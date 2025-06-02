@@ -15,7 +15,7 @@ const AboutSection = ({home}) => {
 
           <div className="flex justify-center items-center gap-2">
             <div className="">
-              <Image className="w-[3rem] h-[3rem] object-cover rounded-full" src={sec_two_image} width={10} height={10} alt="homeabout" />
+              <Image className="w-[3rem] h-[3rem] object-cover rounded-full" src={sec_two_image} width={10} height={10} alt="ceo_picture" />
             </div>
             <div>
               <div className="h3 font-MrDeHaviland font-medium leading-[1] text-[1.5rem]">{sec_two_name}</div>

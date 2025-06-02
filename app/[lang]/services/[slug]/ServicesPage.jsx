@@ -41,7 +41,7 @@ const ServicesPage = ({ lang, slug }) => {
             <p className="text-[#393946]">{alldata?.sec_one_description}</p>
           </div>
           <div className="innerPage1_Right relative max-lg:order-1">
-            <Image src={alldata?.sec_one_image ?? ""} className="w-full h-full absolute top-0 left-0 max-lg:relative object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />
+            <Image src={alldata?.sec_one_image ?? ""} className="w-full h-full absolute top-0 left-0 max-lg:relative object-cover rounded-[2rem]" width={10} height={10} alt={alldata?.sec_one_heading_one ?? ""} />
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ const ServicesPage = ({ lang, slug }) => {
               return (
                 <div className="card2" key={index}>
                   <div className="card2_img sadsad">
-                    <Image className="w-full object-cover h-[13.438rem] rounded-3xl   " src={image ?? ""} width={10} height={10} alt="" />
+                    <Image className="w-full object-cover h-[13.438rem] rounded-3xl   " src={image ?? ""} width={10} height={10} alt={heading ?? ""} />
                   </div>
                   <div className="card2_Body mt-3">
                     <div className="h4 capitalize font-bold font-Mluvka leading-[1] text-[2rem]">{heading}</div>
@@ -77,7 +77,7 @@ const ServicesPage = ({ lang, slug }) => {
               image ? 
               <div className="innerPage1_ grid items-center grid-cols-2 max-lg:grid-cols-1 gap-6">
               { <div className={`innerPage1_Right relative h-full ${index%2 !== 0 ? "order-2": "max-lg:order-1"}`}>
-              {image &&  <Image src={image ?? ""} className="w-full  absolute max-lg:relative h-full object-cover rounded-[2rem]" width={10} height={10} alt="1.webp" />}
+              {image &&  <Image src={image ?? ""} className="w-full  absolute max-lg:relative h-full object-cover rounded-[2rem]" width={10} height={10} alt={heading_one ?? ""} />}
               </div> }
               <div className={`innerPage1_img   ${index%2 !== 0 ? "order-1 max-lg:order-2": "max-lg:order-2"}`}>
                 <h3 className="font-Mluvka text-[3.3rem] max-lg:text-[2.6rem] font-bold leading-[1] uppercase mb-3">{heading_one}</h3>
@@ -116,7 +116,7 @@ const ServicesPage = ({ lang, slug }) => {
                   const {image,title} = item
                   return(
                     <li key={index}>
-                    <Image className="h-[5.438rem] mx-auto object-contain w-full" src={image ?? ""} width={10} height={10} alt="" />
+                    <Image className="h-[5.438rem] mx-auto object-contain w-full" src={image ?? ""} width={10} height={10} alt={title ?? ""} />
                     <span className="uppercase font-bold  font-Mluvka mt-3 block">{title}</span>
                   </li>
                   )

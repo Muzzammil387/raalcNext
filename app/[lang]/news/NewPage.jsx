@@ -209,7 +209,7 @@ const NewPage = ({ lang }) => {
                         className="rounded-2xl w-full h-[20rem] object-cover"
                         width={10}
                         height={10}
-                        alt=""
+                        alt={title ?? ""}
                       />
                     </div>
                     <div className="cardMain3BoxBody bg-[#FFFDFA] p-4">

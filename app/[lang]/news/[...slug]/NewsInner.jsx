@@ -194,7 +194,7 @@ const NewsInner = ({ lang, slug }) => {
                         <Image
                           src={item?.image}
                           className="rounded-2xl w-full object-cover"
-                          alt=""
+                          alt={title ?? ""}
                           width={500}
                           height={300}
                         />
@@ -235,7 +235,7 @@ const NewsInner = ({ lang, slug }) => {
                     <Image
                       src={news_images[0]}
                       className="rounded-2xl w-full h-[20rem] object-cover"
-                      alt=""
+                      alt={title ?? ""}
                       width={500}
                       height={300}
                     />

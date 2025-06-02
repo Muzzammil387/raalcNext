@@ -35,7 +35,7 @@ const RelatedNews = ({data}) => {
                 return (
                     <div className="cardMain3Box" key={slug}>
                     <div className="cardMain3Box__img">
-                      <Image src={news_images[0]} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
+                      <Image src={news_images[0]} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt={title ?? ""} />
                     </div>
                     <div className="cardMain3BoxBody">
                       <ul className="list my-4">

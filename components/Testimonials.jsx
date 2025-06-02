@@ -51,7 +51,7 @@ const Testimonials = ({data}) => {
                   </div>
                   <div className="s7BOxBottom mt-14">
                     <div className="s7BOxBottom_2 relative w-fit mx-auto cursor-pointer">
-                      <Image src={image} width={10} height={10} className="rounded-[1.875rem] w-[4.875rem] h-[5.063rem]" alt="" />
+                      <Image src={image} width={10} height={10} className="rounded-[1.875rem] w-[4.875rem] h-[5.063rem]" alt={name ?? ""} />
                       <div className="s7BOxBottom_ absolute right-[-2rem] translate-x-[100%] top-[3rem] hidden">
                         <div className="h2 uppercase text-[1.1rem] font-Mluvka font-medium">{name}</div>
                         <div className="h3 capitalize text-[.8rem] font-Mluvka text-secondary">{occupation}</div>

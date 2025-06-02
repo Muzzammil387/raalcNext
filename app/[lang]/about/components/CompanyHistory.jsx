@@ -57,7 +57,7 @@ const CompanyHistory = ({ data }) => {
                                 width={10}
                                 height={10}
                                 className="w-[18rem] h-[8rem] object-cover rounded-full"
-                                alt=""
+                                alt={data?.sec_three_heading_one ?? ""}
                             />
                         </div>
                         <div className="about2HeadinglText leading-[1] w-[15rem] text-[2.75rem] uppercase font-bold font-MluvkaBold">
