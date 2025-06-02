@@ -45,11 +45,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
     },
       alternates: {
         canonical: canonicalUrl ?? canonicalUrl,
-        languages: {
-          'en': `https://www.raalc.ae/en`,
-          'ar': `https://www.raalc.ae/ar`,
-          'x-default': 'https://www.raalc.ae/',
-        },
+        // languages: {
+        //   'en': `https://www.raalc.ae/en`,
+        //   'ar': `https://www.raalc.ae/ar`,
+        //   'x-default': 'https://www.raalc.ae/',
+        // },
       },
     };
   } catch (error) {
@@ -61,10 +61,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export async function generateStaticParams() {
-  // Define all possible language codes
   const languages = ['en', 'ar'];
   
-  // Generate the paths for each language
   const paths = languages.map((lang) => ({ lang }));
   return paths;
 }

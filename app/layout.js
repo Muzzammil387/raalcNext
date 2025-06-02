@@ -23,9 +23,29 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params, searchParams }) {
+   const baseUrl = 'https://www.raalc.ae';
+  const currentLang = params.lang;
+  const path = `/${currentLang}`;
+   const language_for_con = currentLang === 'ar' ? `${currentLang}` : '';
+     // Construct the query string from searchParams
+   const queryString = new URLSearchParams(
+     Object.entries(searchParams || {}).reduce((acc, [key, value]) => {
+       acc[key] = Array.isArray(value) ? value[0] : value || '';
+       return acc;
+     }, {})
+   ).toString();
+ 
+   const fullPath = queryString ? `${language_for_con}?${queryString}` : language_for_con;
+   const canonicalUrl = `${baseUrl}${fullPath}`;
   return (
-    <html lang="en">
+    <html lang={currentLang}>
+       <head>
+        {/* <link rel="canonical" href={`${baseUrl}/${currentLang}`} /> */}
+        <link rel="alternate" hreflang="en" href={`${fullPath}`} />
+        <link rel="alternate" hreflang="ar" href={`${fullPath}`} />
+        <link rel="alternate" hreflang="x-default" href={fullPath} />
+      </head>
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
