@@ -12,9 +12,9 @@ import Script from "next/script";
 import WhatsAppButton from "./[lang]/real-estate/components/WhatsappButton";
 import WhatsAppButtonParis from "./[lang]/paris-arbitration-week/components/WhatsappButton";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-
+import { headers } from 'next/headers';
 const inter = Inter({ subsets: ["latin"] });
-
+import SeoTags from "./[lang]/SeoTags";
 export const metadata = {
   title: "Raalc Law Firm",
   description: "RAALC’s journey began in 2013, when it was co-founded in the Emirate of Sharjah. Our success continued through years and we opened our two new branches in Ras Al Khaimah",
@@ -23,28 +23,17 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({ children, params, searchParams }) {
-   const baseUrl = 'https://www.raalc.ae';
-  const currentLang = params.lang;
-  const path = `/${currentLang}`;
-   const language_for_con = currentLang === 'ar' ? `${currentLang}` : '';
-     // Construct the query string from searchParams
-   const queryString = new URLSearchParams(
-     Object.entries(searchParams || {}).reduce((acc, [key, value]) => {
-       acc[key] = Array.isArray(value) ? value[0] : value || '';
-       return acc;
-     }, {})
-   ).toString();
- 
-   const fullPath = queryString ? `${language_for_con}?${queryString}` : language_for_con;
-   const canonicalUrl = `${baseUrl}${fullPath}`;
+export default function RootLayout({ children, params, pathname }) {
+ const baseUrl = 'https://www.raalc.ae';
+  const currentLang = params.lang || 'en';
   return (
     <html lang={currentLang}>
        <head>
+         <SeoTags baseUrl={baseUrl} currentLang={currentLang} />
         {/* <link rel="canonical" href={`${baseUrl}/${currentLang}`} /> */}
-        <link rel="alternate" hreflang="en" href={`${fullPath}`} />
-        <link rel="alternate" hreflang="ar" href={`${fullPath}`} />
-        <link rel="alternate" hreflang="x-default" href={fullPath} />
+        {/* <link rel="alternate" hreflang="en" href={`${canonicalUrl}/en${queryString}`} />
+        <link rel="alternate" hreflang="ar" href={`${canonicalUrl}/ar${currentPath}`} />
+        <link rel="alternate" hreflang="x-default" href={`${canonicalUrl}${pathWithQuery}`} /> */}
       </head>
       <Head>
         <title>{metadata.title}</title>
