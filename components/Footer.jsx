@@ -83,8 +83,8 @@ const Footer = () => {
      <div className="js--marque-a">
       <div className="b--marque-a__content ">
         <div className="marquee-container scroller_ourWork flex w-max" data-speed="fast">
-        <div className="h5 text-[#F4EEE4] uppercase text-[9rem]  text-center font-MluvkaLight ">Integrity. Advocacy. Success</div>
-        <div className="h5 text-[#F4EEE4] uppercase text-[9rem]  text-center font-MluvkaLight ">Integrity. Advocacy. Success</div>
+        <div className="h5 text-[#F4EEE4] uppercase text-[9rem]  text-center font-MluvkaLight ">&nbsp;Integrity. Advocacy. Success.</div>
+        <div className="h5 text-[#F4EEE4] uppercase text-[9rem]  text-center font-MluvkaLight ">&nbsp;Integrity. Advocacy. Success.</div>
       </div>
       </div>
     </div>
