@@ -37,7 +37,8 @@ export default function sitemap() {
       { url: 'https://www.raalc.ae/team/mohamed-lezawy', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/mahmoud-mahmoud', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/mohamed-tantawy', lastModified: new Date(), priority: 0.7 },
-
+      { url: 'https://raalc.ae/team/Assem-Beibars', lastModified: new Date(), priority: 0.7 },
+      { url: 'https://raalc.ae/team/Hassan-Shorayef', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/islam-badiny', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/mahmoud-ali', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/mahmoud-mady', lastModified: new Date(), priority: 0.7 },
@@ -212,6 +213,10 @@ export default function sitemap() {
   { url: 'https://raalc.ae/ar/services/family-business-legal-advisory', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/ar/services/vat-registration', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/ar/services/vat-refund', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/vat-return-filing', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/corporate-tax-registration', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/corporate-tax-assessment', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/setup-of-accounts-department', lastModified: new Date(), priority: 0.9 },
     ];
   }
   
