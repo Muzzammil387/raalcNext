@@ -199,7 +199,7 @@ const ContactUs = ({ lang }) => {
           Dubai Office (HQ)
           </h3>
           <p className={styles.footer_content}>
-          Office 308 & 309, 3rd Floor, Dubai Supreme Court Complex, Umm Hurair 2, Dubai UAE
+          Office 308, 309 & 312, 3rd Floor, Dubai Supreme Court Complex, Umm Hurair 2, Dubai UAE
           </p>
           </Grid>
           <Grid item xs={12} md={3}>
