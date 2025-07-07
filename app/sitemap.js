@@ -19,6 +19,8 @@ export default function sitemap() {
       { url: 'https://www.raalc.ae/team/nabil-hamed', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/mohamed-el-beltagy', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/heba-mohamed', lastModified: new Date(), priority: 0.7 },
+      { url: 'https://www.raalc.ae/team/Eslam-Badr', lastModified: new Date(), priority: 0.7 },
+      { url: 'https://www.raalc.ae/team/Mohamed-Elhofy', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/fadi-samer', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/rajja-kaleem', lastModified: new Date(), priority: 0.7 },
       { url: 'https://www.raalc.ae/team/amir-fahim', lastModified: new Date(), priority: 0.7 },
@@ -217,6 +219,12 @@ export default function sitemap() {
   { url: 'https://raalc.ae/services/corporate-tax-registration', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/services/corporate-tax-assessment', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/services/setup-of-accounts-department', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/ar/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/ar/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
+  { url: 'www.raalc.ae/ar/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
     ];
   }
   
