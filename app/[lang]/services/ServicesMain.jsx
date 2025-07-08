@@ -72,7 +72,8 @@ const [datas, setDatas] = useState("")
               datas?.services.map((item, index) => {
               const {slug,sec_one_image,sec_one_heading_one} = item
               return (
-              <div className="cardMain3Box " key={index}>
+              <Link href={`/${basePath}services/${slug}`} key={index}>
+              <div className="cardMain3Box">
                 <div className="cardMain3Box__img">
                   <Image src={sec_one_image} className="rounded-2xl w-full h-[20rem] object-cover" width={10} height={10} alt="" />
                 </div>
@@ -81,6 +82,7 @@ const [datas, setDatas] = useState("")
                   <Link href={`/${basePath}services/${slug}`} className="mt-4 block w-fit border border-secondary rounded-full  font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka ">{elements?.["read-more"]}</Link>
                 </div>
             </div>
+              </Link>
             )
             })}
               </div>
