@@ -208,9 +208,9 @@ const NewsInner = ({ lang, slug }) => {
                     <span>{author_name}</span> <span className="font-bold">{formattedDate}</span>
                   </li>
                 </ul>
-                <div className="h1 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
+                <h1 className="capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">
                   {title}
-                </div>
+                </h1>
                 <div className="text-[.9rem] text-[#393946] ql-editor">{StringConvert(description)}</div>
                 <div className="bg-[#FFF2DE] py-3 px-5 rounded-lg mt-4">
                   <h4 className="text-secondary capitalize text-[1.5rem] font-Mluvka">
@@ -246,7 +246,7 @@ const NewsInner = ({ lang, slug }) => {
                         <span>{author_name}</span> <span className="font-bold">{formattedDate}</span>
                       </li>
                     </ul>
-                    <div className="h1 capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</div>
+                    <h2 className="capitalize text-[1.625rem] font-light leading-[1] mb-3 font-Mluvka">{title}</h2>
                     <div className="text-[.9rem] text-[#393946]">{StringConvert(truncatedText2)}</div>
                     <Link href={`/${basePath}news/${slug}`} className='mt-4 block w-fit border border-secondary rounded-full font-bold capitalize text-center py-2 px-8 mb-4 font-Mluvka'>
                       {elements?.["read-more"]}
