@@ -202,8 +202,8 @@ const NewPage = ({ lang }) => {
                 const truncatedText = truncateText(description, maxLength);
                 const formattedDate = formatDate(date, langValue);
                 return (
-                 <Link  href={`/${basePath}news/${slug}`}>
-                  <div className="cardMain3Box" key={index}>
+                 <Link  href={`/${basePath}news/${slug}`} key={index}>
+                  <div className="cardMain3Box">
                     <div className="cardMain3Box__img">
                       <Image
                         src={news_images[0]}
