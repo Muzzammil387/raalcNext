@@ -219,12 +219,12 @@ export default function sitemap() {
   { url: 'https://raalc.ae/services/corporate-tax-registration', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/services/corporate-tax-assessment', lastModified: new Date(), priority: 0.9 },
   { url: 'https://raalc.ae/services/setup-of-accounts-department', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/ar/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/ar/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
-  { url: 'www.raalc.ae/ar/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/ar/services/accounting-department-process-flowchart', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/ar/services/bookkeeping-services', lastModified: new Date(), priority: 0.9 },
+  { url: 'https://raalc.ae/ar/services/company-liquidation', lastModified: new Date(), priority: 0.9 },
     ];
   }
   
