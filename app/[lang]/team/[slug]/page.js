@@ -7,13 +7,24 @@ import config from "../../../services/config.json";
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
   const { lang, slug } = params;
+  const shouldNoIndex = ['ch', 'ru'].includes(lang);
  
   // fetch data using Axios
   try {
     const response = await axios.get(`${config.apiEndPoint}teams/singleDetail/${slug}/${lang}`);
     const data = response.data;
     return {
-      title: data?.data?.name || "abc",
+      title: data?.data?.name || "Raalc Team Member",
+       robots: {
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: false,
+      googleBot: {
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: false,
+      },
+    },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

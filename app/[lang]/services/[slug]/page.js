@@ -6,14 +6,25 @@ import config from "../../../services/config.json";
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
   const { lang, slug } = params;
+  const shouldNoIndex = ['ch', 'ru'].includes(lang);
  
   // fetch data using Axios
   try {
     const response = await axios.get(`${config.apiEndPoint}services/fetchPageContent/${slug}/${lang}`);
     const data = response.data;
     return {
-      title: data?.data?.meta_tag || "Raalc Events",
-      description: data?.data?.meta_description || "Raalc Events",
+      title: data?.data?.meta_tag || "Raalc Services",
+      description: data?.data?.meta_description || "Raalc Services",
+        robots: {
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: false,
+      googleBot: {
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: false,
+      },
+    },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);

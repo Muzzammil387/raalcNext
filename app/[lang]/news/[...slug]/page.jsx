@@ -7,6 +7,7 @@ import NewsInner from './NewsInner';
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
   const { lang, slug } = params;
+  const shouldNoIndex = ['ch', 'ru'].includes(lang);
  
   // fetch data using Axios
   try {
@@ -15,6 +16,16 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return {
         title: data?.data?.meta_tag || "Raalc News",
         description: data?.data?.meta_description || "Raalc News",
+           robots: {
+      index: !shouldNoIndex,
+      follow: !shouldNoIndex,
+      nocache: false,
+      googleBot: {
+        index: !shouldNoIndex,
+        follow: !shouldNoIndex,
+        noimageindex: false,
+      },
+    },
     };
   } catch (error) {
     console.error('Error fetching product data:', error);
