@@ -34,13 +34,15 @@ const Main = ({ children }) => {
     setHome(main);
   }, []);
 
-  const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate" || pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week" || pathname == "/en/corporate" || pathname == "/corporate" || pathname == "/en/commercial" || pathname == "/commercial";
+  const hideHeaderFooter = pathname == "/en/real-estate" || pathname == "/real-estate" || pathname == "/en/paris-arbitration-week" || pathname == "/paris-arbitration-week" || pathname == "/en/corporate" || pathname == "/corporate" || pathname == "/en/commercial" || pathname == "/commercial" || pathname == "/en/free_consultation" || pathname == "/free_consultation";
   const parisPage = "/paris-arbitration-week";
   const parisPageEng = "/en/paris-arbitration-week";
   const realEstatePage = "/real-estate";
   const realEstatePageEng = "/en/real-estate";
   const corporatePage = "/corporate";
   const corporatePageEng = "/en/corporate";
+   const freeConsultationPage = "/free_consultation";
+  const freeConsultationPageEng = "/en/free_consultation";
 
   return (
     <>
@@ -68,7 +70,7 @@ const Main = ({ children }) => {
     <WhatsAppButtonCorporate />
   ) : pathname === realEstatePage || pathname === realEstatePageEng ? (
     <WhatsAppButtonRealEstate />
-  ) : (
+     ) : pathname === freeConsultationPage || pathname === freeConsultationPageEng ? null : (
     <WhatsAppButtonWebsite />
   )
 }
