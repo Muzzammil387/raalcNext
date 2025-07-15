@@ -1,4 +1,3 @@
-// ✅ consultation_form.js
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -87,15 +86,22 @@ export default function CustomForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate()) {
+      console.log("❌ Validation failed", formData);
+      return;
+    }
 
     const selectedAdmin = await getNextAdmin();
+    console.log("✅ Selected Admin:", selectedAdmin);
+
     const payload = {
       ...formData,
       assignedAdmin: selectedAdmin,
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       timestamp: new Date().toISOString()
     };
+
+    console.log("📤 Sending data to server:", payload);
 
     try {
       const res = await fetch('/api/contact', {
@@ -105,16 +111,33 @@ export default function CustomForm() {
       });
 
       const result = await res.json();
+      console.log("📬 Server response:", result);
+
       if (!res.ok || result.ok === false) {
         throw new Error(result.message || `Status ${res.status}`);
       }
 
       setAdmin(selectedAdmin);
       setSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', message: '', preferredMode: '', preferredDate: '', assignedAdmin: '', origin: '' });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        preferredMode: '',
+        preferredDate: '',
+        assignedAdmin: '',
+        origin: ''
+      });
       setErrors({});
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setAdmin('');
+      }, 5000);
+
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('❌ Submission error:', error);
     }
   };
 
@@ -173,7 +196,7 @@ export default function CustomForm() {
             appearance: 'none',
             WebkitAppearance: 'none',
             MozAppearance: 'none',
-            backgroundImage: 'url("data:image/svg+xml;utf8,<svg fill=\'%23666\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/></svg>")',
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right 0.5rem center'
           }}
@@ -214,10 +237,13 @@ export default function CustomForm() {
         {errors.message && <span style={{ color: 'red' }}>{errors.message}</span>}
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
+        disabled={submitted}
         style={{
-          background: '#d4af37',
+          background: submitted ? '#ccc' : '#d4af37',
+          cursor: submitted ? 'not-allowed' : 'pointer',
           width: '100%',
           color: '#fff',
           border: 'none',
@@ -225,16 +251,31 @@ export default function CustomForm() {
           fontSize: '1rem',
           fontWeight: '600',
           borderRadius: '4px',
-          cursor: 'pointer'
+          transition: 'background 0.3s'
         }}
       >
-        Submit
+        {submitted ? 'Submitted' : 'Submit'}
       </button>
 
+      {/* ✅ Success Message */}
       {submitted && admin && (
-        <p style={{ marginTop: '3rem', color: '#333' }}>
-          Thank you! We will contact you shortly.
-        </p>
+        <div
+          style={{
+            marginTop: "2rem",
+            padding: "1rem",
+            backgroundColor: "#D4AF37",
+            border: "1px solid #FFFFFFFF",
+            borderRadius: "6px",
+            color: "#FFFFFF",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
+          <span style={{ fontSize: "1.5rem" }}></span>
+          <span>Thank you! We will contact you shortly.</span>
+        </div>
       )}
     </form>
   );
