@@ -13,10 +13,10 @@ const FreeConsultation = () => {
           top: "20px",
           left: "20px",
           padding: "20px",
-          backgroundColor: "rgba(255, 255, 255, 0.08)", // ✅ translucent background
+          // backgroundColor: "rgba(255, 255, 255, 0.08)", // ✅ translucent background
           borderRadius: "0px",
-          backdropFilter: "blur(8px)", // ✅ subtle blur for modern effect
-          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.3)", // subtle shadow to lift over bg
+          // backdropFilter: "blur(8px)", // ✅ subtle blur for modern effect
+          // boxShadow: "0 4px 16px rgba(0, 0, 0, 0.3)", // subtle shadow to lift over bg
           zIndex: 9999,
         }}
       >
@@ -95,7 +95,7 @@ const FreeConsultation = () => {
               textAlign: "center",
             }}
           >
-            Speak to a Lawyer Now
+            Book Your Free Consultation
           </p>
 
           {/* 📩 Actual Form */}

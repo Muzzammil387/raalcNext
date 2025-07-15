@@ -229,7 +229,7 @@ export default function CustomForm() {
         <textarea
           id="message"
           name="message"
-          rows={3}
+          rows={1}
           value={formData.message}
           onChange={handleChange}
           style={fieldStyle('message')}
