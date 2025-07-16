@@ -27,7 +27,7 @@ export async function POST(req) {
   } = formData;
 
   // Basic validation example
-  if (!name || !email || !phone || !message || !assignedAdmin || !consultation_mode || !time) {
+  if (!name || !email || !phone || !message || !assignedAdmin) {
     return NextResponse.json(
       { ok: false, message: 'Missing required fields or assignedAdmin.' },
       { status: 400 }
