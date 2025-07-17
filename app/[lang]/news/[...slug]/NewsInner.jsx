@@ -163,7 +163,8 @@ const NewsInner = ({ lang, slug }) => {
   dayjs.locale(langValue === 'en' ? 'en' : 'ar');
 
   // Define basePath based on language
-  const basePath = langValue === 'en' ? '' : '/ar';
+  // const basePath = langValue === 'en' ? '' : '/ar';
+  const basePath = '';
 
   if (loading) return <Loaders />;
   const { author_name, author_details, title, description, date } = data?.data;

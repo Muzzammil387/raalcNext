@@ -28,7 +28,10 @@ const NewsInner = ({ lang, slug }) => {
   const { mainData } = useContext(MainAPiContext);
   const elements = mainData?.elements;
     const { langValue } = useContext(MainLanguageValueContext);
-  const basePath = langValue === 'en' ? '' : '/ar';
+  // const basePath = langValue === 'en' ? '' : '/ar';
+
+  const basePath = '';
+  
   if (loading) return <Loaders />;
 
   const { author_name, author_details, title, description, date } = data?.data;
