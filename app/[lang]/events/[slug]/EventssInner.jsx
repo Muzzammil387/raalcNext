@@ -81,7 +81,7 @@ const NewsInner = ({ lang, slug }) => {
                 </div>
                 <div className="bg-[#FFF2DE] py-3 px-5 rounded-lg mt-4">
                   <h4 className="text-secondary capitalize text-[1.5rem] font-Mluvka">
-                    Published by {author_name}
+                     {elements?.["published-by"]} {author_name}
                   </h4>
                   <div>{StringConvert(author_details)}</div>
                 </div>
