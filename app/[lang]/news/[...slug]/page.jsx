@@ -30,7 +30,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   } catch (error) {
     console.error('Error fetching product data:', error);
     return {
-      title: 'Raalc', // fallback title in case of an error
+      title: 'Raalc Law Firm', // fallback title in case of an error
     };
   }
 }
